@@ -16,7 +16,10 @@ There is a Paco ARM backend ... PCARM.Mod, PCARMCP.Mod, PCARMRegisters.Mod
 
 ### ARM compiler 
 
-[/Oberon/System3/Native/SharkOberon/.beta](ftp://ftp.ethoberon.ethz.ch/Oberon/System3/Native/SharkOberon/.beta)
+SharkOberon is an implementation of Native Oberon System 3 Release 2.3
+for the [DEC DNARD Network Computer](http://www.firmworks.com/www/dnard.htm).
+
+[/Oberon/System3/Native/SharkOberon/.beta] ftp://ftp.ethoberon.ethz.ch/Oberon/System3/Native/SharkOberon/.beta
 
 The best place to start is ARM.Make.Tool in SharkOberon.zip .
 
