@@ -4,6 +4,10 @@ That is a copy of original [A2 Repository](https://trac.inf.ethz.ch/trac/lecture
 
 Also extra ISO image [A2_Rev-6498_serial-trace.iso](http://sourceforge.net/projects/a2oberon/files/)
 
+[Oberon Community Platform](http://www.ocp.inf.ethz.ch/forum/index.php/board,4.0.html) Forum
+
+Russian forum [Active Oberon & A2 (Bluebottle)](http://forum.oberoncore.ru/viewforum.php?f=22)
+
 This is a compilation of the 
 - ETH WinAos System (Windows Emulation of the Active Object System, aka A2)
 and 
