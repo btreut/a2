@@ -14,6 +14,10 @@ Russian forum [Active Oberon & A2 (Bluebottle)](http://forum.oberoncore.ru/viewf
 
 There is a Paco ARM backend ... PCARM.Mod, PCARMCP.Mod, PCARMRegisters.Mod
 
+https://lists.inf.ethz.ch/pipermail/oberon/2007/005300.html
+
+https://lists.inf.ethz.ch/pipermail/oberon/2007/005303.html
+
 ### ARM compiler 
 
 SharkOberon is an implementation of Native Oberon System 3 Release 2.3
