@@ -12,7 +12,16 @@ Russian forum [Active Oberon & A2 (Bluebottle)](http://forum.oberoncore.ru/viewf
 
 ## ARM
 
-There is a Paco ARM backend ... PCARM.Mod, PCARMCP.Mod, PCARMRegisters.Mod.
+There is a Paco ARM backend ... PCARM.Mod, PCARMCP.Mod, PCARMRegisters.Mod
+
+### ARM compiler 
+
+[/Oberon/System3/Native/SharkOberon/.beta](ftp://ftp.ethoberon.ethz.ch/Oberon/System3/Native/SharkOberon/.beta)
+
+The best place to start is ARM.Make.Tool in SharkOberon.zip .
+
+To boot SharkOberon, you need an NC configured to boot the Oberon boot file
+via TFTP and a NCFS server running on Unix to serve the system991119.ncfs file.
 
 ## Main content of a2/WinAos/license.txt
 
