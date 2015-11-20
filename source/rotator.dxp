@@ -1,0 +1,16 @@
+<html >
+	<head >
+		<title>Rotator</title>
+	</head>
+	<body xmlns:WebStd="WebStd">
+		<h1>Image Rotator Example</h1>
+		<ExampleWebTools:ImageRotator id="AosImages" xmlns:ExampleWebTools="ExampleWebTools">
+			<Image src="BunnyLinear.gif" href="http://www.bluebottle.ethz.ch"/>
+			<Image src="blueplastic.abl.png" href="http://129.132.134.63/login.dxp"/>
+			<Image src="SaveLife.gif" href="http://www.inf.ethz.ch"/>
+			<Image src="bones.gif"/>
+		</ExampleWebTools:ImageRotator>
+		<br/>
+		<WebStd:Hyperlink>Refresh</WebStd:Hyperlink>
+	</body>
+</html>

@@ -1,0 +1,264 @@
+
+Computational Analysis Platform for Oberon (CAPO) 
+
+authors:	Alan D. Freed	AlFreed@ohio.net
+	Felix Friedrich	friedrich@gsf.de 
+date:	January, 2004
+
+Please report any errors etc. pertaining to either the modules or this document to one or both of the above authors.  Thank you for helping to make this a quality platform for developing computationally based applications in Oberon.
+
+CAPO is a software package designed for developing computationally based applications written in the Oberon programming language. The object structure of Active Oberon and the operator-overloading extensions of Oberon-X are used to great advantage here. This suite of modules compiles with ETH's PACO (multi-threaded) Oberon compiler. Some procedures have been written in in-line Assembler in the lower-level modules for efficiency; otherwise, all coding is done in Oberon.  
+
+CAPO is comprised of a set of modules that itself is divided into various subsets; these being: 
+	Nbr, Data, Array1d, Array2d, ArrayXd, Math, Calc, Vec, Mtx, Cube, HCube, LinEq.
+This document provides an overview of the modules that make up what is collectively known as CAPO. To view the definition module of any module use either: Watson.ShowDef <moduleName> ~ or open <moduleName> in the Aos editor, PET, and view the tree structure of the module.
+
+CAPO requires the following core modules in order to be able to compile: SYSTEM, Beep, AosBoot, Files, AosHeap, AosIO, AosKernel, AosModules, Utilities, Math and MathL.  The Oberon system is not required, although it was used in its development.
+
+The PACO compiler incorporates the Intel MMX (Pentium II and later), SSE (Pentium III and later) and SSE2 (Pentium IV and later) extensions.  Currently, CAPO only needs the MMX extensions, so it should run on all Pentium II compatible processors.
+
+License
+CAPO is distributed "as is" and "without warrenty", and is subject to the Bluebottle license (see (http://bluebottle.ethz.ch/license/index.html"). Since CAPO is a contributing software to the Bluebottle distribution, the authors of CAPO (and their employers) fall under the heading of "contributors", as stated in the Bluebottle license.
+
+1. Numbers
+Status: Mature.
+
+Numeric computations deal with numbers. These numbers belong to one of four basic kinds: integers, rationals, reals, and complex. CAPO provides a base type for each kind of number, and the arithmetic operators that go with them.
+	There exists a set of core numeric types that are either implemented by the compiler directly, or that we have provided; these include: 8, 16, 32 and 64 bit integers, and 32 and 64 bit reals. Others can be added in the future, if needed. Our base numeric types are built from the core types exported by these low-level modules.
+	Unlike the Oberon programming language, CAPO is designed to have only one instance for each number type. This was done to hold down what would otherwise become an enormous explosion in the number of types. It helps keep things as simple as possible. The exact size of each number type is implementation specific and is hidden by the interface; that is, our interfaces are designed to be type-size independent. 32-bit integers and reals are the default implementations used in this release. 
+	A likely scenario is that an application of interest may require the use of 64-bit reals. Because of the way we have designed our interfaces, it is a straightforward matter for anyone to change the type size exported by NbrRe.Real without affecting any modules that import NbrRe (of course, they will have to be recompiled, but that is all, for the most part). Our module interfaces were designed to allow such changes to take place without affecting the interface, and therefore, without adversely affecting any module that imports our number types: NbrInt.Integer, NbrRat.Rational, NbrRe.Real, and NbrCplx.Complex. 
+	If you need to change from 32- to 64-bit reals, then the following modules will require some minor changes to be made to them (e.g., algorithmic constants): NbrRe.Mod, NbrStrings.Mod, MathCbrt.Mod, MathErf.Mod, MathGamma.Mod, MathExpInt and CalcGauss. Code fragments that will need to be changed are highlighted in red.
+
+1.1 NbrInt8.Mod
+This module exports a low-level integer type with 8-bit length, i.e., a SHORTINT.   
+
+1.2 NbrInt16.Mod
+This module exports a low-level integer type with 16-bit length, i.e., an INTEGER.  It has the same structure as that of NbrInt8.
+
+1.3 NbrInt32.Mod
+This module exports a low-level integer type with 32-bit length, i.e., a LONGINT.  
+
+1.4 NbrInt64.Mod
+This module exports a low-level integer type with 64-bit length, i.e., a HUGEINT. It is largely MathH.Mod, originally written by Patrik Reali, with some procedures added, some altered, and others removed. 
+	The PACO compiler has a built-in type HUGEINT, but in its current state, PACO does not have predefined operators or an arithmetic that goes along with it. For this reason, we ignore the built-in compiler type HUGEINT and instead, define our own (viz., NbrInt64.Integer) along with the necessary procedures needed to handle arithmetic, comparison operations, etc.   
+
+1.5 NbrRe32.Mod
+This module exports a low-level real type with 32-bit length, i.e., a REAL. 
+
+1.6 NbrRe64.Mod
+This module exports a low-level real type with 64-bit length, i.e., a LONGREAL.  Notice the similarity in its structure to that of NbrRe32. 
+
+	This concludes the low-level modules that establish the core numeric types of the system. What follows are higher-level modules that define the base types used by CAPO to do numeric computations; these include: NbrInt, NbrRat, NbrRe, NbrCplx, and NbrStrings.
+
+1.7 NbrInt.Mod
+This module defines the base-type: Integer. Other than the definition of type, the interface is devoid of type size. There is just one kind of integer used in CAPO; it is: NbrInt.Integer. 
+	Here NbrInt32.Integer is implemented as the default integer type. This could be changed easily to an integer of different size by an appropriate reassignment of NbrInt.Integer to a different type, say NbrInt64.Integer, and by also changing the internal constructs of the procedures within NbrInt.Mod, NbrRat.Mod, NbrRe.Mod and NbrCplx.Mod, as appropriate.
+	Instances of type LONGINT do appear here and there in our interfaces. When they do it is because they reflect system-specific needs, like memory addresses, array indices, etc. which are LONGINT's by Aos implementation.
+
+1.8 NbrRat.Mod
+This module defines a base type for fixed-point Rationals.
+	This is a new numeric type to the Oberon platform, and hence, all of its arithmetic and comparison operators have to be defined. This is where the Oberon-X extensions play a vital role. This implementation for rational numbers uses 64-bit integers for the numerator and denominator, which is about as small as one can go and yet retain utility in the type. In fact, it was my (ADF) desire to implement rational numbers that sparked the need for a 64-bit integer, which Patrik Reali so gratiously provided me via MathH.Mod (early on when CAPO went by the names of Cat, and later, by Ex).
+
+1.9 NbrRe.Mod
+This module defines the base type: Real. Again, other than the definition of type, the interface is devoid of type size. There is just one kind of real used in CAPO; it is: NbrRe.Real.  
+	There is a strong similarity between the interface of NbrRe.Mod and the low-level modules NbrRe32.Mod and NbrRe64.Mod. This was done purposefully so that the type size could be changed to 64-bit with relative ease. We expect that a few of the users of our modules will need the extra precision of 64-bit reals, so we attempted to design our interfaces in such a way as to allow this change to take place as simply as possible.
+
+1.10 NbrCplx.Mod
+This module defines the base type: Complex. Like rationals, complex numbers are not predefined by the Oberon language, and therefore they had bo be added. 
+
+1.11 NbrStrings.Mod
+Rounding out the base types is one for creating strings. The need for strings prevades all fields of computation. We add our own module so that strings can be handled (e.g., stored to a data file) seemlessly with our numeric types. We have also overloaded the "+" operator so that strings can be concatinated easily and intuitively.
+
+2. Data 
+Status: Fairly mature. 
+Other data structures could be added, and DataErrors should be enhanced. 
+
+This suite of modules provides persistence to our base data types, i.e., it allows them to be stored-to and read-from a file. It also provides some basic data structures for handling numeric data. These structures are persistent, too.  
+
+2.1 DataErrors 
+In keeping with the objective that CAPO's modules be suitable for use in active objects, i.e., in multi-tasked applications, it became necessary to have some sort of error handler, as ASSERT's and HALT's must now be avoided. (They are not friendly to other active threads when called. Even so, they still exist in some of the lower-level modules. Efforts will be made in future releases to remove as many of these as possible, but that will require enhancements to be made to this module first.) DataErrors attempts to fill the need of the programmer to cause a trap in case of a glitch. There is much that can be done that could improve this module, and we're sure that this will occur over time. 
+	All warning and error messages are logged into the file Error.Log, which should be opened in an ascii editor, e.g., EditTools.OpenAscii Error.Log~. This file is created automatically at the close of each session, or it can be manually created by using the command DataErrors.Close. At this time, the prior log file will be backed up as Error.Log.Bak. Nine beeps will be emitted from your computer - a Morse coding of SOS - to warn you that an error/warning message has been logged, and that the log file should be read. This file contains useful information as to the location and cause of the error without halting the process. 
+	The Error.Log file does not currently contain as much information as a trap, for example, and in this regard, it can be a bit of an arduous task to locate and fix the exact bug that caused the message to be written in the first place. It supplies the names of the procedure/method, type, and module, and its value if appropriate, but it does not provide a history of calls that lead up to the specific call that produced the error/warning message. Nevertheless, this error handler has proven to be of great value in the development of CAPO. All modules make use of it, except for the core modules belonging to the Nbr suite.
+
+2.2 DataIO
+This is the module used to create data files, which are given a .Data extension to the file name. Readers and writers are defined that know how to read/write the basic CAPO data types.  
+	In addition to being able to store numeric types, this writer/reader pair is capable of restoring/loading an extension of OBJECT to/from a file. But before this to happen, each OBJECT type must be registered via the PlugIn procedure so that it can be made persistent. Registering takes place when the module is loaded into memory. This process allows any pointer type that extends type OBJECT to be sucessfully stored-to/retrieved-from a data file. 
+
+2.2.1 A template module has been written to guide the developer in creating their own dynamic data types - data types they want to be made persistent; it is: DataTemplate.Mod. The text in purple italics found in this file needs to be exchanged with the appropriate information, and procedures may need to be filled in as required. This should be self evident.
+
+2.3 DataQueues 
+A queue ia a FIFO (first in first out) data buffer. A DataQueues.Queue is DataIO.PlugIn registered, i.e., it can be made persistent provided that the contents of the queue are also registered. You can use this as an example of how to create and register a PlugIn type for persistency.
+
+2.4 DataStacks	
+A stack ia a FILO (first in last out) data buffer. A DataStacks.Stack is DataIO.PlugIn registered and can be made persistent provided that the contents of the stack are also registered.
+
+2.5 Data
+Some data structures are organized via keys. An instance of type Data.Datum has such a key asigned to it. This key be interpreted as either an integer number or as an alpha-numeric word (up to 10 characters in length) as in a dictionary. Data.Datum is DataIO.PlugIn registered. 
+
+2.6 DataLists 
+A list is probably the most fundamental of all data structures. A double-linked list is implemented. Entries in a list are sorted in ascending order according to the values of their keys; they are extensions of Data.Datum. A rider is provided to access these entries. 
+	DataLists.List is DataIO.PlugIn registered, i.e., it can be made persistent provided that the contents of the list are also registered. The base type of an entry is PlugIn registered, and is therefore persistent; however, this does not mean that the extension of Data.Datum held by an entry need also to be registered. The entries of a list can be of different types, but they all share the same base type: Data.Datum.
+	This is a good example of how to write a persistent object for .Data files.
+	
+2.7 DataTrees 
+A tree is a very efficient data structure to use whenever there are a large number of entries that need to be accessed repeatedly. A binary AVL tree is implemented. Like DataLists, a rider is provided to access the entries of a tree. 
+	DataTrees.Tree is DataIO.PlugIn registered, i.e., it can be made persistent provided that the contents of the tree are also registered. The base type of an entry is PlugIn registered; however, this does not mean that the extension of Data.Datum held by an entry is also registered. The entries of a tree can be of different types, but they all share the same base type: Data.Datum.
+
+3. Math Functions 
+Status: Mature.
+
+This suite of modules provides a basic set of math libraries that one can use in computational analysis. More advanced math functions are defined in separate modules, see Sec. 3A.
+
+3.1 MathInt
+This module provides integer-based math functions, viz., factorials, powers, and random numbers. 
+
+3.2 MathRat 
+This module provides rational-based math functions, viz., binomials, factorials, powers, and random numbers.
+	In principle, one could define trig functions for rationals, too.  That has not been done. If there is a demand for this, it could be implemented in a future release.
+
+3.3 MathReSeries
+Series are often used to define a function, as in MathRe.Mod. They may be truncated or of infinite extent. Three types of series are provided: continued fractions, power series, and rational power series. Infinite series are terminated via a convergence criterion. The user can create an object that computes the coefficents of a series (see, e.g., MathRe.Mod).
+
+3.4 MathRe
+This module provides the basic power, exponential, logarithmic, trigonometric, and hyperbolic functions, like Math and MathL.
+
+3.5 MathCplxSeries 
+Provides the same capability as MathReSeries, but for complex series.
+
+3.6 MathCplx
+Provides the same capability as MathRe, but for complex functions.
+
+3A. Advanced Math Functions
+Status: Growth by demand.
+Functions will be added to this list as they become available.
+
+The naming convention used here is for the name of the function to appear in the module name, and for the procudure to be simply called Fn, or CplxFn for its complex counterpart, when implemented. For example, MathCbrt.Fn(x) returns the cube root of real number x, while MathCbrt.CplxFn(z) returns the cube root of complex number z..
+
+3A.1 MathCbrt
+Returns the cube root, i.e., y = x1/3.
+
+3A.2 MathErf
+Returns the error function, i.e., erf(x) = (2/Vp) x0x exp(-t2) dt.
+
+3A.3 MathGamma
+Returns the error function, i.e., G(x) =  x0% tx-1 exp(-t) dt,  x > 0.
+
+3A.4 MathMitLef 
+Supplies the Mittag-Leffler function, i.e., Ea,b(z) = ek=0% zk/G(ak+b), and its derivative. 
+	The Mittag-Leffler function is the fundamental function present in the characteristic solutions of fractional-order differential equations, much like the exponential function is the fundamental function present in the characteristic solutions to ordinary differential equations. 
+	
+3A.5 MathExpInt
+Supplies the exponential integral function, i.e.,  En(x) =  x1% t-n exp(-xt) dt.  x 3 0,  n = 0, 1, 2, ...
+
+4. Calculus 
+Status: Growth by demand.
+Solvers for ordinary and partial differential equations need to be added.
+
+Numeric computations often require dealing with the calculus in the form of solving derivatives, integrals, and differential and integral equations. In the classic calculus, the order of differentiation/integration is an integer. In what is known as the fractional calculus, this order need not be an integer, e.g., dpx/dtp. In addition to providing procedures for computing the classic calculus operators, we also provide procedures for computing fractional-order calculus operators.
+
+4.1 CalcFn 
+This module defines procedure types that are passed as arguments in the various procedures that perform some calculus operation.
+
+4.2 Derivatives 
+Forward, central, and backward difference schemes are used to approximate integer-order derivatives.
+
+4.2.1 CalcD1 solves first-order derivatives of real and complex functions.
+
+4.2.2 CalcD2 solves second-order derivatives of real and complex functions.
+
+4.2.3 CalcD3 solves third-order derivatives of real and complex functions.
+
+4.3.4 CalcD4 solves forth-order derivatives of real and complex functions.
+
+4.3 Integrals 
+Quadrature techniques are used to approximate integer-order integrals.
+
+4.3.1 CalcGauss solves an integral to a user-specified error tolerance using Gauss-Kronrod quadrature. Three quadratures are provided that can be selected as COARSE, MEDIUM, and FINE.
+
+4.3.2 CalcConvolution solves a convolution integral. The algorithm is O(h5) accurate. 
+
+4.3.3 CalcConvQuad also solves a convolution integral.  The core algorithm is the same as that of CalcConvolution; however, its data structure is significantly improved to minimize storage requirements and maximize speed.
+
+4.4 Fractional calculus
+Various quadrature techniques are employed to approximate fractional-order derivatives and integrals. Unlike integer-order derivatives, fractional-order derivatives are non-local; they are hereditary integrals with an Abel (for power law) kernel.
+
+4.4.1 CalcGrunwald solves fractional-order integrals, i.e., Iaf(x), and fractional-order derivatives of the Riemann-Liouville type, viz., Daf(x) = DnIaf(x), n N @, a N !, using a GrLetnikov algorithm.
+
+4.4.2 CalcDiethelm solves fractional-order integrals, i.e., Iaf(x), and fractional-order derivatives of the Caputo type, viz., D*af(x) = IaDnf(x), n N @, a N !, using algorithms derived by Prof. Kai Diethelm at the Technical University of Braunschweig. 
+	The Caputo derivative is a "regularized" version of the Riemann-Liouville derivative. This regularization has an enormous effect when addressing differential equations. An algorithm that solves non-linear fractional-order differential equations of the Caputo type, also derived by Diethelm, is supplied, too.
+
+5. More dimensional Data 
+Status: Beta release. May be buggy. Please report any errors to the authors.
+Interoperatibility between different data types still restricted to assignment ":=" and value-array operations (such as scalar-multiplication, etc.). Many operations need optimization. 
+
+The base for multi-dimensional data organization is roughly divided into three layers: 
+(1) Management and operations on one-dimensional arrays of data in a linear adress space. 
+(2) Operations on arbitrary-dimensional data in a linear memory space. Uses (1)
+(3) Concrete implementations of higher-dimensional data on specific types such as NbrInt.Integer, NbrRat.Rational, NbrRe.Real and NbrCplx.Complex. Uses (2) and (1)
+
+Layers (1) and (2) can in turn be divided into (a) the generic operations on memory and (b) operations on specific data types. 
+
+5.1. Generic operations on consecutive pieces of memory 
+Module: Array1dBytes.Mod
+(Layer 1a)
+The module Array1dBytes.Mod provides generic operations on consecutive pieces of memory such as copying and filling memory. Most of the provided procedures are written in in-line Assembler for the X86. 
+	Note, that the procedure MoveB does a correct move if source and destinations overlap, which is not guaranteed by SYSTEM.MOVE (at least in OP2). 
+
+5.2. Operations on one dimensional arrays of basic types
+Modules: Array1dInt.Mod, Array1dRat.Mod, Array1dRe.Mod,  Array1dCplx.Mod
+(Layer1b)
+The modules of this layer provide basic operations on one-dimensional arrays of integers, rationals, reals, and complex numbers. They provide procedures for copying, filling, and various mathematical operations on data, including overloaded operators on the arrays. Interoperability between different types is provided.  
+
+[5.2a Operations on two dimensional arrays of basic types
+Modules: Array2dInt.Mod, Array2dRat.Mod, Array2dRe.Mod, Array2dCplx.Mod
+The modules of this layer provide operations and overloading of operators on two-dimensional arrays of the basic types. Deprecated. Use Matrices instead (see 5.5.2 below).
+]
+
+5.3 Generic operations on memory with a more dimensional arrangement
+Module: ArrayXdBytes.Mod
+(Layer 2a)
+The Module ArrayXdbytes.Mod provides the generic functionality for arbitrary dimensional data in a linear memory space. The types "ArrayMemoryStructure" and its extension "Array" are the base types for the types in section (5.4) and (5.5). The memory is allocated roughly following the arrays of Oberon/Aos, but there are some important differences: 
+(1) An array may be allocated at runtime with arbitrary dimension.
+(2) An array's origin can be set non-zero. 
+(3) Moreover, data might be arranged with - internally - a permuted order of dimensions leading to the possibility of optimization of access in a non-increasing order. 
+	This module exports procedures that can read/write an array from/to a file. These low-level procedures are called by the types of Layer 3 so that they can be made persistent.
+	An important feature of this module is the operations provided by using the record type "Enumerator". By this it is possible to copy arrays to arrays in a given order or to traverse the memory of a given array. When an enumerator is instanced, it computes the largest continuous block for fast-copy operations. The enumerator is used in all Copy* procedures.
+	If one wants to provide an extension of the base type Array, the type-bound procedures "GetInfo", "Allocate" and "AlikeX" must be provided. 
+
+
+5.4 Arbitrary dimensional Arrays of basic types
+Modules: ArrayXdInt.Mod, ArrayXdRat.Mod, ArrayXdRe.Mod, ArrayXdCplx.Mod
+(Layer 2b)
+The ArrayXd*.Mod modules provide operations on arbitrary dimensional arrays of the basic types integer, rational, real, and complex. The type "Array" provided in these modules is the basic type for all types in section (5.5). Data are allocated as a one-dimensional array of a basic type, but the type-bound procedures "Get1", "Set1", ... ,"GetX" and "SetX" may be used to access data with the specified number of dimensions. Copy operations such as "CopyMatrixToVec", "CopyArrayToMatrix" etc. can be used to convert data into different dimensions. Moreover, the assignment operator ":=" is overloaded to make assignments between "Array" and one- to four-dimensional "ARRAY OF" types.
+	Restriction: Interoperability between different data types is restricted to assignment ":=" and Array-Value or Value-Array operations. 
+
+5.5 Specific types for dimensions 1, 2, 3 and 4
+(Layer 3)
+These are the modules to be used in applications. They make use of the lower-level modules as resources to handle memory and array operations in an efficient manner.
+	Although ArrayXd*.Array types contain everything needed to work with data of arbitrary dimensions, there are some reasons why, in the end, different data types for Vectors, Matrices, Cubes, and Hypercubes have to be declared: 
+- By providing different types for - say - Vectors and Matrices, the procedure "Get", for example, can - in the first case - be used as a.Get(x) and - in the latter case - as a.Get(x,y). Without overloading type-bound procedures, this would not be possible without different data types for vectors and matrices (and there are good reasons why Oberon/Aos does not provide overloading of methods.)
+- Interoperatbility, for example Matrix-Vector multiplication, can be implemented with different extensions of ArrayXd*.Array, unlike if they all had the same data type. In the latter case, interoperability between different types would not be extensible.
+	Vectors, Matrices, Cubes, and Hypercubes are provided with Get, Set, and various copy procedures specific to their dimensions. Additionally, these procedures respect given boundary conditions (Strict, Periodic, SymmetricOnBoundary, SymmetricOffBoundary, AntisymmetricOnBoundary, AntisymmetricOff Boundary), i.e. if a boundary condition is set, all Get and CopyTo operations act as if the Array would have been extended to infinity with respect to that boundary condition. The copy methods are optimized with respect to the geometry of the Arrays, i.e. they try to copy continuous pieces and the in-Bound part seperately. 
+	These data structures are DataIO.PlugIn registered, so they can be made persistent. 
+	To see how vectors/matrices/cubes/hypercubes work, see TestXd*.Mod.
+
+5.5.1 Vectors
+Modules: VecInt.Mod, VecRat.Mod, VecRe.Mod, VecCplx.Mod	
+Vectors of integer, rational, real, or complex numbers. Vec*.Vector.
+
+5.5.2 Matrices
+Modules: MtxInt.Mod, MtxRat.Mod, MtxRe.Mod, MtxCplx.Mod	
+Matrices of integer, rational, real, or complex numbers: Mtx*.Matrix.
+
+5.5.3 Cubes
+Modules: CubeInt.Mod, CubeRat.Mod, CubeRe.Mod, CubeCplx.Mod
+Cubes (3 dimensional data) of integer, rational, real, or complex numbers: Cube*.Cube. 
+
+5.5.4 Hypercubes
+Modules: HCubeInt.Mod, HCubeRat.Mod, HCubeRe.Mod, HCubeCplx.Mod
+Hypercubes (4 dimensional data) of integer, rational, real, or complex numbers: HCube*.HCube. 
+
+6. Linear Equations 
+Status: Alpha release.
+Some modules are provided from earlier releases, but they have not been fully incorporated into CAPO at this time and may not yet work propertly. Any help or contributions from the users of CAPO are welcomed.
+

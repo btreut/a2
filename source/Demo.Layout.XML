@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document page-width="360.0000" page-height="270.0000" margin-top="10.0000" margin-bottom="10.0000" margin-left="10.0000" margin-right="10.0000" facing-pages="False">
+<masterpage name="Master">
+<guide type="horizontal" position="35.2738" />
+<guide type="horizontal" position="67.4352" />
+<guide type="horizontal" position="242.2478" />
+<guide type="horizontal" position="249.5101" />
+<guide type="vertical" position="49.7983" />
+<guide type="vertical" position="330.4323" />
+<guide type="horizontal" position="17.6369" />
+<frame name="RectangleFrame1" type="Rectangle" x="0.0000" y="0.7781" width="360.0000" height="269.2219" frame-content="RectangleFrame1" textwrap="0" twrap-top="0.0000" twrap-bottom="0.0000" twrap-left="0.0000" twrap-right="0.0000" z-index="0" />
+<frame name="RectangleFrame0" type="Rectangle" x="0.0000" y="0.0000" width="360.0000" height="45.1297" frame-content="RectangleFrame0" textwrap="0" twrap-top="0.0000" twrap-bottom="0.0000" twrap-left="0.0000" twrap-right="0.0000" z-index="1" />
+<frame name="RectangleFrame2" type="Rectangle" x="0.0000" y="41.4986" width="360.0000" height="6.2248" frame-content="RectangleFrame2" textwrap="0" twrap-top="0.0000" twrap-bottom="0.0000" twrap-left="0.0000" twrap-right="0.0000" z-index="2" />
+</masterpage>
+<page masterpage="Master">
+<frame name="TextFrame2" type="Text" x="139.5389" y="135.9078" width="109.9712" height="73.1412" frame-content="TextFrame2" textwrap="0" twrap-top="0.0000" twrap-bottom="0.0000" twrap-left="0.0000" twrap-right="0.0000" z-index="0" />
+<frame name="TextFrame0" type="Text" x="49.7983" y="108.4150" width="280.6340" height="71.5850" frame-content="TextFrame0" textwrap="0" twrap-top="0.0000" twrap-bottom="0.0000" twrap-left="0.0000" twrap-right="0.0000" z-index="1" />
+</page>
+<page masterpage="Master">
+<frame name="TextFrame3" type="Text" x="50.3170" y="17.6389" width="280.1153" height="17.6349" frame-content="TextFrame3" textwrap="0" twrap-top="0.0000" twrap-bottom="0.0000" twrap-left="0.0000" twrap-right="0.0000" z-index="0" />
+<frame name="TextFrame4" type="Text" x="49.7983" y="67.4351" width="280.6340" height="174.8127" frame-content="TextFrame4" textwrap="0" twrap-top="0.0000" twrap-bottom="0.0000" twrap-left="0.0000" twrap-right="0.0000" z-index="1" />
+</page>
+<page masterpage="Master">
+<frame name="TextFrame5" type="Text" x="49.7983" y="17.6369" width="280.6340" height="17.6369" frame-content="TextFrame5" textwrap="0" twrap-top="0.0000" twrap-bottom="0.0000" twrap-left="0.0000" twrap-right="0.0000" z-index="0" />
+<frame name="TextFrame6" type="Text" x="49.7983" y="67.4351" width="280.6340" height="174.8127" frame-content="TextFrame6" textwrap="0" twrap-top="0.0000" twrap-bottom="0.0000" twrap-left="0.0000" twrap-right="0.0000" z-index="1" />
+</page>
+<page masterpage="Master">
+<frame name="TextFrame7" type="Text" x="49.7983" y="17.6369" width="280.6340" height="17.6369" frame-content="TextFrame7" textwrap="0" twrap-top="0.0000" twrap-bottom="0.0000" twrap-left="0.0000" twrap-right="0.0000" z-index="0" />
+<frame name="TextFrame8" type="Text" x="49.7983" y="67.4352" width="280.6340" height="174.8126" frame-content="TextFrame8" textwrap="0" twrap-top="0.0000" twrap-bottom="0.0000" twrap-left="0.0000" twrap-right="0.0000" z-index="1" />
+</page>
+<page masterpage="Master">
+<frame name="TextFrame9" type="Text" x="49.7983" y="17.6369" width="280.6340" height="17.6369" frame-content="TextFrame9" textwrap="0" twrap-top="0.0000" twrap-bottom="0.0000" twrap-left="0.0000" twrap-right="0.0000" z-index="0" />
+<frame name="TextFrame10" type="Text" x="52.2414" y="63.6207" width="195.0432" height="111.0087" frame-content="TextFrame10" textwrap="0" twrap-top="0.0000" twrap-bottom="0.0000" twrap-left="0.0000" twrap-right="0.0000" z-index="1" />
+<frame name="ImageFrame1" type="Image" x="249.5101" y="67.4352" width="80.9222" height="106.3401" frame-content="ImageFrame1" textwrap="0" twrap-top="0.0000" twrap-bottom="0.0000" twrap-left="0.0000" twrap-right="0.0000" z-index="2" />
+<frame name="TextFrame1" type="Text" x="49.7983" y="177.4472" width="280.6340" height="61.2103" frame-content="TextFrame1" textwrap="0" twrap-top="0.0000" twrap-bottom="0.0000" twrap-left="0.0000" twrap-right="0.0000" z-index="3" />
+</page>
+</document>

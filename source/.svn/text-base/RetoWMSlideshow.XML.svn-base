@@ -1,0 +1,31 @@
+<Slideshow>
+	<Slide key="0" image="SlideShowData.tar://Reto09.png" transition="fade" duration="25" description=""></Slide>
+	<Slide key="1" image="SlideShowData.tar://Reto01.png" transition="mask:SlideShowData.tar://RetoWMTransMask01.png" duration="25" description=""></Slide>
+	<Slide key="2" image="SlideShowData.tar://Reto02.png" transition="mask:SlideShowData.tar://RetoWMTransMask02.png" duration="25" description=""></Slide>
+	<Slide key="3" image="SlideShowData.tar://Reto03.png" transition="mask:SlideShowData.tar://RetoWMTransMask03.png" duration="25" description=""></Slide>
+	<Slide key="4" image="SlideShowData.tar://Reto04.png" transition="mask:SlideShowData.tar://RetoWMTransMask04.png" duration="25" description=""></Slide>	
+	<Slide key="5" image="SlideShowData.tar://Reto05.png" transition="mask:SlideShowData.tar://RetoWMTransMask05.png" duration="25" description=""></Slide>
+	<Slide key="6" image="SlideShowData.tar://Reto06.png" transition="mask:SlideShowData.tar://RetoWMTransMask06.png" duration="25" description=""></Slide>
+	<Slide key="7" image="SlideShowData.tar://Reto07.png" transition="mask:SlideShowData.tar://RetoWMTransMask07.png" duration="25" description=""></Slide>
+	<Slide key="8" image="SlideShowData.tar://Reto08.png" transition="mask:SlideShowData.tar://RetoWMTransMask08.png" duration="25" description=""></Slide>
+	<Slide key="9" image="SlideShowData.tar://Reto09.png" transition="mask:SlideShowData.tar://RetoWMTransMask09.png" duration="25" description=""></Slide>
+	<Slide key="10" image="SlideShowData.tar://Reto02.png" transition="mask:SlideShowData.tar://RetoWMTransMask10.png" duration="25" description=""></Slide>	
+	<Slide key="11" image="SlideShowData.tar://Reto01.png" transition="mask:SlideShowData.tar://RetoWMTransMask11.png" duration="25" description=""></Slide>
+	<Slide key="12" image="SlideShowData.tar://Reto02.png" transition="mask:SlideShowData.tar://RetoWMTransMask12.png" duration="25" description=""></Slide>
+	<Slide key="13" image="SlideShowData.tar://Reto03.png" transition="mask:SlideShowData.tar://RetoWMTransMask13.png" duration="25" description=""></Slide>
+	<Slide key="14" image="SlideShowData.tar://Reto04.png" transition="mask:SlideShowData.tar://RetoWMTransMask14.png" duration="25" description=""></Slide>
+	<Slide key="15" image="SlideShowData.tar://Reto05.png" transition="mask:SlideShowData.tar://RetoWMTransMask15.png" duration="25" description=""></Slide>
+	<Slide key="16" image="SlideShowData.tar://Reto06.png" transition="mask:SlideShowData.tar://RetoWMTransMask16.png" duration="25" description=""></Slide>	
+	<Slide key="17" image="SlideShowData.tar://Reto07.png" transition="mask:SlideShowData.tar://RetoWMTransMask17.png" duration="25" description=""></Slide>
+	<Slide key="18" image="SlideShowData.tar://Reto08.png" transition="mask:SlideShowData.tar://RetoWMTransMask18.png" duration="25" description=""></Slide>
+	<Slide key="19" image="SlideShowData.tar://Reto02.png" transition="mask:SlideShowData.tar://RetoWMTransMask19.png" duration="25" description=""></Slide>
+	<Slide key="20" image="SlideShowData.tar://Reto09.png" transition="mask:SlideShowData.tar://RetoWMTransMask20.png" duration="25" description=""></Slide>
+	<Slide key="21" image="SlideShowData.tar://Reto01.png" transition="mask:SlideShowData.tar://RetoWMTransMask21.png" duration="25" description=""></Slide>
+	<Slide key="22" image="SlideShowData.tar://Reto02.png" transition="mask:SlideShowData.tar://RetoWMTransMask22.png" duration="25" description=""></Slide>	
+	<Slide key="23" image="SlideShowData.tar://Reto03.png" transition="mask:SlideShowData.tar://RetoWMTransMask23.png" duration="25" description=""></Slide>
+	<Slide key="24" image="SlideShowData.tar://Reto04.png" transition="mask:SlideShowData.tar://RetoWMTransMask24.png" duration="25" description=""></Slide>
+	<Slide key="25" image="SlideShowData.tar://Reto05.png" transition="mask:SlideShowData.tar://RetoWMTransMask25.png" duration="25" description=""></Slide>
+	<Slide key="26" image="SlideShowData.tar://Reto06.png" transition="mask:SlideShowData.tar://RetoWMTransMask26.png" duration="25" description=""></Slide>
+	<Slide key="27" image="SlideShowData.tar://Reto07.png" transition="mask:SlideShowData.tar://RetoWMTransMask27.png" duration="25" description=""></Slide>
+	<Slide key="28" image="SlideShowData.tar://Reto08.png" transition="mask:SlideShowData.tar://RetoWMTransMask28.png" duration="25" description=""></Slide>
+</Slideshow>

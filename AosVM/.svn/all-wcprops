@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/lecturers/a2/!svn/ver/4441/trunk/AosVM
+END
+AosVMDisk2.vmdk
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/lecturers/a2/!svn/ver/1543/trunk/AosVM/AosVMDisk2.vmdk
+END
+AosVMDisk3.vmdk
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/lecturers/a2/!svn/ver/1546/trunk/AosVM/AosVMDisk3.vmdk
+END
+AosVM.vmdk
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/lecturers/a2/!svn/ver/1546/trunk/AosVM/AosVM.vmdk
+END
+GenerateVMImages.Text
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/lecturers/a2/!svn/ver/1744/trunk/AosVM/GenerateVMImages.Text
+END
+Aos.vmx
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/lecturers/a2/!svn/ver/1543/trunk/AosVM/Aos.vmx
+END

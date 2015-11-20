@@ -1,0 +1,18 @@
+#
+
+CC      = gcc -m64
+CFLAGS  = -DLINUX 
+LDFLAGS = -lpthread -ldl -lX11 -lrt -lm
+
+
+aos.linux:	aos.o Threads.linux.o
+	$(CC) -s -o aos.linux aos.o Threads.linux.o $(LDFLAGS)
+	rm -f *.o 
+
+aos.o:	aos.c
+	$(CC) -c $(CFLAGS) aos.c
+
+Threads.linux.o:	Threads.h Threads.linux.c
+	$(CC) -c $(CFLAGS) Threads.linux.c 
+
+

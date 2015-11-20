@@ -1,0 +1,206 @@
+<Standard:Panel caption=" System  ">
+	<Properties>
+		<FillColor>0</FillColor>
+	</Properties>
+	<Standard:Panel>
+		<Properties>
+			<Alignment>1</Alignment>
+			<Bounds>
+				<Width>120</Width>
+			</Bounds>
+		</Properties>
+
+		<Standard:Button>
+			<Properties>
+				<Caption>Configuration</Caption>
+				<Alignment>2</Alignment>
+				<OnClickHandler>X Run</OnClickHandler>
+			</Properties>
+
+			<Standard:SystemCommand>
+				<Properties>
+					<ID>X</ID>
+					<CommandString>PET.Open Configuration.XML</CommandString>
+				</Properties>
+			</Standard:SystemCommand>
+		</Standard:Button>
+
+		<Standard:Button>
+			<Properties>
+				<Caption>Log</Caption>
+				<Alignment>2</Alignment>
+				<OnClickHandler>X Run</OnClickHandler>
+			</Properties>
+
+			<Standard:SystemCommand>
+				<Properties>
+					<ID>X</ID>
+					<CommandString>WMKernelLog.Open</CommandString>
+				</Properties>
+			</Standard:SystemCommand>
+		</Standard:Button>
+	</Standard:Panel>
+
+	<Standard:Panel>
+		<Properties>
+			<Alignment>1</Alignment>
+			<Bounds>
+				<Width>120</Width>
+			</Bounds>
+		</Properties>
+
+		<Standard:Button>
+			<Properties>
+				<Caption>Macros</Caption>
+				<Alignment>2</Alignment>
+				<OnClickHandler>X Run</OnClickHandler>
+			</Properties>
+
+			<Standard:SystemCommand>
+				<Properties>
+					<ID>X</ID>
+					<CommandString>PET.Open Macros.XML</CommandString>
+				</Properties>
+			</Standard:SystemCommand>
+		</Standard:Button>
+
+		<Standard:Button>
+			<Properties>
+				<Caption>HotKeys</Caption>
+				<Alignment>2</Alignment>
+				<OnClickHandler>X Run</OnClickHandler>
+			</Properties>
+
+			<Standard:SystemCommand>
+				<Properties>
+					<ID>X</ID>
+					<CommandString>PET.Open HotKeys.XML</CommandString>
+				</Properties>
+			</Standard:SystemCommand>
+		</Standard:Button>
+
+	</Standard:Panel>
+
+	<Standard:Panel>
+		<Properties>
+			<Alignment>1</Alignment>
+			<Bounds>
+				<Width>120</Width>
+			</Bounds>
+		</Properties>
+
+		<Standard:Button>
+			<Properties>
+				<Caption>Clock</Caption>
+				<Alignment>2</Alignment>
+				<OnClickHandler>X Run</OnClickHandler>
+			</Properties>
+
+			<Standard:SystemCommand>
+				<Properties>
+					<ID>X</ID>
+					<CommandString>WMClock.Open</CommandString>
+				</Properties>
+			</Standard:SystemCommand>
+		</Standard:Button>
+
+		<Standard:Button>
+			<Properties>
+				<Caption>Calendar</Caption>
+				<Alignment>2</Alignment>
+				<OnClickHandler>X Run</OnClickHandler>
+			</Properties>
+
+			<Standard:SystemCommand>
+				<Properties>
+					<ID>X</ID>
+					<CommandString>WMCalendar.Open</CommandString>
+				</Properties>
+			</Standard:SystemCommand>
+		</Standard:Button>
+
+	</Standard:Panel>
+
+	<Standard:Panel>
+		<Properties>
+			<Alignment>1</Alignment>
+			<Bounds>
+				<Width>120</Width>
+			</Bounds>
+		</Properties>
+		<Standard:Button>
+			<Properties>
+				<Caption>Installer</Caption>
+				<Alignment>2</Alignment>
+				<OnClickHandler>X Run</OnClickHandler>
+			</Properties>
+
+			<Standard:SystemCommand>
+				<Properties>
+					<ID>X</ID>
+					<CommandString>WMInstaller.Open</CommandString>
+				</Properties>
+			</Standard:SystemCommand>
+		</Standard:Button>
+
+				<Standard:Button>
+			<Properties>
+				<Caption>SaveDesktop</Caption>
+				<Alignment>2</Alignment>
+				<OnClickHandler>X Run</OnClickHandler>
+			</Properties>
+
+			<Standard:SystemCommand>
+				<Properties>
+					<ID>X</ID>
+					<CommandString>WMRestorable.Store Auto.dsk;SkinEngine.SetCurrentAsDefault;StartMenu.ClosePopup</CommandString>
+				</Properties>
+			</Standard:SystemCommand>
+		</Standard:Button>
+
+	</Standard:Panel>
+
+	<Standard:Panel>
+		<Properties>
+			<Alignment>1</Alignment>
+			<Bounds>
+				<Width>120</Width>
+			</Bounds>
+		</Properties>
+
+		<Standard:Button>
+			<Properties>
+				<Caption>Reboot</Caption>
+				<Alignment>2</Alignment>
+				<ClDefault>0FF000080</ClDefault>
+				<ClHover>0FF0000FF</ClHover>
+				<OnClickHandler>X Run</OnClickHandler>
+			</Properties>
+
+			<Standard:SystemCommand>
+				<Properties>
+					<ID>X</ID>
+					<CommandString>SystemTools.Reboot</CommandString>
+				</Properties>
+			</Standard:SystemCommand>
+		</Standard:Button>
+
+		<Standard:Button>
+			<Properties>
+				<Caption>Shutdown</Caption>
+				<Alignment>2</Alignment>
+				<ClDefault>0FF000080</ClDefault>
+				<ClHover>0FF0000FF</ClHover>
+				<OnClickHandler>X Run</OnClickHandler>
+			</Properties>
+
+			<Standard:SystemCommand>
+				<Properties>
+					<ID>X</ID>
+					<CommandString>SystemTools.PowerDown</CommandString>
+				</Properties>
+			</Standard:SystemCommand>
+		</Standard:Button>
+	</Standard:Panel>
+
+</Standard:Panel>

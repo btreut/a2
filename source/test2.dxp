@@ -1,0 +1,14 @@
+<html>
+	<head>
+		<title>GetHeaderField example</title>
+	</head>
+	<body xmlns:WebStd="WebStd">
+		<h1>GetHeaderField example</h1>
+		You are: <WebStd:GetHeaderField name="#ip"/><br/>
+		You came from: <WebStd:GetHeaderField name="referer"/><br/>
+		Useragent: <WebStd:GetHeaderField name="useragent"/><br/>
+		<WebStd:Hyperlink href="test1.dxp">test2</WebStd:Hyperlink>
+		<hr/>
+		<address>Bluebottle Dynamic Webpages</address>
+	</body>
+</html>

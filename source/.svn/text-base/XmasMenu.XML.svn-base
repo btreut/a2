@@ -1,0 +1,473 @@
+<Standard:Panel>
+	<Properties>
+		<Bounds>
+			<Left>0</Left>
+			<Top>20</Top>
+			<Width>500</Width>
+			<Height>400</Height>
+		</Bounds>
+		<FillColor>00000000</FillColor>
+		<TakesFocus>true</TakesFocus>
+		<Alignment>2</Alignment>
+	</Properties><Standard:Button>
+		<Properties>
+			<Bounds>
+				<Left>204</Left>
+				<Top>57</Top>
+				<Width>74</Width>
+				<Height>86</Height>
+			</Bounds>
+			<TakesFocus>true</TakesFocus>
+			<OnClickHandler>X Run</OnClickHandler>
+			<ClTextDefault>0000FFFF</ClTextDefault>
+			<Caption>FTP Client</Caption>
+			<BgDefault>present.tar://present3-2.png</BgDefault>
+			<BgHover>present.tar://present3-2h.png</BgHover>
+			<UseBgBitmaps>true</UseBgBitmaps>
+		</Properties><Standard:SystemCommand>
+			<Properties>
+				<ID>X</ID>
+				<CommandString>WMFTPClient.Open</CommandString>
+			</Properties>
+		</Standard:SystemCommand>
+		
+	</Standard:Button>
+	
+	<Standard:Button>
+		<Properties>
+			<Bounds>
+				<Left>147</Left>
+				<Top>106</Top>
+				<Width>72</Width>
+				<Height>83</Height>
+			</Bounds>
+			<TakesFocus>true</TakesFocus>
+			<OnClickHandler>X Run</OnClickHandler>
+			<ClTextDefault>0000FFFF</ClTextDefault>
+			<Caption>File Manager</Caption>
+			<BgDefault>present.tar://present2-3.png</BgDefault>
+			<BgHover>present.tar://present2-3h.png</BgHover>
+			<UseBgBitmaps>true</UseBgBitmaps>
+		</Properties><Standard:SystemCommand>
+			<Properties>
+				<ID>X</ID>
+				<CommandString>WMSystemComponents.Open</CommandString>
+			</Properties>
+		</Standard:SystemCommand>
+		
+	</Standard:Button>
+	<Standard:Button>
+		<Properties>
+			<Bounds>
+				<Left>202</Left>
+				<Top>124</Top>
+				<Width>71</Width>
+				<Height>85</Height>
+			</Bounds>
+			<TakesFocus>true</TakesFocus>
+			<OnClickHandler>X Run</OnClickHandler>
+			<ClTextDefault>0000FFFF</ClTextDefault>
+			<Caption>CharacterMap</Caption>
+			<BgDefault>present.tar://present1-2.png</BgDefault>
+			<BgHover>present.tar://present1-2h.png</BgHover>
+			<UseBgBitmaps>true</UseBgBitmaps>
+		</Properties><Standard:SystemCommand>
+			<Properties>
+				<ID>X</ID>
+				<CommandString>WMCharMap.Open</CommandString>
+			</Properties>
+		</Standard:SystemCommand>
+		
+	</Standard:Button>
+	<Standard:Button>
+		<Properties>
+			<Bounds>
+				<Left>268</Left>
+				<Top>89</Top>
+				<Width>73</Width>
+				<Height>83</Height>
+			</Bounds>
+			<TakesFocus>true</TakesFocus>
+			<OnClickHandler>X Run</OnClickHandler>
+			<ClTextDefault>0000FFFF</ClTextDefault>
+			<Caption>Examples</Caption>
+			<BgDefault>present.tar://present5-3.png</BgDefault>
+			<BgHover>present.tar://present5-3h.png</BgHover>
+			<UseBgBitmaps>true</UseBgBitmaps>
+		</Properties><Standard:SystemCommand>
+			<Properties>
+				<ID>X</ID>
+				<CommandString>PET.Open TestTrees.Mod TestMenu.Mod TestComponentDragDrop.Mod ExampleTextWriter.Mod PieTest.Mod</CommandString>
+			</Properties>
+		</Standard:SystemCommand>
+		
+	</Standard:Button>
+	<Standard:Button>
+		<Properties>
+			<Bounds>
+				<Left>268</Left>
+				<Top>145</Top>
+				<Width>72</Width>
+				<Height>86</Height>
+			</Bounds>
+			<TakesFocus>true</TakesFocus>
+			<OnClickHandler>X Run</OnClickHandler>
+			<ClTextDefault>0000FFFF</ClTextDefault>
+			<Caption>Glass Skin</Caption>
+			<BgDefault>present.tar://present2-2.png</BgDefault>
+			<BgHover>present.tar://present2-2h.png</BgHover>
+			<UseBgBitmaps>true</UseBgBitmaps>
+		</Properties><Standard:SystemCommand>
+			<Properties>
+				<ID>X</ID>
+				<CommandString>SkinEngine.Load glass.skin</CommandString>
+			</Properties>
+		</Standard:SystemCommand>
+		
+	</Standard:Button>
+	<Standard:Button>
+		<Properties>
+			<Bounds>
+				<Left>162</Left>
+				<Top>171</Top>
+				<Width>70</Width>
+				<Height>83</Height>
+			</Bounds>
+			<TakesFocus>true</TakesFocus>
+			<OnClickHandler>X Run</OnClickHandler>
+			<ClTextDefault>0000FFFF</ClTextDefault>
+			<Caption>Xmas Bunny</Caption>
+			<BgDefault>present.tar://present4-3.png</BgDefault>
+			<BgHover>present.tar://present4-3h.png</BgHover>
+			<UseBgBitmaps>true</UseBgBitmaps>
+		</Properties><Standard:SystemCommand>
+			<Properties>
+				<ID>X</ID>
+				<CommandString>WMBunny.Insert XmasBunnyLinear.gif 8 16</CommandString>
+			</Properties>
+		</Standard:SystemCommand>
+		
+	</Standard:Button>
+	<Standard:Button>
+		<Properties>
+			<Bounds>
+				<Left>328</Left>
+				<Top>150</Top>
+				<Width>75</Width>
+				<Height>84</Height>
+			</Bounds>
+			<TakesFocus>true</TakesFocus>
+			<OnClickHandler>X Run</OnClickHandler>
+			<ClTextDefault>0000FFFF</ClTextDefault>
+			<Caption>Santa</Caption>
+			<BgDefault>present.tar://present1-3.png</BgDefault>
+			<BgHover>present.tar://present1-3h.png</BgHover>
+			<UseBgBitmaps>true</UseBgBitmaps>
+		</Properties><Standard:SystemCommand>
+			<Properties>
+				<ID>X</ID>
+				<CommandString>WMBunny.Insert SantaLinear.gif 10 25</CommandString>
+			</Properties>
+		</Standard:SystemCommand>
+		
+	</Standard:Button>
+	<Standard:Button>
+		<Properties>
+			<Bounds>
+				<Left>100</Left>
+				<Top>163</Top>
+				<Width>70</Width>
+				<Height>84</Height>
+			</Bounds>
+			<TakesFocus>true</TakesFocus>
+			<OnClickHandler>X Run</OnClickHandler>
+			<ClTextDefault>0000FFFF</ClTextDefault>
+			<Caption>RedSkin</Caption>
+			<BgDefault>present.tar://present5-2.png</BgDefault>
+			<BgHover>present.tar://present5-2h.png</BgHover>
+			<UseBgBitmaps>true</UseBgBitmaps>
+		</Properties><Standard:SystemCommand>
+			<Properties>
+				<ID>X</ID>
+				<CommandString>SkinEngine.Load redlook.skin</CommandString>
+			</Properties>
+		</Standard:SystemCommand>
+		
+	</Standard:Button>
+	<Standard:Button>
+		<Properties>
+			<Bounds>
+				<Left>350</Left>
+				<Top>209</Top>
+				<Width>73</Width>
+				<Height>80</Height>
+			</Bounds>
+			<TakesFocus>true</TakesFocus>
+			<OnClickHandler>X Run</OnClickHandler>
+			<ClTextDefault>0000FFFF</ClTextDefault>
+			<Caption>Skin Editor</Caption>
+			<BgDefault>present.tar://present4-1.png</BgDefault>
+			<BgHover>present.tar://present4-1h.png</BgHover>
+			<UseBgBitmaps>true</UseBgBitmaps>
+		</Properties><Standard:SystemCommand>
+			<Properties>
+				<ID>X</ID>
+				<CommandString>SkinEditor.Open</CommandString>
+			</Properties>
+		</Standard:SystemCommand>
+		
+	</Standard:Button>
+	<Standard:Button>
+		<Properties>
+			<Bounds>
+				<Left>126</Left>
+				<Top>218</Top>
+				<Width>75</Width>
+				<Height>84</Height>
+			</Bounds>
+			<TakesFocus>true</TakesFocus>
+			<OnClickHandler>X Run</OnClickHandler>
+			<ClTextDefault>0000FFFF</ClTextDefault>
+			<Caption>Snow</Caption>
+			<BgDefault>present.tar://present1-3.png</BgDefault>
+			<BgHover>present.tar://present1-3h.png</BgHover>
+			<UseBgBitmaps>true</UseBgBitmaps>
+		</Properties><Standard:SystemCommand>
+			<Properties>
+				<ID>X</ID>
+				<CommandString>Snow.Snow</CommandString>
+			</Properties>
+		</Standard:SystemCommand>
+		
+	</Standard:Button>
+	<Standard:Button>
+		<Properties>
+			<Bounds>
+				<Left>60</Left>
+				<Top>225</Top>
+				<Width>73</Width>
+				<Height>80</Height>
+			</Bounds>
+			<TakesFocus>true</TakesFocus>
+			<OnClickHandler>X Run</OnClickHandler>
+			<ClTextDefault>0000FFFF</ClTextDefault>
+			<Caption>BlueSkin</Caption>
+			<BgDefault>present.tar://present2-1.png</BgDefault>
+			<BgHover>present.tar://present2-1h.png</BgHover>
+			<UseBgBitmaps>true</UseBgBitmaps>
+		</Properties><Standard:SystemCommand>
+			<Properties>
+				<ID>X</ID>
+				<CommandString>SkinEngine.Load BluePlastic.skin</CommandString>
+			</Properties>
+		</Standard:SystemCommand>
+		
+	</Standard:Button>
+	<Standard:Button>
+		<Properties>
+			<Bounds>
+				<Left>222</Left>
+				<Top>191</Top>
+				<Width>73</Width>
+				<Height>80</Height>
+			</Bounds>
+			<TakesFocus>true</TakesFocus>
+			<OnClickHandler>X Run</OnClickHandler>
+			<ClTextDefault>0000FFFF</ClTextDefault>
+			<Caption>DTPEditor</Caption>
+			<BgDefault>present.tar://present3-1.png</BgDefault>
+			<BgHover>present.tar://present3-1h.png</BgHover>
+			<UseBgBitmaps>true</UseBgBitmaps>
+		</Properties><Standard:SystemCommand>
+			<Properties>
+				<ID>X</ID>
+				<CommandString>DTPRect.Register;DTPImage.Register;DTPText.Register;DTPEditor.Open Demo</CommandString>
+			</Properties>
+		</Standard:SystemCommand>
+		
+	</Standard:Button>
+	<Standard:Button>
+		<Properties>
+			<Bounds>
+				<Left>376</Left>
+				<Top>254</Top>
+				<Width>72</Width>
+				<Height>86</Height>
+			</Bounds>
+			<TakesFocus>true</TakesFocus>
+			<OnClickHandler>X Run</OnClickHandler>
+			<ClTextDefault>0000FFFF</ClTextDefault>
+			<Caption>Xmas Skin</Caption>
+			<BgDefault>present.tar://present2-2.png</BgDefault>
+			<BgHover>present.tar://present2-2h.png</BgHover>
+			<UseBgBitmaps>true</UseBgBitmaps>
+		</Properties><Standard:SystemCommand>
+			<Properties>
+				<ID>X</ID>
+				<CommandString>SkinEngine.Load xmas.skin</CommandString>
+			</Properties>
+		</Standard:SystemCommand>
+		
+	</Standard:Button>
+	<Standard:Button>
+		<Properties>
+			<Bounds>
+				<Left>183</Left>
+				<Top>234</Top>
+				<Width>70</Width>
+				<Height>84</Height>
+			</Bounds>
+			<TakesFocus>true</TakesFocus>
+			<OnClickHandler>X Run</OnClickHandler>
+			<ClTextDefault>0000FFFF</ClTextDefault>
+			<Caption>TextStyles</Caption>
+			<BgDefault>present.tar://present5-2.png</BgDefault>
+			<BgHover>present.tar://present5-2h.png</BgHover>
+			<UseBgBitmaps>true</UseBgBitmaps>
+		</Properties><Standard:SystemCommand>
+			<Properties>
+				<ID>X</ID>
+				<CommandString>WMTextStyleTool.Open</CommandString>
+			</Properties>
+		</Standard:SystemCommand>
+		
+	</Standard:Button>
+	<Standard:Button>
+		<Properties>
+			<Bounds>
+				<Left>144</Left>
+				<Top>287</Top>
+				<Width>70</Width>
+				<Height>83</Height>
+			</Bounds>
+			<TakesFocus>true</TakesFocus>
+			<OnClickHandler>X Run</OnClickHandler>
+			<ClTextDefault>0000FFFF</ClTextDefault>
+			<Caption>OSX Skin</Caption>
+			<BgDefault>present.tar://present4-3.png</BgDefault>
+			<BgHover>present.tar://present4-3h.png</BgHover>
+			<UseBgBitmaps>true</UseBgBitmaps>
+		</Properties><Standard:SystemCommand>
+			<Properties>
+				<ID>X</ID>
+				<CommandString>SkinEngine.Load aqua.skin</CommandString>
+			</Properties>
+		</Standard:SystemCommand>
+		
+	</Standard:Button>
+	<Standard:Button>
+		<Properties>
+			<Bounds>
+				<Left>288</Left>
+				<Top>206</Top>
+				<Width>73</Width>
+				<Height>83</Height>
+			</Bounds>
+			<TakesFocus>true</TakesFocus>
+			<OnClickHandler>X Run</OnClickHandler>
+			<ClTextDefault>0000FFFF</ClTextDefault>
+			<Caption>WinXP Skin</Caption>
+			<BgDefault>present.tar://present5-3.png</BgDefault>
+			<BgHover>present.tar://present5-3h.png</BgHover>
+			<UseBgBitmaps>true</UseBgBitmaps>
+		</Properties><Standard:SystemCommand>
+			<Properties>
+				<ID>X</ID>
+				<CommandString>SkinEngine.Load winxp.skin</CommandString>
+			</Properties>
+		</Standard:SystemCommand>
+		
+	</Standard:Button>
+	<Standard:Button>
+		<Properties>
+			<Bounds>
+				<Left>314</Left>
+				<Top>263</Top>
+				<Width>73</Width>
+				<Height>80</Height>
+			</Bounds>
+			<TakesFocus>true</TakesFocus>
+			<OnClickHandler>X Run</OnClickHandler>
+			<ClTextDefault>0000FFFF</ClTextDefault>
+			<Caption>PET</Caption>
+			<BgDefault>present.tar://present1-1.png</BgDefault>
+			<BgHover>present.tar://present1-1h.png</BgHover>
+			<UseBgBitmaps>true</UseBgBitmaps>
+		</Properties><Standard:SystemCommand>
+			<Properties>
+				<ID>X</ID>
+				<CommandString>PET.Open</CommandString>
+			</Properties>
+		</Standard:SystemCommand>
+		
+	</Standard:Button>
+	<Standard:Button>
+		<Properties>
+			<Bounds>
+				<Left>246</Left>
+				<Top>250</Top>
+				<Width>71</Width>
+				<Height>84</Height>
+			</Bounds>
+			<TakesFocus>true</TakesFocus>
+			<OnClickHandler>X Run</OnClickHandler>
+			<ClTextDefault>0000FFFF</ClTextDefault>
+			<Caption>Partition Tool</Caption>
+			<BgDefault>present.tar://present4-2.png</BgDefault>
+			<BgHover>present.tar://present4-2h.png</BgHover>
+			<UseBgBitmaps>true</UseBgBitmaps>
+		</Properties><Standard:SystemCommand>
+			<Properties>
+				<ID>X</ID>
+				<CommandString>WMPartitions.Open</CommandString>
+			</Properties>
+		</Standard:SystemCommand>
+		
+	</Standard:Button>
+	<Standard:Button>
+		<Properties>
+			<Bounds>
+				<Left>203</Left>
+				<Top>301</Top>
+				<Width>73</Width>
+				<Height>80</Height>
+			</Bounds>
+			<TakesFocus>true</TakesFocus>
+			<OnClickHandler>X Run</OnClickHandler>
+			<ClTextDefault>0000FFFF</ClTextDefault>
+			<Caption>Archive Tool</Caption>
+			<BgDefault>present.tar://present2-1.png</BgDefault>
+			<BgHover>present.tar://present2-1h.png</BgHover>
+			<UseBgBitmaps>true</UseBgBitmaps>
+		</Properties><Standard:SystemCommand>
+			<Properties>
+				<ID>X</ID>
+				<CommandString>WMArchives.Open</CommandString>
+			</Properties>
+		</Standard:SystemCommand>
+		
+	</Standard:Button>
+	<Standard:Button>
+		<Properties>
+			<Bounds>
+				<Left>80</Left>
+				<Top>275</Top>
+				<Width>73</Width>
+				<Height>80</Height>
+			</Bounds>
+			<TakesFocus>true</TakesFocus>
+			<OnClickHandler>X Run</OnClickHandler>
+			<ClTextDefault>0000FFFF</ClTextDefault>
+			<Caption>Obj Decoder</Caption>
+			<BgDefault>present.tar://present3-1.png</BgDefault>
+			<BgHover>present.tar://present3-1h.png</BgHover>
+			<UseBgBitmaps>true</UseBgBitmaps>
+		</Properties><Standard:SystemCommand>
+			<Properties>
+				<ID>X</ID>
+				<CommandString>Decoder.Open Machine.Obx</CommandString>
+			</Properties>
+		</Standard:SystemCommand>
+		
+	</Standard:Button>
+</Standard:Panel>

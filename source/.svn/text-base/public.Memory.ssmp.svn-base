@@ -1,0 +1,33 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD><TITLE>Aos Memory</TITLE></HEAD>
+
+<BODY BGCOLOR="#FFFFFF">
+ 
+<h2>Memory</h2>
+<table border="0">
+<tr><td align="right" bgcolor="#CCCCCC"><b>Number of garbage collections:</b></td> <td> &&System.Get AosHeap.Ngc </td></tr>
+<tr><td align="right" bgcolor="#CCCCCC"><b>Number of roots:</b></td> <td> &&System.Get AosHeap.Nmark </td></tr>
+<tr><td align="right" bgcolor="#CCCCCC"><b>Number of objects:</b></td> <td> &&System.Get AosHeap.Nmarked live /
+	&&System.Get AosHeap.Nsweeped dead </td></tr>
+<tr><td align="right" bgcolor="#CCCCCC"><b>Number of finalizers:</b></td> <td> &&System.Get AosHeap.NfinalizeAlive live /
+	&&System.Get AosHeap.NfinalizeDead dead </td></tr>
+<tr><td align="right" bgcolor="#CCCCCC"><b>Number of allocations:</b></td> <td> &&System.Get AosHeap.Nnew </td></tr>
+<tr><td align="right" bgcolor="#CCCCCC"><b>Memory allocated:</b></td> <td> &&System.Get AosHeap.NnewBytes bytes </td></tr>
+<tr><td align="right" bgcolor="#CCCCCC"><b>Memory allocated since last periodic GC:</b></td> <td> &&System.Get AosHeap.newSum bytes </td></tr>
+<tr><td align="right" bgcolor="#CCCCCC"><b>Periodic GC threshold:</b></td> <td> &&System.Get AosHeap.gcThreshold bytes </td></tr>
+<tr><td align="right" bgcolor="#CCCCCC"><b>Target heap size:</b></td> <td> &&System.Get AosHeap.heapMinKB KB minimum / 
+	&&System.Get AosHeap.heapMaxKB KB maximum </td></tr>
+<tr><td align="right" bgcolor="#CCCCCC"><b>Heap end address:</b></td> <td> &&System.Get AosHeap.endAdr </td></tr>
+<tr><td align="right" bgcolor="#CCCCCC"><b>Minimum heap grow size:</b></td> <td> &&System.Get AosHeap.expandMin bytes </td></tr>
+<tr><td align="right" bgcolor="#CCCCCC"><b>Tracing:</b></td> <td> &&System.Get AosHeap.traceHeap </td></tr>
+<tr><td align="right" bgcolor="#CCCCCC"><b>Stacks:</b></td> <td> &&System.Get AosMemory.NnewStacks allocated /
+	&&System.Get AosMemory.NdisposeStacks deallocated / &&System.Get AosMemory.NnewStackLoops loops / 
+	&&System.Get AosMemory.NnewStackInnerLoops inner loops </td></tr>
+<tr><td align="right" bgcolor="#CCCCCC"><b>Pages:</b></td> <td> &&System.Get AosMemory.totalPages total / 
+	&&System.Get AosMemory.freeHighPages high / &&System.Get AosMemory.freeLowPages low / 
+	&&System.Get AosMemory.NlostPages lost </td></tr>
+</table>
+
+</BODY>
+</HTML>

@@ -1,0 +1,147 @@
+<Standard:Panel caption=" Edit ">
+	<Properties>
+		<FillColor>0</FillColor>
+	</Properties>
+	<Standard:Panel>
+		<Properties>
+			<Alignment>1</Alignment>
+			<Bounds>
+				<Width>120</Width>
+			</Bounds>
+		</Properties>
+		<Standard:Button>
+			<Properties>
+				<Caption>Text</Caption>
+				<Alignment>2</Alignment>
+				<OnClickHandler>X Run</OnClickHandler>
+			</Properties>
+			<Standard:SystemCommand>
+				<Properties>
+					<ID>X</ID>
+					<CommandString>Notepad.Open</CommandString>
+				</Properties>
+			</Standard:SystemCommand>
+		</Standard:Button>
+		<Standard:Button>
+			<Properties>
+				<Caption>DTP</Caption>
+				<Alignment>2</Alignment>
+				<OnClickHandler>X Run</OnClickHandler>
+			</Properties>
+			<Standard:SystemCommand>
+				<Properties>
+					<ID>X</ID>
+					<CommandString>DTPImage.Register;DTPRect.Register;DTPText.Register;DTPEditor.Open Demo</CommandString>
+				</Properties>
+			</Standard:SystemCommand>
+		</Standard:Button>
+	</Standard:Panel>
+
+	<!-- Second column -->
+	<Standard:Panel>
+		<Properties>
+			<Alignment>1</Alignment>
+			<Bounds>
+				<Width>120</Width>
+			</Bounds>
+		</Properties>
+		<Standard:Button>
+			<Properties>
+				<Caption>Styles</Caption>
+				<Alignment>2</Alignment>
+				<OnClickHandler>X Run</OnClickHandler>
+			</Properties>
+			<Standard:SystemCommand>
+				<Properties>
+					<ID>X</ID>
+					<CommandString>WMTextTool.Open;StartMenu.ClosePopup</CommandString>
+				</Properties>
+			</Standard:SystemCommand>
+		</Standard:Button>
+		<Standard:Button>
+			<Properties>
+				<Caption>Input Methods</Caption>
+				<Alignment>2</Alignment>
+				<OnClickHandler>X Run</OnClickHandler>
+			</Properties>
+			<Standard:SystemCommand>
+				<Properties>
+					<ID>X</ID>
+					<CommandString>WMInputMethodTool.Open;StartMenu.ClosePopup</CommandString>
+				</Properties>
+			</Standard:SystemCommand>
+		</Standard:Button>
+	</Standard:Panel>
+
+	<!-- 3rd column -->
+	<Standard:Panel>
+		<Properties>
+			<Alignment>1</Alignment>
+			<Bounds>
+				<Width>120</Width>
+			</Bounds>
+		</Properties>
+		<Standard:Button>
+			<Properties>
+				<Caption>Unicode Markers</Caption>
+				<Alignment>2</Alignment>
+				<OnClickHandler>X Run</OnClickHandler>
+			</Properties>
+			<Standard:SystemCommand>
+				<Properties>
+					<ID>X</ID>
+					<CommandString>WMUnicodeMarkerTool.Open;StartMenu.ClosePopup</CommandString>
+				</Properties>
+			</Standard:SystemCommand>
+		</Standard:Button>
+		<Standard:Button>
+			<Properties>
+				<Caption>UnicodeMap</Caption>
+				<Alignment>2</Alignment>
+				<OnClickHandler>X Run</OnClickHandler>
+			</Properties>
+			<Standard:SystemCommand>
+				<Properties>
+					<ID>X</ID>
+					<CommandString>WMCharMap.Open</CommandString>
+				</Properties>
+			</Standard:SystemCommand>
+		</Standard:Button>
+	</Standard:Panel>
+
+	<!-- 4th column -->
+	<Standard:Panel>
+		<Properties>
+			<Alignment>1</Alignment>
+			<Bounds>
+				<Width>120</Width>
+			</Bounds>
+		</Properties>
+		<Standard:Button>
+			<Properties>
+				<Caption/>
+				<Alignment>2</Alignment>
+				<OnClickHandler>X Run</OnClickHandler>
+			</Properties>
+			<Standard:SystemCommand>
+				<Properties>
+					<ID>X</ID>
+					<CommandString/>
+				</Properties>
+			</Standard:SystemCommand>
+		</Standard:Button>
+		<Standard:Button>
+			<Properties>
+				<Caption/>
+				<Alignment>2</Alignment>
+				<OnClickHandler>X Run</OnClickHandler>
+			</Properties>
+			<Standard:SystemCommand>
+				<Properties>
+					<ID>X</ID>
+					<CommandString/>
+				</Properties>
+			</Standard:SystemCommand>
+		</Standard:Button>
+	</Standard:Panel>
+</Standard:Panel>

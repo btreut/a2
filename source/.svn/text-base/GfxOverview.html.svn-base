@@ -1,0 +1,607 @@
+<HTML>
+<HEAD>
+<TITLE>Gfx - High-Level 2D-Graphics for Oberon</TITLE>
+</HEAD>
+
+<BODY>
+<H1 ALIGN=CENTER>An Overview of Gfx</H1>
+<HR>
+<H2>Contents</H2>
+<UL>
+<LI><A HREF="#Introduction">Introduction</A></LI>
+<LI><A HREF="#Contexts">Contexts</A></LI>
+<LI><A HREF="#Paths">Paths</A>
+  <UL>
+  <LI><A HREF="#Paths.Primitives">Primitives</A></LI>
+  <LI><A HREF="#Paths.BeginEnd">Beginning and Ending Paths</A></LI>
+  <LI><A HREF="#Paths.Subpaths">Entering and Exiting a Subpath</A></LI>
+  <LI><A HREF="#Paths.Elements">Subpath Elements</A></LI>
+  <LI><A HREF="#Paths.Special">Special Procedures</A></LI>
+  <LI><A HREF="#Paths.Attributes">Stroke and Fill Attributes</A></LI>
+  </UL>
+</LI>
+<LI><A HREF="#Transformations">Coordinate Systems and Transformations</A></LI>
+<LI><A HREF="#Text">Text</A></LI>
+<LI><A HREF="#Images">Images</A></LI>
+<LI><A HREF="#Clipping">Clipping</A></LI>
+<LI><A HREF="#Raster">Raster Device Contexts</A></LI>
+<LI><A HREF="#Postscript">Postscript Contexts</A></LI>
+</UL>
+<HR>
+<H2><A NAME="Introduction"></A>Introduction</H2>
+This document gives an overview of a graphics library for Oberon System 3 which focuses on abstract
+interfaces and powerful graphical constructs but nevertheless tries to preserve much of the efficiency
+granted by the graphical primitives found in the operating system. Although the library currently runs
+on Oberon System 3 only, its concepts are independent of underlying operating system and graphics
+engine. However, since Oberon is intentionally very simple and only has a small number of graphical
+primitives, a graphics library that concentrates on providing advanced graphical capabilities adds the
+most value from the perspective of a programmer and best complements the primitive but efficient
+routines in the system that are designed to fit the underlying hardware.
+<P>
+Although general purpose in principle, the library is mainly thought to serve applications for which
+powerful and flexible graphics support is crucial, e.g. vector graphics editors or viewers for graphical
+documents in standard formats. Its functionality is comparable to that of PostScript (a well known
+page description language, trademark of <A HREF=http://www.adobe.com>Adobe Systems, Inc.</A>),
+at least in the areas it tackles.
+<HR>
+<H2><A NAME="Contexts">Contexts</A></H2>
+In the Gfx library, the central entity is called a context, defined as <EM>Gfx.Context</EM>.
+A context is an object providing a well-defined set of methods for rendering graphics.
+It keeps track of a graphics state consisting of a set of parameters. The graphics state defines
+the appearance of whatever is rendered. The context
+interface is abstract and is not associated with a specific output device. Only concrete extensions
+of the abstract context type are linked to output devices, which allows rendering graphics on real
+devices such as displays or printers but also supports rendering to bitmap images or the creation
+of textual descriptions of the displayed content, e.g. a page description that can be printed or
+exchanged over a network.
+<P>
+Since Gfx contexts are large and complex objects, we prefer to split their functionality into categories
+and introduce these categories one by one.
+<HR>
+<H2><A NAME="Paths">Paths</A></H2>
+One of the main purposes of any graphics library is to provide functions for drawing basic geometrical
+shapes. The Gfx library therefore offers procedures for drawing lines, rectangles, circles and ellipses.
+While many drawings can indeed be modelled with only these shapes, other shapes such as arcs, splines,
+triangles and parallelograms are often necessary. For this reason, contexts offer a set
+of methods for describing arbitrary paths, where a path is defined as a sequence of subpaths and a
+subpath in turn is defined as a connected sequence of straight lines, ellipse arcs, and cubic B&eacute;zier
+curves.
+
+<H2><A NAME="Paths.Primitives">Primitives</A></H2>
+<PRE>
+  PROCEDURE DrawLine(ctxt: Context; x0, y0, x1, y1: REAL; mode: SET);
+  PROCEDURE DrawArc(ctxt: Context; x, y, r, start, end: REAL; mode: SET);
+  PROCEDURE DrawRect(ctxt: Context; x0, y0, x1, y1: REAL; mode: SET);
+  PROCEDURE DrawCircle(ctxt: Context; x, y, r: REAL; mode: SET);
+  PROCEDURE DrawEllipse(ctxt: Context; x, y, rx, ry: REAL; mode: SET);
+</PRE>
+<P>
+These five procedures are provided as a convenience to programmers since they describe often
+used shapes in the domain of vector graphics. Nevertheless, they are not primitive in the sense
+that contexts directly render them. What happens instead is that they are decomposed into a
+sequence of calls that are described in the next few sections. The mode parameter is explained
+in detail in the following section.
+
+<H2><A NAME="Paths.BeginEnd">Beginning and Ending Paths</A></H2>
+<PRE>
+  CONST
+    Record = 0; Fill = 1; Clip = 2; Stroke = 3; EvenOdd = 4;  (* drawing mode elements *)
+  
+  TYPE
+    ContextDesc = RECORD
+      ...
+      mode: SET;  (* current drawing mode *)
+      path: GfxPaths.Path;  (* current path in device coordinates *)
+    END;
+  
+  PROCEDURE Begin(ctxt: Context; mode: SET);
+  PROCEDURE End(ctxt);
+</PRE>
+<P>
+When a new path is started, a mode parameter specifies how the path elements are to be interpreted.
+<P>
+If the mode contains the <EM>Record</EM> element, all path elements are stored in
+an explicit path structure. This path structure can then be transformed, its curved elements can be
+replaced by an approximation using straight lines, or its elements can be enumerated for further
+processing.
+<P>
+If the mode parameter contains the <EM>Fill</EM> element, the interior of the resulting
+path will be filled according to the current fill parameters, whereas the interior of the resulting path
+will be intersected with the current clip area and will replace it if the mode contains the
+<EM>Clip</EM> element (see section <A HREF="#Clipping">Clipping</A>).
+<P>
+If the <EM>Stroke</EM> element is present in the mode parameter, an imaginary pen is
+led along the path and renders all path elements according to the current stroke parameters.
+<P>
+Finally, the <EM>EvenOdd</EM> element specifies which areas belong to the interior
+of a path. Checking whether a point lies within a path involves drawing an imaginary
+ray originating at the point in question and counting how often it intersects the path, every
+intersection counting as one if the path crosses the ray from right to left and as minus one
+otherwise. If <EM>EvenOdd</EM> is set, the point is inside if the resulting number is
+odd, otherwise it is inside if the resulting number is different from zero.
+
+<H2><A NAME="Paths.Subpaths">Entering and Exiting a Subpath</A></H2>
+<PRE>
+  TYPE
+    ContextDesc = RECORD
+      ...
+      cpx, cpy: REAL;  (* current point in user coordinates *)
+    END;
+  
+  PROCEDURE MoveTo(ctxt: Context; x, y: REAL);
+  PROCEDURE Close(ctxt: Context);
+</PRE>
+<P>
+As mentioned above, a subpath is a connected sequence of curves. Calling <EM>MoveTo</EM>
+places an imaginary pen at the point which is located at position <EM>(x, y)</EM>. This imaginary pen
+then follows all curves that are added to the path until it is lifted off the output plane again, which
+happens when <EM>MoveTo</EM> is called again, when the subpath is
+terminated with <EM>Close</EM> or <EM>Exit</EM>,
+or when the path is terminated with <EM>End</EM>.
+The current coordinates of the pen's tip are stored in the
+context's <EM>cpx</EM> and <EM>cpy</EM> fields.
+<P>
+If the subpath defines a closed contour, <EM>Close</EM> should be called. This
+automatically appends a line leading to the first point in the subpath if necessary. In
+addition, it guarantees that the correct line join style will be rendered at the point
+where the subpath is closed.
+<P>
+The reason for having subpaths in addition to paths is that paths can consist of several disconnected
+curve sequences. This is important for areas that have holes, e.g. a ring shape. The ring can be described
+as a path consisting of two concentric circular subpaths, one clockwise and the other counter-clockwise.
+If the current drawing mode includes the <EM>Fill</EM> element, only the interior area
+between these circles is filled, whereas the area of the hole in the center is not affected.
+<P>
+Gfx offers an alternative way of entering and exiting subpaths which is even more flexible than
+the one using <EM>MoveTo</EM> and <EM>Close</EM>:
+<P>
+<PRE>
+  PROCEDURE Enter(ctxt: Context; x, y, dx, dy: REAL);
+  PROCEDURE Exit(ctxt: Context; dx, dy: REAL);
+</PRE>
+<P>
+A subpath can be entered at any point with <EM>Enter</EM>. In addition to the
+coordinates of the point where the subpath is entered, it expects a vector indicating the
+direction of any curve leading to the entry point (very likely the direction of the
+last line in a closed subpath). Calling <EM>Enter</EM> with a direction
+vector <EM>(0, 0)</EM> is equivalent to calling <EM>MoveTo</EM>.
+<P>
+Similarly, <EM>Exit</EM> expects as its parameter the direction of the
+curve following after the current point (very likely the direction of the first line of
+the subpath).
+<P>
+Using <EM>Enter</EM> and <EM>Exit</EM> is more flexible than
+using <EM>MoveTo</EM> and <EM>Close</EM> because closed
+subpaths can be rendered piecewise instead of all at once. However, using
+<EM>Enter</EM> and <EM>Exit</EM> requires that
+directions of adjacent lines at an entry or exit point are known in advance.
+More often than not these direction vectors are indeed already known or
+can be easily figured out, though, so that it becomes a matter of taste
+which method to use.
+
+<H2><A NAME="Paths.Elements">Subpath Elements</A></H2>
+<PRE>
+  PROCEDURE LineTo(ctxt: Context; x, y: REAL);
+  PROCEDURE ArcTo(ctxt: Context; x, y, x0, y0, x1, y1, x2, y2: REAL);
+  PROCEDURE BezierTo(ctxt: Context; x, y, x1, y1, x2, y2: REAL);
+</PRE>
+<P>
+Once a subpath has been started with <EM>MoveTo</EM> or
+<EM>Enter</EM>, curve elements can be
+added to the current path. They all start drawing at the current point and end at the point
+given by <EM>(x, y)</EM>.
+<P>
+When adding arcs to the path, several additional parameters are needed to describe the
+geometry of the ellipse that the arc is part of. The center of the ellipse is at <EM>(x0, y0)</EM>.
+The interpretation of control points <EM>(x1, y1)</EM> and <EM>(x2, y2)</EM> is as follows:
+in the case of a (counter-clockwise) unit circle, <EM>(x0, y0) = (0, 0), (x1, y1) = (1, 0)</EM>,
+and <EM>(x2, y2) = (0, 1)</EM>. Any transformation applied to the unit circle is also applied
+to control points, i.e. their position in turn defines the transformation from the unit circle to
+the shape of the ellipse. The ellipse always goes through them and their counterparts on the
+opposite side of the ellipse center, and its direction at one control point is the same as that
+from the center to the other control point. This way of defining an ellipse is more flexible
+than just defining its half-axes by length, as is often done, since it handles ellipses that
+are not aligned with the coordinate system quite elegantly. If the current point or the end
+point are not on the ellipse, a straight line is drawn to or from the nearest point on it.
+<P>
+In the case of a (cubic) Bezier curve, the additional control points <EM>(x1, y1)</EM> and
+<EM>(x2, y2)</EM> define the shape of the curve without lying on the curve themselves.
+
+<H2><A NAME="Paths.Special">Special Procedures</A></H2>
+<PRE>
+  TYPE
+    ContextDesc = RECORD
+      ...
+      path: GfxPaths.Path;  (* current path *)
+      flatness: REAL;  (* current flatness tolerance in device coordinates *)
+    END;
+    
+  PROCEDURE Flatten(ctxt: Context);
+  PROCEDURE Outline(ctxt: Context);
+  PROCEDURE Render(ctxt: Context);
+</PRE>
+<P>
+Since some path operations are only possible or at least much easier to perform on sequences
+of straight lines, curved path elements may often have to be approximated with straight lines.
+<EM>Flatten</EM> visits all elements of the current path and replaces arcs and
+beziers by sequences of short lines. The maximal distance between the original curve and the
+approximation is no bigger than the current value of the flatness parameter stored in the context,
+which helps control the quality of the approximation.
+<P>
+<EM>Outline</EM> replaces the current path by a new path which outlines all
+areas that would be drawn to if the current path were stroked. This is of course only useful
+for reasonably thick lines. If the current line width is zero, <EM>Outline</EM>
+does not create an outlined path at all. However, if a dash pattern is in effect, the path
+is replaced by its dashed representation.
+<P>
+<EM>Render</EM> renders the current path using the current context attributes.
+This is useful if some attributes are not known in advance or if subpaths have to be modified
+after construction. The rendering mode can then be set to <EM>Record</EM>.
+When the path is complete, attributes can be set to the appropriate values or the path
+can be modified before calling <EM>Render</EM> to output the path. Note
+that the current path is always stored in device coordinates.
+
+<H2><A NAME="Paths.Attributes">Stroke and Fill Attributes</A></H2>
+<PRE>
+  CONST
+    MaxDashPatSize = 16;
+    
+    (* state elements *)
+    fillColPat = 0; strokeColPat = 1; lineWidth = 2; dashPat = 3;
+    capStyle = 4; joinStyle = 5; styleLimit = 6;
+    flatness = 7; font = 8; ctm = 9; clip = 10;
+    strokeAttr = {strokeColPat..styleLimit}; attr = {fillColPat..font}; all = attr + {ctm, clip};
+    
+  TYPE
+    ContextDesc = RECORD
+      ...
+      strokeCol, fillCol: GfxColors.Color;  (* current stroke and fill colors *)
+      strokePat, fillPat: Pattern;  (* current stroke and fill pattern *)
+      lineWidth: REAL;  (* current line and curve width *)
+      dashPatOn, dashPatOff: ARRAY MaxDashPatSize OF REAL;  (* current dash pattern *)
+      dashPatLen: LONGINT;  (* number of valid elements in dash pattern arrays *)
+      dashPhase: REAL;  (* offset into pattern at first dash *)
+      capStyle: CapStyle;  (* line cap style *)
+      joinStyle: JoinStyle;  (* line join style *)
+      styleLimit: REAL;  (* determines area that may be rendered to by styles *)
+      flatness: REAL;  (* current flatness tolerance in device coordinates *)
+    END;
+    
+    State = RECORD END;
+    
+  VAR
+    Black, White, Red, Green, Blue, Cyan, Magenta, Yellow, LGrey, MGrey, DGrey: Color;
+    DefaultCap: CapStyle;
+    DefaultJoin: JoinStyle;
+    
+  PROCEDURE SetStrokeColor(ctxt: Context; color: GfxColors.Color);
+  PROCEDURE SetStrokePattern(ctxt: Context; pat: Pattern);
+  PROCEDURE SetFillColor(ctxt: Context; color: GfxColors.Color);
+  PROCEDURE SetFillPattern(ctxt: Context; pat: Pattern);
+  PROCEDURE SetLineWidth(ctxt: Context; width: REAL);
+  PROCEDURE SetDashPattern(ctxt: Context; VAR on, off: ARRAY OF REAL; len: LONGINT; phase: REAL);
+  PROCEDURE SetCapStyle(ctxt: Context; style: CapStyle);
+  PROCEDURE SetJoinStyle(ctxt: Context; style: JoinStyle);
+  PROCEDURE SetStyleLimit(ctxt: Context; limit: REAL);
+  PROCEDURE SetFlatness(ctxt: Context; flatness: REAL);
+  
+  PROCEDURE Save(ctxt: Context; elems: SET; VAR state: State);
+  PROCEDURE Restore(ctxt: Context; state: State);
+  
+  PROCEDURE NewPattern(ctxt: Context; map: GfxMaps.Map; px, py: REAL): Pattern;
+</PRE>
+<P>
+Context attributes have an effect on how paths are rendered. Whenever they are modified,
+they remain in their new state until they are changed again. It is good practice to save any previous
+value before modifying an attribute and later revert to the previous value unless you are sure that
+the old value will not be needed anymore. If many attributes have to be modified at once, the
+whole graphics state or parts of it can be saved with <EM>Save</EM> and later be
+restored with <EM>Restore</EM>. Note that attributes may only be
+changed as long as no path has been begun. While within a path, attribute values remain
+locked and cannot be changed, except for the current font and flatness values.
+<P>
+The color used for stroking a path or filling its interior can be set with <EM>SetStrokeColor</EM>
+and <EM>SetFillColor</EM>. Gfx maintains two distinct color attributes for stroking and
+filling because it can execute both at once for the same path. Colors are represented as RGB-triples.
+Frequently used colors are exported from Gfx as global variables.
+<P>
+In addition to solid color, a bitmap pattern may be used for stroking and filling paths. The pattern
+must first be instanced from the context with <EM>NewPattern</EM> by specifying
+an image and a pin-point,
+which is the point where the pattern is anchored. For pure alpha images, the current
+stroke and fill colors are used. A NIL pattern turns
+pattern mode off and returns to solid color.
+<P>
+Stroked curves may also be dashed, which means that only some parts of the curve are rendered
+while others are left out according to a repeating pattern. A dash pattern is defined by two
+sequences of numbers. For each dash, the number in the first sequence denotes the length
+of a visible part, whereas the corresponding number in the second sequence denotes the
+length of the following invisible part. Furthermore, a phase
+parameter defines where within the pattern to start when entering a subpath. Dashed curves
+should be turned off again by calling <EM>SetDashPattern</EM> with a pattern
+length of zero rather than with a dash pattern that has zero distance between dashes.
+<P>
+By default curves have a width of one pixel, but the current line width can be changed. Setting
+the line width to zero renders curves with as few pixels as possible, depending on the resolution
+of the rendering device. When line width is significantly over one pixel, the question of how to
+render line caps and line joins arises. Gfx provides the most common ones as predefined constants:
+butt caps (default), round caps, and square caps for line caps and miter
+joins (default), round joins, and bevel joins for line joins. If no precautions are taken, miter joins
+may extend far away from the original corner point. Gfx introduces
+a context attribute called <EM>styleLimit</EM> to counter this effect. A style must not draw
+pixels whose distance from the original curve is larger than <EM>1/2 * lineWidth * styleLimit.</EM>
+Miter joins are replaced by bevel joins if they would extend beyond that limit.
+<P>
+As already mentioned, curved segments are often approximated with straight lines. The
+<EM>flatness</EM> attribute controls the quality of the approximation. Its default value is one,
+making the maximal error tolerated in approximations at most one pixel. Contrary to
+all other attributes, the flatness is measured in device pixels, not in the user coordinate
+system.
+<HR>
+<H2><A NAME="Transformations">Coordinate Systems and Transformations</A></H2>
+As outlined in the previous sections, an application controlling a context may not know on
+which device its output will finally appear. Since pixel resolution usually varies from one
+output device to another, device pixel coordinates are not a suitable means for specifying
+device independent coordinates. Instead, when a context is initialized, a default coordinate
+system is established which has is origin at the lower left corner of the area that can be
+rendered to. The units of the default coordinate system correspond to those of the Oberon
+display, where one unit is approximately 1/91 inch.
+<P>
+Whenever point coordinates are passed to the graphics library, e.g. when drawing path segments,
+the current transformation is applied to them. Initially the current transformation maps a point in
+the default coordinate system to the corresponding point in the coordinate system of the underlying
+output device, but the current transformation can be changed anytime, even within paths.
+Many attributes of the context are also affected by the current transformation, including dash
+pattern, line width, font size and orientation, etc.
+<P>
+The current transformation is represented in the context as a 3-by-2 matrix, so that a point
+<EM>(x, y)</EM> in the current context coordinate system is mapped to a point <EM>(x', y')</EM>
+in the following way:
+<P><EM>
+x' = m00*x + m10*y + m20<BR>
+y' = m01*x + m11*y + m21
+</EM>
+<P>
+This way of representing the current transformation not only allows to arbitrarily scale
+and translate the coordinate system but also to rotate and shear it.
+<P>
+<PRE>
+  TYPE
+    ContextDesc = RECORD
+      ...
+      ctm: GfxMatrix.Matrix;  (* current transformation matrix *)
+      cam: GfxMatrix.Matrix;  (* current attribute matrix *)
+    END;
+  
+  PROCEDURE ResetCTM(ctxt: Context);
+  PROCEDURE SetCTM(ctxt: Context; VAR mat: GfxTrafos.Matrix);
+  PROCEDURE Translate(ctxt: Context; dx, dy: REAL);
+  PROCEDURE Scale(ctxt: Context; sx, sy: REAL);
+  PROCEDURE ScaleAt(ctxt: Context; sx, sy, x, y: REAL);
+  PROCEDURE Rotate(ctxt: Context; sin, cos: REAL);
+  PROCEDURE RotateAt(ctxt: Context; sin, cos, x, y: REAL);
+  PROCEDURE Concat(ctxt: Context; VAR mat: GfxTrafos.Matrix);
+</PRE>
+<P>
+ResetCTM initializes the current transformation matrix (CTM) to its default state, which maps
+points specified in Oberon display units to device coordinates. <EM>SetCTM</EM>
+sets the CTM to a specific value. This should only be used for restoring a value that has temporarily
+been modified, otherwise results are no longer guaranteed to have equal size and orientation
+on all output devices.
+<P>
+The remaining procedures for modifying the CTM all combine their arguments with the CTM
+such that the transformation they describe is applied to a point before all other transformations
+in the CTM are applied to it. Translate moves the origin of the coordinate system by <EM>(dx, dy)</EM>,
+<EM>Scale</EM> scales <EM>x</EM> coordinates by <EM>sx</EM> and <EM>y</EM>
+coordinates by <EM>sy</EM>, <EM>ScaleAt</EM> moves the origin to <EM>(x, y)</EM>
+before scaling and back afterwards, <EM>Rotate</EM> rotates counter-clockwise by
+the angle whose sine and cosine are given, <EM>RotateAt</EM> moves the origin to
+<EM>(x, y)</EM> before rotating and back afterwards, and <EM>Concat</EM> combines
+its argument with the CTM.
+<P>
+While graphical context attributes cannot be changed within a path, the current
+transformation may be modified anytime, even within subpaths. When a path is begun,
+the contents of the CTM are therefore copied into the current attribute matrix (CAM),
+which is used for transforming graphical context attributes
+<HR>
+<H2><A NAME="Text">Text</A></H2>
+<PRE>
+  TYPE
+    ContextDesc = RECORD
+      ...
+      cpx, cpy: REAL;  (* current point *)
+      font: GfxFonts.Font;  (* current font *)
+    END;
+  
+  PROCEDURE SetFont(ctxt: Context; font: GfxFonts.Font);
+  PROCEDURE SetFontName(ctxt: Context; fontname: ARRAY OF CHAR; size: INTEGER);
+  PROCEDURE GetStringWidth(ctxt: Context; str: ARRAY OF CHAR; VAR dx, dy: REAL);
+  
+  PROCEDURE ShowAt(ctxt: Context; x, y: REAL; str: ARRAY OF CHAR);
+  PROCEDURE Show(ctxt: Context; str: ARRAY OF CHAR);
+  
+  PROCEDURE DrawStringAt(ctxt: Context; x, y: REAL; str: ARRAY OF CHAR);
+  PROCEDURE DrawString(ctxt: Context; str: ARRAY OF CHAR);
+</PRE>
+<P>
+SetFont and SetFontName are for changing the current font of the context.
+<P>
+<EM>Show</EM> and <EM>ShowAt</EM> may only be called
+while inside a path. They append character outlines to the current path and advance
+the current point. Character shapes may therefore be stroked or used for clipping,
+but only if the necessary outline font files are installed, otherwise an undefined
+outline path in the form of a rectangle will be used. However, if the mode is set to
+<EM>Fill</EM>, Gfx does not even look at character outlines and uses
+precomputed raster fonts from corresponding raster font files.
+<P>
+<EM>DrawString</EM> and <EM>DrawStringAt</EM> are
+convenience procedures which begin a path in <EMFill</EM> mode, call
+<EM>Show</EM> and <EM>ShowAt</EM>, respectively,
+to display the string, and end the path. They obviously cannot be called while inside
+a path and use the current fill attributes for rendering individual characters.
+<P>
+<EM>GetStringWidth</EM> returns the distance that the current point
+would be moved if the specified string were rendered. <EM>dy</EM> is usually zero
+but can have other values if the current font has been rotated or sheared.
+<P>
+The fact that contexts work in a device independent manner makes it difficult to use
+Oberon raster fonts directly because Oberon raster font files have both their resolution
+and their point size hardcoded into their name (e.g. "Oberon10b.Pr3.Fnt" contains
+raster data for the Oberon family in bold style at size ten for use on a 300 dpi printer).
+Even if the extension is replaced by the one corresponding to the current output device,
+the problem remains that the point size may not be the appropriate one because the
+CTM might have been scaled. An additional abstraction for representing fonts is therefore
+needed, which is encapsulated in module GfxFonts.
+<P>
+<PRE>
+  DEFINITION GfxFonts;
+  
+  TYPE
+    Font = POINTER TO FontDesc;
+    FontDesc = RECORD
+      name: FontName;  (* e.g. "Oberon-Bold" *)
+      ptsize: INTEGER;	(* point size *)
+      mat: GfxMatrix.Matrix;  (* font matrix *)
+      xmin, ymin, xmax, ymax: INTEGER;  (* union of character bounding boxes *)
+      rfont: Fonts.Font;  (* Oberon raster font (if available) *)
+      niceMaps: BOOLEAN;  (* true if returned maps look better than just filled outlines *)
+    END;
+  
+  VAR
+    Default: Font;
+  
+  PROCEDURE Open(name: ARRAY OF CHAR; ptsize: INTEGER; mat: GfxMatrix.Matrix): Font;
+  PROCEDURE OpenSize(name: ARRAY OF CHAR; ptsize: INTEGER): Font;
+  PROCEDURE GetWidth(font: Font; ch: CHAR; VAR dx, dy: REAL);
+  PROCEDURE GetMap(font: Font; ch: CHAR; VAR x, y, dx, dy: REAL; VAR map: Images.Image);
+  PROCEDURE GetOutline(font: Font; ch: CHAR; x, y: REAL; path: GfxPaths.Path);
+  PROCEDURE GetStringWidth(font: Font; str: ARRAY OF CHAR; VAR dx, dy: REAL);
+</PRE>
+<P>
+Fonts are defined by their name, which consists of family and style (e.g. "Oberon-Bold"),
+a point size, and an instance matrix. The instance matrix is usually an identity matrix scaled to
+the resolution of a specific output device. The Oberon display is represented by
+an identity matrix, in which case OpenSize can be used. However, other affine
+transformations are possible as well, resulting in arbitrarily scaled, rotated, and
+sheared characters. Translations are ignored.
+<P>
+Once a font has been opened, image bitmaps and outline paths may be retrieved for single
+characters. Since devices such as the Oberon display include optimized code for rendering
+Oberon raster fonts, the <EM>rfont</EM> field contains a link to the corresponding Oberon font if a
+suitable one exists.
+<P>
+GfxFonts is able to read Oberon raster font and files and metafonts (containing outlines).
+Besides, a plugin mechanism for extending the number of known font formats is supported.
+Currently there is a plugin called GfxOType for using TrueType fonts within Gfx, which
+depends on the OpenType package for Oberon System 3, and a plugin called GfxPKFonts
+for accessing TeX's pk fonts. Plugins must be registered in Oberon.Text, as described in
+Gfx.Tool.
+<HR>
+<H2><A NAME="Images">Images</A></H2>
+<PRE>
+  PROCEDURE DrawImageAt(ctxt: Context; x, y: REAL; img: Images.Image; VAR filter: GfxImages.Filter);
+</PRE>
+<P>
+Images are rendered with their lower left corner at a given point with
+<EM>DrawImageAt</EM>.
+The CTM is applied to the image. If the CTM has not been modified by the
+programmer, one image pixel corresponds to one display pixel, i.e. images are assumed
+to be in default Oberon display units. If the image has to be scaled or rotated, the
+quality and speed of the transformation are controlled with a filter parameter.
+<HR>
+<H2><A NAME="Clipping">Clipping</A></H2>
+<PRE>
+TYPE
+  ClipArea = POINTER TO ClipAreaDesc;
+  ClipAreaDesc = RECORD END;
+  
+  PROCEDURE ResetClip(ctxt: Context);
+  PROCEDURE GetClipRect(ctxt: Context; VAR llx, lly, urx, ury: REAL);
+  PROCEDURE GetClip(ctxt: Context): ClipArea;
+  PROCEDURE SetClip(ctxt: Context; clip: ClipArea);
+</PRE>
+<P>
+Each context manages a clip area. Output is restricted to the interior of this area,
+i.e. all attempts to render outside its bounds are ignored. If the <EM>Clip</EM>
+element is included in the mode when beginning a path, the current clip area will be intersected
+with the interior of the path when the path ends. All subsequent rendering operations then only
+affect the interior of the new clip area until the clip area is reset or a previously saved area is restored.
+<HR>
+<H2><A NAME="Raster">Raster Device Contexts</A></H2>
+<PRE>
+  DEFINITION GfxRaster;
+  
+  TYPE
+    Region = POINTER TO RegionDesc;
+    RegionDesc = RECORD (GfxRegions.RegionDesc)
+      ..
+    END;
+    
+    Context = POINTER TO ContextDesc;
+    ContextDesc = RECORD (GfxContexts.ContextDesc)
+      clipReg: Region;  (* interior of clip path *)
+      pathReg: GfxRegions.Region;  (* interior of current path *)
+      dot: PROCEDURE(rc: Context; x, y: LONGINT);  (* current dot procedure *)
+      rect: PROCEDURE(rc: Context; lx, ly, rx, uy: LONGINT);  (* current rect procedure *)
+      ...
+    END;
+</PRE>
+<P>
+Raster contexts are a context extension designed for dealing with raster devices. Their
+main property is that they perform scan conversion of path elements and call their <EM>dot</EM>
+or <EM>rect</EM> method to render homogeneous areas. Several modules rendering to
+concrete devices are based on GfxRaster contexts: GfxDisplay for rendering to the Oberon
+display, GfxBuffer for rendering into image bitmaps, GfxPrinter for using the Oberon printer.
+<HR>
+<H2><A NAME="Postscript">PostScript Contexts</A></H2>
+Even if certain Oberon printer drivers are capable of producing PostScript descriptions,
+the results are often not satisfactory, not necessarily because of quality but because huge
+files are created which take a long time to transmit and print. Module GfxPS therefore
+implements a special context extension that maps context methods to corresponding
+PostScript operations and writes them to a file.
+<P>
+<PRE>
+  DEFINITION GfxPS;
+  
+  TYPE
+    Context = POINTER TO ContextDesc;
+    ContextDesc = RECORD (GfxContexts.ContextDesc)
+      psfile: Files.File;  (* output file *)
+      out: Files.Rider;  (* rider on output file *)
+      width, height: REAL;  (* paper size in default coordinates *)
+      left, bot, right, top: REAL;  (* borders in default coordinates *)
+      level2, landscape, eps: BOOLEAN;
+      res: LONGINT;  (* device resolution *)
+    END;
+    
+  PROCEDURE Init(psc: Context; level2, landscape: BOOLEAN; width, height, left, right, bot, top: REAL; res: LONGINT);
+  PROCEDURE InitEPS(psc: Context; level2: BOOLEAN; res: LONGINT);
+  PROCEDURE Open(psc: Context; file: Files.File);
+  PROCEDURE ShowPage(psc: Context);
+  PROCEDURE Close(psc: Context);
+</PRE>
+<P>
+The difference between <EM>Init</EM> and <EM>InitEPS</EM> is that
+<EM>InitEPS</EM> initializes the context such that <EM>ShowPage</EM>
+has no effect and that no document structuring comments referring to page numbering are
+produced. In addition, <EM>InitEPS</EM> does not restrict output to the given
+media size and does not provide a landscape option.
+<P>
+Once initialized, the context can be opened on a supplied file with <EM>Open</EM>.
+A prolog (GfxProlog.ps) containing several procedures and data structures common to all
+produced output files is first written to the file. After opening a context, all context
+procedures are converted to PostScript code and appended to the file.
+<P>
+When printing whole documents, <EM>ShowPage</EM> should be called whenever
+a page has been fully rendered, resulting in some code and comments being appended to the file
+and a new blank page being readied for output.
+<P>
+Once all pages have been generated, <EM>Close</EM> must be called to add some
+finishing code and comments and to register the file.
+
+<HR>
+<FONT SIZE=-1><EM>Erich Oswald Mar 2000</EM></FONT>
+
+</BODY>
+
+</HTML>

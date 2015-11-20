@@ -1,0 +1,89 @@
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/lecturers/a2/!svn/ver/5638/trunk/UnixAos/boot
+END
+Makefile.darwin
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/lecturers/a2/!svn/ver/5433/trunk/UnixAos/boot/Makefile.darwin
+END
+Threads.h
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/lecturers/a2/!svn/ver/5299/trunk/UnixAos/boot/Threads.h
+END
+aos.linux
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/lecturers/a2/!svn/ver/5638/trunk/UnixAos/boot/aos.linux
+END
+Makefile.solaris.amd64
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/lecturers/a2/!svn/ver/5638/trunk/UnixAos/boot/Makefile.solaris.amd64
+END
+aos.c
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/lecturers/a2/!svn/ver/5436/trunk/UnixAos/boot/aos.c
+END
+Makefile.linux.amd64
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/lecturers/a2/!svn/ver/5638/trunk/UnixAos/boot/Makefile.linux.amd64
+END
+aos.darwin
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/lecturers/a2/!svn/ver/5433/trunk/UnixAos/boot/aos.darwin
+END
+Threads.solaris.c
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/lecturers/a2/!svn/ver/5299/trunk/UnixAos/boot/Threads.solaris.c
+END
+Makefile.solaris
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/lecturers/a2/!svn/ver/5433/trunk/UnixAos/boot/Makefile.solaris
+END
+Threads.linux.c
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/lecturers/a2/!svn/ver/4177/trunk/UnixAos/boot/Threads.linux.c
+END
+Makefile.darwin.amd64
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/lecturers/a2/!svn/ver/5638/trunk/UnixAos/boot/Makefile.darwin.amd64
+END
+Makefile.linux
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/lecturers/a2/!svn/ver/5638/trunk/UnixAos/boot/Makefile.linux
+END
+aos.solaris
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/lecturers/a2/!svn/ver/5638/trunk/UnixAos/boot/aos.solaris
+END
+Threads.darwin.c
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/lecturers/a2/!svn/ver/4177/trunk/UnixAos/boot/Threads.darwin.c
+END

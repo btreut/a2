@@ -1,0 +1,26 @@
+THE REALTIME FRACTAL-VOXEL RAYTRACER
+
+This is the only one that has ever been made.
+
+To start the raytracer, click on srRender.Open ~
+
+It is not easy to learn to fly around in this raytraced toy world. The controls are tricky. 
+Left-mouse down in the center of either window. Try to stay near the center. Mouseup to stop speeding up and coast.
+
+Be patient and you will pick it up. Here are some of the key commands:
+
+[		antifisheye
+]		fisheye
++		fly faster
+-		fly slower
+h		return camera to intial location ("home")
+SPACE	halt camera flight
+t		toggle trail of voxel-rasterized spherelets to mark camera path. toggle this on, fly, toggle it off, turn around and look for your path
+c		INC(sierpinski lever of detail)
+v		DEC(sierpinski level of detail)
+q		quit demo
+
+If you have any questions or comments, contact soren.renner@gmail.com or skype soren.renner.
+
+The tracer is parallelized. The demo uses 108 (9*12) threads and thus can take advantage of that many CPU cores. If you have more than 108 cores you can adjust the constants TILEi and TILEj in srBase.Mod, and also please send similar hardware to me at 1409 W. Greenleaf, Chicago, IL 60626. This is a serious request.
+	

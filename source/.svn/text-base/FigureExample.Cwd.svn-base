@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<FormWindow name="FigureExample" loader="WMComponents.FormWindowGen" l="-76" t="111" r="324" b="511" flags="{0..2,12}">
+	<Form generator="WMComponents.NewForm">
+		<Properties>
+			<UID loader="WMProperties.NewString">form</UID>
+			<Bounds loader="WMProperties.NewRectangle">
+				<Left>0</Left>
+				<Top>0</Top>
+				<Width>400</Width>
+				<Height>400</Height>
+			</Bounds>
+			<EditMode loader="WMProperties.NewBoolean">false</EditMode>
+		</Properties>
+
+		<Panel generator="WMStandardComponents.GenPanel">
+			<Properties>
+				<Bounds loader="WMProperties.NewRectangle">
+					<Left>0</Left>
+					<Top>0</Top>
+					<Width>400</Width>
+					<Height>400</Height>
+				</Bounds>
+				<FillColor loader="WMProperties.NewColor">00FF00FF</FillColor>
+				<EditMode loader="WMProperties.NewBoolean">false</EditMode>
+			</Properties>
+
+			<Line generator="WMFigures.GenLine">
+				<Properties>
+					<Bounds loader="WMProperties.NewRectangle">
+						<Left>46</Left>
+						<Top>16</Top>
+						<Width>58</Width>
+						<Height>188</Height>
+					</Bounds>
+					<EditMode loader="WMProperties.NewBoolean">false</EditMode>
+					<Point0 loader="WMProperties.NewPoint">
+						<X>50</X>
+						<Y>60</Y>
+					</Point0>
+					<Point1 loader="WMProperties.NewPoint">
+						<X>100</X>
+						<Y>200</Y>
+					</Point1>
+					<Point2 loader="WMProperties.NewPoint">
+						<X>80</X>
+						<Y>20</Y>
+					</Point2>
+				</Properties>
+			</Line>
+
+			<Rectangle generator="WMFigures.GenRectangle">
+				<Properties>
+					<Bounds loader="WMProperties.NewRectangle">
+						<Left>26</Left>
+						<Top>36</Top>
+						<Width>98</Width>
+						<Height>168</Height>
+					</Bounds>
+					<EditMode loader="WMProperties.NewBoolean">false</EditMode>
+					<Point0 loader="WMProperties.NewPoint">
+						<X>30</X>
+						<Y>40</Y>
+					</Point0>
+					<Point1 loader="WMProperties.NewPoint">
+						<X>120</X>
+						<Y>200</Y>
+					</Point1>
+				</Properties>
+			</Rectangle>
+
+			<Circle generator="WMFigures.GenCircle">
+				<Properties>
+					<Bounds loader="WMProperties.NewRectangle">
+						<Left>26</Left>
+						<Top>26</Top>
+						<Width>148</Width>
+						<Height>148</Height>
+					</Bounds>
+					<EditMode loader="WMProperties.NewBoolean">false</EditMode>
+					<color loader="WMProperties.NewColor">FFFF00FF</color>
+					<Point0 loader="WMProperties.NewPoint">
+						<X>100</X>
+						<Y>100</Y>
+					</Point0>
+					<Point1 loader="WMProperties.NewPoint">
+						<X>150</X>
+						<Y>150</Y>
+					</Point1>
+				</Properties>
+			</Circle>
+
+			<Spline generator="WMFigures.GenSpline">
+				<Properties>
+					<Bounds loader="WMProperties.NewRectangle">
+						<Left>1</Left>
+						<Top>-5</Top>
+						<Width>33</Width>
+						<Height>39</Height>
+					</Bounds>
+					<EditMode loader="WMProperties.NewBoolean">false</EditMode>
+					<color loader="WMProperties.NewColor">FF0000FF</color>
+					<Point0 loader="WMProperties.NewPoint">
+						<X>5</X>
+						<Y>20</Y>
+					</Point0>
+					<Point1 loader="WMProperties.NewPoint">
+						<X>20</X>
+						<Y>0</Y>
+					</Point1>
+					<Point2 loader="WMProperties.NewPoint">
+						<X>20</X>
+						<Y>20</Y>
+					</Point2>
+					<Point3 loader="WMProperties.NewPoint">
+						<X>30</X>
+						<Y>30</Y>
+					</Point3>
+				</Properties>
+			</Spline>
+
+			<Rectangle generator="WMFigures.GenRectangle">
+				<Properties>
+					<Bounds loader="WMProperties.NewRectangle">
+						<Left>56</Left>
+						<Top>76</Top>
+						<Width>58</Width>
+						<Height>78</Height>
+					</Bounds>
+					<EditMode loader="WMProperties.NewBoolean">false</EditMode>
+					<color loader="WMProperties.NewColor">0000FFFF</color>
+					<reshape loader="WMProperties.NewBoolean">false</reshape>
+					<Point0 loader="WMProperties.NewPoint">
+						<X>60</X>
+						<Y>80</Y>
+					</Point0>
+					<Point1 loader="WMProperties.NewPoint">
+						<X>110</X>
+						<Y>150</Y>
+					</Point1>
+				</Properties>
+			</Rectangle>
+
+			<Line generator="WMFigures.GenLine">
+				<Properties>
+					<Bounds loader="WMProperties.NewRectangle">
+						<Left>116</Left>
+						<Top>126</Top>
+						<Width>78</Width>
+						<Height>88</Height>
+					</Bounds>
+					<EditMode loader="WMProperties.NewBoolean">false</EditMode>
+					<color loader="WMProperties.NewColor">FF0000FF</color>
+					<Point0 loader="WMProperties.NewPoint">
+						<X>120</X>
+						<Y>130</Y>
+					</Point0>
+					<Point1 loader="WMProperties.NewPoint">
+						<X>150</X>
+						<Y>210</Y>
+					</Point1>
+					<Point2 loader="WMProperties.NewPoint">
+						<X>190</X>
+						<Y>140</Y>
+					</Point2>
+				</Properties>
+			</Line>
+		</Panel>
+	</Form>
+</FormWindow>

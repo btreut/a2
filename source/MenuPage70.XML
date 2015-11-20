@@ -1,0 +1,156 @@
+<Standard:Panel caption=" Inspect ">
+	<Properties>	<FillColor>0</FillColor> </Properties>
+	<Standard:Panel>
+		<Properties>
+			<Alignment>1</Alignment>
+			<Bounds> <Width>120</Width>	</Bounds>
+		</Properties>
+
+		<Standard:Button>
+			<Properties>
+				<Caption>Performance</Caption>
+				<Alignment>2</Alignment>
+				<OnClickHandler>X Run</OnClickHandler>
+			</Properties>
+
+			<Standard:SystemCommand>
+				<Properties>
+					<ID>X</ID>
+					<CommandString>WMPerfMon.Open</CommandString>
+				</Properties>
+			</Standard:SystemCommand>
+		</Standard:Button>
+
+		<Standard:Button>
+			<Properties>
+				<Caption>Objects</Caption>
+				<Alignment>2</Alignment>
+				<OnClickHandler>X Run</OnClickHandler>
+			</Properties>
+
+			<Standard:SystemCommand>
+				<Properties>
+					<ID>X</ID>
+					<CommandString>WMObjectTracker.Open</CommandString>
+				</Properties>
+			</Standard:SystemCommand>
+		</Standard:Button>
+	</Standard:Panel>
+
+<!-- Second column -->
+	<Standard:Panel>
+		<Properties>
+			<Alignment>1</Alignment>
+			<Bounds> <Width>120</Width> </Bounds>
+		</Properties>
+
+		<Standard:Button>
+			<Properties>
+				<Caption>Profiler</Caption>
+				<Alignment>2</Alignment>
+				<OnClickHandler>X Run</OnClickHandler>
+			</Properties>
+
+			<Standard:SystemCommand>
+				<Properties>
+					<ID>X</ID>
+					<CommandString>WMProfiler.Open</CommandString>
+				</Properties>
+			</Standard:SystemCommand>
+		</Standard:Button>
+
+		<Standard:Button>
+			<Properties>
+				<Caption>TCPTraffic</Caption>
+				<Alignment>2</Alignment>
+				<OnClickHandler>X Run</OnClickHandler>
+			</Properties>
+
+			<Standard:SystemCommand>
+				<Properties>
+					<ID>X</ID>
+					<CommandString>WMTCPTracker.Open</CommandString>
+				</Properties>
+			</Standard:SystemCommand>
+		</Standard:Button>
+	</Standard:Panel>
+
+<!-- 3rd column -->
+	<Standard:Panel>
+		<Properties>
+			<Alignment>1</Alignment>
+			<Bounds> <Width>120</Width> </Bounds>
+		</Properties>
+
+		<Standard:Button>
+			<Properties>
+				<Caption>Events</Caption>
+				<Alignment>2</Alignment>
+				<OnClickHandler>X Run</OnClickHandler>
+			</Properties>
+
+			<Standard:SystemCommand>
+				<Properties>
+					<ID>X</ID>
+					<CommandString>WMEventLog.Open</CommandString>
+				</Properties>
+			</Standard:SystemCommand>
+		</Standard:Button>
+
+		<Standard:Button>
+			<Properties>
+				<Caption>USBViewer</Caption>
+				<Alignment>2</Alignment>
+				<OnClickHandler>X Run</OnClickHandler>
+			</Properties>
+
+			<Standard:SystemCommand>
+				<Properties>
+					<ID>X</ID>
+					<CommandString>WMUsbInfo.Open</CommandString>
+				</Properties>
+			</Standard:SystemCommand>
+		</Standard:Button>
+	</Standard:Panel>
+
+<!-- 4th column -->
+	<Standard:Panel>
+		<Properties>
+			<Alignment>1</Alignment>
+			<Bounds>
+				<Width>120</Width>
+			</Bounds>
+		</Properties>
+
+		<Standard:Button>
+			<Properties>
+				<Caption>Components</Caption>
+				<Alignment>2</Alignment>
+				<OnClickHandler>X Run</OnClickHandler>
+			</Properties>
+
+			<Standard:SystemCommand>
+				<Properties>
+					<ID>X</ID>
+					<CommandString>WMInspector.Open</CommandString>
+				</Properties>
+			</Standard:SystemCommand>
+		</Standard:Button>
+
+		<Standard:Button>
+			<Properties>
+				<Caption>Repositories</Caption>
+				<Alignment>2</Alignment>
+				<OnClickHandler>X Run</OnClickHandler>
+			</Properties>
+
+			<Standard:SystemCommand>
+				<Properties>
+					<ID>X</ID>
+					<CommandString>WMRepositories.Open</CommandString>
+				</Properties>
+			</Standard:SystemCommand>
+		</Standard:Button>
+	</Standard:Panel>
+
+</Standard:Panel>

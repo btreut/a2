@@ -1,0 +1,12 @@
+<HTML>
+<HEAD><TITLE>Authorization</TITLE></HEAD>
+<BODY>
+<H1>Authorization required for this Document</H1>
+The requested document is protected. Please fill out the following authorization form to access it.<P>
+<FORM METHOD="Authorization"ACTION="" ><CENTER>
+Username<TAB><INPUT TYPE="TEXT" NAME="Username" SIZE=32><BR>
+Password <TAB><INPUT TYPE="PASSWORD" NAME="Password" SIZE=32><P>
+<INPUT TYPE="SUBMIT" VALUE="Access Document">
+</CENTER></FORM>
+</BODY>
+</HTML>

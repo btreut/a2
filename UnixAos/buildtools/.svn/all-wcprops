@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/lecturers/a2/!svn/ver/5916/trunk/UnixAos/buildtools
+END
+Solaris.I386.Tool
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/lecturers/a2/!svn/ver/5639/trunk/UnixAos/buildtools/Solaris.I386.Tool
+END
+Solaris.AMD64.Tool
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/lecturers/a2/!svn/ver/5639/trunk/UnixAos/buildtools/Solaris.AMD64.Tool
+END
+UnixAosBuild.Tool
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/lecturers/a2/!svn/ver/5639/trunk/UnixAos/buildtools/UnixAosBuild.Tool
+END
+Linux.I386.Tool
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/lecturers/a2/!svn/ver/5639/trunk/UnixAos/buildtools/Linux.I386.Tool
+END
+Linux.AMD64.Tool
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/lecturers/a2/!svn/ver/5639/trunk/UnixAos/buildtools/Linux.AMD64.Tool
+END
+Darwin.I386.Tool
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/lecturers/a2/!svn/ver/5639/trunk/UnixAos/buildtools/Darwin.I386.Tool
+END
+Darwin.AMD64.Tool
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/lecturers/a2/!svn/ver/5916/trunk/UnixAos/buildtools/Darwin.AMD64.Tool
+END

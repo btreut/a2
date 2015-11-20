@@ -1,0 +1,12 @@
+.comment {
+  color: #606060;
+  font-family:arial;
+  font-size: 14px;
+}
+
+.keyword {
+  color: #0;
+  font-family:arial;
+  font-size: 24px;
+  
+}

@@ -1,0 +1,61 @@
+config.version = "8"
+virtualHW.version = "6"
+scsi0.present = "TRUE"
+memsize = "256"
+ide0:0.present = "TRUE"
+ide0:0.fileName = "AosVM.vmdk"
+ide1:0.present = "TRUE"
+ide1:0.fileName = "auto detect"
+ide1:0.deviceType = "cdrom-raw"
+floppy0.autodetect = "TRUE"
+sound.present = "FALSE"
+sound.fileName = "-1"
+sound.autodetect = "TRUE"
+svga.autodetect = "TRUE"
+pciBridge0.present = "TRUE"
+mks.keyboardFilter = "allow"
+displayName = "AosVM"
+guestOS = "win95"
+nvram = "Windows 95.nvram"
+deploymentPlatform = "windows"
+virtualHW.productCompatibility = "hosted"
+tools.upgrade.policy = "useGlobal"
+
+ide1:0.autodetect = "TRUE"
+floppy0.fileName = "A:"
+extendedConfigFile = "Aos.vmxf"
+
+uuid.location = "56 4d 3f b0 9e 6b 53 e0-36 37 22 e8 5a 4a 6e ba"
+uuid.bios = "56 4d 3f b0 9e 6b 53 e0-36 37 22 e8 5a 4a 6e ba"
+ide0:0.redo = ""
+pciBridge0.pciSlotNumber = "17"
+scsi0.pciSlotNumber = "16"
+sound.pciSlotNumber = "-1"
+
+tools.remindInstall = "TRUE"
+
+floppy0.present = "FALSE"
+serial0.present = "TRUE"
+serial0.fileType = "file"
+serial0.fileName = "serialport.txt"
+
+ide0:1.present = "TRUE"
+ide0:1.fileName = "AosVMDisk2.vmdk"
+ide1:1.present = "TRUE"
+ide1:1.fileName = "AosVMDisk3.vmdk"
+
+ide0:1.redo = ""
+ide1:1.redo = ""
+
+tools.syncTime = "FALSE"
+
+usb.present = "TRUE"
+usb.generic.autoconnect = "FALSE"
+ehci.present = "TRUE"
+
+ehci.pciSlotNumber = "32"
+
+checkpoint.vmState = ""
+
+usb.autoConnect.device0 = ""
+!numvcpus = "2"

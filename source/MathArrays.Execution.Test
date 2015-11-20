@@ -1,0 +1,820 @@
+# Math Array Exeuction Test Suite
+
+positive: DIM and LEN
+
+	MODULE Test;
+	VAR
+		v1: ARRAY [*] OF INTEGER;
+		v2: ARRAY [*,*] OF INTEGER;
+		v3: ARRAY [*,*,*] OF INTEGER;
+		t1,t2,t3: ARRAY [?] OF INTEGER;
+		s1: ARRAY [3] OF INTEGER;
+		s2: ARRAY [3,4] OF INTEGER;
+		s3: ARRAY [3,4,5] OF INTEGER;
+		h2: ARRAY [*,4] OF INTEGER;
+		h3: ARRAY [*,*,5] OF INTEGER;
+	BEGIN
+		NEW(v1,3); NEW(v2,3,4); NEW(v3,3,4,5);
+		NEW(t1,3); NEW(t2,3,4); NEW(t3,3,4,5);
+		NEW(h2,3); NEW(h3,3,4);
+		ASSERT(DIM(v1)=1);	ASSERT(DIM(v2)=2); 	ASSERT(DIM(v3)=3);
+		ASSERT(DIM(t1)=1);	ASSERT(DIM(t2)=2); ASSERT(DIM(t3)=3);
+		ASSERT(DIM(s1)=1);	ASSERT(DIM(s2)=2);	ASSERT(DIM(s3)=3);
+		ASSERT(DIM(h2)=2); ASSERT(DIM(h3)=3);
+		ASSERT(LEN(v1,0)=3); 
+		ASSERT(LEN(v2,0)=3); 	ASSERT(LEN(v2,1)=4); 	
+		ASSERT(LEN(v3,0)=3);		ASSERT(LEN(v3,1)=4); 	ASSERT(LEN(v3,2)=5);
+		ASSERT(LEN(t1,0)=3); 
+		ASSERT(LEN(t2,0)=3); 	ASSERT(LEN(t2,1)=4); 	
+		ASSERT(LEN(t3,0)=3);		ASSERT(LEN(t3,1)=4); 	ASSERT(LEN(t3,2)=5);
+		ASSERT(LEN(s1,0)=3); 
+		ASSERT(LEN(s2,0)=3); 	ASSERT(LEN(s2,1)=4); 	
+		ASSERT(LEN(s3,0)=3);		ASSERT(LEN(s3,1)=4); 	ASSERT(LEN(s3,2)=5);
+		ASSERT(LEN(h2,0)=3); ASSERT(LEN(h2,1)=4);
+		ASSERT(LEN(h3,0)=3); ASSERT(LEN(h3,1)=4); ASSERT(LEN(h3,2)=5);
+	END Test.
+
+positive: assignment and equality, dynamic arrays
+	MODULE Test;
+	VAR
+		v1: ARRAY [*] OF INTEGER;
+		v2: ARRAY [*,*] OF INTEGER;
+		v3: ARRAY [*,*,*] OF INTEGER;
+	BEGIN
+		v1 := [1,2,3];
+		v2 := [[1,2,3],[4,5,6],[7,8,9]];
+		v3 := [
+				[[1,2,3],[4,5,6],[7,8,9]],
+				[[11,12,13],[14,15,16],[17,18,19]]
+				];
+		ASSERT(v1=[1,2,3]);
+		ASSERT(v2=[[1,2,3],[4,5,6],[7,8,9]]);
+		ASSERT(v3=[
+				[[1,2,3],[4,5,6],[7,8,9]],
+				[[11,12,13],[14,15,16],[17,18,19]]
+				]);
+	END Test.
+	
+negative: assignment and equality, one dimensional dynamic arrays
+
+	MODULE Test;
+	VAR
+		v1: ARRAY [*] OF INTEGER;
+	BEGIN
+		v1 := [1,2,3];
+		ASSERT(v1=[1,2,4]);
+	END Test.
+
+negative: assignment and equality, two dimensional dynamic arrays
+
+	MODULE Test;
+	VAR
+		v2: ARRAY [*,*] OF INTEGER;
+	BEGIN
+		v2 := [[1,2,3],[4,5,6],[7,8,9]];
+		ASSERT(v2=[[1,2,3],[40,5,6],[7,8,9]]);
+	END Test.
+	
+positive: assignment and equality, tensor
+	MODULE Test;
+	VAR
+		v1: ARRAY [?] OF INTEGER;
+		v2: ARRAY [?] OF INTEGER;
+		v3: ARRAY [?] OF INTEGER;
+	BEGIN
+		v1 := [1,2,3];
+		v2 := [[1,2,3],[4,5,6],[7,8,9]];
+		v3 := [
+				[[1,2,3],[4,5,6],[7,8,9]],
+				[[11,12,13],[14,15,16],[17,18,19]]
+				];
+		ASSERT(v1=[1,2,3]);
+		ASSERT(v2=[[1,2,3],[4,5,6],[7,8,9]]);
+		ASSERT(v3=[
+				[[1,2,3],[4,5,6],[7,8,9]],
+				[[11,12,13],[14,15,16],[17,18,19]]
+				]);
+	END Test.
+	
+negative: assignment and equality, one dimensional tensor
+
+	MODULE Test;
+	VAR
+		v1: ARRAY [?] OF INTEGER;
+	BEGIN
+		v1 := [1,2,3];
+		ASSERT(v1=[1,2,4]);
+	END Test.
+
+negative: assignment and equality, two dimensional tensor
+
+	MODULE Test;
+	VAR
+		v2: ARRAY [?] OF INTEGER;
+	BEGIN
+		v2 := [[1,2,3],[4,5,6],[7,8,9]];
+		ASSERT(v2=[[1,2,3],[40,5,6],[7,8,9]]);
+	END Test.
+
+positive: initialization of math arrays during module initialization and during allocation
+
+	MODULE Test;
+	TYPE
+		Record = RECORD
+			v: ARRAY [*] OF INTEGER;
+			r: RECORD
+				v: ARRAY [*] OF INTEGER
+			END;
+			a: ARRAY 2 OF RECORD
+				v: ARRAY [*] OF INTEGER
+			END;
+		END;
+		Pointer= POINTER TO Record;
+
+	VAR
+		v: ARRAY [*] OF INTEGER;
+		r: Record;
+		p: Pointer;
+	BEGIN
+		v := [1,2,3];  
+		r.v := [1,2,3]; ASSERT(r.v = v);
+		r.r.v := [1,2,3]; ASSERT( r.r.v = v);
+		r.a[1].v := [1,2,3]; ASSERT(r.a[1].v = v);
+		NEW(p);
+		p.v := [1,2,3]; ASSERT(p.v = v);
+		p.r.v := [1,2,3]; ASSERT( p.r.v = v);
+		p.a[1].v := [1,2,3]; ASSERT(p.a[1].v = v);
+	END Test.
+	
+positive: test driver 
+
+	MODULE Driver;
+	IMPORT Random,Debugging;
+	VAR gen: Random.Generator;
+
+		PROCEDURE FillS0(VAR a: ARRAY [?] OF SHORTINT; base: SHORTINT);
+		VAR i: SHORTINT;
+		BEGIN
+			IF DIM(a) = 1 THEN
+				FOR i := 0 TO SHORTINT(LEN(a,0)-1) DO a[i] := 10*base+i END;
+			ELSE
+				FOR i := 0 TO SHORTINT(LEN(a,0)-1) DO FillS0(a[i,?],10*base+i) END;
+			END;
+		END FillS0;
+
+		PROCEDURE FillS*(VAR a: ARRAY [?] OF SHORTINT);
+		BEGIN FillS0(a,0);
+		END FillS;
+
+		PROCEDURE TestFillS0*(CONST a: ARRAY [?] OF SHORTINT; base: SHORTINT);
+		VAR i: SHORTINT;
+		BEGIN
+			IF DIM(a) = 1 THEN
+				FOR i := 0 TO SHORTINT(LEN(a,0)-1) DO ASSERT(a[i] = 10*base+i) END;
+			ELSE
+				FOR i := 0 TO SHORTINT(LEN(a,0)-1) DO TestFillS0(a[i,?],10*base+i) END;
+			END;
+		END TestFillS0;
+
+		PROCEDURE TestS1*(CONST a: ARRAY [*] OF SHORTINT; r: RANGE);
+		VAR i: LONGINT;
+		BEGIN
+		 	i := FIRST(r); WHILE i <= LAST(r) DO
+		 		ASSERT(a[(i-FIRST(r)) DIV STEP(r)]=SHORTINT(i));
+		 		INC(i,STEP(r));
+		 	END;
+		END TestS1;
+
+		PROCEDURE TestS2*(CONST a: ARRAY [*,*] OF SHORTINT; r1, r2: RANGE);
+		VAR i,j: LONGINT;
+		BEGIN
+		 	i := FIRST(r1); WHILE i <= LAST(r1) DO
+		 	j := FIRST(r2); WHILE j <= LAST(r2) DO
+		 		ASSERT(a[(i-FIRST(r1)) DIV STEP(r1),(j-FIRST(r2)) DIV STEP(r2)]=SHORTINT(10*i+j));
+		 	INC(j,STEP(r2)) END;
+		 	INC(i,STEP(r1)) END;
+		END TestS2;
+
+		PROCEDURE TestS3*(CONST a: ARRAY [*,*,*] OF SHORTINT; r1, r2, r3: RANGE);
+		VAR i,j,k: LONGINT;
+		BEGIN
+		 	i := FIRST(r1); WHILE i <= LAST(r1) DO
+		 	j := FIRST(r2); WHILE j <= LAST(r2) DO
+		 	k := FIRST(r3); WHILE k <= LAST(r3) DO
+		 		ASSERT(a[(i-FIRST(r1)) DIV STEP(r1),(j-FIRST(r2)) DIV STEP(r2),(k-FIRST(r3)) DIV STEP(r3)]=SHORTINT(100*i+10*j+k));
+		 	INC(k,STEP(r3)) END;
+		 	INC(j,STEP(r2)) END;
+		 	INC(i,STEP(r1)) END;
+		END TestS3;
+
+		PROCEDURE TestFillS*(CONST a: ARRAY [?] OF SHORTINT);
+		BEGIN
+			TestFillS0(a,0)
+		END TestFillS;
+
+		PROCEDURE RandomS*(VAR a: ARRAY [?] OF SHORTINT);
+		VAR i: SHORTINT;
+		BEGIN
+			IF DIM(a) = 1 THEN
+				FOR i := 0 TO SHORTINT(LEN(a,0)-1) DO a[i] := SHORTINT(gen.Dice(1000)) END;
+			ELSE
+				FOR i := 0 TO SHORTINT(LEN(a,0)-1) DO RandomS(a[i,?]) END;
+			END;
+		END RandomS;
+
+		PROCEDURE FillI0(VAR a: ARRAY [?] OF INTEGER; base: INTEGER);
+		VAR i: INTEGER;
+		BEGIN
+			IF DIM(a) = 1 THEN
+				FOR i := 0 TO INTEGER(LEN(a,0)-1) DO a[i] := 10*base+i END;
+			ELSE
+				FOR i := 0 TO INTEGER(LEN(a,0)-1) DO FillI0(a[i,?],10*base+i) END;
+			END;
+		END FillI0;
+
+		PROCEDURE FillI*(VAR a: ARRAY [?] OF INTEGER);
+		BEGIN FillI0(a,0);
+		END FillI;
+
+		PROCEDURE TestFillI0*(CONST a: ARRAY [?] OF INTEGER; base: INTEGER);
+		VAR i: INTEGER;
+		BEGIN
+			IF DIM(a) = 1 THEN
+				FOR i := 0 TO INTEGER(LEN(a,0)-1) DO ASSERT(a[i] = 10*base+i) END;
+			ELSE
+				FOR i := 0 TO INTEGER(LEN(a,0)-1) DO TestFillI0(a[i,?],10*base+i) END;
+			END;
+		END TestFillI0;
+
+		PROCEDURE TestFillI*(CONST a: ARRAY [?] OF INTEGER);
+		BEGIN
+			TestFillI0(a,0)
+		END TestFillI;
+
+		PROCEDURE RandomI*(VAR a: ARRAY [?] OF INTEGER);
+		VAR i: INTEGER;
+		BEGIN
+			IF DIM(a) = 1 THEN
+				FOR i := 0 TO INTEGER(LEN(a,0)-1) DO a[i] := INTEGER(gen.Dice(1000)) END;
+			ELSE
+				FOR i := 0 TO INTEGER(LEN(a,0)-1) DO RandomI(a[i,?]) END;
+			END;
+		END RandomI;
+
+		PROCEDURE TestI1*(CONST a: ARRAY [*] OF INTEGER; r: RANGE);
+		VAR i: LONGINT;
+		BEGIN
+		 	i := FIRST(r); WHILE i <= LAST(r) DO
+		 		ASSERT(a[(i-FIRST(r)) DIV STEP(r)]=INTEGER(i));
+		 		INC(i,STEP(r));
+		 	END;
+		END TestI1;
+
+		PROCEDURE TestI2*(CONST a: ARRAY [*,*] OF INTEGER; r1, r2: RANGE);
+		VAR i,j: LONGINT;
+		BEGIN
+		 	i := FIRST(r1); WHILE i <= LAST(r1) DO
+		 	j := FIRST(r2); WHILE j <= LAST(r2) DO
+		 		ASSERT(a[(i-FIRST(r1)) DIV STEP(r1),(j-FIRST(r2)) DIV STEP(r2)]=INTEGER(10*i+j));
+		 	INC(j,STEP(r2)) END;
+		 	INC(i,STEP(r1)) END;
+		END TestI2;
+
+		PROCEDURE TestI3*(CONST a: ARRAY [*,*,*] OF INTEGER; r1, r2, r3: RANGE);
+		VAR i,j,k: LONGINT;
+		BEGIN
+		 	i := FIRST(r1); WHILE i <= LAST(r1) DO
+		 	j := FIRST(r2); WHILE j <= LAST(r2) DO
+		 	k := FIRST(r3); WHILE k <= LAST(r3) DO
+		 		ASSERT(a[(i-FIRST(r1)) DIV STEP(r1),(j-FIRST(r2)) DIV STEP(r2),(k-FIRST(r3)) DIV STEP(r3)]=INTEGER(100*i+10*j+k));
+		 	INC(k,STEP(r3)) END;
+		 	INC(j,STEP(r2)) END;
+		 	INC(i,STEP(r1)) END;
+		END TestI3;
+
+
+		PROCEDURE FillL0(VAR a: ARRAY [?] OF LONGINT; base: LONGINT);
+		VAR i: LONGINT;
+		BEGIN
+			IF DIM(a) = 1 THEN
+				FOR i := 0 TO LEN(a,0)-1 DO a[i] := 10*base+i END;
+			ELSE
+				FOR i := 0 TO LEN(a,0)-1 DO FillL0(a[i,?],10*base+i) END;
+			END;
+		END FillL0;
+
+		PROCEDURE FillL*(VAR a: ARRAY [?] OF LONGINT);
+		BEGIN FillL0(a,0);
+		END FillL;
+
+		PROCEDURE TestFillL0*(CONST a: ARRAY [?] OF LONGINT; base: LONGINT);
+		VAR i: LONGINT;
+		BEGIN
+			IF DIM(a) = 1 THEN
+				FOR i := 0 TO LEN(a,0)-1 DO ASSERT(a[i] = 10*base+i) END;
+			ELSE
+				FOR i := 0 TO LEN(a,0)-1 DO TestFillL0(a[i,?],10*base+i) END;
+			END;
+		END TestFillL0;
+
+		PROCEDURE TestFillL*(CONST a: ARRAY [?] OF LONGINT);
+		BEGIN
+			TestFillL0(a,0)
+		END TestFillL;
+
+		PROCEDURE RandomL*(VAR a: ARRAY [?] OF LONGINT);
+		VAR i: LONGINT;
+		BEGIN
+			IF DIM(a) = 1 THEN
+				FOR i := 0 TO LEN(a,0)-1 DO a[i] := gen.Dice(1000) END;
+			ELSE
+				FOR i := 0 TO LEN(a,0)-1 DO RandomL(a[i,?]) END;
+			END;
+		END RandomL;
+
+		PROCEDURE TestL1*(CONST a: ARRAY [*] OF LONGINT; r: RANGE);
+		VAR i: LONGINT;
+		BEGIN
+		 	i := FIRST(r); WHILE i <= LAST(r) DO
+		 		ASSERT(a[(i-FIRST(r)) DIV STEP(r)]=LONGINT(i));
+		 		INC(i,STEP(r));
+		 	END;
+		END TestL1;
+
+		PROCEDURE TestL2*(CONST a: ARRAY [*,*] OF LONGINT; r1, r2: RANGE);
+		VAR i,j: LONGINT;
+		BEGIN
+		 	i := FIRST(r1); WHILE i <= LAST(r1) DO
+		 	j := FIRST(r2); WHILE j <= LAST(r2) DO
+		 		ASSERT(a[(i-FIRST(r1)) DIV STEP(r1),(j-FIRST(r2)) DIV STEP(r2)]=LONGINT(10*i+j));
+		 	INC(j,STEP(r2)) END;
+		 	INC(i,STEP(r1)) END;
+		END TestL2;
+
+		PROCEDURE TestL3*(CONST a: ARRAY [*,*,*] OF LONGINT; r1, r2, r3: RANGE);
+		VAR i,j,k: LONGINT;
+		BEGIN
+		 	i := FIRST(r1); WHILE i <= LAST(r1) DO
+		 	j := FIRST(r2); WHILE j <= LAST(r2) DO
+		 	k := FIRST(r3); WHILE k <= LAST(r3) DO
+		 		ASSERT(a[(i-FIRST(r1)) DIV STEP(r1),(j-FIRST(r2)) DIV STEP(r2),(k-FIRST(r3)) DIV STEP(r3)]=LONGINT(100*i+10*j+k));
+		 	INC(k,STEP(r3)) END;
+		 	INC(j,STEP(r2)) END;
+		 	INC(i,STEP(r1)) END;
+		END TestL3;
+
+		PROCEDURE FillX0(VAR a: ARRAY [?] OF LONGREAL; base: LONGINT);
+		VAR i: LONGINT;
+		BEGIN
+			IF DIM(a) = 1 THEN
+				FOR i := 0 TO LEN(a,0)-1 DO a[i] := 10*base+i END;
+			ELSE
+				FOR i := 0 TO LEN(a,0)-1 DO FillX0(a[i,?],10*base+i) END;
+			END;
+		END FillX0;
+
+		PROCEDURE FillX*(VAR a: ARRAY [?] OF LONGREAL);
+		BEGIN FillX0(a,0);
+		END FillX;
+
+		PROCEDURE TestFillX0*(CONST a: ARRAY [?] OF LONGREAL; base: LONGINT);
+		VAR i: LONGINT;
+		BEGIN
+			IF DIM(a) = 1 THEN
+				FOR i := 0 TO LEN(a,0)-1 DO ASSERT(ENTIER(a[i]+0.5) = 10*base+i) END;
+			ELSE
+				FOR i := 0 TO LEN(a,0)-1 DO TestFillX0(a[i,?],10*base+i) END;
+			END;
+		END TestFillX0;
+
+		PROCEDURE TestFillX*(CONST a: ARRAY [?] OF LONGREAL);
+		BEGIN
+			TestFillX0(a,0);
+		END TestFillX;
+
+		PROCEDURE RandomX*(VAR a: ARRAY [?] OF LONGREAL);
+		VAR i: LONGINT;
+		BEGIN
+			IF DIM(a) = 1 THEN
+				FOR i := 0 TO LEN(a,0)-1 DO a[i] := gen.Uniform() END;
+			ELSE
+				FOR i := 0 TO LEN(a,0)-1 DO RandomX(a[i,?]) END;
+			END;
+		END RandomX;
+
+		PROCEDURE PrintX*(CONST a: ARRAY [?] OF LONGREAL);
+		VAR i: LONGINT;
+		BEGIN
+			IF DIM(a) = 1 THEN
+				FOR i := 0 TO LEN(a,0)-1 DO Debugging.Int(ENTIER(a[i]+0.5),5) END;
+			ELSE
+				FOR i := 0 TO LEN(a,0)-1 DO PrintX(a[i,?]); Debugging.Ln; END;
+			END;
+		END PrintX;
+
+		PROCEDURE TestX1*(CONST a: ARRAY [*] OF LONGREAL; r: RANGE);
+		VAR i: LONGINT;
+		BEGIN
+		 	i := FIRST(r); WHILE i <= LAST(r) DO
+		 		ASSERT(a[(i-FIRST(r)) DIV STEP(r)]=LONGREAL(i));
+		 		INC(i,STEP(r));
+		 	END;
+		END TestX1;
+
+		PROCEDURE TestX2*(CONST a: ARRAY [*,*] OF LONGREAL; r1, r2: RANGE);
+		VAR i,j: LONGINT;
+		BEGIN
+		 	i := FIRST(r1); WHILE i <= LAST(r1) DO
+		 	j := FIRST(r2); WHILE j <= LAST(r2) DO
+		 		ASSERT(a[(i-FIRST(r1)) DIV STEP(r1),(j-FIRST(r2)) DIV STEP(r2)]=LONGREAL(10*i+j));
+		 	INC(j,STEP(r2)) END;
+		 	INC(i,STEP(r1)) END;
+		END TestX2;
+
+		PROCEDURE TestX3*(CONST a: ARRAY [*,*,*] OF LONGREAL; r1, r2, r3: RANGE);
+		VAR i,j,k: LONGINT;
+		BEGIN
+		 	i := FIRST(r1); WHILE i <= LAST(r1) DO
+		 	j := FIRST(r2); WHILE j <= LAST(r2) DO
+		 	k := FIRST(r3); WHILE k <= LAST(r3) DO
+		 		ASSERT(a[(i-FIRST(r1)) DIV STEP(r1),(j-FIRST(r2)) DIV STEP(r2),(k-FIRST(r3)) DIV STEP(r3)]=LONGREAL(100*i+10*j+k));
+		 	INC(k,STEP(r3)) END;
+		 	INC(j,STEP(r2)) END;
+		 	INC(i,STEP(r1)) END;
+		END TestX3;
+
+
+		PROCEDURE FillR0(VAR a: ARRAY [?] OF REAL; base: LONGINT);
+		VAR i: LONGINT;
+		BEGIN
+			IF DIM(a) = 1 THEN
+				FOR i := 0 TO LEN(a,0)-1 DO a[i] := 10*base+i END;
+			ELSE
+				FOR i := 0 TO LEN(a,0)-1 DO FillR0(a[i,?],10*base+i) END;
+			END;
+		END FillR0;
+
+		PROCEDURE FillR*(VAR a: ARRAY [?] OF REAL);
+		BEGIN FillR0(a,0);
+		END FillR;
+
+		PROCEDURE TestFillR0*(CONST a: ARRAY [?] OF REAL; base: LONGINT);
+		VAR i: LONGINT;
+		BEGIN
+			IF DIM(a) = 1 THEN
+				FOR i := 0 TO LEN(a,0)-1 DO ASSERT(ENTIER(a[i]+0.5) = 10*base+i) END;
+			ELSE
+				FOR i := 0 TO LEN(a,0)-1 DO TestFillR0(a[i,?],10*base+i) END;
+			END;
+		END TestFillR0;
+
+		PROCEDURE TestFillR*(CONST a: ARRAY [?] OF LONGREAL);
+		BEGIN
+			TestFillX0(a,0);
+		END TestFillR;
+
+		PROCEDURE RandomR*(VAR a: ARRAY [?] OF REAL);
+		VAR i: LONGINT;
+		BEGIN
+			IF DIM(a) = 1 THEN
+				FOR i := 0 TO LEN(a,0)-1 DO a[i] := gen.Uniform() END;
+			ELSE
+				FOR i := 0 TO LEN(a,0)-1 DO RandomR(a[i,?]) END;
+			END;
+		END RandomR;
+
+		PROCEDURE TestR1*(CONST a: ARRAY [*] OF REAL; r: RANGE);
+		VAR i: LONGINT;
+		BEGIN
+		 	i := FIRST(r); WHILE i <= LAST(r) DO
+		 		ASSERT(a[(i-FIRST(r)) DIV STEP(r)]=REAL(i));
+		 		INC(i,STEP(r));
+		 	END;
+		END TestR1;
+
+		PROCEDURE TestR2*(CONST a: ARRAY [*,*] OF REAL; r1, r2: RANGE);
+		VAR i,j: LONGINT;
+		BEGIN
+		 	i := FIRST(r1); WHILE i <= LAST(r1) DO
+		 	j := FIRST(r2); WHILE j <= LAST(r2) DO
+		 		ASSERT(a[(i-FIRST(r1)) DIV STEP(r1),(j-FIRST(r2)) DIV STEP(r2)]=REAL(10*i+j));
+		 	INC(j,STEP(r2)) END;
+		 	INC(i,STEP(r1)) END;
+		END TestR2;
+
+		PROCEDURE TestR3*(CONST a: ARRAY [*,*,*] OF REAL; r1, r2, r3: RANGE);
+		VAR i,j,k: LONGINT;
+		BEGIN
+		 	i := FIRST(r1); WHILE i <= LAST(r1) DO
+		 	j := FIRST(r2); WHILE j <= LAST(r2) DO
+		 	k := FIRST(r3); WHILE k <= LAST(r3) DO
+		 		ASSERT(a[(i-FIRST(r1)) DIV STEP(r1),(j-FIRST(r2)) DIV STEP(r2),(k-FIRST(r3)) DIV STEP(r3)]=REAL(100*i+10*j+k));
+		 	INC(k,STEP(r3)) END;
+		 	INC(j,STEP(r2)) END;
+		 	INC(i,STEP(r1)) END;
+		END TestR3;
+
+	BEGIN NEW(gen);
+	END Driver.
+
+positive: driver tests (fill and compare arrays)
+
+	MODULE Test;
+	IMPORT Driver;
+
+		PROCEDURE TestS;
+		VAR a: ARRAY [*,*] OF SHORTINT; b: ARRAY [?] OF SHORTINT; c: ARRAY [2,3] OF SHORTINT;
+		BEGIN
+			NEW(a,2,3); NEW(b,2,3);
+			Driver.FillS(a); Driver.FillS(b); Driver.FillS(c);
+			Driver.TestFillS(a); Driver.TestFillS(b); Driver.TestFillS(c);
+			Driver.TestFillL(a); Driver.TestFillL(b); Driver.TestFillL(c);
+			ASSERT(a = [[0,1,2],[10,11,12]]);
+			ASSERT(b = a); ASSERT(c=a);
+			Driver.RandomS(a); Driver.RandomS(b); Driver.RandomS(c);
+		END TestS;
+
+		PROCEDURE TestI;
+		VAR a: ARRAY [*,*] OF INTEGER; b: ARRAY [?] OF INTEGER; c: ARRAY [2,3] OF INTEGER;
+		BEGIN
+			NEW(a,2,3); NEW(b,2,3);
+			Driver.FillI(a); Driver.FillI(b); Driver.FillI(c);
+			Driver.TestFillL(a); Driver.TestFillL(b); Driver.TestFillL(c);
+			ASSERT(a = [[0,1,2],[10,11,12]]);
+			ASSERT(b = a); ASSERT(c=a);
+			Driver.RandomI(a); Driver.RandomI(b); Driver.RandomI(c);
+		END TestI;
+
+		PROCEDURE TestL;
+		VAR a: ARRAY [*,*] OF LONGINT; b: ARRAY [?] OF LONGINT; c: ARRAY [2,3] OF LONGINT;
+		BEGIN
+			NEW(a,2,3); NEW(b,2,3);
+			Driver.FillL(a); Driver.FillL(b); Driver.FillL(c);
+			Driver.TestFillL(a); Driver.TestFillL(b); Driver.TestFillL(c);
+			ASSERT(a = [[0,1,2],[10,11,12]]);
+			ASSERT(b = a); ASSERT(c=a);
+			Driver.RandomL(a); Driver.RandomL(b); Driver.RandomL(c);
+		END TestL;
+
+		PROCEDURE TestR;
+		VAR a: ARRAY [*,*] OF REAL; b: ARRAY [?] OF REAL; c: ARRAY [2,3] OF REAL;
+		BEGIN
+			NEW(a,2,3); NEW(b,2,3);
+			Driver.FillR(a); Driver.FillR(b); Driver.FillR(c);
+			Driver.TestFillR(a); Driver.TestFillR(b); Driver.TestFillR(c);
+			ASSERT(a = [[0,1,2],[10,11,12]]);
+			ASSERT(b = a); ASSERT(c=a);
+			Driver.RandomR(a); Driver.RandomR(b); Driver.RandomR(c);
+		END TestR;
+
+		PROCEDURE TestX;
+		VAR a: ARRAY [*,*] OF LONGREAL; b: ARRAY [?] OF LONGREAL; c: ARRAY [2,3] OF LONGREAL;
+		BEGIN
+			NEW(a,2,3); NEW(b,2,3);
+			Driver.FillX(a); Driver.FillX(b); Driver.FillX(c);
+			Driver.TestFillX(a); Driver.TestFillX(b); Driver.TestFillX(c);
+			ASSERT(a = [[0,1,2],[10,11,12]]);
+			ASSERT(b = a); ASSERT(c=a);
+			Driver.RandomX(a); Driver.RandomX(b); Driver.RandomX(c);
+		END TestX;
+
+	BEGIN
+		TestS; TestI; TestL; TestR; TestX
+	END Test.
+	
+positive: use ranges in procedure with static global array (was: register allocation problem)
+
+	MODULE Test;
+	VAR a: ARRAY [3,3] OF SHORTINT;
+
+	PROCEDURE Test(r1,r2: RANGE);
+	BEGIN
+		ASSERT (a[r1,r2] = [[2,3],[5,6]]);
+	END Test;
+
+	BEGIN
+		a := [[1,2,3],[4,5,6],[7,8,9]];
+		Test(0..1,1..2);
+	END Test.
+
+positive: test for unequality with unallocated arrays 
+
+	MODULE Test;
+	VAR array: ARRAY [*] OF SHORTINT; tensor: ARRAY [?] OF SHORTINT;
+	BEGIN 
+		ASSERT(array # [1,2]);
+		ASSERT(~(array = [1,2]));
+		ASSERT(~(array > [1,2]));
+		ASSERT(~(array < [1,2]));
+		ASSERT(~(array >= [1,2]));
+		ASSERT(~(array <= [1,2]));
+		ASSERT(tensor # [1,2]);
+		ASSERT(~(tensor = [1,2]));
+		ASSERT(~(tensor > [1,2]));
+		ASSERT(~(tensor < [1,2]));
+		ASSERT(~(tensor >= [1,2]));
+		ASSERT(~(tensor <= [1,2]));
+	END Test.
+
+
+positive: simple tests for ranges
+
+	MODULE Test;
+
+	IMPORT Driver;
+
+	PROCEDURE TestS;
+	VAR s1: ARRAY [*] OF SHORTINT; s2: ARRAY [*,*] OF SHORTINT; s3: ARRAY [*,*,*] OF SHORTINT;
+	BEGIN
+		NEW(s1,3); NEW(s2,3,4); NEW(s3,3,4,5);
+		Driver.FillS(s1); Driver.FillS(s2); Driver.FillS(s3);
+		Driver.TestFillS(s1); Driver.TestFillS(s2); Driver.TestFillS(s3);
+		Driver.TestS1(s1[1..2],1..2);
+		Driver.TestS2(s2[1..2,2..3],1..2,2..3);
+		Driver.TestS3(s3[1..2,2..3,3..4],1..2,2..3,3..4);
+	END TestS;
+
+	PROCEDURE TestI;
+	VAR s1: ARRAY [*] OF INTEGER; s2: ARRAY [*,*] OF INTEGER; s3: ARRAY [*,*,*] OF INTEGER;
+	BEGIN
+		NEW(s1,3); NEW(s2,3,4); NEW(s3,3,4,5);
+		Driver.FillI(s1); Driver.FillI(s2); Driver.FillI(s3);
+		Driver.TestFillI(s1); Driver.TestFillI(s2); Driver.TestFillI(s3);
+		Driver.TestI1(s1[1..2],1..2);
+		Driver.TestI2(s2[1..2,2..3],1..2,2..3);
+		Driver.TestI3(s3[1..2,2..3,3..4],1..2,2..3,3..4);
+	END TestI;
+
+	PROCEDURE TestL;
+	VAR s1: ARRAY [*] OF LONGINT; s2: ARRAY [*,*] OF LONGINT; s3: ARRAY [*,*,*] OF LONGINT;
+	BEGIN
+		NEW(s1,3); NEW(s2,3,4); NEW(s3,3,4,5);
+		Driver.FillL(s1); Driver.FillL(s2); Driver.FillL(s3);
+		Driver.TestFillL(s1); Driver.TestFillL(s2); Driver.TestFillL(s3);
+		Driver.TestL1(s1[1..2],1..2);
+		Driver.TestL2(s2[1..2,2..3],1..2,2..3);
+		Driver.TestL3(s3[1..2,2..3,3..4],1..2,2..3,3..4);
+	END TestL;
+
+	PROCEDURE TestR;
+	VAR s1: ARRAY [*] OF REAL; s2: ARRAY [*,*] OF REAL; s3: ARRAY [*,*,*] OF REAL;
+	BEGIN
+		NEW(s1,3); NEW(s2,3,4); NEW(s3,3,4,5);
+		Driver.FillR(s1); Driver.FillR(s2); Driver.FillR(s3);
+		Driver.TestFillR(s1); Driver.TestFillR(s2); Driver.TestFillR(s3);
+		Driver.TestR1(s1[1..2],1..2);
+		Driver.TestR2(s2[1..2,2..3],1..2,2..3);
+		Driver.TestR3(s3[1..2,2..3,3..4],1..2,2..3,3..4);
+	END TestR;
+
+	PROCEDURE TestX;
+	VAR s1: ARRAY [*] OF LONGREAL; s2: ARRAY [*,*] OF LONGREAL; s3: ARRAY [*,*,*] OF LONGREAL;
+	BEGIN
+		NEW(s1,3); NEW(s2,3,4); NEW(s3,3,4,5);
+		Driver.FillX(s1); Driver.FillX(s2); Driver.FillX(s3);
+		Driver.TestFillX(s1); Driver.TestFillX(s2); Driver.TestFillX(s3);
+		Driver.TestX1(s1[1..2],1..2);
+		Driver.TestX2(s2[1..2,2..3],1..2,2..3);
+		Driver.TestX3(s3[1..2,2..3,3..4],1..2,2..3,3..4);
+	END TestX;
+
+	BEGIN TestS; TestI; TestL; TestR; TestX
+	END Test.
+	
+
+positive: conversion tests
+
+	MODULE Test;
+	IMPORT Driver;
+	VAR s: ARRAY [?] OF SHORTINT; i: ARRAY [?] OF INTEGER; l: ARRAY [?] OF LONGINT; r: ARRAY [?] OF REAL; x: ARRAY [?] OF LONGREAL;
+	BEGIN
+		NEW(s,2,3,5);
+		Driver.FillS(s); Driver.TestFillS(s);
+		i := s; l := s; r := s; x := s; Driver.TestFillI(i); Driver.TestFillL(l); Driver.TestFillR(r); Driver.TestFillX(x);
+		l := i; r := i; x := i; Driver.TestFillL(l); Driver.TestFillR(r); Driver.TestFillX(x);
+		r := l; x := l;	Driver.TestFillR(r); Driver.TestFillX(x);
+		x := r; Driver.TestFillX(x);
+		r := SHORT(x); Driver.TestFillR(r);
+		l := ENTIER(x); Driver.TestFillL(l);
+		i := SHORT(l); Driver.TestFillI(i);
+		s := SHORT(i); Driver.TestFillS(s);
+	END Test.
+
+positive: array structured object type (was: problem with register restoration when returning composite type)
+
+	 MODULE Test;
+	 TYPE
+	  Asot = OBJECT(ARRAY [4, 3] OF LONGINT)
+	  VAR
+	   data: ARRAY [4, 3] OF LONGINT;
+	   OPERATOR "LEN"*(): ARRAY [2] OF LONGINT;
+	   BEGIN RESULT := [LONGINT(4), 3]; RETURN RESULT
+	   END "LEN";
+
+	   (* problematic operator: *)
+	   OPERATOR "[]"*(range0, range1: RANGE): ARRAY [*, *] OF LONGINT;
+	   BEGIN
+	    RESULT := data[*, 1 .. 2];
+	    RETURN RESULT
+	   END "[]";
+
+	   (* not relevant here: *)
+	   OPERATOR "[]"*(range0, range1: RANGE; rhs: ARRAY [*, *] OF LONGINT);
+	   BEGIN
+	   END "[]";
+	  END Asot;
+	 VAR asot: Asot;
+	 BEGIN
+	  NEW(asot);
+	  ASSERT(asot[*, *][*, 0] = [LONGINT(0),0,0,0]);
+	  ASSERT(asot[*, *][*, 0] = [LONGINT(0),0,0,0]);
+	 END Test.
+
+positive: correct use of SYSTEM.ADR and SYSTEM.VAL for tensors and open math arrays
+
+	MODULE Test;
+	IMPORT SYSTEM;
+
+	VAR a: ARRAY [*,*,*] OF REAL;
+
+	PROCEDURE GetDim(adr: SYSTEM.ADDRESS): LONGINT;
+	CONST
+		AddressSize=SYSTEM.SIZEOF(SYSTEM.ADDRESS);
+		MathDimOffset=3*AddressSize;
+	BEGIN
+		SYSTEM.GET(adr+MathDimOffset,adr); RETURN adr;
+	END GetDim;
+
+	PROCEDURE P(CONST a: ARRAY [?] OF REAL);
+	VAR adr,val,val2: LONGINT;
+	BEGIN
+		adr := SYSTEM.ADR(a);
+		SYSTEM.GET(adr,val2);
+		val := SYSTEM.VAL(LONGINT,a);
+		ASSERT(val = val2);
+		ASSERT(GetDim(val) = 3);
+	END P;
+
+	PROCEDURE Q(CONST a: ARRAY [*,*,*] OF REAL);
+	VAR adr: LONGINT;
+	BEGIN
+		adr := SYSTEM.ADR(a);
+		ASSERT(GetDim(adr) = 3);
+	END Q;
+
+	BEGIN
+		NEW(a,1,2,3);
+		P(a); Q(a);
+	END Test.
+	
+positive: Test of Min and Max
+
+	MODULE Test;
+
+	TYPE B= ARRAY [*,*] OF REAL;
+	CONST a = [[1,2,3],
+				[4,5,6],
+				[7,8,9]];
+
+
+	PROCEDURE Min;
+	VAR b:B;
+	BEGIN
+		b:=a;
+		ASSERT(a=b);
+
+		ASSERT(MIN(a)=1);
+		ASSERT(MIN(a[1..])=4);
+		ASSERT(MIN(a[..1])=1);
+		ASSERT(MIN(a[..,1..])=2);
+		ASSERT(MIN(a[..,..1])=1);
+
+		ASSERT(MIN(b)=1);
+
+		ASSERT(MIN(b[1..,*])=4);
+		ASSERT(MIN(b[..1,*])=1);
+		ASSERT(MIN(b[*,1..])=2);
+		ASSERT(MIN(b[*,..1])=1);
+	END Min;
+
+	PROCEDURE Max;
+	VAR b: B;
+	BEGIN
+		b:=a;
+		ASSERT(a=b);
+
+		ASSERT(MAX(a)=9);
+		ASSERT(MAX(a[1..])=9);
+		ASSERT(MAX(a[..1])=6);
+		ASSERT(MAX(a[..,1..])=9);
+		ASSERT(MAX(a[..,..1])=8);
+
+		ASSERT(MAX(b)=9);
+		ASSERT(MAX(b[1..])=9);
+		ASSERT(MAX(b[..1])=6);
+		ASSERT(MAX(b[..,1..])=9);
+		ASSERT(MAX(b[..,..1])=8);
+	END Max;
+
+	BEGIN Min; Max;
+	END Test.

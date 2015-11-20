@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" standalone='yes'?>
+
+<!--
+
+	HotKeys.Open HotKeys.XML ~ to load this file
+	HotKeys.Show ~ to see a list of currently bound hotkeys
+	
+	WMKeyCode.Open ~	SystemTools.Free WMKeyCode ~
+	
+	Valid modifier keys:
+	
+	META, LMETA, RMETA
+	CTRL, LCTRL, RCTRL
+	ALT, LALT, RALT
+	SHIFT, LSHIFT, RSHIFT
+	RELEASE
+	
+	WARNING: 
+	THIS TOOL ALLOWS HOTKEY DEFINITIONS THAT CAN RENDER BLUEBOTTLE UNUSABLE!!!
+	ALWAYS KEEP THE F12 HOT KEY FOR UNLOADING THIS MODULE!!!
+	
+-->
+
+	<!DOCTYPE HotKeys [
+		<!ELEMENT HotKey ANY>
+		<!ATTLIST HotKey
+			name NMTOKEN #REQUIRED
+			keys NMTOKEN #REQUIRED
+			command CDATA #REQUIRED
+		>
+	]>
+
+<HotKeys>
+
+	<!-- Standard hot keys (don't change) -->
+	<HotKey name="Show Hotkeys" keys="F11" command="HotKeys.Show"/>
+	<HotKey name="Disable Hotkeys" keys="F12" command="SystemTools.Free HotKeys"/>
+	
+	<!-- Example hot keys -->
+	
+	<!-- Example: Switch keyboard layout -->
+	<!-- Native A2 only
+	<HotKey name="Keyboard US" keys="F5" command="WMOSD.Open 'US Keyboard Layout';Keyboard.SetLayout KeyUS.Bin"/>
+	<HotKey name="Keyboard CH" keys="F6" command="WMOSD.Open 'CH Keyboard Layout';Keyboard.SetLayout KeyCH.Bin"/>
+	-->
+	
+	<!-- Example: Screenshot -->
+	<HotKey name="Screenshot" keys="F10" command="SEQ WMOSD.Close;WMScreenShot.SnapShotView test.bmp;WMOSD.Open 'Screenshot saved in test.bmp'"/>
+	
+	<!-- Example: Open applications -->
+	<HotKey name="PET" keys="META+P" command="PET.Open"/>
+	<HotKey name="Notepad" keys="META+N" command="Notepad.Open"/>
+	<HotKey name="LogWindow" keys="META+O" command="WMKernelLog.Open"/>
+	<HotKey name="LogWindow2" keys="CTRL+L" command="WMKernelLog.Open"/>
+	<HotKey name="Shell" keys="META+S" command="WMShell.Open"/>
+
+	<!-- Example: Virtual desktop -->
+	<HotKey name="Desktop 1" keys="F1" command="WMOSD.Close;WMNavigate.SetViewportRange -d -1 -1 1 1;WMOSD.Open 'Desktop 1'"/>
+	<HotKey name="Desktop 1 (WinAos)" keys="META+F1" command="WMOSD.Close;WMNavigate.SetViewportRange -d -1 -1 1 1;WMOSD.Open 'Desktop 1'"/>
+	<HotKey name="Desktop 2" keys="F2" command="WMOSD.Close;WMNavigate.SetViewportRange -d 0 -1 1 1;WMOSD.Open 'Desktop 2'"/>
+	<HotKey name="Desktop 3" keys="F3" command="WMOSD.Close;WMNavigate.SetViewportRange -d -1 0 1 1;WMOSD.Open 'Desktop 3'"/>
+	<HotKey name="Desktop 4" keys="F4" command="WMOSD.Close;WMNavigate.SetViewportRange -d 0 0 1 1;WMOSD.Open 'Desktop 4'"/>
+	<HotKey name="Desktops Overview" keys="F5" command="WMOSD.Close;WMNavigate.SetViewportRange -d -1 -1 2 2;WMOSD.Open 'Desktops Overview'"/>
+
+	<!-- Example: Toggle visibility of windows -->
+	<HotKey name="Toggle visibility of user windows" keys="F6" command="WMNavigate.ToggleAll"/>
+	<HotKey name="Toggle visibility of navigation windows" keys="F7" command="WMNavigate.ToggleNavigation"/>
+	<HotKey name="Toggle visibility of navigation" keys="CTRL+1" command="WMNavigate.ToggleNavigation"/>
+	
+	<!-- Example: Move the window that has the keyboard focus relative to its current position -->
+	<HotKey name="MoveRight" keys="ALT+RIGHT" command="WMNavigate.MoveWindow -d 1 0"/>
+	<HotKey name="MoveLeft" keys="ALT+LEFT" command="WMNavigate.MoveWindow -d -1 0"/>
+	<HotKey name="MoveUp" keys="ALT+UP" command="WMNavigate.MoveWindow -d 0 -1"/>
+	<HotKey name="MoveDown" keys="ALT+DOWN" command="WMNavigate.MoveWindow -d 0 1"/>
+	
+	<!-- Example: Control window that has keyboard focus -->
+	<HotKey name="Toggle Fullscreen" keys="ALT+RETURN" command="WMNavigate.ToggleFullscreen"/>
+	<HotKey name="Close Window" keys="ALT+F4" command="WMNavigate.CloseWindow"/>
+
+	<!-- Example: Switch keyboard focus to previous/next window -->
+	<HotKey name="Open Windows Navigation" keys="CTRL+ALT+UP" command="WMNavigate.Open -vs 6 0 0 Navigation:TaskList "/>
+	<HotKey name="Close Windows Navigation" keys="CTRL+ALT+DOWN" command="WMNavigate.Close 6"/>
+	<HotKey name="FocusToNext" keys="CTRL+TAB" command="WMNavigate.FocusToNext"/>
+	<HotKey name="FocusToPrevious" keys="CTRL+SHIFT+TAB" command="WMNavigate.FocusToPrevious"/>
+	
+	<!-- Example: Open window to enter and execute a command -->
+	<HotKey name="Run" keys="CTRL+R" command="HotKeysCommands.EnterCommand"/>
+
+	<!-- Example: Apply text style to currently selected text -->
+	<HotKey name="Bold" keys="SHIFT+DELETE" command="WMTextTool.SetFontStyle Bold"/>
+	
+	<!-- Example: Misc -->
+	<HotKey name="Clear LogWindow" keys="META+CTRL+O" command="HotKeysCommands.ClearLog"/>	
+	
+	<!-- Example: Simulate mouse wheel by keys -->
+	<HotKey name="WHEEL UP" keys="CTRL+UP" command="HotKeysCommands.SimulateMouse MouseWheel -3"/>
+	<HotKey name="WHEEL DOWN" keys="CTRL+DOWN" command="HotKeysCommands.SimulateMouse MouseWheel 3"/>
+
+	<!-- Example: Key remappings -->
+	
+	<HotKey name="UP" keys="CTRL+SHIFT+I" command="REMAP UP"/>
+	<HotKey name="LEFT" keys="CTRL+SHIFT+J" command="REMAP LEFT"/>
+	<HotKey name="DOWN" keys="CTRL+SHIFT+K" command="REMAP DOWN"/>
+	<HotKey name="RIGHT" keys="CTRL+SHIFT+L" command="REMAP RIGHT"/>
+	
+	<HotKey name="BOLD" keys="CTRL+B" command="WMTextStyleTool.SetFontStyle BOLD"/>
+
+	<HotKey name="Close Windows" keys="CTRL+Q" command="SystemTools.Reboot"/>
+	<HotKey name="Trace" keys="CTRL+T" command="TLHostData.ToggleTrace;WMKernelLog.Open"/>
+
+	
+</HotKeys>

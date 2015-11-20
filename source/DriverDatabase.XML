@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8" standalone='yes'?>
+<!--
+	If a client requests the installation of a device-specific or class-specific device driver, the driver database software will
+	look for a matching (vendor id, device id, revision), respectively (class, subclass, protocol, revision)-tuple.
+	If found, it will execute the associated list of commands.
+
+	Guarantees:
+	- Each single command will only be executed once
+	- Commands in a list are executed sequentially (also forced in non-blocking mode)
+
+	Currently supported flags:
+	N: Do not block caller until driver is loaded (default: Blocking device driver loading; Not applicable for command lists)
+	C: Continue execution of a command list even if the execution of a command fails
+-->
+
+ <Drivers> <!-- Device Driver Lookup File -->
+
+ 	<!-- PCI device drivers -->
+<PCI>
+	<deviceSpecific>
+		<vendor id="1022" name="AMD">
+			<device id="2000"	name="79C970 Ethernet Controller"	revision="all"	flags=""> AM79C970.Install;InitNetwork.Init </device>
+		</vendor>
+		<vendor id="1073" name="Yamaha">
+			<device id="0004"	name="YMF724"		revision="all"	flags=""> YMF754.Install </device>
+			<device id="000A"	name="YMF740"		revision="all"	flags=""> YMF754.Install </device>
+			<device id="000C"	name="YMF740C"		revision="all"	flags=""> YMF754.Install </device>
+			<device id="000D"	name="YMF724F"		revision="all"	flags=""> YMF754.Install </device>
+			<device id="0010"	name="YMF744"		revision="all"	flags=""> YMF754.Install </device>
+			<device id="0012"	name="YMF754"		revision="all"	flags=""> YMF754.Install </device>
+		</vendor>
+		<vendor id="109E" 	name="Brooktree">
+			<device id="0350"	name="BT848"			revision="all"	flags=""> BT848.Install </device>
+			<device id="0351"	name="BT849"			revision="all"	flags=""> BT848.Install </device>
+			<device id="036E"	name="BT878"			revision="all"	flags=""> BT848.Install </device>
+			<device id="036F"	name="BT879"			revision="all"	flags=""> BT848.Install </device>
+		</vendor>
+		<vendor id="10B7"	name="3COM">
+			<device id="6055"	name="Model90xB"	revision="all"	flags=""> Ethernet3Com90x.Install;InitNetwork.Init </device>
+			<device id="9000"	name="Model90x"		revision="all"	flags=""> Ethernet3Com90x.Install;InitNetwork.Init </device>
+			<device id="9001"	name="Model90x"		revision="all"	flags=""> Ethernet3Com90x.Install;InitNetwork.Init </device>
+			<device id="9004"	name="Model90xB"	revision="all"	flags=""> Ethernet3Com90x.Install;InitNetwork.Init </device>
+			<device id="9005"	name="Model90xB"	revision="all"	flags=""> Ethernet3Com90x.Install;InitNetwork.Init </device>
+			<device id="9050"	name="Model90x"		revision="all"	flags=""> Ethernet3Com90x.Install;InitNetwork.Init </device>
+			<device id="9056"	name="Model90xB"	revision="all"	flags=""> Ethernet3Com90x.Install;InitNetwork.Init </device>
+			<device id="9200"	name="Model90xC"	revision="all"	flags=""> Ethernet3Com90x.Install;InitNetwork.Init </device>
+		</vendor>
+		<vendor id="10EC"	name="RealTek">
+			<device id="8129"	name="RTL8129"		revision="all"	flags=""> RTL8139Install;InitNetwork.Init </device>
+			<device id="8138"	name="RTL8139CB"	revision="all"	flags=""> RTL8139.Install;InitNetwork.Init </device>
+			<device id="8139"	name="RTL8139"		revision="all"	flags=""> RTL8139.Install;InitNetwork.Init </device>
+			<device id="8169"	name="RTL8169"		revision="all"	flags=""> RTL8169.Install;InitNetwork.Init </device>
+		</vendor>
+		<vendor id="1274"	name="Ensoniq">
+			<device id="1371" 	name="ES1371"			revision="all"	flags=""> EnsoniqSound.Install </device>
+			<device id="1373" 	name="ES1373"			revision="all"	flags=""> EnsoniqSound.Install </device>
+			<device id="5880" 	name="5880 AudioPCI"	revision="all"	flags=""> EnsoniqSound.Install </device>
+		</vendor>
+		<vendor id="13B1" name ="Cisco-Linksys">
+			<device id ="0018" name="Linksys USB200M Rev. 2" revision="all" flags=""> UsbNetworkUSB200M.Mod </device>
+		</vendor>
+		<vendor id="8086"	name="Intel">
+			<device id="1029"	name="82559 Ethernet Controller"	revision="all"	flags=""> Intel8255x.Install;InitNetwork.Init </device>
+			<device id="1031"	name="ICH3"			revision="all"	flags=""> Intel8255x.Install;InitNetwork.Init </device>
+			<device id="1032"	name="Unknown"		revision="all"	flags=""> Intel8255x.Install;InitNetwork.Init </device>
+			<device id="1033"	name="Unknown"		revision="all"	flags=""> Intel8255x.Install;InitNetwork.Init </device>
+			<device id="1034"	name="Unknown"		revision="all"	flags=""> Intel8255x.Install;InitNetwork.Init </device>
+			<device id="1035"	name="Unknown"		revision="all"	flags=""> Intel8255x.Install;InitNetwork.Init </device>
+			<device id="1036"	name="Unknown"		revision="all"	flags=""> Intel8255x.Install;InitNetwork.Init </device>
+			<device id="1037"	name="Unknown"		revision="all"	flags=""> Intel8255x.Install;InitNetwork.Init </device>
+			<device id="1038"	name="Unknown"		revision="all"	flags=""> Intel8255x.Install;InitNetwork.Init </device>
+			<device id="103D"name="Unknown"		revision="all"	flags=""> Intel8255x.Install;InitNetwork.Init</device>
+			<device id="1064" name="82562ET/EZ/GT/GZ - Pro/100 VE" revision="all" flags=""> Intel8255x.Install;InitNetwork.Init </device>
+			<device id="1209"	name="82559ER Ethernet Controller"		revision="all"	flags=""> Intel8255x.Install;InitNetwork.Init </device>
+			<device id="1229"	name="Ethernet Pro 100"					revision="all"	flags=""> Intel8255x.Install;InitNetwork.Init </device>
+
+			<device id="2415"	name="i810 Sound"	revision="all"	flags=""> i810Sound.Install </device>
+			<device id="2425"	name="i810 Sound"	revision="all"	flags=""> i810Sound.Install </device>
+			<device id="2445"	name="i810 Sound"	revision="all"	flags=""> i810Sound.Install </device>
+			<device id="2485"	name="i810 Sound"	revision="all"	flags=""> i810Sound.Install </device>
+			<device id="24C5"	name="i810 Sound"	revision="all"	flags=""> i810Sound.Install </device>
+			<device id="24D5"	name="i810 Sound"	revision="all"	flags=""> i810Sound.Install </device>
+			<device id="7195"	name="i810 Sound"	revision="all"	flags=""> i810Sound.Install </device>
+			<device id="266E" name="i810 Sound"	revision="all"	flags=""> i810Sound.Install </device>
+		</vendor>
+	</deviceSpecific>
+
+	<classSpecific>
+		<class nbr="01" name="Mass Storage Controller">
+			<subclass nbr="00" name="SCSI Bus Controller">
+			</subclass>
+			<subclass nbr="01" name="IDE Controller">
+				<protocol nbr="all" name="IDE Controller" revision="all" flags="">ATADisks.Install</protocol>
+			</subclass>
+			<subclass nbr="02" name="Floppy Disk Controller">
+				<protocol nbr="all" name="Floppy Disk Controller" revision="all" flags="">Diskettes.Install</protocol>
+			</subclass>
+			<subclass nbr="03" name="IPI Bus Controller">
+			</subclass>
+			<subclass nbr="04" name="RAID Controller">
+				<protocol nbr="all" name="RAID Controller" revision="all" flags="">ATADisks.Install</protocol>
+			</subclass>
+			<subclass nbr="06" name="SATA Controller">
+				<protocol nbr="all" name="SATA Controller" revision="all" flags="">ATADisks.Install</protocol>
+			</subclass>
+			<subclass nbr="80" name="Other Mass Storage Controller">
+			</subclass>
+		</class>
+		<class nbr="0C" name="Serial Bus Controller">
+			<subclass nbr="03" name="Universal Serial Bus">
+				<protocol nbr="00" name="UHCI Programming Interface" revision="all" flags="">UsbHubDriver.Install;UsbUhci.Install</protocol>
+				<protocol nbr="10" name="OHCI Programming Interface" revision="all" flags="">UsbHubDriver.Install;UsbOhci.Install</protocol>
+				<protocol nbr="20" name="EHCI Programming Interface" revision="all" flags="">UsbHubDriver.Install;UsbEhci.Install</protocol>
+			</subclass>
+		</class>
+	</classSpecific>
+</PCI>
+
+<!--	USB device Drivers
+		The Driver Manager of the USB System Software can query the Driver Database for USB device drivers.
+		Since this can only happen when the USB System Software is running, it is granted that all required lower
+		level USB drivers are already loaded.
+-->
+<USB>
+	<deviceSpecific>
+		<vendor id="091E" name="Garmin">
+			<device id="03" name="GPS18" revision="all" flags="N">UsbGarminGPS18.Install</device>
+		</vendor>
+		<vendor id="0711" name="Magic Control Technology">
+			<device id="200" name="D-Link DU-H3SP USB Bay" revision="all" flags="N"> UsbRS232.Install </device>
+			<device id="210" name="MCT U232-P25" revision="all" flags="N"> UsbRS232.Install </device>
+			<device id="230" name="MCT U232-P9" revision="all" flags="N"> UsbRS232.Install </device>
+		</vendor>
+		<vendor id="050D" name="Belkin">
+			<device id="109" name="Belkin F5U109" revision="all" flags="N"> UsbRS232.Install </device>
+		</vendor>
+		<vendor id="03EB" name="Atmel">
+			<device id = "201C" name="CDT 9.75" revision="all" flags="N"> UsbTouchscreen.InstallCDT975 </device>
+		</vendor>
+		<vendor id="19E2" name="Unknown">
+			<device id = "2533" name="Unknown" revision="all" flags="N"> UsbTouchscreen.InstallUnknown1 </device>
+		</vendor>		
+	</deviceSpecific>
+
+	<classSpecific>
+		<class nbr="1"	name="Audio">
+		</class>
+		<class nbr="2"	name="CDC-Control">
+		</class>
+		<class nbr="3"	name="HID">
+			<subclass nbr="0" name="No Subclass">
+			</subclass>
+			<subclass nbr="1" name="Boot Interface Subclass">
+				<protocol nbr="0" name="None" revision="all">UsbHidDriver.Install</protocol>
+				<protocol nbr="1" name="Keyboard" revision="all" flags="N">UsbHidDriver.Install</protocol>
+				<protocol nbr="2" name="Mouse" revision="all" flags="N">UsbHidDriver.Install</protocol>
+			</subclass>
+		</class>
+		<class nbr="5"	name="Physical">
+		</class>
+		<class nbr="6"	name="Image">
+		</class>
+		<class nbr="7"	name="Printer">
+			<subclass nbr="1" name="Printers">
+				<protocol nbr="1" name="Unidirectional Interface" revision="all" flags="N">UsbPrinter.Install</protocol>
+				<protocol nbr="2" name="Bidirectional Interface" revision="all" flags="N">UsbPrinter.Install</protocol>
+				<protocol nbr="3" name="1284.4 Compatible Bidirectional Interface" revision="all" flags="N">UsbPrinter.Install</protocol>
+				<protocol nbr="FF" name="Vendor-Specific Interface" revision="all" flags="N">UsbPrinter.Install</protocol>
+			</subclass>
+		</class>
+		<class nbr="8"	name="Mass-Storage">
+			<subclass nbr="1" name="Reduced Block Commands">
+				<protocol nbr="0" name="CBI Transport"			 	revision="all" flags="N"> UsbStorage.Install </protocol>
+				<protocol nbr="1" name="CBI Transport"				revision="all" flags="N"> UsbStorage.Install </protocol>
+				<protocol nbr="50" name="Bulk-Only Transport" 	revision="all" flags="N"> UsbStorage.Install </protocol>
+			</subclass>
+			<subclass nbr="2" name="SFF-8020i/MMC-2">
+				<protocol nbr="0" name="CBI Transport"			 	revision="all" flags="N"> UsbStorage.Install </protocol>
+				<protocol nbr="1" name="CBI Transport"				revision="all" flags="N"> UsbStorage.Install </protocol>
+				<protocol nbr="50" name="Bulk-Only Transport" 	revision="all" flags="N"> UsbStorage.Install </protocol>
+			</subclass>
+			<subclass nbr="3" name="QIC-157">
+				<protocol nbr="0" name="CBI Transport"			 	revision="all" flags="N"> UsbStorage.Install </protocol>
+				<protocol nbr="1" name="CBI Transport"				revision="all" flags="N"> UsbStorage.Install </protocol>
+				<protocol nbr="50" name="Bulk-Only Transport" 	revision="all" flags="N"> UsbStorage.Install </protocol>
+			</subclass>
+				<protocol nbr="0" name="CBI Transport"			 	revision="all" flags="N"> UsbStorage.Install </protocol>
+				<protocol nbr="1" name="CBI Transport"				revision="all" flags="N"> UsbStorage.Install </protocol>
+				<protocol nbr="50" name="Bulk-Only Transport" 	revision="all" flags="N"> UsbStorage.Install </protocol>
+			<subclass nbr="4" name="UFI">
+				<protocol nbr="0" name="CBI Transport"			 	revision="all" flags="N"> UsbStorage.Install </protocol>
+				<protocol nbr="1" name="CBI Transport"				revision="all" flags="N"> UsbStorage.Install </protocol>
+				<protocol nbr="50" name="Bulk-Only Transport" 	revision="all" flags="N"> UsbStorage.Install </protocol>
+			</subclass>
+			<subclass nbr="5" name="SFF-8070i">
+				<protocol nbr="0" name="CBI Transport"			 	revision="all" flags="N"> UsbStorage.Install </protocol>
+				<protocol nbr="1" name="CBI Transport"				revision="all" flags="N"> UsbStorage.Install </protocol>
+				<protocol nbr="50" name="Bulk-Only Transport" 	revision="all" flags="N"> UsbStorage.Install </protocol>
+			</subclass>
+			<subclass nbr="6" name="SCSI Transparent Command Set">
+				<protocol nbr="0" name="CBI Transport"			 	revision="all" flags="N"> UsbStorage.Install </protocol>
+				<protocol nbr="1" name="CBI Transport"				revision="all" flags="N"> UsbStorage.Install </protocol>
+				<protocol nbr="50" name="Bulk-Only Transport" 	revision="all" flags="N"> UsbStorage.Install </protocol>
+			</subclass>
+		</class>
+		<class nbr="9"	name="Hub">
+		</class>
+		<class nbr="A"	name="CDC-Data">
+		</class>
+		<class nbr="B"	name="Chip/Smartcard">
+		</class>
+		<class nbr="D"	name="Content-Security">
+		</class>
+		<class nbr="E"	name="Video">
+		</class>
+		<class nbr="DC" name="Diagnostic Device">
+			<subclass nbr="1" name="Reprogrammable Diagnostic Device">
+			</subclass>
+		</class>
+		<class nbr="E0" name="Wireless Controller">
+			<subclass nbr="1" name="RF Controller">
+				<protocol nbr="1" name="Bluebooth" revision="all" flags="N"> UsbBluetooth.Install </protocol>
+			</subclass>
+		</class>
+		<class nbr="EF" name="Miscellaneous Device Class">
+			<subclass nbr="2" name="Common Class">
+			</subclass>
+		</class>
+		<class nbr="FE" name="Application-Specific">
+			<subclass nbr="1" name="Device Firmware Update">
+			</subclass>
+			<subclass nbr="1" name="IrDA Brigde">
+			</subclass>
+			<subclass nbr="1" name="Test and Measurement Class">
+			</subclass>
+		</class>
+		<class nbr="FF" name="Vendor-Specific">
+		</class>
+	</classSpecific>
+</USB>
+
+</Drivers>

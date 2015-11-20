@@ -1,0 +1,35 @@
+<Style>
+	<Label>
+		<TextColor>000000FF</TextColor>
+		<Caption>Label</Caption>
+	</Label>
+	<Button>
+		<Bounds>
+			<Width>60</Width>
+			<Height>30</Height>
+		</Bounds>
+		<ClDefault>1010C080</ClDefault>
+		<ClHover>EEEE00FF</ClHover>
+		<ClPressed>EE0000FF</ClPressed>
+		<ClTextDefault>FFFF00FF</ClTextDefault>
+		<ClTextHover>FFFF00FF</ClTextHover>
+		<ClTextPressed>FFFF00FF</ClTextPressed>
+		<FontHeight>16</FontHeight>
+		<IsRepeating>false</IsRepeating>
+		<IsToggle>false</IsToggle>
+		<IsFlat>false</IsFlat>
+		<Style>4</Style>
+		<Alignment>left</Alignment>
+	</Button>
+	<Panel>
+		<FillColor>00000000</FillColor>
+	</Panel>
+	<TreeView>
+		<ClDefault>D0D0FFFF</ClDefault>
+		<ClHover>EEEE00FF</ClHover>
+		<ClSelected>D0D0FFFF</ClSelected>
+		<ClTextDefault>000000FF</ClTextDefault>
+		<ClTextHover>0000FFFF</ClTextHover>
+		<ClTextSelected>0000FFFF</ClTextSelected>		
+	</TreeView>	
+</Style>

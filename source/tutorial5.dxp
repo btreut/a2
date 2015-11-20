@@ -1,0 +1,24 @@
+<html >
+	<head ><title>My first DXP-Site</title></head>
+	<body xmlns:WebStd="WebStd" xmlns:WebAccounts="WebAccounts">
+		<WebStd:Guard>
+			<Condition><WebAccounts:IsAuthorized/></Condition>
+			<Expression>
+				Welcome <WebAccounts:GetUserName/><br/>
+				<WebStd:Hyperlink href="tutorial6.dxp">
+					My Forum
+				</WebStd:Hyperlink>
+			</Expression>
+		</WebStd:Guard>
+		
+		<WebStd:Guard>
+			<Condition>
+				<WebStd:Not><WebAccounts:IsAuthorized/></WebStd:Not>
+			</Condition>
+			<Expression>
+				<WebAccounts:AuthenticationForm usernamelabel="username: "
+					passwordlabel="password: " loginbuttonlabel="Login ..." failuretext="Login failed"/>
+			</Expression>
+		</WebStd:Guard>
+	</body>
+</html>

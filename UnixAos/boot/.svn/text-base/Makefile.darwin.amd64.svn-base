@@ -1,0 +1,20 @@
+#
+
+CC      = gcc -m64
+CFLAGS  = -DDARWIN -I/usr/X11R6/include
+LDFLAGS = -lpthread -L/usr/X11R6/lib -lX11 -lXext -lm
+
+
+
+aos.darwin:	aos.o Threads.darwin.o 
+	$(CC) -o aos.darwin aos.o Threads.darwin.o  $(LDFLAGS) \
+		-arch i386 -framework CoreServices
+	rm -f *.o 
+
+aos.o:	aos.c
+	$(CC) -c $(CFLAGS) aos.c
+
+Threads.darwin.o:	Threads.h Threads.darwin.c
+	$(CC) -c $(CFLAGS) Threads.darwin.c 
+
+

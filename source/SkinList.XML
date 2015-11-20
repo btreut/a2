@@ -1,0 +1,18 @@
+<!--
+Available Skins: Displayed name and file name per skin
+-->
+
+<LookList>
+	<Look name="ZeroSkin" file=""/>
+	<Look name="Kramer" file="pklook.skin"/>
+	<Look name="Reptile" file="reptile.skin"/>
+	<Look name="Traditional" file="traditional.skin"/>
+	<Look name="XP" file="winxp.skin"/>
+	<Look name="OSX" file="aqua.skin"/>
+	<Look name="Christmas" file="xmas.skin"/>
+	<Look name="Glass" file="glass.skin"/>
+	<Look name="Blue" file="BluePlastic.skin"/>
+	<Look name="Red" file="redlook.skin"/>
+	<Look name="Stijn" file="stijn.skin"/>
+	<Look name="StijnBW" file="stijnbw.skin"/>
+</LookList>

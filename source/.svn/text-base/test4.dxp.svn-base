@@ -1,0 +1,13 @@
+<html>
+	<head>
+		<title>SetVariable example</title>
+	</head>
+	<body xmlns:WebStd="WebStd">
+		<h1>SetVariable example</h1>
+		<WebStd:SetVariable name="MySuperVar" value="Coolvar"/>
+		Variable &quot;Coolvar&quot; is set <br/>
+		<WebStd:Hyperlink href="test3.dxp">GetVariable example</WebStd:Hyperlink>
+		<hr/>
+		<address>Bluebottle Dynamic Webpages</address>
+	</body>
+</html>

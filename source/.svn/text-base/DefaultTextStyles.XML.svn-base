@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<styles>
+<character-style name="Normal" font-family="Oberon" font-style="0" font-size="10.0000" leading="12.0000" baseline-shift="0.0000" color="000000FF" bgcolor="00000000" tracking="0.0000" kerning="0.0000" h-scale="100.0000" v-scale="100.0000" />
+<character-style name="Bold" font-family="Oberon" font-style="1" font-size="10.0000" leading="12.0000" baseline-shift="0.0000" color="000000FF" bgcolor="00000000" tracking="0.0000" kerning="0.0000" h-scale="100.0000" v-scale="100.0000" />
+<character-style name="Highlight" font-family="Oberon" font-style="2" font-size="10.0000" leading="12.0000" baseline-shift="0.0000" color="000000FF" bgcolor="00000000" tracking="0.0000" kerning="0.0000" h-scale="100.0000" v-scale="100.0000" />
+<character-style name="Assertion" font-family="Oberon" font-style="1" font-size="10.0000" leading="12.0000" baseline-shift="0.0000" color="0000FFFF" bgcolor="00000000" tracking="0.0000" kerning="0.0000" h-scale="100.0000" v-scale="100.0000" />
+<character-style name="Debug" font-family="Oberon" font-style="0" font-size="10.0000" leading="12.0000" baseline-shift="0.0000" color="0000FFFF" bgcolor="00000000" tracking="0.0000" kerning="0.0000" h-scale="100.0000" v-scale="100.0000" />
+<character-style name="Lock" font-family="Oberon" font-style="0" font-size="10.0000" leading="12.0000" baseline-shift="0.0000" color="FF00FFFF" bgcolor="00000000" tracking="0.0000" kerning="0.0000" h-scale="100.0000" v-scale="100.0000" />
+<character-style name="Preferred" font-family="Oberon" font-style="1" font-size="10.0000" leading="12.0000" baseline-shift="0.0000" color="800080FF" bgcolor="00000000" tracking="0.0000" kerning="0.0000" h-scale="100.0000" v-scale="100.0000" />
+<character-style name="Comment" font-family="Oberon" font-style="0" font-size="10.0000" leading="12.0000" baseline-shift="0.0000" color="808080FF" bgcolor="00000000" tracking="0.0000" kerning="0.0000" h-scale="100.0000" v-scale="100.0000" />
+<character-style name="Stupid" font-family="Oberon" font-style="0" font-size="10.0000" leading="12.0000" baseline-shift="0.0000" color="FF0000FF" bgcolor="00000000" tracking="0.0000" kerning="0.0000" h-scale="100.0000" v-scale="100.0000" />
+<paragraph-style name="Left" alignment="0" first-indent="0.0000" left-indent="0.0000" right-indent="0.0000" space-before="0.0000" space-after="0.0000" character-style="defaultCharacterStyle" />
+<paragraph-style name="Center" alignment="1" first-indent="0.0000" left-indent="0.0000" right-indent="0.0000" space-before="0.0000" space-after="0.0000" character-style="defaultCharacterStyle" />
+<paragraph-style name="Right" alignment="2" first-indent="0.0000" left-indent="0.0000" right-indent="0.0000" space-before="0.0000" space-after="0.0000" character-style="defaultCharacterStyle" />
+<paragraph-style name="Justified" alignment="3" first-indent="0.0000" left-indent="0.0000" right-indent="0.0000" space-before="0.0000" space-after="0.0000" character-style="defaultCharacterStyle" />
+</styles>

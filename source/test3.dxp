@@ -1,0 +1,36 @@
+<html>
+	<head>
+		<title>GetVariable example</title>
+	</head>
+	<body xmlns:WebStd="WebStd">
+		<h1>GetVariable example</h1>
+		The value is : <WebStd:GetVariable name="MySuperVar"/><br/>
+		<WebStd:Hyperlink href="test4.dxp">SetVariable example</WebStd:Hyperlink>
+		<WebStd:Sequence id="seq4" circular="false">
+			<State> Schriit 1 </State>
+			<State> Schriit2 </State>
+			<State> abcede </State>
+		</WebStd:Sequence>
+		<hr/>
+		<WebStd:Guard>
+			<Condition>
+				<WebStd:IsEqual>
+					<Arg1>test1<granted name="abc" abc="123"><abc/>&nbsp;</granted></Arg1>
+					<Arg2>test1<granted name="abc" abc="123"><abc/>&nbsp;</granted></Arg2>
+				</WebStd:IsEqual>
+			</Condition>
+			<Expression> <WebStd:Hyperlink href="test4.dxp">SetVariable example</WebStd:Hyperlink></Expression>
+		</WebStd:Guard>
+		<WebStd:Guard>
+			<Condition>
+				<WebStd:Xor>
+					<Arg1>false</Arg1>
+					<Arg2>true</Arg2>
+				</WebStd:Xor>
+			</Condition>
+			<Expression> TEST</Expression>
+		</WebStd:Guard>
+		<hr/>
+		<address>Bluebottle Dynamic Webpages</address>
+	</body>
+</html>

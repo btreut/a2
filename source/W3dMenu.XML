@@ -1,0 +1,22 @@
+<Cluster>
+	<Layer>
+		<Line>
+			<SymbolBox title="Reload" cmd="W3dMenu.Open W3dMenu.XML" img="W3dMenuIcons.tar://iconreload.bmp" />
+			<ImgBox cmd="OberonDisplay.Install Oberon 1000x700;Oberon.Call System.Init Oberon" img="W3dMenuIcons.tar://oberon.bmp"/>
+			<ImgBox cmd="WMObjectTracker.Open 100 10" img="W3dMenuIcons.tar://objecttracker.bmp" />
+			<ImgBox cmd="Shell.Open" img="W3dMenuIcons.tar://launcher.bmp" />
+		</Line>
+		<Line>
+			<SymbolBox title="Personal" cmd="W3dMenu.Open W3dPersonal.XML" img="" />
+			<SymbolBox title="Network Tools" cmd="W3dMenu.Open W3dNetTools.XML" img="W3dMenuIcons.tar://iconnettools.bmp" />
+			<SymbolBox title="Fun" cmd="W3dMenu.Open W3dFun.XML" img="W3dMenuIcons.tar://iconfun.bmp" />
+			<SymbolBox title="XML Demo" cmd="XMLWindows.Open Demo1.xml Demo1a.css" img="W3dMenuIcons.tar://iconxml.bmp" />
+		</Line>
+		<Line>
+			<SymbolBox title="Log" cmd="LogWindow.Open" img="" />
+			<SymbolBox title="Key Code" cmd="WMKeyCode.Open" img="W3dMenuIcons.tar://iconkeycode.bmp" />
+			<SymbolBox title="Memory Info" cmd="Info.Memory" img="W3dMenuIcons.tar://iconmemory.bmp" />
+			<SymbolBox title="Plugin Info" cmd="Info.Plugins" img="" />
+		</Line>
+	</Layer>
+</Cluster>

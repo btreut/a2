@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?bluebottle format version="0.1" ?>
+<?xml-stylesheet type="text/xsl" href="http://bluebottle.ethz.ch/bluebottle.xsl" ?>
+<Text>
+<Span style="AdHoc Oberon 14 1 0 000000FF 00000000"><![CDATA[Bluebottle GUI Programming pattern collection]]></Span><Span style="Normal"><![CDATA[
+
+This is about programming graphical user interfaces GUI for fictitious applications starting at null function and increasing in functionality
+so as to serve as model for real-life constructions.
+A number of programming examples	are stored in archive ]]></Span><Span style="Bold"><![CDATA[GUIPat.tar]]></Span><Span style="Normal"><![CDATA[. They can be extracted by executing the following command:
+
+Tar.Extract GUIPat.tar ~
+
+The programming examples are aimed at introducing a Bluebottle neophyte without going to a detailed theoretical presentation
+of the subject matter Active Oberon (Aos). Some of the principles of operation of the Bluebottle GUI should become clear after
+having studied and practiced them. The sometimes complex operations taking place behind the scene are not exposed.
+
+A follow-up section "Standard templates" presents six source texts which may be used off-the-shelf as seeds for developing real-life applications.
+
+Each example, suggestively named "GUIPatxyz",
+
+1 - is a complete, correctly working, correctly terminating program (except when a TRAP can be produced to draw the attention
+	on possible pitfalls)
+
+2 - is delivered as an Oberon source text stored in a file named "GUIPatxyz.Mod" which can be accessed (opened in an editor window) with:
+	a - a mouse command: Position the mouse cursor to a document name, then click with the middle mouse button, keep the button pressed,
+		additionally press the right button, release both. (Middle-Right-Interclick).
+
+	b - a keyboard command: Position the text cursor on a document name. Press CTRL-Shift-Enter.
+
+	All this, and more, is explained in the Tutorial.Text (have a try at opening this document as just described).
+	Bluebottle uses the document name suffix to decide which editor must present the document:
+		- the Notepad for ".Text"
+		- PET, the built-in "Programmer's Editing Tool", for ".Mod"
+
+ 	For a source text presented by take good note of the button [Split] which makes it possible to view a section
+ 	of the program text in one view and another section, such as the comments at the end, in another view.
+ 	
+ 	Click on [Compile] to compile the source text to an object module "GUIPatxyz.Bbx" which can then be tested (see 3 below).
+ 	If after executing the object module, the text is modified and recompiled, the loaded version must be unloaded
+ 	by executing SystemTools.Free GUIPatxyz ~	(this command acommpanies every module listed below)
+ 
+3 - can be tested by executing the commands appearing in this text immediately below the module name and description,
+	as for example "GUIPat1.Open ~"
+	Execute / start a command with:
+	a - a mouse command: Position the mouse cursor to a command, then click with the middle mouse button.
+
+	b - a keyboard command: Position the text cursor on a document name. Press CTRL-Enter.
+	
+4 - starts with an expose of:
+
+	Themes: BB concepts and constructs used in the example. Whenever possible, the reader is referred to [1] to obtain more information,
+		in particular in these chapters:
+			5. Display Space Manager (first introduced in section 2.6) and
+			6. Component System
+
+	Purpose: GUI functionality to achieve
+
+	Quiz: items on which attention is drawn, such as possible pitfalls overseen when a quick and dirty solution is constructed
+			(A quiz is not always present)
+
+[1] Thomas Frey's thesis "Bluebottle: A Thread-safe Multimedia and GUI Framework for Active Oberon" - ISBN 3-86628-11-4
+
+Each example is followed by a detailled description of some of the lines of code in the same manner as what is done in [1],
+	Appendix A - Programming Examples
+
+At this time (January 2006), the following examples are offered (not yet fully documented though):
+
+]]></Span><Span style="Bold"><![CDATA[ModuleName]]></Span><Span style="Normal"><![CDATA[ - short description
+				execute command(s) ~		module unload command ~
+]]></Span><Span style="Bold"><![CDATA[=======================================================]]></Span><Span style="Normal"><![CDATA[
+
+]]></Span><Span style="Bold"><![CDATA[GUIPat1.Mod]]></Span><Span style="Normal"><![CDATA[ - window positioning
+				GUIPat1.Open ~		SystemTools.Free GUIPat1 ~
+
+]]></Span><Span style="Bold"><![CDATA[GUIPat2.Mod]]></Span><Span style="Normal"><![CDATA[ - window with embedded panel containing a button
+				GUIPat2.Open ~		SystemTools.Free GUIPat2 ~
+
+]]></Span><Span style="Bold"><![CDATA[GUIPat3.Mod]]></Span><Span style="Normal"><![CDATA[ - window with embedded list
+				GUIPat3.Open ~		SystemTools.Free GUIPat3 ~
+
+]]></Span><Span style="Bold"><![CDATA[GUIPat4.Mod]]></Span><Span style="Normal"><![CDATA[ - window with embedded list using data extracted from an XML file TVChannels.XML
+				GUIPat4.Open A ~		SystemTools.Free GUIPat4 ~
+				GUIPat4.Open B ~
+				GUIPat4.Open C ~
+				GUIPat4.ReShow ~
+
+]]></Span><Span style="Bold"><![CDATA[GUIPat5.Mod]]></Span><Span style="Normal"><![CDATA[ - GUIPat4.Mod with corrections
+				GUIPat5.Open A ~		SystemTools.Free GUIPat5 ~
+				GUIPat5.Open B ~
+				GUIPat5.Open C ~
+
+]]></Span><Span style="Bold"><![CDATA[GUIPat6.Mod]]></Span><Span style="Normal"><![CDATA[ - application can be started only once, use of parameters
+				GUIPat6.Open ~		SystemTools.Free GUIPat6 ~
+				GUIPat6.Open GUIPat6 200x100 ~ or GUIPat6.Open NewWin 150x150  ~
+				GUIPat6.Remove ~
+
+]]></Span><Span style="Bold"><![CDATA[GUIPat7.Mod]]></Span><Span style="Normal"><![CDATA[ - several windows for the same application, made restorable for the next session
+				GUIPat7.Open ~		SystemTools.Free GUIPat7 ~
+
+]]></Span><Span style="Bold"><![CDATA[GUIPat8.Mod]]></Span><Span style="Normal"><![CDATA[ - module creating a list is coded to be (re-)useable by GUIPat9.Mod and GUIPat10.Mod
+				Not to use alone, except a test with GUIPat8.Test ~	SystemTools.Free GUIPat8 ~
+
+]]></Span><Span style="Bold"><![CDATA[GUIPat9.Mod]]></Span><Span style="Normal"><![CDATA[ - application can be started only once, uses repeatedly GUIPat8.Mod
+				GUIPat9.Open ~		SystemTools.Free GUIPat9 GUIPat8 ~
+
+]]></Span><Span style="Bold"><![CDATA[GUIPat10.Mod]]></Span><Span style="Normal"><![CDATA[ - application uses repeatedly GUIPat8.Mod for constructing lists with different data
+				GUIPat10.Open ~		SystemTools.Free GUIPat10 GUIPat8 ~
+
+]]></Span><Span style="Bold"><![CDATA[GUIPat11.Mod]]></Span><Span style="Normal"><![CDATA[ - tight coupling of 3 windows, one plus two from GUIPat11a
+				GUIPat11.Open ~		SystemTools.Free GUIPat11 GUIPat11a ~
+
+]]></Span><Span style="Bold"><![CDATA[GUIPat11a.Mod]]></Span><Span style="Normal"><![CDATA[ - tight coupling of 2 windows
+				GUIPat11a.Open ~		SystemTools.Free GUIPat11a ~
+
+]]></Span><Span style="Bold"><![CDATA[GUIPat12.Mod]]></Span><Span style="Normal"><![CDATA[ - window with scollbar
+				GUIPat12.Open ~		SystemTools.Free GUIPat12 ~
+
+]]></Span><Span style="Bold"><![CDATA[GUIPat12a.Mod]]></Span><Span style="Normal"><![CDATA[ - window with scollbar and checkbox
+				GUIPat12a.Open ~		SystemTools.Free GUIPat12a ~
+
+]]></Span><Span style="Bold"><![CDATA[GUIPat13.Mod]]></Span><Span style="Normal"><![CDATA[ - unbordered window with pop-up menu ( as used in WMClock.Mod )
+				GUIPat13.Open ~		SystemTools.Free GUIPat13 ~
+
+]]></Span><Span style="Bold"><![CDATA[GUIPat14.Mod]]></Span><Span style="Normal"><![CDATA[ - single window with user defined toolbar
+				GUIPat14.Open ~		SystemTools.Free GUIPat14 ~
+
+]]></Span><Span style="Bold"><![CDATA[GUIPat15.Mod]]></Span><Span style="Normal"><![CDATA[ - single window with text editor
+				GUIPat15.Open ~		SystemTools.Free GUIPat15 ~
+
+]]></Span><Span style="Bold"><![CDATA[GUIPat16.Mod]]></Span><Span style="Normal"><![CDATA[ - single window with resizer in 4 quadrants
+				GUIPat16.Open ~		SystemTools.Free GUIPat16 ~
+
+]]></Span><Span style="AdHoc Oberon 14 1 0 000000FF 00000000"><![CDATA[Standard templates]]></Span><Span style="Normal"><![CDATA[
+
+The templates are complete, correctly working, correctly terminating program which may be used off-the-shelf to start
+the development of an application best fit for the Bluebottle environment. Each template contains the quintessence
+of source code needed for its particular purpose.
+
+]]></Span><Span style="Bold"><![CDATA[GUIPatW1.Mod]]></Span><Span style="Normal"><![CDATA[ - Single window, non-restorable
+				GUIPatW1.Open ~		SystemTools.Free GUIPatW1 ~
+
+]]></Span><Span style="Bold"><![CDATA[GUIPatW1R.Mod]]></Span><Span style="Normal"><![CDATA[ - Single window, restorable
+				GUIPatW1R.Open ~		SystemTools.Free GUIPatW1R ~
+
+]]></Span><Span style="Bold"><![CDATA[GUIPatWn.Mod]]></Span><Span style="Normal"><![CDATA[ - Multiple windows controlled by number, non-restorable
+				GUIPatWn.Open ~		SystemTools.Free GUIPatWn ~
+
+]]></Span><Span style="Bold"><![CDATA[GUIPatWnR.Mod]]></Span><Span style="Normal"><![CDATA[ - Multiple windows controlled by number, restorable
+				GUIPatWnR.Open ~		SystemTools.Free GUIPatWnR ~
+
+]]></Span><Span style="Bold"><![CDATA[GUIPatWc.Mod]]></Span><Span style="Normal"><![CDATA[ - Multiple windows controlled by chain, non-restorable
+				GUIPatWc.Open ~		SystemTools.Free GUIPatWc ~
+
+]]></Span><Span style="Bold"><![CDATA[GUIPatWcR.Mod]]></Span><Span style="Normal"><![CDATA[ - Multiple windows controlled by chain, restorable 
+				GUIPatWcR.Open ~		SystemTools.Free GUIPatWcR ~
+
+Definition of "restorable": The objects appearing in the display space are externalized and repertoriated in
+	the system file "Auto.dsk" by clicking on [SaveDesktop] under [System] on the desktop menu.
+	When Bluebottle is restarted, the desktop reappears in the same configuration as it had in the previous session.
+
+Comparison of GUIPatWn.Mod (GUIPatWnR.Mod) and GUIPatWc.Mod (GUIPatWcR.Mod)
+----------------------------------------------------------------------
+One cannot declare which technique is the best for managing several windows but te following
+can help to decide wich one to favour:
+
+- the window chain (linked list) is useful when another program instance must retrieve a particular window.
+
+- the window chain gives total control of what is happening at all times.
+
+- the simple technique of counting the windows has a certain elegance compared to the double
+	bookkeeping required by the linked list technique.
+
+]]></Span><Span style="AdHoc Oberon 14 1 0 000000FF 00000000"><![CDATA[Installation procedure using an archive file GUIPat.tar]]></Span><Span style="Normal"><![CDATA[
+
+UsbStorage.Install ~	Use these to transfer the file to and fro an external USB drive
+
+FSTools.Mount USB AosFS USB0#1 ~		FSTools.Unmount USB ~
+
+Tar.Create GUIPat.tar GUIPat.txt GUIPat1.Mod GUIPat2.Mod GUIPat3.Mod GUIPat4.Mod GUIPat5.Mod
+GUIPat6.Mod GUIPat7.Mod GUIPat8.Mod GUIPat9.Mod GUIPat10.Mod
+GUIPat11.Mod GUIPat11a.Mod GUIPat12.Mod GUIPat12a.Mod GUIPat13.Mod GUIPat14.Mod GUIPat15.Mod
+GUIPat16.Mod
+GUIPatW1.Mod GUIPatW1R.Mod GUIPatWn.Mod GUIPatWnR.Mod GUIPatWc.Mod GUIPatWcR.Mod ~
+
+
+Tar.Extract GUIPat.tar ~	or to explore and extract selectively 	WMArchives.Open GUIPat.tar ~
+
+PC.Compile GUIPat1.Mod GUIPat2.Mod GUIPat3.Mod GUIPat4.Mod GUIPat5.Mod
+GUIPat6.Mod GUIPat7.Mod GUIPat8.Mod GUIPat9.Mod GUIPat10.Mod
+GUIPat11a.Mod GUIPat11.Mod GUIPat12.Mod GUIPat12a.Mod GUIPat13.Mod GUIPat14.Mod GUIPat15.Mod
+GUIPat16.Mod
+GUIPatW1.Mod GUIPatW1R.Mod GUIPatWn.Mod GUIPatWnR.Mod GUIPatWc.Mod GUIPatWcR.Mod ~
+
+]]></Span><Span style="AdHoc Oberon 14 1 0 000000FF 00000000"><![CDATA[Available Bluebottle components]]></Span><Span style="Normal"><![CDATA[
+
+]]></Span><Span style="AdHoc Oberon 12 1 0 000000FF 00000000"><![CDATA[Visual	(extension of WMComponents.VisualComponent)]]></Span><Span style="Normal"><![CDATA[
+
+Component				Implemented in					Used in module
+---------				-------------					------------				
+Panel					WMStandardComponents.Mod	everywhere
+Label						extension of Panel			GUIPat14.Mod
+GroupPanel					extension of Panel
+ImagePanel					extension of Panel
+Button					WMStandardComponents.Mod	GUIPat14.Mod GUIPat2.Mod
+Scrollbar				WMStandardComponents.Mod	GUIPat12.Mod GUIPat12a.Mod
+Checkbox				WMStandardComponents.Mod	GUIPat12a.Mod
+Resizer					WMStandardComponents.Mod	GUIPat16.Mod 
+
+Editor					WMEditors.Mod					GUIPat15.Mod
+ClockComponent		WMClock.Mod
+FileList					WMSystemComponents.Mod
+GenericGrid				WMGrids.Mod					GUIPat3.Mod
+TextView				WMTextView.Mod
+
+TreeView				WMTrees.Mod					Decoder ModuleTrees SkinEditor WMArchives
+														WMSystemComponents WMUsbInfo WMXMLTree
+DirectoryTree			WMSystemComponents.Mod
+
+Popup					WMPopups.Mod					GUIPat13.Mod
+
+The list below enumerates visual components specially developed for Bluebottle applications.
+No example of their use is given other than in the specialized Bluebottle application modules.
+
+]]></Span><Span style="Bold"><![CDATA[Sound Mixer]]></Span><Span style="Normal"><![CDATA[
+Mixer					WMMixer.Mod					nowhere else
+
+MenuPanel				WMMenus.Mod					TestMenu.Mod
+														
+NumberInput			WMColorTools.Mod				nowhere else
+
+]]></Span><Span style="Bold"><![CDATA[Programmer's Editing Tool - PET]]></Span><Span style="Normal"><![CDATA[
+XMLView				WMXMLTree.Mod				PET.Mod
+SearchPanel			PET.Mod
+ScratchPanel			PET.Mod
+PETPanel				PET.Mod
+
+]]></Span><Span style="Bold"><![CDATA[Desktop Publishing Tool - DTP]]></Span><Span style="Normal"><![CDATA[
+ListChooser				DTPUtilities.Mod				nowhere else
+ColorChooser			DTPUtilities.Mod				SkinEditor.Mod
+Checkbox				DTPUtilities.Mod
+DrawPanel				DTPView.Mod					DTPEditor.Mod
+
+]]></Span><Span style="Bold"><![CDATA[Performance Monitor Tool]]></Span><Span style="Normal"><![CDATA[
+PerfViewPanel			WMDiagramComponents.Mod	VMPerfMon.Mod
+Tabs					WMTabComponents.Mod
+
+]]></Span><Span style="Bold"><![CDATA[Search Tool]]></Span><Span style="Normal"><![CDATA[
+SearchPanel			SkinEditor.Mod
+
+]]></Span><Span style="AdHoc Oberon 12 1 0 000000FF 00000000"><![CDATA[Abstract model	(extension of WMComponents.Component)]]></Span><Span style="Normal"><![CDATA[
+
+StringGrid				WMStringGrids.Mod
+Timer					WMStandardComponents.Mod
+Event					WMStandardComponents.Mod
+SystemCommand		WMStandardComponents.Mod	MenuEdit.Mod
+
+-------------
+
+Author: Andre Fischer - fischer@inf.ethz.ch - RZ H 22
+
+Feedback and comments are welcome to serve the Bluebottle users community.
+
+January 2006
+
+
+The release contains a number of GUI programming examples which should be integrated in this package.
+
+BimboMail.Mod
+Bimso.Mod
+MenuEdit.Mod
+PieTest.Mod
+TestComponents.Mod
+TestComponentDragDrop.Mod
+TestMenu.Mod
+TestTrees.Mod
+TestXMLPlugins.Mod
+
+ExampleTextWriter.Mod
+
+PDFExample.Mod
+
+Example6.Mod
+
+Example7.Mod
+
+Example8.Mod
+ExampleOberon.Mod
+
+WMScribble.Mod
+WMPicView.Mod
+MP3Player.Mod
+
+HW1.Mod
+HW2.Mod
+HW3.Mod
+
+WMTetris.Mod ???
+WMTransitions.Mod ??
+WebForum.Mod
+
+ComponentViewer.Mod
+PresentViewer.Mod
+
+]]></Span>
+
+</Text>

@@ -1,0 +1,339 @@
+# Testing the functionality of the module HRVAnalysis
+#
+# The following denotes to the parser which regression test file to use.
+# $Regression: CSV.Test.tmp$
+
+# WMUtilities.Call PCTest.Execute CSV.Test ~					Verbose testing mode
+# WMUtilities.Call PCTest.Execute CSV.Test CSV.Test.tmp ~	Regression testing mode
+
+# Use halt or asserts to check for the output you expect
+
+# There are two directives for the test cases:
+# - positive
+#		expects that no ASSERT fails and no HALT is executed
+# - negative
+#		expects that a HALT is executed or an ASSERT fails
+#
+# It is better to specify all running test cases as positive so the trap window only opens
+# really if a test case failed.
+
+
+positive: UNLOAD the CSV module before the tests
+
+	MODULE Test;
+	IMPORT Modules;
+	VAR res: LONGINT; msg: ARRAY 64 OF CHAR;
+	BEGIN
+		Modules.FreeModule("TestShared", res, msg);
+		Modules.FreeModule("CSV", res, msg);
+	END Test.
+
+positive: setup test base module with shared functions
+
+	MODULE TestShared;
+	IMPORT Files, CSV, Modules, Strings;
+	CONST fn = "CSV.Test.input.tmp.csv";
+	VAR f: Files.File; w: Files.Writer; canTest: BOOLEAN;
+
+		PROCEDURE GetWriter*(): Files.Writer;
+		BEGIN
+			ASSERT(canTest);
+			IF w = NIL THEN
+				f := Files.New(fn);
+				Files.OpenWriter(w, f, 0);
+			END;
+			RETURN w;
+		END GetWriter;
+
+		PROCEDURE CloseWriter*;
+		BEGIN
+			ASSERT(canTest);
+			w.Update(); Files.Register(f); f := NIL; w := NIL;
+		END CloseWriter;
+
+		PROCEDURE GetScanner*(csv: CSV.CSV): CSV.Scanner;
+		VAR r: Files.Reader; fl: Files.File; scan: CSV.Scanner;
+		BEGIN
+			ASSERT(canTest);
+			fl := Files.Old(fn);
+			Files.OpenReader(r, fl, 0);
+			NEW(scan, csv, r);
+			RETURN scan;
+		END GetScanner;
+
+		PROCEDURE Cleanup;
+		VAR fnstr: Strings.String; res: LONGINT;
+		BEGIN
+			IF canTest THEN
+				fnstr := Strings.NewString(fn);
+				Files.Delete(fnstr^, res);
+			END;
+		END Cleanup;
+	BEGIN
+		canTest := Files.Old(fn) = NIL;
+		Modules.InstallTermHandler(Cleanup);
+	END TestShared.
+
+positive: parse empty file gives empty CSV
+
+	MODULE Test;
+	IMPORT CSV, Streams, Strings, TestShared;
+	VAR w: Streams.Writer; csv, csvref: CSV.CSV; s: CSV.Scanner;
+	BEGIN
+		w := TestShared.GetWriter();
+		csvref := CSV.GetDefaultCSV();
+		csvref.NewLine();
+
+		TestShared.CloseWriter();
+		csv := CSV.GetDefaultCSV();
+		s := TestShared.GetScanner(csv);
+		s.Scan();
+		ASSERT(CSV.CompareCSVs(csv, csvref));
+	END Test.
+
+positive: completely empty line doesn't produce a field
+
+	MODULE Test;
+	IMPORT CSV, Streams, Strings, TestShared;
+	VAR w: Streams.Writer; csv, csvref: CSV.CSV; s: CSV.Scanner;
+	BEGIN
+		w := TestShared.GetWriter();
+		csvref := CSV.GetDefaultCSV();
+		csvref.NewLine();
+
+		csvref.AddField("Test line"); csvref.AddField("32");
+		w.String('"Test line",32');
+		csvref.NewLine();
+		w.Ln();
+
+		TestShared.CloseWriter();
+		csv := CSV.GetDefaultCSV();
+		s := TestShared.GetScanner(csv);
+		s.Scan();
+		ASSERT(CSV.CompareCSVs(csv, csvref));
+	END Test.
+
+positive: empty field at the beginning of a line is recognised
+
+	MODULE Test;
+	IMPORT CSV, Streams, Strings, TestShared;
+	VAR w: Streams.Writer; csv, csvref: CSV.CSV; s: CSV.Scanner;
+	BEGIN
+		w := TestShared.GetWriter();
+		csvref := CSV.GetDefaultCSV();
+		csvref.NewLine();
+
+		csvref.AddField(""); csvref.AddField("First field empty"); csvref.AddField("134");
+		w.String('"","First field empty",134');
+		csvref.NewLine();
+		w.Ln();
+
+		TestShared.CloseWriter();
+		csv := CSV.GetDefaultCSV();
+		s := TestShared.GetScanner(csv);
+		s.Scan();
+		ASSERT(CSV.CompareCSVs(csv, csvref));
+	END Test.
+
+positive: empty field at end of line is recognised as such
+
+	MODULE Test;
+	IMPORT CSV, Streams, Strings, TestShared;
+	VAR w: Streams.Writer; csv, csvref: CSV.CSV; s: CSV.Scanner;
+	BEGIN
+		w := TestShared.GetWriter();
+		csvref := CSV.GetDefaultCSV();
+		csvref.NewLine();
+
+		csvref.AddField("Test empty EOL field"); csvref.AddField("31"); csvref.AddField("");
+		w.String('"Test empty EOL field",31,""');
+
+		TestShared.CloseWriter();
+		csv := CSV.GetDefaultCSV();
+		s := TestShared.GetScanner(csv);
+		s.Scan();
+		ASSERT(CSV.CompareCSVs(csv, csvref));
+	END Test.
+
+positive: parse simple line 1
+
+	MODULE Test;
+	IMPORT CSV, Streams, Strings, TestShared;
+	VAR w: Streams.Writer; csv, csvref: CSV.CSV; s: CSV.Scanner;
+	BEGIN
+		w := TestShared.GetWriter();
+		csvref := CSV.GetDefaultCSV();
+		csvref.NewLine();
+
+		csvref.AddField("Parker"); csvref.AddField("Howard"); csvref.AddField("32"); csvref.AddField("River Avenue 12");
+		w.String('Parker, Howard, 32, "River Avenue 12"');
+
+		TestShared.CloseWriter();
+		csv := CSV.GetDefaultCSV();
+		s := TestShared.GetScanner(csv);
+		s.Scan();
+		ASSERT(CSV.CompareCSVs(csv, csvref));
+	END Test.
+
+positive: parse field
+
+	MODULE Test;
+	IMPORT CSV, Streams, Strings, TestShared;
+	VAR w: Streams.Writer; csv, csvref: CSV.CSV; s: CSV.Scanner;
+	BEGIN
+		w := TestShared.GetWriter();
+		csvref := CSV.GetDefaultCSV();
+		csvref.NewLine();
+
+		csvref.AddField("Parker");
+		w.String('Parker');
+
+		TestShared.CloseWriter();
+		csv := CSV.GetDefaultCSV();
+		s := TestShared.GetScanner(csv);
+		s.Scan();
+		ASSERT(CSV.CompareCSVs(csv, csvref));
+	END Test.
+
+positive: parse field and ignore leading whitespace not in quotes
+
+	MODULE Test;
+	IMPORT CSV, Streams, Strings, TestShared;
+	VAR w: Streams.Writer; csv, csvref: CSV.CSV; s: CSV.Scanner;
+	BEGIN
+		w := TestShared.GetWriter();
+		csvref := CSV.GetDefaultCSV();
+		csvref.NewLine();
+
+		csvref.AddField("Parker");
+		w.String(' Parker');
+
+		TestShared.CloseWriter();
+		csv := CSV.GetDefaultCSV();
+		s := TestShared.GetScanner(csv);
+		s.Scan();
+		ASSERT(CSV.CompareCSVs(csv, csvref));
+	END Test.
+
+positive: parse field and keep leading whitespace in quotes
+
+	MODULE Test;
+	IMPORT CSV, Streams, Strings, TestShared;
+	VAR w: Streams.Writer; csv, csvref: CSV.CSV; s: CSV.Scanner;
+	BEGIN
+		w := TestShared.GetWriter();
+		csvref := CSV.GetDefaultCSV();
+		csvref.NewLine();
+
+		csvref.AddField(" Parker");
+		w.String('" Parker"');
+
+		TestShared.CloseWriter();
+		csv := CSV.GetDefaultCSV();
+		s := TestShared.GetScanner(csv);
+		s.Scan();
+		ASSERT(CSV.CompareCSVs(csv, csvref));
+	END Test.
+
+positive: parse field and ignore trailing whitespace not in quotes
+
+	MODULE Test;
+	IMPORT CSV, Streams, Strings, TestShared;
+	VAR w: Streams.Writer; csv, csvref: CSV.CSV; s: CSV.Scanner;
+	BEGIN
+		w := TestShared.GetWriter();
+		csvref := CSV.GetDefaultCSV();
+		csvref.NewLine();
+
+		csvref.AddField("Parker");
+		w.String('Parker ');
+
+		TestShared.CloseWriter();
+		csv := CSV.GetDefaultCSV();
+		s := TestShared.GetScanner(csv);
+		s.Scan();
+		ASSERT(CSV.CompareCSVs(csv, csvref));
+	END Test.
+
+positive: parse field and keep trailing whitespace in quotes
+
+	MODULE Test;
+	IMPORT CSV, Streams, Strings, TestShared;
+	VAR w: Streams.Writer; csv, csvref: CSV.CSV; s: CSV.Scanner;
+	BEGIN
+		w := TestShared.GetWriter();
+		csvref := CSV.GetDefaultCSV();
+		csvref.NewLine();
+
+		csvref.AddField("Parker ");
+		w.String('"Parker "');
+
+		TestShared.CloseWriter();
+		csv := CSV.GetDefaultCSV();
+		s := TestShared.GetScanner(csv);
+		s.Scan();
+		ASSERT(CSV.CompareCSVs(csv, csvref));
+	END Test.
+
+positive: parse simple file
+
+	MODULE Test;
+	IMPORT CSV, Streams, Strings, TestShared;
+	VAR w: Streams.Writer; csv, csvref: CSV.CSV; s: CSV.Scanner;
+	BEGIN
+		w := TestShared.GetWriter();
+		csvref := CSV.GetDefaultCSV();
+		csvref.NewLine();
+
+		csvref.AddField("Parker"); csvref.AddField("Howard"); csvref.AddField("32"); csvref.AddField("River Avenue 12");
+		w.String('Parker,Howard,32,"River Avenue 12"');
+		csvref.NewLine();
+		w.Ln();
+		csvref.AddField(" Hello Peter "); csvref.AddField("Off, everything cool!");
+		w.String('" Hello Peter ","Off, everything cool!"');
+
+		TestShared.CloseWriter();
+		csv := CSV.GetDefaultCSV();
+		s := TestShared.GetScanner(csv);
+		s.Scan();
+		ASSERT(CSV.CompareCSVs(csv, csvref));
+	END Test.
+
+positive: parse field not quoted and containing still whitespace skip after whitespace
+
+	(* Text in a field after whitespace should be skipped until a separator appears *)
+	MODULE Test;
+	IMPORT CSV, Streams, Strings, TestShared;
+	VAR w: Streams.Writer; csv, csvref: CSV.CSV; s: CSV.Scanner;
+	BEGIN
+		w := TestShared.GetWriter();
+		csvref := CSV.GetDefaultCSV();
+		csvref.NewLine();
+
+		csvref.AddField("Parker"); csvref.AddField("Howard"); csvref.AddField("32"); csvref.AddField("River Avenue 12");
+		w.String('Parker,Howard Martin,32,"River Avenue 12"');
+		csvref.NewLine();
+		w.Ln();
+		csvref.AddField(" Hello Peter "); csvref.AddField("Off, everything cool!");
+		w.String('" Hello Peter ","Off, everything cool!"');
+
+		TestShared.CloseWriter();
+		csv := CSV.GetDefaultCSV();
+		s := TestShared.GetScanner(csv);
+		s.Scan();
+		ASSERT(CSV.CompareCSVs(csv, csvref));
+	END Test.
+
+positive: UNLOAD the CSV module after the tests
+
+	MODULE Test;
+	IMPORT Modules;
+	VAR res: LONGINT; msg: ARRAY 64 OF CHAR;
+	BEGIN
+		Modules.FreeModule("TestShared", res, msg);
+		Modules.FreeModule("CSV", res, msg);
+	END Test.
+
+
+
+	

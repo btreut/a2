@@ -1,0 +1,169 @@
+<LanguageContext language="Test" base="Hex">
+  <Properties>
+    <Range low="0" high="FF"/>
+    <Size value="whole"/>
+  </Properties>
+  <Character code="74">
+    <Context>
+      <left range="20"/>
+      <right range="!65"/>
+      <result code=""/>
+    </Context>
+  </Character>
+  <Character code="68">
+    <Context>
+      <left range="X"/>
+      <right range="6F-71;75"/>
+      <result code="48"/>
+    </Context>
+  </Character>
+  <Character code="6D">
+    <Context>
+      <left range="O"/>
+      <right range="X"/>
+      <result code="4D"/>
+    </Context>
+    <Context>
+      <left range="X"/>
+      <right range="A"/>
+      <result code="4D"/>
+    </Context>
+  </Character>
+  <Character code="69">
+    <Context>
+      <secondleft range="74"/>
+      <left range="68"/>
+      <result code="65"/>
+    </Context>
+  </Character>
+  <Character code="65">
+    <Context>
+      <genericLeft size="1">
+	<left range="20" offset="1"/>
+      </genericLeft>
+      <genericRight size="9">
+	<right range="76" offset="1"/>
+	<right range="65" offset="2"/>
+	<right range="72" offset="3"/>
+	<right range="79" offset="4"/>
+	<right range="74" offset="5"/>
+	<right range="68" offset="6"/>
+	<right range="69" offset="7"/>
+	<right range="6E" offset="8"/>
+	<right range="67" offset="9"/>
+      </genericRight>
+      <result code=""/>
+    </Context>
+    <Context>
+      <genericLeft size="3">
+	<left range="20" offset="3"/>
+	<left range="65" offset="2"/>
+	<left range="76" offset="1"/>
+      </genericLeft>
+      <genericRight size="7">
+	<right range="72" offset="1"/>
+	<right range="79" offset="2"/>
+	<right range="74" offset="3"/>
+	<right range="68" offset="4"/>
+	<right range="69" offset="5"/>
+	<right range="6E" offset="6"/>
+	<right range="67" offset="7"/>
+      </genericRight>
+      <result code="61"/>
+    </Context>
+  </Character>
+  <Character code="76">
+    <Context>
+      <genericLeft size="2">
+	<left range="20" offset="2"/>
+	<left range="65" offset="1"/>
+      </genericLeft>
+      <genericRight size="8">
+	<right range="65" offset="1"/>
+	<right range="72" offset="2"/>
+	<right range="79" offset="3"/>
+	<right range="74" offset="4"/>
+	<right range="68" offset="5"/>
+	<right range="69" offset="6"/>
+	<right range="6E" offset="7"/>
+	<right range="67" offset="8"/>
+      </genericRight>
+      <result code=""/>
+    </Context>
+  </Character>
+  <Character code="72">
+    <Context>
+      <genericLeft size="4">
+	<left range="20" offset="4"/>
+	<left range="65" offset="3"/>
+	<left range="76" offset="2"/>
+	<left range="65" offset="1"/>
+      </genericLeft>
+      <genericRight size="6">
+	<right range="79" offset="1"/>
+	<right range="74" offset="2"/>
+	<right range="68" offset="3"/>
+	<right range="69" offset="4"/>
+	<right range="6E" offset="5"/>
+	<right range="67" offset="6"/>
+      </genericRight>
+      <result code="6E"/>
+    </Context>
+  </Character>
+  <Character code="67">
+    <Context>
+      <genericLeft size="10">
+	<left range="20" offset="10"/>
+	<left range="65" offset="9"/>
+	<left range="76" offset="8"/>
+	<left range="65" offset="7"/>
+	<left range="72" offset="6"/>
+	<left range="79" offset="5"/>
+	<left range="74" offset="4"/>
+	<left range="68" offset="3"/>
+	<left range="69" offset="2"/>
+	<left range="6E" offset="1"/>
+      </genericLeft>
+      <result code="27"/>
+    </Context>
+  </Character>
+</LanguageContext>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

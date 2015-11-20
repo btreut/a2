@@ -1,0 +1,8 @@
+<html >
+	<head ><title>My first DXP-Site</title></head>
+	<body xmlns:WebStd="WebStd">
+		<h1>My first DXP-Site</h1>
+		<p>Visitors: <WebStd:VisitorCounter name="MyVisitorCounter1"/></p>
+		<p><WebStd:Hyperlink href="tutorial3.dxp">Go to Welcome Page</WebStd:Hyperlink></p>
+	</body>
+</html>

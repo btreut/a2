@@ -1,0 +1,18 @@
+# Disk DescriptorFile
+version=1
+CID=4b99f7e9
+parentCID=ffffffff
+createType="twoGbMaxExtentFlat"
+
+# Extent description
+RW 200000 FLAT "AosVMDisk1-flat.vmdk" 0
+
+# The Disk Data Base 
+#DDB
+
+ddb.virtualHWVersion = "6"
+ddb.geometry.cylinders = "100"
+ddb.geometry.heads = "16"
+ddb.geometry.sectors = "63"
+ddb.adapterType = "ide"
+ddb.toolsVersion = "0"

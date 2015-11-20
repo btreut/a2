@@ -1,0 +1,7 @@
+<html >
+	<head ><title>My first DXP-Site</title></head>
+	<body xmlns:WebStd="WebStd" xmlns:WebAccounts="WebAccounts">
+		<WebAccounts:AuthenticationForm usernamelabel="username: "
+			passwordlabel="password: " loginbuttonlabel="Login ..." failuretext="Login failed"/>
+	</body>
+</html>

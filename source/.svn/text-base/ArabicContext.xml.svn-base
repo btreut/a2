@@ -1,0 +1,525 @@
+<LanguageContext language="Arabic" base="Hex">
+  <Properties>
+    <Range low="600" high="6FF"/>
+    <Size value="close"/>
+  </Properties>
+  <Character code="627">
+    <Context>
+      <right neg="!" range="627;62F-632;648;629"/>
+      <right range="600-6FF;200D"/>
+      <result code="FE8E"/>
+    </Context>
+  </Character>
+  <Character code="62F">
+    <Context>
+      <right neg="!" range="627;62F-632;648;629"/>
+      <right range="600-6FF;200D"/>
+      <result code="FEAA"/>
+    </Context>
+  </Character>
+  <Character code="630">
+    <Context>
+      <right neg="!" range="627;62F-632;648;629"/>
+      <right range="600-6FF;200D"/>
+      <result code="FEAC"/>
+    </Context>
+  </Character>
+  <Character code="631">
+    <Context>
+      <right neg="!" range="627;62F-632;648;629"/>
+      <right range="600-6FF;200D"/>
+      <result code="FEAE"/>
+    </Context>
+  </Character>
+  <Character code="632">
+    <Context>
+      <right neg="!" range="627;62F-632;648;629"/>
+      <right range="600-6FF;200D"/>
+      <result code="FEB0"/>
+    </Context>
+  </Character>
+  <Character code="648">
+    <Context>
+      <right neg="!" range="627;62F-632;648;629"/>
+      <right range="600-6FF;200D"/>
+      <result code="FEEE"/>
+    </Context>
+  </Character>
+  <Character code="629">
+    <Context>
+      <right neg="!" range="627;62F-632;648;629"/>
+      <right range="600-6FF;200D"/>
+      <result code="FE94"/>
+    </Context>
+  </Character>
+  <Character code="637">
+    <Context>
+      <right range="600-6FF;200D"/>
+      <right neg="!" range="627;62F-632;648;629"/>
+      <left range="20;O;A"/>
+      <result code="FEC2"/>
+    </Context>
+    <Context>
+      <right range="600-6FF;200D"/>
+      <right neg="!" range="627;62F-632;648;629"/>
+      <left range="600-6FF;200D"/>
+      <result code="FEC4"/>
+    </Context>
+    <Context>
+      <right range="20;O;A"/>
+      <right range="627;62F-632;648;629"/>
+      <left range="600-6FF;200D"/>
+      <result code="FEC3"/>
+    </Context>
+  </Character>
+  <Character code="638">
+    <Context>
+      <right range="600-6FF;200D"/>
+      <right neg="!" range="627;62F-632;648;629"/>
+      <left range="20;O;A"/>
+      <result code="FEC6"/>
+    </Context>
+    <Context>
+      <right range="600-6FF;200D"/>
+      <right neg="!" range="627;62F-632;648;629"/>
+      <left range="600-6FF;200D"/>
+      <result code="FEC8"/>
+    </Context>
+    <Context>
+      <right range="20;O;A"/>
+      <right range="627;62F-632;648;629"/>
+      <left range="600-6FF;200D"/>
+      <result code="FECd7"/>
+    </Context>
+  </Character>
+
+  <Character code="628">
+    <Context>
+      <right range="600-6FF;200D"/>
+      <right neg="!" range="627;62F-632;648;629"/>
+      <left range="20;O;A"/>
+      <result code="FE90"/>
+    </Context>
+    <Context>
+      <right range="600-6FF;200D"/>
+      <right neg="!" range="627;62F-632;648;629"/>
+      <left range="600-6FF;200D"/>
+      <result code="FE92"/>
+    </Context>
+    <Context>
+      <right range="20;O;A"/>
+      <right range="627;62F-632;648;629"/>
+      <left range="600-6FF;200D"/>
+      <result code="FE91"/>
+    </Context>
+  </Character>
+  <Character code="62A">
+    <Context>
+      <right range="600-6FF;200D"/>
+      <right neg="!" range="627;62F-632;648;629"/>
+      <left range="20;O;A"/>
+      <result code="FE96"/>
+    </Context>
+    <Context>
+      <right range="600-6FF;200D"/>
+      <right neg="!" range="627;62F-632;648;629"/>
+      <left range="600-6FF;200D"/>
+      <result code="FE98"/>
+    </Context>
+    <Context>
+      <right range="20;O;A"/>
+      <right range="627;62F-632;648;629"/>
+      <left range="600-6FF;200D"/>
+      <result code="FE97"/>
+    </Context>
+  </Character>
+  <Character code="62B">
+    <Context>
+      <right range="600-6FF;200D"/>
+      <right neg="!" range="627;62F-632;648;629"/>
+      <left range="20;O;A"/>
+      <result code="FE9A"/>
+    </Context>
+    <Context>
+      <right range="600-6FF;200D"/>
+      <right neg="!" range="627;62F-632;648;629"/>
+      <left range="600-6FF;200D"/>
+      <result code="FE9C"/>
+    </Context>
+    <Context>
+      <right range="20;O;A"/>
+      <right range="627;62F-632;648;629"/>
+      <left range="600-6FF;200D"/>
+      <result code="FE9B"/>
+    </Context>
+  </Character>
+  <Character code="62C">
+    <Context>
+      <right range="600-6FF;200D"/>
+      <right range="627;62F-632;648;629"/>
+      <left range="20;O;A"/>
+      <result code="FE9E"/>
+    </Context>
+    <Context>
+      <right range="600-6FF;200D"/>
+      <right neg="!" range="627;62F-632;648;629"/>
+      <left range="600-6FF;200D"/>
+      <result code="FEA0"/>
+    </Context>
+    <Context>
+      <right range="20;O;A"/>
+      <right range="627;62F-632;648;629"/>
+      <left range="600-6FF;200D"/>
+      <result code="FE9F"/>
+    </Context>
+  </Character>
+  <Character code="62D">
+    <Context>
+      <right range="600-6FF;200D"/>
+      <right neg="!" range="627;62F-632;648;629"/>
+      <left range="20;O;A"/>
+      <result code="FEA2"/>
+    </Context>
+    <Context>
+      <right range="600-6FF;200D"/>
+      <right neg="!" range="627;62F-632;648;629"/>
+      <left range="600-6FF;200D"/>
+      <result code="FEA4"/>
+    </Context>
+    <Context>
+      <right range="20;O;A"/>
+      <right range="627;62F-632;648;629"/>
+      <left range="600-6FF;200D"/>
+      <result code="FEA3"/>
+    </Context>
+  </Character>
+  <Character code="62E">
+    <Context>
+      <right range="600-6FF;200D"/>
+      <right neg="!" range="627;62F-632;648;629"/>
+      <left range="20;O;A"/>
+      <result code="FEA6"/>
+    </Context>
+    <Context>
+      <right range="600-6FF;200D"/>
+      <right neg="!" range="627;62F-632;648;629"/>
+      <left range="600-6FF;200D"/>
+      <result code="FEA8"/>
+    </Context>
+    <Context>
+      <right range="20;O;A"/>
+      <right range="627;62F-632;648;629"/>
+      <left range="600-6FF;200D"/>
+      <result code="FEA7"/>
+    </Context>
+  </Character>
+  <Character code="633">
+    <Context>
+      <right range="600-6FF;200D"/>
+      <right neg="!" range="627;62F-632;648;629"/>
+      <left range="20;O;A"/>
+      <result code="FEB2"/>
+    </Context>
+    <Context>
+      <right range="600-6FF;200D"/>
+      <right neg="!" range="627;62F-632;648;629"/>
+      <left range="600-6FF;200D"/>
+      <result code="FEB4"/>
+    </Context>
+    <Context>
+      <right range="20;O;A"/>
+      <right range="627;62F-632;648;629"/>
+      <left range="600-6FF;200D"/>
+      <result code="FEB3"/>
+    </Context>
+  </Character>
+  <Character code="634">
+    <Context>
+      <right range="600-6FF;200D"/>
+      <right neg="!" range="627;62F-632;648;629"/>
+      <left range="20;O;A"/>
+      <result code="FEB6"/>
+    </Context>
+    <Context>
+      <right range="600-6FF;200D"/>
+      <right neg="!" range="627;62F-632;648;629"/>
+      <left range="600-6FF;200D"/>
+      <result code="FEB8"/>
+    </Context>
+    <Context>
+      <right range="20;O;A"/>
+      <right range="627;62F-632;648;629"/>
+      <left range="600-6FF;200D"/>
+      <result code="FEB7"/>
+    </Context>
+  </Character>
+  <Character code="635">
+    <Context>
+      <right range="600-6FF;200D"/>
+      <right neg="!" range="627;62F-632;648;629"/>
+      <left range="20;O;A"/>
+      <result code="FEBA"/>
+    </Context>
+    <Context>
+      <right range="600-6FF;200D"/>
+      <right neg="!" range="627;62F-632;648;629"/>
+      <left range="600-6FF;200D"/>
+      <result code="FEBC"/>
+    </Context>
+    <Context>
+      <right range="20;O;A"/>
+      <right range="627;62F-632;648;629"/>
+      <left range="600-6FF;200D"/>
+      <result code="FEBB"/>
+    </Context>
+  </Character>
+  <Character code="636">
+    <Context>
+      <right range="600-6FF;200D"/>
+      <right neg="!" range="627;62F-632;648;629"/>
+      <left range="20;O;A"/>
+      <result code="FEBE"/>
+    </Context>
+    <Context>
+      <right range="600-6FF;200D"/>
+      <right neg="!" range="627;62F-632;648;629"/>
+      <left range="600-6FF;200D"/>
+      <result code="FEC0"/>
+    </Context>
+    <Context>
+      <right range="20;O;A"/>
+      <right range="627;62F-632;648;629"/>
+      <left range="600-6FF;200D"/>
+      <result code="FEBF"/>
+    </Context>
+  </Character>
+  <Character code="639">
+    <Context>
+      <right range="600-6FF;200D"/>
+      <right neg="!" range="627;62F-632;648;629"/>
+      <left range="20;O;A"/>
+      <result code="FECA"/>
+    </Context>
+    <Context>
+      <right range="600-6FF;200D"/>
+      <right neg="!" range="627;62F-632;648;629"/>
+      <left range="600-6FF;200D"/>
+      <result code="FECC"/>
+    </Context>
+    <Context>
+      <right range="20;O;A"/>
+      <right range="627;62F-632;648;629"/>
+      <left range="600-6FF;200D"/>
+      <result code="FECB"/>
+    </Context>
+  </Character>
+  <Character code="63A">
+    <Context>
+      <right range="600-6FF;200D"/>
+      <right neg="!" range="627;62F-632;648;629"/>
+      <left range="20;O;A"/>
+      <result code="FECE"/>
+    </Context>
+    <Context>
+      <right range="600-6FF;200D"/>
+      <right neg="!" range="627;62F-632;648;629"/>
+      <left range="600-6FF;200D"/>
+      <result code="FED0"/>
+    </Context>
+    <Context>
+      <right range="20;O;A"/>
+      <right range="627;62F-632;648;629"/>
+      <left range="600-6FF;200D"/>
+      <result code="FECF"/>
+    </Context>
+  </Character>
+  <Character code="641">
+    <Context>
+      <right range="600-6FF;200D"/>
+      <right neg="!" range="627;62F-632;648;629"/>
+      <left range="20;O;A"/>
+      <result code="FED2"/>
+    </Context>
+    <Context>
+      <right range="600-6FF;200D"/>
+      <right neg="!" range="627;62F-632;648;629"/>
+      <left range="600-6FF;200D"/>
+      <result code="FED4"/>
+    </Context>
+    <Context>
+      <right range="20;O;A"/>
+      <right range="627;62F-632;648;629"/>
+      <left range="600-6FF;200D"/>
+      <result code="FED3"/>
+    </Context>
+  </Character>
+  <Character code="642">
+    <Context>
+      <right range="600-6FF;200D"/>
+      <right neg="!" range="627;62F-632;648;629"/>
+      <left range="20;O;A"/>
+      <result code="FED6"/>
+    </Context>
+    <Context>
+      <right range="600-6FF;200D"/>
+      <right neg="!" range="627;62F-632;648;629"/>
+      <left range="600-6FF;200D"/>
+      <result code="FED8"/>
+    </Context>
+    <Context>
+      <right range="20;O;A"/>
+      <right range="627;62F-632;648;629"/>
+      <left range="600-6FF;200D"/>
+      <result code="FED7"/>
+    </Context>
+  </Character>
+  <Character code="643">
+    <Context>
+      <right range="600-6FF;200D"/>
+      <right neg="!" range="627;62F-632;648;629"/>
+      <left range="20;O;A"/>
+      <result code="FEDA"/>
+    </Context>
+    <Context>
+      <right range="600-6FF;200D"/>
+      <right neg="!" range="627;62F-632;648;629"/>
+      <left range="600-6FF;200D"/>
+      <result code="FEDC"/>
+    </Context>
+    <Context>
+      <right range="20;O;A"/>
+      <right range="627;62F-632;648;629"/>
+      <left range="600-6FF;200D"/>
+      <result code="FEDB"/>
+    </Context>
+  </Character>
+  <Character code="644">
+    <Context>
+      <right range="600-6FF;200D"/>
+      <right neg="!" range="627;62F-632;648;629"/>
+      <left range="20;O;A"/>
+      <result code="FEDE"/>
+    </Context>
+    <Context>
+      <right range="600-6FF;200D"/>
+      <right neg="!" range="627;62F-632;648;629"/>
+      <left range="600-6FF;200D"/>
+      <result code="FEE0"/>
+    </Context>
+    <Context>
+      <right range="20;O;A"/>
+      <right range="627;62F-632;648;629"/>
+      <left range="600-6FF;200D"/>
+      <result code="FEDF"/>
+    </Context>
+  </Character>
+  <Character code="645">
+    <Context>
+      <right range="600-6FF;200D"/>
+      <right neg="!" range="627;62F-632;648;629"/>
+      <left range="20;O;A"/>
+      <result code="FEE2"/>
+    </Context>
+    <Context>
+      <right range="600-6FF;200D"/>
+      <right neg="!" range="627;62F-632;648;629"/>
+      <left range="600-6FF;200D"/>
+      <result code="FEE4"/>
+    </Context>
+    <Context>
+      <right range="20;O;A"/>
+      <right range="627;62F-632;648;629"/>
+      <left range="600-6FF;200D"/>
+      <result code="FEE3"/>
+    </Context>
+  </Character>
+  <Character code="646">
+    <Context>
+      <right range="600-6FF;200D"/>
+      <right neg="!" range="627;62F-632;648;629"/>
+      <left range="20;O;A"/>
+      <result code="FEE6"/>
+    </Context>
+    <Context>
+      <right range="600-6FF;200D"/>
+      <right neg="!" range="627;62F-632;648;629"/>
+      <left range="600-6FF;200D"/>
+      <result code="FEE8"/>
+    </Context>
+    <Context>
+      <right range="20;O;A"/>
+      <right range="627;62F-632;648;629"/>
+      <left range="600-6FF;200D"/>
+      <result code="FEE7"/>
+    </Context>
+  </Character>
+  <Character code="647">
+    <Context>
+      <right range="600-6FF;200D"/>
+      <right neg="!" range="627;62F-632;648;629"/>
+      <left range="20;O;A"/>
+      <result code="FEEA"/>
+    </Context>
+    <Context>
+      <right range="600-6FF;200D"/>
+      <right neg="!" range="627;62F-632;648;629"/>
+      <left range="600-6FF;200D"/>
+      <result code="FEEC"/>
+    </Context>
+    <Context>
+      <right range="20;O;A"/>
+      <right range="627;62F-632;648;629"/>
+      <left range="600-6FF;200D"/>
+      <result code="FEEB"/>
+    </Context>
+  </Character>
+  <Character code="629">
+    <Context>
+      <right range="600-6FF;200D"/>
+      <right neg="!" range="627;62F-632;648;629"/>
+      <left range="20;O;A"/>
+      <result code="FE94"/>
+    </Context>
+  </Character>
+  <Character code="64A">
+    <Context>
+      <right range="600-6FF;200D"/>
+      <right neg="!" range="627;62F-632;648;629"/>
+      <left range="20;O;A"/>
+      <result code="FEF2"/>
+    </Context>
+    <Context>
+      <right range="600-6FF;200D"/>
+      <right neg="!" range="627;62F-632;648;629"/>
+      <left range="600-6FF;200D"/>
+      <result code="FEF4"/>
+    </Context>
+    <Context>
+      <right range="20;O;A"/>
+      <right range="627;62F-632;648;629"/>
+      <left range="600-6FF;200D"/>
+      <result code="FEF3"/>
+    </Context>
+  </Character>
+
+
+
+
+
+</LanguageContext>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

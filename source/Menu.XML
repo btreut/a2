@@ -1,0 +1,45 @@
+<Menu>
+	<SubMenu caption="Huga1">
+		<MenuItem caption="Bimbo1" />
+		<SubMenu caption="SubHuga4">
+			<MenuItem caption="SubBimbo1" />
+			<MenuItem caption="SubBimbo2" />	
+			<SubMenu caption="SubHuga4">
+				<MenuItem caption="SubBimbo1" />
+				<SubMenu caption="SubHuga4">
+					<MenuItem caption="SubBimbo1" />
+					<MenuItem caption="SubBimbo2" />	
+					<MenuItem caption="SubBimbo3" />
+					<MenuItem caption="SubBimbo4" />				
+				</SubMenu>	
+				<MenuItem caption="SubBimbo2" />	
+				<MenuItem caption="SubBimbo3" />
+				<MenuItem caption="SubBimbo4" />				
+			</SubMenu>	
+			<MenuItem caption="SubBimbo3" />
+			<MenuItem caption="SubBimbo4" />				
+		</SubMenu>	
+		<MenuItem caption="Bimbo2" />	
+		<MenuItem caption="Bimbo3" />
+		<MenuItem caption="Bimbo4" />				
+	</SubMenu>	
+	<SubMenu caption="Huga2">
+		<MenuItem caption="Bimbo1" />
+		<MenuItem caption="Bimbo2" />	
+		<MenuItem caption="Bimbo3" />
+		<MenuItem caption="Bimbo4" />				
+	</SubMenu>	
+	<SubMenu caption="Huga3">
+		<MenuItem caption="Bimbo1" />
+		<MenuItem caption="Bimbo2" />	
+		<MenuItem caption="Bimbo3" />
+		<MenuItem caption="Bimbo4" />				
+	</SubMenu>	
+	<SubMenu caption="Huga4">
+		<MenuItem caption="Bimbo1" />
+		<MenuItem caption="Bimbo2" />	
+		<MenuItem caption="Bimbo3" />
+		<MenuItem caption="Bimbo4" />				
+	</SubMenu>	
+
+</Menu>

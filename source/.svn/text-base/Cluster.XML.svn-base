@@ -1,0 +1,150 @@
+<Cluster>
+	<Layer>
+		<Line>
+			<Entry Host="rifpc72.ethz.ch" />
+			<Entry Host="rifpc73.ethz.ch" />
+			<Entry Host="rifpc74.ethz.ch" />
+		</Line>
+		<Line>
+			<Entry Host="rifpc71.ethz.ch" />
+			<Entry Host="rifpc70.ethz.ch" />
+			<Entry Host="rifpc69.ethz.ch" />
+		</Line>
+		<Line />
+		<Line>
+			<Entry Host="rifpc66.ethz.ch" />
+			<Entry Host="rifpc67.ethz.ch" />
+			<Entry Host="rifpc68.ethz.ch" />
+		</Line>
+		<Line>
+			<Entry Host="rifpc65.ethz.ch" />
+			<Entry Host="rifpc64.ethz.ch" />
+			<Entry Host="rifpc63.ethz.ch" />
+		</Line>
+		<Line />
+		<Line>
+			<Entry Host="rifpc60.ethz.ch" />
+			<Entry Host="rifpc61.ethz.ch" />
+			<Entry Host="rifpc62.ethz.ch" />
+		</Line>
+		<Line>
+			<Entry Host="rifpc59.ethz.ch" />
+			<Entry Host="rifpc58.ethz.ch" />
+			<Entry Host="rifpc57.ethz.ch" />
+		</Line>
+		<Line />
+		<Line>
+			<Entry Host="rifpc54.ethz.ch" />
+			<Entry Host="rifpc55.ethz.ch" />
+			<Entry Host="rifpc56.ethz.ch" />
+		</Line>
+		<Line>
+			<Entry Host="rifpc53.ethz.ch" />
+			<Entry Host="rifpc52.ethz.ch" />
+			<Entry Host="rifpc51.ethz.ch" />
+		</Line>
+	</Layer>
+	<Layer>
+	</Layer>
+	<Layer>
+		<Line>
+			<Entry Host="rifpc24.ethz.ch" />
+			<Entry Host="rifpc23.ethz.ch" />
+			<Entry Host="rifpc22.ethz.ch" />
+		</Line>
+		<Line>
+			<Entry Host="rifpc21.ethz.ch" />
+			<Entry Host="rifpc20.ethz.ch" />
+			<Entry Host="rifpc19.ethz.ch" />
+		</Line>
+		<Line />
+		<Line>
+			<Entry Host="rifpc16.ethz.ch" />
+			<Entry Host="rifpc17.ethz.ch" />
+			<Entry Host="rifpc18.ethz.ch" />
+		</Line>
+		<Line>
+			<Entry Host="rifpc15.ethz.ch" />
+			<Entry Host="rifpc14.ethz.ch" />
+			<Entry Host="rifpc13.ethz.ch" />
+		</Line>
+		<Line />
+		<Line>
+			<Entry Host="rifpc10.ethz.ch" />
+			<Entry Host="rifpc11.ethz.ch" />
+			<Entry Host="rifpc12.ethz.ch" />
+		</Line>
+		<Line>
+			<Entry Host="rifpc9.ethz.ch" />
+			<Entry Host="rifpc8.ethz.ch" />
+			<Entry Host="rifpc7.ethz.ch" />
+		</Line>
+		<Line />
+		<Line>
+			<Entry Host="rifpc4.ethz.ch" />
+			<Entry Host="rifpc5.ethz.ch" />
+			<Entry Host="rifpc6.ethz.ch" />
+		</Line>
+		<Line>
+			<Entry Host="rifpc3.ethz.ch" />
+			<Entry Host="rifpc2.ethz.ch" />
+			<Entry Host="rifpc1.ethz.ch" />
+		</Line>
+	</Layer>
+	<Layer>
+		<Line /> <Line /> <Line />
+		<Line>
+			<Entry Host="cop08.ethz.ch" />
+			<Entry Host="cop16.ethz.ch" />
+		</Line>
+	</Layer>
+	<Layer>
+		<Line /> <Line /> <Line />
+		<Line>
+			<Entry Host="cop07.ethz.ch" />
+			<Entry Host="cop15.ethz.ch" />
+		</Line>
+	</Layer>
+	<Layer>
+		<Line /> <Line /> <Line />
+		<Line>
+			<Entry Host="cop06.ethz.ch" />
+			<Entry Host="cop14.ethz.ch" />
+		</Line>
+	</Layer>
+	<Layer>
+		<Line /> <Line /> <Line />
+		<Line>
+			<Entry Host="cop05.ethz.ch" />
+			<Entry Host="cop13.ethz.ch" />
+		</Line>
+	</Layer>
+	<Layer>
+		<Line /> <Line /> <Line />
+		<Line>
+			<Entry Host="cop04.ethz.ch" />
+			<Entry Host="cop12.ethz.ch" />
+		</Line>
+	</Layer>
+	<Layer>
+		<Line /> <Line /> <Line />
+		<Line>
+			<Entry Host="cop03.ethz.ch" />
+			<Entry Host="cop11.ethz.ch" />
+		</Line>
+	</Layer>
+	<Layer>
+		<Line /> <Line /> <Line />
+		<Line>
+			<Entry Host="cop02.ethz.ch" />
+			<Entry Host="cop10.ethz.ch" />
+		</Line>
+	</Layer>
+	<Layer>
+		<Line /> <Line /> <Line />
+		<Line>
+			<Entry Host="cop01.ethz.ch" />
+			<Entry Host="cop09.ethz.ch" />
+		</Line>
+	</Layer>
+</Cluster>

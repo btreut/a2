@@ -1,0 +1,152 @@
+<Standard:Panel caption=" Files  ">
+	<Properties>	<FillColor>0</FillColor> </Properties>
+	<Standard:Panel>
+		<Properties>
+			<Alignment>1</Alignment>	<Bounds>
+			 <Width>120</Width>	</Bounds>
+		</Properties>
+
+		<Standard:Button>
+			<Properties>
+				<Caption>Partitions</Caption>
+				<Alignment>2</Alignment>
+				<OnClickHandler>X Run</OnClickHandler>
+			</Properties>
+
+			<Standard:SystemCommand>
+				<Properties> <ID>X</ID>
+					<CommandString>WMPartitions.Open</CommandString>
+				</Properties>
+			</Standard:SystemCommand>
+		</Standard:Button>
+
+		<Standard:Button>
+			<Properties>
+				<Caption>Files</Caption>
+				<Alignment>2</Alignment>
+				<OnClickHandler>X Run</OnClickHandler>
+			</Properties>
+
+			<Standard:SystemCommand>
+				<Properties>
+					<ID>X</ID>
+					<CommandString>WMFileManager.Open</CommandString>
+				</Properties>
+			</Standard:SystemCommand>
+		</Standard:Button>
+	</Standard:Panel>
+
+<!-- Second column -->
+	<Standard:Panel>
+		<Properties>
+			<Alignment>1</Alignment>
+			<Bounds> <Width>120</Width> </Bounds>
+		</Properties>
+
+		<Standard:Button>
+			<Properties>
+				<Caption>CDRecorder</Caption>
+				<Alignment>2</Alignment>
+				<OnClickHandler>X Run</OnClickHandler>
+			</Properties>
+
+			<Standard:SystemCommand>
+				<Properties>
+					<ID>X</ID>
+					<CommandString>WMCDRecorder.Open</CommandString>
+				</Properties>
+			</Standard:SystemCommand>
+		</Standard:Button>
+
+		<Standard:Button>
+			<Properties>
+				<Caption></Caption>
+				<Alignment>2</Alignment>
+				<OnClickHandler>X Run</OnClickHandler>
+			</Properties>
+
+			<Standard:SystemCommand>
+				<Properties>
+					<ID>X</ID>
+					<CommandString></CommandString>
+				</Properties>
+			</Standard:SystemCommand>
+		</Standard:Button>
+
+	</Standard:Panel>
+
+<!-- Third column -->
+	<Standard:Panel>
+		<Properties>
+			<Alignment>1</Alignment>
+			<Bounds> <Width>120</Width> </Bounds>
+		</Properties>
+
+		<Standard:Button>
+			<Properties>
+				<Caption></Caption>
+				<Alignment>2</Alignment>
+				<OnClickHandler>X Run</OnClickHandler>
+			</Properties>
+
+			<Standard:SystemCommand>
+				<Properties> <ID>X</ID>
+					<CommandString></CommandString>
+				</Properties>
+			</Standard:SystemCommand>
+		</Standard:Button>
+
+		<Standard:Button>
+			<Properties>
+				<Caption></Caption>
+				<Alignment>2</Alignment>
+				<OnClickHandler>X Run</OnClickHandler>
+			</Properties>
+
+			<Standard:SystemCommand>
+				<Properties>
+					<ID>X</ID>
+					<CommandString></CommandString>
+				</Properties>
+			</Standard:SystemCommand>
+		</Standard:Button>
+	</Standard:Panel>
+
+<!-- 4. column -->
+	<Standard:Panel>
+		<Properties>
+			<Alignment>1</Alignment>
+			<Bounds> <Width>120</Width> </Bounds>
+		</Properties>
+
+		<Standard:Button>
+			<Properties>
+				<Caption></Caption>
+				<Alignment>2</Alignment>
+				<OnClickHandler>X Run</OnClickHandler>
+			</Properties>
+
+			<Standard:SystemCommand>
+				<Properties> <ID>X</ID>
+					<CommandString></CommandString>
+				</Properties>
+			</Standard:SystemCommand>
+		</Standard:Button>
+
+		<Standard:Button>
+			<Properties>
+				<Caption></Caption>
+				<Alignment>2</Alignment>
+				<OnClickHandler>X Run</OnClickHandler>
+			</Properties>
+
+			<Standard:SystemCommand>
+				<Properties>
+					<ID>X</ID>
+					<CommandString></CommandString>
+				</Properties>
+			</Standard:SystemCommand>
+		</Standard:Button>
+	</Standard:Panel>
+
+</Standard:Panel>

@@ -1,0 +1,268 @@
+# Active Oberon Math Arrays Compilation Test Suite
+
+# Syntax Tests
+# ===================
+
+# Variable and Parameters of Math Array Type
+
+positive: math array types of basic types
+
+	MODULE Test; 
+	TYPE
+		TASS1= ARRAY [2] OF SHORTINT;
+		TASO1= ARRAY [*] OF SHORTINT;
+		TASS2= ARRAY [2,3] OF SHORTINT;
+		TASO2= ARRAY [*,*] OF SHORTINT;
+		TASS3= ARRAY [2,3,4] OF SHORTINT;
+		TASO3= ARRAY [*,*,*] OF SHORTINT;
+		TASOS= ARRAY [*,*,2,3] OF SHORTINT;
+		TAST= ARRAY [?] OF SHORTINT;
+
+		TAIS1= ARRAY [2] OF INTEGER;
+		TAIO1= ARRAY [*] OF INTEGER;
+		TAIS2= ARRAY [2,3] OF INTEGER;
+		TAIO2= ARRAY [*,*] OF INTEGER;
+		TAIS3= ARRAY [2,3,4] OF INTEGER;
+		TAIO3= ARRAY [*,*,*] OF INTEGER;
+		TAIOS= ARRAY [*,*,2,3] OF INTEGER;
+		TAIT= ARRAY [?] OF INTEGER;
+
+		TALS1= ARRAY [2] OF LONGINT;
+		TALO1= ARRAY [*] OF LONGINT;
+		TALS2= ARRAY [2,3] OF LONGINT;
+		TALO2= ARRAY [*,*] OF LONGINT;
+		TALS3= ARRAY [2,3,4] OF LONGINT;
+		TALO3= ARRAY [*,*,*] OF LONGINT;
+		TALOS= ARRAY [*,*,2,3] OF LONGINT;
+		TALT= ARRAY [?] OF LONGINT;
+
+		TARS1= ARRAY [2] OF REAL;
+		TARO1= ARRAY [*] OF REAL;
+		TARS2= ARRAY [2,3] OF REAL;
+		TARO2= ARRAY [*,*] OF REAL;
+		TARS3= ARRAY [2,3,4] OF REAL;
+		TARO3= ARRAY [*,*,*] OF REAL;
+		TAROS= ARRAY [*,*,2,3] OF REAL;
+		TART= ARRAY [?] OF REAL;
+
+		TAXS1= ARRAY [2] OF LONGREAL;
+		TAXO1= ARRAY [*] OF LONGREAL;
+		TAXS2= ARRAY [2,3] OF LONGREAL;
+		TAXO2= ARRAY [*,*] OF LONGREAL;
+		TAXS3= ARRAY [2,3,4] OF LONGREAL;
+		TAXO3= ARRAY [*,*,*] OF LONGREAL;
+		TAXOS= ARRAY [*,*,2,3] OF LONGREAL;
+		TAXT= ARRAY [?] OF LONGREAL;
+
+		TASetS1= ARRAY [2] OF SET;
+		TASetO1= ARRAY [*] OF SET;
+		TASetS2= ARRAY [2,3] OF SET;
+		TASetO2= ARRAY [*,*] OF SET;
+		TASetS3= ARRAY [2,3,4] OF SET;
+		TASetO3= ARRAY [*,*,*] OF SET;
+		TASetOS= ARRAY [*,*,2,3] OF SET;
+		TASetT= ARRAY [?] OF SET;
+
+		TAPS1= ARRAY [2] OF ANY;
+		TAPO1= ARRAY [*] OF ANY;
+		TAPS2= ARRAY [2,3] OF ANY;
+		TAPO2= ARRAY [*,*] OF ANY;
+		TAPS3= ARRAY [2,3,4] OF ANY;
+		TAPO3= ARRAY [*,*,*] OF ANY;
+		TAPOS= ARRAY [*,*,2,3] OF ANY;
+		TAPT= ARRAY [?] OF ANY;
+
+	END Test. 
+	
+negative: forbidden array mixture (math static - static)
+
+	MODULE Test; 
+	TYPE
+		TA= ARRAY [2] OF ARRAY 2 OF REAL;
+	END Test.
+
+negative: forbidden array mixture (math static - open)
+
+	MODULE Test; 
+	TYPE
+		TA= ARRAY [2] OF ARRAY OF REAL;
+	END Test.
+
+negative: forbidden array mixture (math open - static)
+
+	MODULE Test; 
+	TYPE
+		TA= ARRAY [*] OF ARRAY 3 OF REAL;
+	END Test.
+
+negative: forbidden array mixture (math open - open)
+
+	MODULE Test; 
+	TYPE
+		TA= ARRAY [*] OF ARRAY OF REAL;
+	END Test.
+
+negative: forbidden array mixture (math tensor - static)
+
+	MODULE Test; 
+	TYPE
+		TA= ARRAY [?] OF ARRAY 3 OF REAL;
+	END Test.
+
+negative: forbidden array mixture (math tensor - open)
+
+	MODULE Test; 
+	TYPE
+		TA= ARRAY [?] OF ARRAY OF REAL;
+	END Test.
+	
+negative: forbidden array mixture (math tensor - math static)
+
+	MODULE Test; 
+	TYPE
+		TA= ARRAY [?] OF ARRAY  [3] OF REAL;
+	END Test.
+
+negative: forbidden array mixture (math tensor - math open)
+
+	MODULE Test; 
+	TYPE
+		TA= ARRAY [?] OF ARRAY  [*] OF REAL;
+	END Test.
+	
+negative: forbidden array mixture (math tensor - math tensor)
+
+	MODULE Test; 
+	TYPE
+		TA= ARRAY [?] OF ARRAY  [?] OF REAL;
+	END Test.
+	
+positive: variables and parameters of math array type
+
+	MODULE Test; 
+	VAR 
+		GAS1: ARRAY [2] OF REAL;
+		GAO1: ARRAY [*] OF REAL;
+		GAS2: ARRAY [2,3] OF REAL;
+		GAO2: ARRAY [*,*] OF REAL;
+		GAS3: ARRAY [2,3,4] OF REAL;
+		GAO3: ARRAY [*,*,*] OF REAL;
+		GAOS: ARRAY [*,*,2,3] OF REAL;
+		GAT: ARRAY [?] OF REAL;
+		
+		PROCEDURE P;
+		VAR
+			LAS1: ARRAY [2] OF REAL;
+			LAO1: ARRAY [*] OF REAL;
+			LAS2: ARRAY [2,3] OF REAL;
+			LAO2: ARRAY [*,*] OF REAL;
+			LAS3: ARRAY [2,3,4] OF REAL;
+			LAO3: ARRAY [*,*,*] OF REAL;
+			LAOS: ARRAY [*,*,2,3] OF REAL;
+			LAT: ARRAY [?] OF REAL;
+		BEGIN
+		END P;
+
+		PROCEDURE ProcValS1(parameter: ARRAY [2] OF REAL); END ProcValS1;
+		PROCEDURE ProcValO1(parameter: ARRAY [*] OF REAL); END ProcValO1;
+		PROCEDURE ProcValS2(parameter: ARRAY [2,3] OF REAL); END ProcValS2;
+		PROCEDURE ProcValO2(parameter: ARRAY [*,*] OF REAL); END ProcValO2;
+		PROCEDURE ProcValS3(parameter: ARRAY [2,3,4] OF REAL); END ProcValS3;
+		PROCEDURE ProcValO3(parameter: ARRAY [*,*,*] OF REAL); END ProcValO3;
+		PROCEDURE ProcValOS(parameter: ARRAY [*,*,2,3] OF REAL); END ProcValOS;
+		PROCEDURE ProcValT(parameter: ARRAY [?] OF REAL); END ProcValT;
+
+		PROCEDURE ProcConstS1(CONST parameter: ARRAY [2] OF REAL); END ProcConstS1;
+		PROCEDURE ProcConstO1(CONST parameter: ARRAY [*] OF REAL); END ProcConstO1;
+		PROCEDURE ProcConstS2(CONST parameter: ARRAY [2,3] OF REAL); END ProcConstS2;
+		PROCEDURE ProcConstO2(CONST parameter: ARRAY [*,*] OF REAL); END ProcConstO2;
+		PROCEDURE ProcConstS3(CONST parameter: ARRAY [2,3,4] OF REAL); END ProcConstS3;
+		PROCEDURE ProcConstO3(CONST parameter: ARRAY [*,*,*] OF REAL); END ProcConstO3;
+		PROCEDURE ProcConstOS(CONST parameter: ARRAY [*,*,2,3] OF REAL); END ProcConstOS;
+		PROCEDURE ProcConstT(CONST parameter: ARRAY [?] OF REAL); END ProcConstT;
+		
+		PROCEDURE ProcVarS1(VAR parameter: ARRAY [2] OF REAL); END ProcVarS1;
+		PROCEDURE ProcVarO1(VAR parameter: ARRAY [*] OF REAL); END ProcVarO1;
+		PROCEDURE ProcVarS2(VAR parameter: ARRAY [2,3] OF REAL); END ProcVarS2;
+		PROCEDURE ProcVarO2(VAR parameter: ARRAY [*,*] OF REAL); END ProcVarO2;
+		PROCEDURE ProcVarS3(VAR parameter: ARRAY [2,3,4] OF REAL); END ProcVarS3;
+		PROCEDURE ProcVarO3(VAR parameter: ARRAY [*,*,*] OF REAL); END ProcVarO3;
+		PROCEDURE ProcVarOS(VAR parameter: ARRAY [*,*,2,3] OF REAL); END ProcVarOS;
+		PROCEDURE ProcVarT(VAR parameter: ARRAY [?] OF REAL); END ProcVarT;
+
+		PROCEDURE ProcRetS1(): ARRAY [2] OF REAL; END ProcRetS1;
+		PROCEDURE ProcRetO1(): ARRAY [*] OF REAL; END ProcRetO1;
+		PROCEDURE ProcRetS2(): ARRAY [2,3] OF REAL; END ProcRetS2;
+		PROCEDURE ProcRetO2(): ARRAY [*,*] OF REAL; END ProcRetO2;
+		PROCEDURE ProcRetS3(): ARRAY [2,3,4] OF REAL; END ProcRetS3;
+		PROCEDURE ProcRetO3(): ARRAY [*,*,*] OF REAL; END ProcRetO3;
+		PROCEDURE ProcRetOS(): ARRAY [*,*,2,3] OF REAL; END ProcRetOS;
+		PROCEDURE ProcRetT(): ARRAY [?] OF REAL; END ProcRetT;
+	END Test.
+
+
+negative: comparison of incompatible array types
+
+	MODULE Test;
+	VAR a: ARRAY [*] OF LONGINT;	b: ARRAY [*,*] OF LONGINT;
+
+	BEGIN 
+		ASSERT(a=b);
+	END Test.
+	
+negative: incompatible actual parameter type for static formal type
+
+	MODULE Test;
+	
+	PROCEDURE P(a: ARRAY [3,3] OF REAL);
+	VAR b: ARRAY [*,*] OF REAL;
+	BEGIN
+		P(b);
+	END P;
+
+	END Test.
+
+
+
+positive: use of COMPLEX and LONGCOMPLEX
+
+MODULE Test;
+
+ PROCEDURE Exp*( z: COMPLEX): COMPLEX;
+    VAR coef, re, real, im, imag: REAL;  exp: COMPLEX;
+    BEGIN
+        exp := real + imag * IMAG; 
+        RETURN exp
+    END Exp;
+
+PROCEDURE Exp*( z: LONGCOMPLEX): LONGCOMPLEX;
+    VAR coef, re, reaL, im, imaG: LONGREAL;  exp: LONGCOMPLEX; real: REAL;
+    BEGIN
+         exp :=  reaL + reaL * IMAG;   
+        RETURN exp
+    END Exp;
+END Test.
+
+positive: release tag register when longcomplex is read from object field
+
+MODULE Test;
+
+TYPE
+	Object = OBJECT
+	VAR yn1, ct: LONGCOMPLEX;
+	VAR i: LONGINT; xn: ARRAY [*] OF LONGCOMPLEX;
+	BEGIN
+		yn1 := yn1
+	END Object;
+
+END Test.
+
+positive: complex conjugate operator
+
+MODULE Test;
+VAR c: COMPLEX; lc: LONGCOMPLEX;
+BEGIN
+	c := ~c;
+	lc := ~lc;
+	lc := ~c;
+END Test.

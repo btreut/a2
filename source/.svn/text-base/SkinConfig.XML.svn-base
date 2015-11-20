@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
+
+<!DOCTYPE config [
+	<!ELEMENT config 		(component,component)>
+	<!ELEMENT component	(property,property)>
+	<!ATTLIST component
+		name CDATA #IMPLIED>
+	<!ELEMENT property	EMPTY>
+	<!ATTLIST property
+		name	CDATA #REQUIRED
+		type	CDATA #REQUIRED>
+]>
+
+<!-- 	WARNING : Only modify this file if you know what you are doing!
+		Only implementors of new visual components should modify this file	-->
+
+<!-- window -->
+<config>
+	<component name="title">
+		<property name="activeLeftMargin" type="int32" mandatory="false"/>
+		<property name="activeTopMargin" type="int32" mandatory="false" />
+		<property name="activeColor" type="color" mandatory="false" />
+		<property name="activeCloseBitmap" type="resource" mandatory="false" />
+		<property name="activeMinimizeBitmap" type="resource" mandatory="false" />
+		<property name="inactiveLeftMargin" type="int32" mandatory="false" />
+		<property name="inactiveTopMargin" type="int32" mandatory="false" />
+		<property name="inactiveColor" type="color" mandatory="false" />
+		<property name="inactiveCloseBitmap" type="resource" mandatory="false" />
+		<property name="inactiveMinimizeBitmap" type="resource" mandatory="false" />
+		<property name="hoverCloseBitmap" type="resource" mandatory ="false"/>
+		<property name="hoverMinimizeBitmap" type="resource" mandatory="false"/>
+		<property name="minimizeOffset" type="int32" mandatory="false"/>
+	</component>
+	<component name="top">
+		<property name="activeLeft" type="resource" mandatory="false"/>
+		<property name="activeMiddle" type="resource" mandatory="true"/>
+		<property name="activeRight" type="resource" mandatory="false"/>
+		<property name="inactiveLeft" type="resource" mandatory="false"/>
+		<property name="inactiveMiddle" type="resource" mandatory="false"/>
+		<property name="inactiveRight" type="resource" mandatory="false"/>
+		<property name="focusThreshold" type="int32" mandatory="false" />
+		<property name="threshold" type="int32" mandatory="false" />
+	</component>
+	<component name="bottom">
+		<property name="activeLeft" type="resource" mandatory="false"/>
+		<property name="activeMiddle" type="resource" mandatory="true"/>
+		<property name="activeRight" type="resource" mandatory="false"/>
+		<property name="inactiveLeft" type="resource" mandatory="false"/>
+		<property name="inactiveMiddle" type="resource" mandatory="false"/>
+		<property name="inactiveRight" type="resource" mandatory="false"/>
+		<property name="focusThreshold" type="int32" mandatory="false" />
+		<property name="threshold" type="int32" mandatory="false" />
+	</component>
+	<component name="left">
+		<property name="activeTop" type="resource" mandatory="false"/>
+		<property name="activeMiddle" type="resource" mandatory="true"/>
+		<property name="activeBottom" type="resource" mandatory="false"/>
+		<property name="inactiveTop" type="resource" mandatory="false"/>
+		<property name="inactiveMiddle" type="resource" mandatory="false"/>
+		<property name="inactiveBottom" type="resource" mandatory="false"/>
+		<property name="focusThreshold" type="int32" mandatory="false" />
+		<property name="threshold" type="int32" mandatory="false" />
+	</component>
+	<component name="right">
+		<property name="activeTop" type="resource" mandatory="false"/>
+		<property name="activeMiddle" type="resource" mandatory="true"/>
+		<property name="activeBottom" type="resource" mandatory="false"/>
+		<property name="inactiveTop" type="resource" mandatory="false"/>
+		<property name="inactiveMiddle" type="resource" mandatory="false"/>
+		<property name="inactiveBottom" type="resource" mandatory="false"/>
+		<property name="focusThreshold" type="int32" mandatory="false" />
+		<property name="threshold" type="int32" mandatory="false" />
+	</component>
+	<component name="border">
+		<property name="left" type="int32" mandatory="false"/>
+		<property name="right" type="int32" mandatory="false"/>
+		<property name="top" type="int32" mandatory="false"/>
+		<property name="bottom" type="int32" mandatory="false"/>
+		<property name="active3d" type="int32" mandatory="false"/>
+		<property name="inactive3d" type="int32" mandatory="false"/>
+		<property name="activeColor" type="color" mandatory="false"/>
+		<property name="inactiveColor" type="color" mandatory="false"/>
+	</component>
+	<component name="desktop">
+		<property name="color" type="color" mandatory="false"/>
+		<property name="fgColor" type="color" mandatory="false"/>
+		<property name="bgColor" type="color" mandatory="false"/>
+		<property name="selectColor" type="color" mandatory="false"/>
+	</component>
+
+<!-- Cursors -->
+	<component name="default">
+		<property name="bitmap" type="resource" mandatory="true"/>
+		<property name="hotX" type="int32" mandatory="true"/>
+		<property name="hotY" type="int32" mandatory="true"/>
+	</component>
+	<component name="move">
+		<property name="bitmap" type="resource" mandatory="true"/>
+		<property name="hotX" type="int32" mandatory="true"/>
+		<property name="hotY" type="int32" mandatory="true"/>
+	</component>
+	<component name="text">
+		<property name="bitmap" type="resource" mandatory="true"/>
+		<property name="hotX" type="int32" mandatory="true"/>
+		<property name="hotY" type="int32" mandatory="true"/>
+	</component>
+	<component name="crosshair">
+		<property name="bitmap" type="resource" mandatory="true"/>
+		<property name="hotX" type="int32" mandatory="true"/>
+		<property name="hotY" type="int32" mandatory="true"/>
+	</component>
+	<component name="upleftdownright">
+		<property name="bitmap" type="resource" mandatory="true"/>
+		<property name="hotX" type="int32" mandatory="true"/>
+		<property name="hotY" type="int32" mandatory="true"/>
+	</component>
+	<component name="uprightdownleft">
+		<property name="bitmap" type="resource" mandatory="true"/>
+		<property name="hotX" type="int32" mandatory="true"/>
+		<property name="hotY" type="int32" mandatory="true"/>
+	</component>
+	<component name="hand">
+		<property name="bitmap" type="resource" mandatory="true"/>
+		<property name="hotX" type="int32" mandatory="true"/>
+		<property name="hotY" type="int32" mandatory="true"/>
+	</component>
+	<component name="updown">
+		<property name="bitmap" type="resource" mandatory="true"/>
+		<property name="hotX" type="int32" mandatory="true"/>
+		<property name="hotY" type="int32" mandatory="true"/>
+	</component>
+	<component name="leftright">
+		<property name="bitmap" type="resource" mandatory="true"/>
+		<property name="hotX" type="int32" mandatory="true"/>
+		<property name="hotY" type="int32" mandatory="true"/>
+	</component>
+
+<!-- Components -->
+	<component name="button">
+		<property name="bounds" type="rectangle" mandatory="false" />
+		<property name="clDefault" type="color" mandatory="false" />
+		<property name="clHover" type="color" mandatory="false" />
+		<property name="clPressed" type="color" mandatory="false" />
+		<property name="clTextDefault" type="color" mandatory="false" />
+		<property name="clTextHover" type="color" mandatory="false" />
+		<property name="clTextPressed" type="color" mandatory="false" />
+		<property name="fontHeight" type="int32" mandatory="false" />
+		<property name="effect3d" type="int32" mandatory="false" />
+		<property name="useBgBitmaps" type="boolean" mandatory="false" />
+		<property name="repeatMiddleImage" type="boolean" mandatory="false" />
+		<property name="bgLeftDefault" type="resource" mandatory="false" />
+		<property name="bgRightDefault" type="resource" mandatory="false" />
+		<property name="bgMiddleDefault" type="resource" mandatory="false" />
+		<property name="bgLeftHover" type="resource" mandatory="false" />
+		<property name="bgRightHover" type="resource" mandatory="false" />
+		<property name="bgMiddleHover" type="resource" mandatory="false" />
+		<property name="bgLeftPressed" type="resource" mandatory="false" />
+		<property name="bgRightPressed" type="resource" mandatory="false" />
+		<property name="bgMiddlePressed" type="resource" mandatory="false" />
+		<property name="bgTopDefault" type="resource" mandatory="false" />
+		<property name="bgDefault" type="resource" mandatory="false" />
+		<property name="bgPressed" type="resource" mandatory="false" />
+		<property name="bgHover" type="resource" mandatory="false" />
+		<property name="useDeco" type="boolean" mandatory="false" />
+		<property name="decoDefault" type="resource" mandatory="false" />
+		<property name="decoHover" type="resource" mandatory="false" />
+		<property name="decoPressed" type="resource" mandatory ="false" />
+	</component>
+	<component name="scrollbar">
+		<property name="width" type="int32" mandatory="false" />
+		<property name="minTrackerSize" type="int32" mandatory="false" />
+		<property name="useTrackerBitmaps" type="boolean" mandatory="true" />
+		<property name="useArrowBitmaps" type="boolean" mandatory="true" />
+		<property name="useBackgroundBitmaps" type="boolean" mandatory="true" />
+		<property name="clDefault" type="color" mandatory="false" />
+		<property name="clHover" type="color" mandatory="false" />
+		<property name="clPressed" type="color" mandatory="false" />
+		<property name="clBtnDefault" type="color" mandatory="false" />
+		<property name="clBtnHover" type="color" mandatory="false" />
+		<property name="clBtnPressed" type="color" mandatory="false" />
+		<property name="effect3d" type="int32" mandatory="false" />
+		<property name="horizontalBgDefault" type="resource" mandatory="false" />
+		<property name="horizontalBgHover" type="resource" mandatory="false" />
+		<property name="horizontalBgPressed" type="resource" mandatory="false" />
+		<property name="verticalBgDefault" type="resource" mandatory="false" />
+		<property name="verticalBgHover" type="resource" mandatory="false" />
+		<property name="verticalBgPressed" type="resource" mandatory="false" />
+		<property name="arrowLeftDefault" type="resource" mandatory="false" />
+		<property name="arrowLeftHover" type="resource" mandatory="false" />
+		<property name="arrowLeftPressed" type="resource" mandatory="false" />
+		<property name="arrowRightDefault" type="resource" mandatory="false" />
+		<property name="arrowRightHover" type="resource" mandatory="false" />
+		<property name="arrowRightPressed" type="resource" mandatory="false" />
+		<property name="arrowUpDefault" type="resource" mandatory="false" />
+		<property name="arrowUpHover" type="resource" mandatory="false" />
+		<property name="arrowUpPressed" type="resource" mandatory="false" />
+		<property name="arrowDownDefault" type="resource" mandatory="false" />
+		<property name="arrowDownHover" type="resource" mandatory="false" />
+		<property name="arrowDownPressed" type="resource" mandatory="false" />
+		<property name="horizontalTrackerDefaultLeft" type="resource" mandatory="false" />
+		<property name="horizontalTrackerHoverLeft" type="resource" mandatory="false" />
+		<property name="horizontalTrackerPressedLeft" type="resource" mandatory="false" />
+		<property name="horizontalTrackerDefaultRight" type="resource" mandatory="false" />
+		<property name="horizontalTrackerHoverRight" type="resource" mandatory="false" />
+		<property name="horizontalTrackerPressedRight" type="resource" mandatory="false" />
+		<property name="horizontalTrackerDefaultMiddle" type="resource" mandatory="false" />
+		<property name="horizontalTrackerHoverMiddle" type="resource" mandatory="false" />
+		<property name="horizontalTrackerPressedMiddle" type="resource" mandatory="false" />
+		<property name="verticalTrackerDefaultTop" type="resource" mandatory="false" />
+		<property name="verticalTrackerHoverTop" type="resource" mandatory="false" />
+		<property name="verticalTrackerPressedTop" type="resource" mandatory="false" />
+		<property name="verticalTrackerDefaultBottom" type="resource" mandatory="false" />
+		<property name="verticalTrackerHoverBottom" type="resource" mandatory="false" />
+		<property name="verticalTrackerPressedBottom" type="resource" mandatory="false" />
+		<property name="verticalTrackerDefaultMiddle" type="resource" mandatory="false" />
+		<property name="verticalTrackerHoverMiddle" type="resource" mandatory="false" />
+		<property name="verticalTrackerPressedMiddle" type="resource" mandatory="false" />
+	</component>
+	<component name="resizer">
+		<property name="clDefault" type="color" mandatory="false" />
+		<property name="isFlat" type="boolean" mandatory="false" />
+		<property name="bounds" type="rectangle" mandatory="false" />
+	</component>
+	<component name="treeView">
+		<property name="clHover" type="color" mandatory="false" />
+		<property name="clSelected" type="color" mandatory="false" />
+		<property name="clTextDefault" type="color" mandatory="false" />
+		<property name="clTextHover" type="color" mandatory="false" />
+		<property name="clTextSelected" type="color" mandatory="false" />
+	</component>
+	<component name="tab">
+		<property name="clTextDefault" type="color" mandatory="false" />
+		<property name="clTextHover" type="color" mandatory="false" />
+		<property name="clTextSelected" type="color" mandatory="false" />
+		<property name="clTextAttention" type="color" mandatory="false" />
+		<property name="clTextSelectedAttention" type="color" mandatory="false"/>
+		<property name="borderWidth" type="int32" mandatory="false" />
+		<property name="useBgBitmaps" type="boolean" mandatory="true" />
+		<property name="clDefault" type="color" mandatory="false" />
+		<property name="clHover" type="color" mandatory="false" />
+		<property name="clSelected" type="color" mandatory="false" />
+		<property name="clAttention" type="color" mandatory="false" />
+		<property name="clSelectedAttention" type="color" mandatory="false"/>
+		<property name="bgLeftDefault" type="resource" mandatory="false" />
+		<property name="bgMiddleDefault" type="resource" mandatory="false" />
+		<property name="bgRightDefault" type="resource" mandatory="false" />
+		<property name="bgLeftHover" type="resource" mandatory="false" />
+		<property name="bgMiddleHover" type="resource" mandatory="false" />
+		<property name="bgRightHover" type="resource" mandatory="false" />
+		<property name="bgLeftSelected" type="resource" mandatory="false" />
+		<property name="bgMiddleSelected" type="resource" mandatory="false" />
+		<property name="bgRightSelected" type="resource" mandatory="false" />
+		<property name="bgLeftAttention" type="resource" mandatory="false" />
+		<property name="bgMiddleAttention" type="resource" mandatory="false" />
+		<property name="bgRightAttention" type="resource" mandatory="false" />
+	</component>
+	<component name="pieMenu">
+		<property name="useBgBitmap" type="boolean" mandatory="true" />
+		<property name="bgBitmap" type="resource" mandatory="false" />
+		<property name="clDefault" type="color" mandatory="false" />
+		<property name="clHover" type="color" mandatory="false" />
+		<property name="clShadow" type="color" mandatory="false" />
+		<property name="clLine" type="color" mandatory="false" />
+	</component>
+	<component name="checkbox">
+		<property name="bounds" type="int32" mandatory="false" />
+		<property name="useBitmaps" type="boolean" mandatory="true" />
+		<property name="scaleBitmaps" type="boolean" mandatory="false" />
+		<property name="clBack" type="color" mandatory="false" />
+		<property name="clCheck" type="color" mandatory="false" />
+		<property name="clDefault" type="color" mandatory="false" />
+		<property name="clInactive" type="color" mandatory="false" />
+		<property name="imgUnchecked" type="resource" mandatory="false" />
+		<property name="imgChecked" type="resource" mandatory="false" />
+		<property name="imgDefault" type="resource" mandatory="false" />
+		<property name="imgUncheckedInactive" type="resource" mandatory="false" />
+		<property name="imgCheckedInactive" type="resource" mandatory="false" />
+		<property name="imgDefaultInactive" type="resource" mandatory="false" />
+	</component>	
+	<component name="startMenu">
+		<property name="plugin" type="string" mandatory="true" />
+		<property name="layout0" type="string" mandatory="false" />
+		<property name="layout1" type="string" mandatory="false" />
+		<property name="layout2" type="string" mandatory="false" />
+		<property name="layout3" type="string" mandatory="false" />
+		<property name="layout4" type="string" mandatory="false" />		
+		<property name="layout5" type="string" mandatory="false" />
+		<property name="layout6" type="string" mandatory="false" />
+		<property name="layout7" type="string" mandatory="false" />
+		<property name="layout8" type="string" mandatory="false" />
+		<property name="layout9" type="string" mandatory="false" />		
+		<property name="layout10" type="string" mandatory="false" />
+		<property name="layout11" type="string" mandatory="false" />
+		<property name="layout12" type="string" mandatory="false" />
+		<property name="layout13" type="string" mandatory="false" />
+		<property name="layout14" type="string" mandatory="false" />		
+		<property name="layout15" type="string" mandatory="false" />
+	</component>
+</config>

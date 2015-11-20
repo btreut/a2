@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone='yes'?>
+		
+<Alerts>
+	<Alert fullname="Example.Nvalue1" 
+		type="multishot" trigger=">=" value1="10" value2="" 
+		onAlert="WMOSD.Open Alert multi" onLeave="WMOSD.Open LEAVE MULTI"
+	/>
+	<Alert fullname="Example.Nvalue2" 
+		type="sticky" trigger="out" value1="0" value2="14" 
+		onAlert="WMOSD.Open Alert sticky" onLeave="WMOSD.Open LEAVE STICKY"
+	/>
+	<Alert fullname="Example.Nvalue3" 
+		type="singleshot" trigger=">" value1="10" value2="" 
+		onAlert="WMOSD.Open Alert single" onLeave="WMOSD.Open LEAVE SINGLE"
+	/>
+</Alerts>
+		
+

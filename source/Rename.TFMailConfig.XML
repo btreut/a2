@@ -1,0 +1,23 @@
+<MailServer>
+	<Setting name="path" value="FAT:/MAIL/" />
+	<Setting name="relay" value="smtp.tiscalinet.ch" />
+	<Setting name="host" value="enigon.net" />
+	<Section name="Accounts">
+		<Account name="tfrey" forward="tfrey@enigon.com">
+			<Section name="Aliases">
+				<Setting name="tfrey@enigon.net"/>
+				<Setting name="shagua@enigon.net"/>
+			</Section>
+		</Account>	
+		<Account name="bimbo" forward="">
+			<Section name="Aliases">
+				<Setting name="*bimbo@enigon.net"/>
+			</Section>
+		</Account>	
+		<Account name="jfrey" forward="jfrey@enigon.com">
+			<Section name="Aliases">
+				<Setting name="jfrey@enigon.net"/>
+			</Section>
+		</Account>	
+	</Section>
+</MailServer>	

@@ -1,0 +1,1880 @@
+"; General-Purpose Instruction Reference (from AMD64 Architecture Programmeral Volume 3: General-Purpose and System Instructions)"						
+"; Written by Florian Negele (c) 2006 - with no warranties. Adaptions to new compiler and extensions by Felix Friedrich"						
+";mnemonic"	";Op(1)"	";Op(2)"	";Op(3)"	";Opcode"	";architecture"	";width(bits)"
+						
+AAA				37	8086	Not64
+						
+AAD				D5 0A	8086	Not64
+AAD				D5 ib	8086	Not64
+						
+AAM				D4 0A	8086	Not64
+AAM				D4 ib	8086	Not64
+						
+AAS				3F	8086	Not64
+						
+ADC	AL	 imm8		14 ib	8086	
+ADC	AX	 imm16		15 iw	8086	O16
+ADC	EAX	 imm32		15 id	386	O32
+ADC	RAX	 simm32		15 id	AMD64	
+ADC	reg/mem8	 imm8		80 /2 ib	8086	
+ADC	reg/mem16	 imm16		81 /2 iw	8086	O16
+ADC	reg/mem32	 imm32		81 /2 id	386	O32
+ADC	reg/mem64	 simm32		81 /2 id	AMD64	
+ADC	reg/mem16	 simm8		83 /2 ib	8086	O16
+ADC	reg/mem32	 simm8		83 /2 ib	386	O32
+ADC	reg/mem64	 simm8		83 /2 ib	AMD64	
+ADC	reg/mem8	 reg8		10 /r	8086	
+ADC	reg/mem16	 reg16		11 /r	8086	O16
+ADC	reg/mem32	 reg32		11 /r	386	O32
+ADC	reg/mem64	 reg64		11 /r	AMD64	
+ADC	reg8	 reg/mem8		12 /r	8086	
+ADC	reg16	 reg/mem16		13 /r	8086	O16
+ADC	reg32	 reg/mem32		13 /r	386	O32
+ADC	reg64	 reg/mem64		13 /r	AMD64	
+						
+ADD	AL	 imm8		04 ib	8086	
+ADD	AX	 imm16		05 iw	8086	O16
+ADD	EAX	 imm32		05 id	386	O32
+ADD	RAX	 simm32		05 id	AMD64	
+ADD	reg/mem8	 imm8		80 /0 ib	8086	
+ADD	reg/mem16	 imm16		81 /0 iw	8086	O16
+ADD	reg/mem32	 imm32		81 /0 id	386	O32
+ADD	reg/mem64	 simm32		81 /0 id	AMD64	
+ADD	reg/mem16	 simm8		83 /0 ib	8086	O16
+ADD	reg/mem32	 simm8		83 /0 ib	386	O32
+ADD	reg/mem64	 simm8		83 /0 ib	AMD64	
+ADD	reg/mem8	 reg8		00 /r	8086	
+ADD	reg/mem16	 reg16		01 /r	8086	O16
+ADD	reg/mem32	 reg32		01 /r	386	O32
+ADD	reg/mem64	 reg64		01 /r	AMD64	
+ADD	reg8	 reg/mem8		02 /r	8086	
+ADD	reg16	 reg/mem16		03 /r	8086	O16
+ADD	reg32	 reg/mem32		03 /r	386	O32
+ADD	reg64	 reg/mem64		03 /r	AMD64	
+						
+AND	AL	 imm8		24 ib	8086	
+AND	AX	 imm16		25 iw	8086	O16
+AND	EAX	 imm32		25 id	386	O32
+AND	RAX	 simm32		25 id	AMD64	
+AND	reg/mem8	 imm8		80 /4 ib	8086	
+AND	reg/mem16	 imm16		81 /4 iw	8086	O16
+AND	reg/mem32	 imm32		81 /4 id	386	O32
+AND	reg/mem64	 simm32		81 /4 id	AMD64	
+AND	reg/mem16	 simm8		83 /4 ib	8086	O16
+AND	reg/mem32	 simm8		83 /4 ib	386	O32
+AND	reg/mem64	 simm8		83 /4 ib	AMD64	
+AND	reg/mem8	 reg8		20 /r	8086	
+AND	reg/mem16	 reg16		21 /r	8086	O16
+AND	reg/mem32	 reg32		21 /r	386	O32
+AND	reg/mem64	 reg64		21 /r	AMD64	
+AND	reg8	 reg/mem8		22 /r	8086	
+AND	reg16	 reg/mem16		23 /r	8086	O16
+AND	reg32	 reg/mem32		23 /r	386	O32
+AND	reg64	 reg/mem64		23 /r	AMD64	
+						
+BOUND	reg16	 mem16&mem16		62 /r	186	O16,Not64
+BOUND	reg32	 mem32&mem32		62 /r	386	O32,Not64
+						
+BSF	reg16	 reg/mem16		0F BC /r	386	O16
+BSF	reg32	 reg/mem32		0F BC /r	386	O32
+BSF	reg64	 reg/mem64		0F BC /r	AMD64	
+						
+BSR	reg16	 reg/mem16		0F BD /r	386	O16
+BSR	reg32	 reg/mem32		0F BD /r	386	O32
+BSR	reg64	 reg/mem64		0F BD /r	AMD64	
+						
+BSWAP	reg32			0F C8 +rd	486	O32
+BSWAP	reg64			0F C8 +rq	AMD64	
+						
+BT	reg/mem16	 reg16		0F A3 /r	386	O16
+BT	reg/mem32	 reg32		0F A3 /r	386	O32
+BT	reg/mem64	 reg64		0F A3 /r	AMD64	
+BT	reg/mem16	 uimm8		0F BA /4 ib	386,SB	O16
+BT	reg/mem32	 uimm8		0F BA /4 ib	386,SB	O32
+BT	reg/mem64	 uimm8		0F BA /4 ib	AMD64	
+						
+BTC	reg/mem16	 reg16		0F BB /r	386	O16
+BTC	reg/mem32	 reg32		0F BB /r	386	O32
+BTC	reg/mem64	 reg64		0F BB /r	AMD64	
+BTC	reg/mem16	 uimm8		0F BA /7 ib	386,SB	O16
+BTC	reg/mem32	 uimm8		0F BA /7 ib	386,SB	O32
+BTC	reg/mem64	 uimm8		0F BA /7 ib	AMD64	
+						
+BTR	reg/mem16	 reg16		0F B3 /r	386	O16
+BTR	reg/mem32	 reg32		0F B3 /r	386	O32
+BTR	reg/mem64	 reg64		0F B3 /r	AMD64	
+BTR	reg/mem16	 uimm8		0F BA /6 ib	386,SB	O16
+BTR	reg/mem32	 uimm8		0F BA /6 ib	386,SB	O32
+BTR	reg/mem64	 uimm8		0F BA /6 ib	AMD64	
+						
+BTS	reg/mem16	 reg16		0F AB /r	386	O16
+BTS	reg/mem32	 reg32		0F AB /r	386	O32
+BTS	reg/mem64	 reg64		0F AB /r	AMD64	
+BTS	reg/mem16	 uimm8		0F BA /5 ib	386,SB	O16
+BTS	reg/mem32	 uimm8		0F BA /5 ib	386,SB	O32
+BTS	reg/mem64	 uimm8		0F BA /5 ib	AMD64	
+						
+CALL	rel16off			E8 iw	8086	O16
+CALL	rel32off			E8 id	8086	O32
+CALL	reg/mem16			FF /2	8086	O16
+CALL	reg/mem32			FF /2	386	O32
+CALL	reg/mem64			FF /2	AMD64	O64
+						
+CALLFAR	pntr16:16			9A cd	8086	Not64
+CALLFAR	pntr16:32			9A cp	386	Not64
+CALLFAR	mem16:16			FF /3	8086	O16,Not64
+CALLFAR	mem16:32			FF /3	386	O32,Not64
+						
+CBW				98	8086	O16
+CWDE				98	386	O32
+CDQE				98	AMD64	
+						
+CWD				99	8086	O16
+CDQ				99	386	O32
+CQO				99	AMD64	O64
+						
+CLC				F8	8086	
+						
+CLD				FC	8086	
+						
+CLFLUSH	mem8			0F AE /7	SSE2	
+						
+CMC				F5	8086	
+						
+CMOVO	reg16	 reg/mem16		0F 40 /r	P6	O16
+CMOVO	reg32	 reg/mem32		0F 40 /r	P6	O32
+CMOVO	reg64	 reg/mem64		0F 40 /r	AMD64	
+CMOVNO	reg16	 reg/mem16		0F 41 /r	P6	O16
+CMOVNO	reg32	 reg/mem32		0F 41 /r	P6	O32
+CMOVNO	reg64	 reg/mem64		0F 41 /r	AMD64	
+CMOVB	reg16	 reg/mem16		0F 42 /r	P6	O16
+CMOVB	reg32	 reg/mem32		0F 42 /r	P6	O32
+CMOVB	reg64	 reg/mem64		0F 42 /r	AMD64	
+CMOVC	reg16	 reg/mem16		0F 42 /r	P6	O16
+CMOVC	reg32	 reg/mem32		0F 42 /r	P6	O32
+CMOVC	reg64	 reg/mem64		0F 42 /r	AMD64	
+CMOVNAE	reg16	 reg/mem16		0F 42 /r	P6	O16
+CMOVNAE	reg32	 reg/mem32		0F 42 /r	P6	O32
+CMOVNAE	reg64	 reg/mem64		0F 42 /r	AMD64	
+CMOVNB	reg16	reg/mem16		0F 43 /r	P6	O16
+CMOVNB	reg32	reg/mem32		0F 43 /r	P6	O32
+CMOVNB	reg64	reg/mem64		0F 43 /r	AMD64	
+CMOVNC	reg16	reg/mem16		0F 43 /r	P6	O16
+CMOVNC	reg32	reg/mem32		0F 43 /r	P6	O32
+CMOVNC	reg64	reg/mem64		0F 43 /r	AMD64	
+CMOVAE	reg16	 reg/mem16		0F 43 /r	P6	O16
+CMOVAE	reg32	 reg/mem32		0F 43 /r	P6	O32
+CMOVAE	reg64	 reg/mem64		0F 43 /r	AMD64	
+CMOVZ	reg16	 reg/mem16		0F 44 /r	P6	O16
+CMOVZ	reg32	 reg/mem32		0F 44 /r	P6	O32
+CMOVZ	reg64	 reg/mem64		0F 44 /r	AMD64	
+CMOVE	reg16	 reg/mem16		0F 44 /r	P6	O16
+CMOVE	reg32	 reg/mem32		0F 44 /r	P6	O32
+CMOVE	reg64	 reg/mem64		0F 44 /r	AMD64	
+CMOVNZ	reg16	 reg/mem16		0F 45 /r	P6	O16
+CMOVNZ	reg32	 reg/mem32		0F 45 /r	P6	O32
+CMOVNZ	reg64	 reg/mem64		0F 45 /r	AMD64	
+CMOVNE	reg16	 reg/mem16		0F 45 /r	P6	O16
+CMOVNE	reg32	 reg/mem32		0F 45 /r	P6	O32
+CMOVNE	reg64	 reg/mem64		0F 45 /r	AMD64	
+CMOVBE	reg16	 reg/mem16		0F 46 /r	P6	O16
+CMOVBE	reg32	 reg/mem32		0F 46 /r	P6	O32
+CMOVBE	reg64	 reg/mem64		0F 46 /r	AMD64	
+CMOVNA	reg16	 reg/mem16		0F 46 /r	P6	O16
+CMOVNA	reg32	 reg/mem32		0F 46 /r	P6	O32
+CMOVNA	reg64	 reg/mem64		0F 46 /r	AMD64	
+CMOVNBE	reg16	 reg/mem16		0F 47 /r	P6	O16
+CMOVNBE	reg32	reg/mem32		0F 47 /r	P6	O32
+CMOVNBE	reg64	reg/mem64		0F 47 /r	AMD64	
+CMOVA	reg16	 reg/mem16		0F 47 /r	P6	O16
+CMOVA	reg32	 reg/mem32		0F 47 /r	P6	O32
+CMOVA	reg64	 reg/mem64		0F 47 /r	AMD64	
+CMOVS	reg16	 reg/mem16		0F 48 /r	P6	O16
+CMOVS	reg32	 reg/mem32		0F 48 /r	P6	O32
+CMOVS	reg64	 reg/mem64		0F 48 /r	AMD64	
+CMOVNS	reg16	 reg/mem16		0F 49 /r	P6	O16
+CMOVNS	reg32	 reg/mem32		0F 49 /r	P6	O32
+CMOVNS	reg64	 reg/mem64		0F 49 /r	AMD64	
+CMOVP	reg16	 reg/mem16		0F 4A /r	P6	O16
+CMOVP	reg32	 reg/mem32		0F 4A /r	P6	O32
+CMOVP	reg64	 reg/mem64		0F 4A /r	AMD64	
+CMOVPE	reg16	 reg/mem16		0F 4A /r	P6	O16
+CMOVPE	reg32	 reg/mem32		0F 4A /r	P6	O32
+CMOVPE	reg64	 reg/mem64		0F 4A /r	AMD64	
+CMOVNP	reg16	 reg/mem16		0F 4B /r	P6	O16
+CMOVNP	reg32	 reg/mem32		0F 4B /r	P6	O32
+CMOVNP	reg64	 reg/mem64		0F 4B /r	AMD64	
+CMOVPO	reg16	 reg/mem16		0F 4B /r	P6	O16
+CMOVPO	reg32	 reg/mem32		0F 4B /r	P6	O32
+CMOVPO	reg64	 reg/mem64		0F 4B /r	AMD64	
+CMOVL	reg16	 reg/mem16		0F 4C /r	P6	O16
+CMOVL	reg32	 reg/mem32		0F 4C /r	P6	O32
+CMOVL	reg64	 reg/mem64		0F 4C /r	AMD64	
+CMOVNGE	reg16	 reg/mem16		0F 4C /r	P6	O16
+CMOVNGE	reg32	 reg/mem32		0F 4C /r	P6	O32
+CMOVNGE	reg64	 reg/mem64		0F 4C /r	AMD64	
+CMOVNL	reg16	 reg/mem16		0F 4D /r	P6	O16
+CMOVNL	reg32	 reg/mem32		0F 4D /r	P6	O32
+CMOVNL	reg64	 reg/mem64		0F 4D /r	AMD64	
+CMOVGE	reg16	 reg/mem16		0F 4D /r	P6	O16
+CMOVGE	reg32	 reg/mem32		0F 4D /r	P6	O32
+CMOVGE	reg64	 reg/mem64		0F 4D /r	AMD64	
+CMOVLE	reg16	 reg/mem16		0F 4E /r	P6	O16
+CMOVLE	reg32	 reg/mem32		0F 4E /r	P6	O32
+CMOVLE	reg64	 reg/mem64		0F 4E /r	AMD64	
+CMOVNG	reg16	 reg/mem16		0F 4E /r	P6	O16
+CMOVNG	reg32	 reg/mem32		0F 4E /r	P6	O32
+CMOVNG	reg64	 reg/mem64		0F 4E /r	AMD64	
+CMOVNLE	reg16	 reg/mem16		0F 4F /r	P6	O16
+CMOVNLE	reg32	 reg/mem32		0F 4F /r	P6	O32
+CMOVNLE	reg64	 reg/mem64		0F 4F /r	AMD64	
+CMOVG	reg16	 reg/mem16		0F 4F /r	P6	O16
+CMOVG	reg32	 reg/mem32		0F 4F /r	P6	O32
+CMOVG	reg64	 reg/mem64		0F 4F /r	AMD64	
+						
+CMP	AL	 imm8		3C ib	8086	
+CMP	AX	 imm16		3D iw	8086	O16
+CMP	EAX	 imm32		3D id	386	O32
+CMP	RAX	 simm32		3D id	AMD64	
+CMP	reg/mem8	 imm8		80 /7 ib	8086	
+CMP	reg/mem16	 imm16		81 /7 iw	8086	O16
+CMP	reg/mem32	 imm32		81 /7 id	386	O32
+CMP	reg/mem64	 simm32		81 /7 id	AMD64	
+CMP	reg/mem16	 simm8		83 /7 ib	8086	O16
+CMP	reg/mem32	 simm8		83 /7 ib	386	O32
+CMP	reg/mem64	 simm8		83 /7 ib	AMD64	
+CMP	reg/mem8	 reg8		38 /r	8086	
+CMP	reg/mem16	 reg16		39 /r	8086	O16
+CMP	reg/mem32	 reg32		39 /r	386	O32
+CMP	reg/mem64	 reg64		39 /r	AMD64	
+CMP	reg8	 reg/mem8		3A /r	8086	
+CMP	reg16	 reg/mem16		3B /r	8086	O16
+CMP	reg32	 reg/mem32		3B /r	386	O32
+CMP	reg64	 reg/mem64		3B /r	AMD64	
+						
+CMPS	mem8	 mem8		A6	8086	
+CMPS	mem16	 mem16		A7	8086	O16
+CMPS	mem32	 mem32		A7	386	O32
+CMPS	mem64	 mem64		A7	AMD64	
+CMPSB				A6	8086	
+CMPSW				A7	8086	O16
+CMPSD				A7	386	O32
+CMPSQ				A7	AMD64	
+						
+CMPXCHG	reg/mem8	 reg8		0F B0 /r	PENTIUM	
+CMPXCHG	reg/mem16	 reg16		0F B1 /r	PENTIUM	O16
+CMPXCHG	reg/mem32	 reg32		0F B1 /r	PENTIUM	O32
+CMPXCHG	reg/mem64	 reg64		0F B1 /r	AMD64	
+						
+CMPXCHG8B	mem64			0F C7 /1 m64	PENTIUM	
+CMPXCHG16B	mem128			0F C7 /1 m128	SSE2	
+						
+CPUID				0F A2	PENTIUM	
+						
+DAA				27	8086	Not64
+						
+DAS				2F	8086	Not64
+						
+DEC	reg/mem8			FE /1	8086	
+DEC	reg/mem16			FF /1	8086	O16
+DEC	reg/mem32			FF /1	386	O32
+DEC	reg/mem64			FF /1	AMD64	
+DEC	reg16			48 +rw	8086	O16
+DEC	reg32			48 +rd	386	O32
+						
+DIV	reg/mem8			F6 /6	8086	
+DIV	reg/mem16			F7 /6	8086	O16
+DIV	reg/mem32			F7 /6	386	O32
+DIV	reg/mem64			F7 /6	AMD64	
+						
+ENTER	uimm16	 uimm8		C8 iw ib	186	
+						
+IDIV	reg/mem8			F6 /7	8086	
+IDIV	reg/mem16			F7 /7	8086	O16
+IDIV	reg/mem32			F7 /7	386	O32
+IDIV	reg/mem64			F7 /7	AMD64	
+						
+IMUL	reg/mem8			F6 /5	8086	
+IMUL	reg/mem16			F7 /5	8086	O16
+IMUL	reg/mem32			F7 /5	386	O32
+IMUL	reg/mem64			F7 /5	AMD64	
+IMUL	reg16	 reg/mem16		0F AF /r	386	O16
+IMUL	reg32	 reg/mem32		0F AF /r	386	O32
+IMUL	reg64	 reg/mem64		0F AF /r	AMD64	
+IMUL	reg16	 reg/mem16	 simm8	6B /r ib	186	O16
+IMUL	reg32	 reg/mem32	 simm8	6B /r ib	386	O32
+IMUL	reg64	 reg/mem64	 simm8	6B /r ib	AMD64	
+IMUL	reg16	 reg/mem16	 simm16	69 /r iw	186	O16
+IMUL	reg32	 reg/mem32	 simm32	69 /r id	386	O32
+IMUL	reg64	 reg/mem64	 simm32	69 /r id	AMD64	
+						
+IN	AL	 uimm8		E4 ib	8086,SB	
+IN	AX	 uimm8		E5 ib	8086,SB	O16
+IN	EAX	 uimm8		E5 ib	386,SB	O32
+IN	AL	 DX		EC	8086	
+IN	AX	 DX		ED	8086	O16
+IN	EAX	 DX		ED	386	O32
+						
+INC	reg/mem8			FE /0	8086	
+INC	reg/mem16			FF /0	8086	O16
+INC	reg/mem32			FF /0	386	O32
+INC	reg/mem64			FF /0	AMD64	
+INC	reg16			40 +rw	8086	O16
+INC	reg32			40 +rd	386	O32
+						
+INS	mem8	 DX		6C	186	
+INS	mem16	 DX		6D	186	O16
+INS	mem32	 DX		6D	386	O32
+INSB				6C	186	
+INSW				6D	186	O16
+INSD				6D	386	O32
+						
+INT	uimm8			CD ib	8086,SB	
+						
+INTO				CE	8086	Not64
+						
+JO	rel8off			70 cb	8086	
+JO	rel16off			0F 80 cw	386	O16
+JO	rel32off			0F 80 cd	386	O32
+JNO	rel8off			71 cb	8086	
+JNO	rel16off			0F 81 cw	386	O16
+JNO	rel32off			0F 81 cd	386	O32
+JB	rel8off			72 cb	8086	
+JB	rel16off			0F 82 cw	386	O16
+JB	rel32off			0F 82 cd	386	O32
+JC	rel8off			72 cb	8086	
+JC	rel16off			0F 82 cw	386	O16
+JC	rel32off			0F 82 cd	386	O32
+JNAE	rel8off			72 cb	8086	
+JNAE	rel16off			0F 82 cw	386	O16
+JNAE	rel32off			0F 82 cd	386	O32
+JNB	rel8off			73 cb	8086	
+JNB	rel16off			0F 83 cw	386	O16
+JNB	rel32off			0F 83 cd	386	O32
+JNC	rel8off			73 cb	8086	
+JNC	rel16off			0F 83 cw	386	O16
+JNC	rel32off			0F 83 cd	386	O32
+JAE	rel8off			73 cb	8086	
+JAE	rel16off			0F 83 cw	386	O16
+JAE	rel32off			0F 83 cd	386	O32
+JZ	rel8off			74 cb	8086	
+JZ	rel16off			0F 84 cw	386	O16
+JZ	rel32off			0F 84 cd	386	O32
+JE	rel8off			74 cb	8086	
+JE	rel16off			0F 84 cw	386	O16
+JE	rel32off			0F 84 cd	386	O32
+JNZ	rel8off			75 cb	8086	
+JNZ	rel16off			0F 85 cw	386	O16
+JNZ	rel32off			0F 85 cd	386	O32
+JNE	rel8off			75 cb	8086	
+JNE	rel16off			0F 85 cw	386	O16
+JNE	rel32off			0F 85 cd	386	O32
+JBE	rel8off			76 cb	8086	
+JBE	rel16off			0F 86 cw	386	O16
+JBE	rel32off			0F 86 cd	386	O32
+JNA	rel8off			76 cb	8086	
+JNA	rel16off			0F 86 cw	386	O16
+JNA	rel32off			0F 86 cd	386	O32
+JNBE	rel8off			77 cb	8086	
+JNBE	rel16off			0F 87 cw	386	O16
+JNBE	rel32off			0F 87 cd	386	O32
+JA	rel8off			77 cb	8086	
+JA	rel16off			0F 87 cw	386	O16
+JA	rel32off			0F 87 cd	386	O32
+JS	rel8off			78 cb	8086	
+JS	rel16off			0F 88 cw	386	O16
+JS	rel32off			0F 88 cd	386	O32
+JNS	rel8off			79 cb	8086	
+JNS	rel16off			0F 89 cw	386	O16
+JNS	rel32off			0F 89 cd	386	O32
+JP	rel8off			7A cb	8086	
+JP	rel16off			0F 8A cw	386	O16
+JP	rel32off			0F 8A cd	386	O32
+JPE	rel8off			7A cb	8086	
+JPE	rel16off			0F 8A cw	386	O16
+JPE	rel32off			0F 8A cd	386	O32
+JNP	rel8off			7B cb	8086	
+JNP	rel16off			0F 8B cw	386	O16
+JNP	rel32off			0F 8B cd	386	O32
+JPO	rel8off			7B cb	8086	
+JPO	rel16off			0F 8B cw	386	O16
+JPO	rel32off			0F 8B cd	386	O32
+JL	rel8off			7C cb	8086	
+JL	rel16off			0F 8C cw	386	O16
+JL	rel32off			0F 8C cd	386	O32
+JNGE	rel8off			7C cb	8086	
+JNGE	rel16off			0F 8C cw	386	O16
+JNGE	rel32off			0F 8C cd	386	O32
+JNL	rel8off			7D cb	8086	
+JNL	rel16off			0F 8D cw	386	O16
+JNL	rel32off			0F 8D cd	386	O32
+JGE	rel8off			7D cb	8086	
+JGE	rel16off			0F 8D cw	386	O16
+JGE	rel32off			0F 8D cd	386	O32
+JLE	rel8off			7E cb	8086	
+JLE	rel16off			0F 8E cw	386	O16
+JLE	rel32off			0F 8E cd	386	O32
+JNG	rel8off			7E cb	8086	
+JNG	rel16off			0F 8E cw	386	O16
+JNG	rel32off			0F 8E cd	386	O32
+JNLE	rel8off			7F cb	8086	
+JNLE	rel16off			0F 8F cw	386	O16
+JNLE	rel32off			0F 8F cd	386	O32
+JG	rel8off			7F cb	8086	
+JG	rel16off			0F 8F cw	386	O16
+JG	rel32off			0F 8F cd	386	O32
+						
+JCXZ	rel8off			E3 cb	8086	A16
+JECXZ	rel8off			E3 cb	386	A32
+JRCXZ	rel8off			E3 cb	AMD64	
+						
+JMP	rel8off			EB cb	8086,ND	
+JMP	rel16off			E9 cw	8086,ND	O16
+JMP	rel32off			E9 cd	8086,ND	O32
+JMP	reg/mem16			FF /4	8086	O16
+JMP	reg/mem32			FF /4	386	O32
+JMP	reg/mem64			FF /4	AMD64	
+						
+JMPFAR	pntr16:16			EA cd	8086	O16,Not64
+JMPFAR	pntr16:32			EA cp	386	O32,Not64
+JMPFAR	mem16:16			FF /5	8086	O16
+JMPFAR	mem16:32			FF /5	386	O32
+						
+LAHF				9F	8086	
+						
+LDS	reg16	 mem16:16		C5 /r	8086	O16,Not64
+LDS	reg32	 mem16:32		C5 /r	386	O32,Not64
+LES	reg16	 mem16:16		C4 /r	8086	O16,Not64
+LES	reg32	 mem16:32		C4 /r	386	O32,Not64
+LFS	reg16	 mem16:16		0F B4 /r	386	O16
+LFS	reg32	 mem16:32		0F B4 /r	386	O32
+LGS	reg16	 mem16:16		0F B5 /r	386	O16
+LGS	reg32	 mem16:32		0F B5 /r	386	O32
+LSS	reg16	 mem16:16		0F B2 /r	386	O16
+LSS	reg32	 mem16:32		0F B2 /r	386	O32
+						
+LEA	reg16	 mem		8D /r	8086	O16
+LEA	reg32	 mem		8D /r	386	O32
+LEA	reg64	 mem		8D /r	AMD64	
+						
+LEAVE				C9	186	
+						
+LFENCE				0F AE E8	SSE2	
+						
+LODS	mem8			AC	8086	
+LODS	mem16			AD	8086	O16
+LODS	mem32			AD	386	O32
+LODS	mem64			AD	AMD64	
+LODSB				AC	8086	
+LODSW				AD	8086	O16
+LODSD				AD	386	O32
+LODSQ				AD	AMD64	
+						
+LOOP	rel8off			E2 cb	8086	
+LOOPE	rel8off			E1 cb	8086	
+LOOPNE	rel8off			E0 cb	8086	
+LOOPNZ	rel8off			E0 cb	8086	
+LOOPZ	rel8off			E1 cb	8086	
+						
+MFENCE				0F AE F0	SSE2	
+						
+MOV	reg/mem8	 reg8		88 /r	8086	
+MOV	reg/mem16	 reg16		89 /r	8086	O16
+MOV	reg/mem32	 reg32		89 /r	386	O32
+MOV	reg/mem64	 reg64		89 /r	AMD64	
+MOV	reg8	 reg/mem8		8A /r	8086	
+MOV	reg16	 reg/mem16		8B /r	8086	O16
+MOV	reg32	 reg/mem32		8B /r	386	O32
+MOV	reg64	 reg/mem64		8B /r	AMD64	
+MOV	reg/mem16	 segReg		8C /r	8086	O16
+MOV	reg/mem32	 segReg		8C /r	386	O32
+MOV	reg/mem64	 segReg		8C /r	AMD64	
+MOV	segReg	 reg/mem16		8E /r	8086	O16
+MOV	segReg	 reg/mem32		8E /r	386	O32
+MOV	segReg	 reg/mem64		8E /r	AMD64	
+MOV	AL	 moffset8		A0+o	8086	
+MOV	AX	 moffset16		A1+o	8086	O16
+MOV	EAX	 moffset32		A1+o	386	O32
+MOV	RAX	 moffset64		A1+o	AMD64	
+MOV	moffset8	 AL		A2+o	8086	
+MOV	moffset16	 AX		A3+o	8086	O16
+MOV	moffset32	 EAX		A3+o	386	O32
+MOV	moffset64	 RAX		A3+o	AMD64	
+MOV	reg8	 imm8		B0 +rb ib	8086	
+MOV	reg16	 imm16		B8 +rw iw	8086	O16
+MOV	reg32	 imm32		B8 +rd id	386	O32
+MOV	reg64	 imm64		B8 +rq iq	AMD64	
+MOV	reg/mem8	 imm8		C6 /0 ib	8086	
+MOV	reg/mem16	 imm16		C7 /0 iw	8086	O16
+MOV	reg/mem32	 imm32		C7 /0 id	386	O32
+MOV	reg/mem64	 simm32		C7 /0 id	AMD64	
+						
+MOVD	xmm	 reg/mem32		66 0F 6E /r	SSE2	
+MOVD	xmm	 reg/mem64		66 0F 6E /r	AMD64,SSE2	
+MOVD	reg/mem32	 xmm		66 0F 7E /r	SSE2	
+MOVD	reg/mem64	 xmm		66 0F 7E /r	AMD64,SSE2	
+MOVD	mmx	 reg/mem32		0F 6E /r	MMX	
+MOVD	mmx	 reg/mem64		0F 6E /r	AMD64, MMX	
+MOVD	reg/mem32	 mmx		0F 7E /r	MMX	
+MOVD	reg/mem64	 mmx		0F 7E /r	AMD64, MMX	
+						
+MOVMSKPS	reg32	 xmm		0F 50 /r	SSE	
+						
+MOVNTI	mem32	 reg32		0F C3 /r	SSE2	
+MOVNTI	mem64	 reg64		0F C3 /r	AMD64,SSE2	
+						
+MOVS	mem8	 mem8		A4	8086	
+MOVS	mem16	 mem16		A5	8086	O16
+MOVS	mem32	 mem32		A5	386	O32
+MOVS	mem64	 mem64		A5	AMD64	
+MOVSB				A4	8086	
+MOVSW				A5	8086	O16
+MOVSD				A5	386	O32
+MOVSQ				A5	AMD64	
+						
+MOVSX	reg16	 reg/mem8		0F BE /r	386	O16
+MOVSX	reg32	 reg/mem8		0F BE /r	386	O32
+MOVSX	reg64	 reg/mem8		0F BE /r	AMD64	
+MOVSX	reg32	 reg/mem16		0F BF /r	386	O32
+MOVSX	reg64	 reg/mem16		0F BF /r	AMD64	
+						
+MOVSXD	reg64	 reg/mem32		63 /r	AMD64	
+						
+MOVZX	reg16	 reg/mem8		0F B6 /r	386	O16
+MOVZX	reg32	 reg/mem8		0F B6 /r	386	O32
+MOVZX	reg64	 reg/mem8		0F B6 /r	AMD64	
+MOVZX	reg32	 reg/mem16		0F B7 /r	386	O32
+MOVZX	reg64	 reg/mem16		0F B7 /r	AMD64	
+						
+MUL	reg/mem8			F6 /4	8086	
+MUL	reg/mem16			F7 /4	8086	O16
+MUL	reg/mem32			F7 /4	386	O32
+MUL	reg/mem64			F7 /4	AMD64	
+MUL	AL	reg/mem8		F6 /4	8086	
+MUL	AX	reg/mem16		F7 /4	8086	O16
+MUL	EAX	reg/mem32		F7 /4	386	O32
+MUL	RAX	reg/mem64		F7 /4	AMD64	
+						
+NEG	reg/mem8			F6 /3	8086	
+NEG	reg/mem16			F7 /3	8086	O16
+NEG	reg/mem32			F7 /3	386	O32
+NEG	reg/mem64			F7 /3	AMD64	
+						
+NOP				90	8086	
+						
+NOT	reg/mem8			F6 /2	8086	
+NOT	reg/mem16			F7 /2	8086	O16
+NOT	reg/mem32			F7 /2	386	O32
+NOT	reg/mem64			F7 /2	AMD64	
+						
+OR	AL	 imm8		0C ib	8086	
+OR	AX	 imm16		0D iw	8086	O16
+OR	EAX	 imm32		0D id	386	O32
+OR	RAX	 simm32		0D id	AMD64	
+OR	reg/mem8	 imm8		80 /1 ib	8086	
+OR	reg/mem16	 imm16		81 /1 iw	8086	O16
+OR	reg/mem32	 imm32		81 /1 id	386	O32
+OR	reg/mem64	 simm32		81 /1 id	AMD64	
+OR	reg/mem16	 simm8		83 /1 ib	8086	O16
+OR	reg/mem32	 simm8		83 /1 ib	386	O32
+OR	reg/mem64	 simm8		83 /1 ib	AMD64	
+OR	reg/mem8	 reg8		08 /r	8086	
+OR	reg/mem16	 reg16		09 /r	8086	O16
+OR	reg/mem32	 reg32		09 /r	386	O32
+OR	reg/mem64	 reg64		09 /r	AMD64	
+OR	reg8	 reg/mem8		0A /r	8086	
+OR	reg16	 reg/mem16		0B /r	8086	O16
+OR	reg32	 reg/mem32		0B /r	386	O32
+OR	reg64	 reg/mem64		0B /r	AMD64	
+						
+OUT	uimm8	 AL		E6 ib	8086,SB	
+OUT	uimm8	 AX		E7 ib	8086,SB	O16
+OUT	uimm8	 EAX		E7 ib	386,SB	O32
+OUT	DX	 AL		EE	8086,SB	
+OUT	DX	 AX		EF	8086,SB	O16
+OUT	DX	 EAX		EF	386,SB	O32
+						
+OUTS	DX	 mem8		6E	186	
+OUTS	DX	 mem16		6F	186	O16
+OUTS	DX	 mem32		6F	386	O32
+						
+OUTSB				6E	186	
+OUTSW				6F	186	O16
+OUTSD				6F	386	O32
+						
+PAUSE				F3 90	SSE2	
+						
+POP	reg/mem16			8F /0	8086	O16
+POP	reg/mem32			8F /0	386	O32
+POP	reg/mem64			8F /0	AMD64	
+POP	reg16			58 +rw	8086	O16
+POP	reg32			58 +rd	386	O32
+POP	reg64			58 +rq	AMD64	
+POP	DS			1F	8086	Not64
+POP	ES			7	8086	Not64
+POP	SS			17	8086,ND	Not64
+POP	FS			0F A1	386	
+POP	GS			0F A9	386	
+						
+POPA				61	186	Not64
+POPAW				61	186	O16,Not64
+POPAD				61	386	O32,Not64
+						
+POPF				9D	8086	
+POPFD				9D	386	O32
+POPFQ				9D	AMD64	
+						
+PREFETCH	mem8			0F 0D /0	3DNOW	
+PREFETCHW	mem8			0F 0D /1	3DNOW	
+						
+PREFETCHNTA	mem8			0F 18 /0	SSE,MMX	
+PREFETCHT0	mem8			0F 18 /1	SSE,MMX	
+PREFETCHT1	mem8			0F 18 /2	SSE,MMX	
+PREFETCHT2	mem8			0F 18 /3	SSE,MMX	
+						
+PUSH	reg/mem16			FF /6	8086	O16
+PUSH	reg/mem32			FF /6	386	O32
+PUSH	reg/mem64			FF /6	AMD64	
+PUSH	reg16			50 +rw	8086	O16
+PUSH	reg32			50 +rd	386	O32
+PUSH	reg64			50 +rq	AMD64	
+PUSH	imm8			6A ib	186	
+PUSH	imm16			68 iw	186	
+PUSH	imm32			68 id	186	Not64
+PUSH	simm32			68 id	AMD64	
+PUSH	CS			0E	8086	Not64
+PUSH	SS			16	8086	Not64
+PUSH	DS			1E	8086	Not64
+PUSH	ES			6	8086	Not64
+PUSH	FS			0F A0	386	
+PUSH	GS			0F A8	386	
+						
+PUSHA				60	186	Not64
+PUSHAD				60	386	O32,Not64
+						
+PUSHF				9C	8086	
+PUSHFD				9C	386	O32
+PUSHFQ				9C	AMD64	
+						
+RCL	reg/mem8	1		D0 /2	8086	
+RCL	reg/mem8	 CL		D2 /2	8086	
+RCL	reg/mem8	 uimm8		C0 /2 ib	186,SB	
+RCL	reg/mem16	1		D1 /2	8086	O16
+RCL	reg/mem16	 CL		D3 /2	8086	O16
+RCL	reg/mem16	 uimm8		C1 /2 ib	186,SB	O16
+RCL	reg/mem32	1		D1 /2	386	O32
+RCL	reg/mem32	 CL		D3 /2	386	O32
+RCL	reg/mem32	 uimm8		C1 /2 ib	386,SB	O32
+RCL	reg/mem64	1		D1 /2	AMD64	
+RCL	reg/mem64	 CL		D3 /2	AMD64	
+RCL	reg/mem64	 uimm8		C1 /2 ib	AMD64	
+						
+RCR	reg/mem8	1		D0 /3	8086	
+RCR	reg/mem8	CL		D2 /3	8086	
+RCR	reg/mem8	uimm8		C0 /3 ib	186,SB	
+RCR	reg/mem16	1		D1 /3	8086	O16
+RCR	reg/mem16	CL		D3 /3	8086	O16
+RCR	reg/mem16	 uimm8		C1 /3 ib	186,SB	O16
+RCR	reg/mem32	1		D1 /3	386	O32
+RCR	reg/mem32	CL		D3 /3	386	O32
+RCR	reg/mem32	 uimm8		C1 /3 ib	386,SB	O32
+RCR	reg/mem64	1		D1 /3	AMD64	
+RCR	reg/mem64	CL		D3 /3	AMD64	
+RCR	reg/mem64	 uimm8		C1 /3 ib	AMD64	
+						
+RET				C3	8086	
+RET	uimm16			C2 iw	8086,SW	
+						
+RETF				CB	8086	
+RETF	uimm16			CA iw	8086,SW	
+						
+ROL	reg/mem8	1		D0 /0	8086	
+ROL	reg/mem8	 CL		D2 /0	8086	
+ROL	reg/mem8	 uimm8		C0 /0 ib	186,SB	
+ROL	reg/mem16	1		D1 /0	8086	O16
+ROL	reg/mem16	 CL		D3 /0	8086	O16
+ROL	reg/mem16	 uimm8		C1 /0 ib	186,SB	O16
+ROL	reg/mem32	1		D1 /0	386	O32
+ROL	reg/mem32	 CL		D3 /0	386	O32
+ROL	reg/mem32	 uimm8		C1 /0 ib	386,SB	O32
+ROL	reg/mem64	1		D1 /0	AMD64	
+ROL	reg/mem64	 CL		D3 /0	AMD64	
+ROL	reg/mem64	 uimm8		C1 /0 ib	AMD64	
+						
+ROR	reg/mem8	1		D0 /1	8086	
+ROR	reg/mem8	 CL		D2 /1	8086	
+ROR	reg/mem8	 uimm8		C0 /1 ib	186,SB	
+ROR	reg/mem16	1		D1 /1	8086	O16
+ROR	reg/mem16	 CL		D3 /1	8086	O16
+ROR	reg/mem16	 uimm8		C1 /1 ib	186,SB	O16
+ROR	reg/mem32	1		D1 /1	386	O32
+ROR	reg/mem32	 CL		D3 /1	386	O32
+ROR	reg/mem32	 uimm8		C1 /1 ib	386,SB	O32
+ROR	reg/mem64	1		D1 /1	AMD64	
+ROR	reg/mem64	 CL		D3 /1	AMD64	
+ROR	reg/mem64	 uimm8		C1 /1 ib	AMD64	
+						
+SAHF				9E	8086	
+						
+SAL	reg/mem8	1		D0 /4	8086	
+SAL	reg/mem8	 CL		D2 /4	8086	
+SAL	reg/mem8	 uimm8		C0 /4 ib	186,SB	
+SAL	reg/mem16	1		D1 /4	8086	O16
+SAL	reg/mem16	 CL		D3 /4	8086	O16
+SAL	reg/mem16	 uimm8		C1 /4 ib	186,SB	O16
+SAL	reg/mem32	1		D1 /4	386	O32
+SAL	reg/mem32	 CL		D3 /4	386	O32
+SAL	reg/mem32	 uimm8		C1 /4 ib	386,SB	O32
+SAL	reg/mem64	1		D1 /4	AMD64	
+SAL	reg/mem64	 CL		D3 /4	AMD64	
+SAL	reg/mem64	 uimm8		C1 /4 ib	AMD64	
+SHL	reg/mem8	1		D0 /4	8086	
+SHL	reg/mem8	 CL		D2 /4	8086	
+SHL	reg/mem8	 uimm8		C0 /4 ib	186,SB	
+SHL	reg/mem16	1		D1 /4	8086	O16
+SHL	reg/mem16	 CL		D3 /4	8086	O16
+SHL	reg/mem16	 uimm8		C1 /4 ib	186,SB	O16
+SHL	reg/mem32	1		D1 /4	386	O32
+SHL	reg/mem32	 CL		D3 /4	386	O32
+SHL	reg/mem32	 uimm8		C1 /4 ib	386,SB	O32
+SHL	reg/mem64	1		D1 /4	AMD64	
+SHL	reg/mem64	 CL		D3 /4	AMD64	
+SHL	reg/mem64	 uimm8		C1 /4 ib	AMD64	
+						
+SAR	reg/mem8	1		D0 /7	8086	
+SAR	reg/mem8	 CL		D2 /7	8086	
+SAR	reg/mem8	 uimm8		C0 /7 ib	186,SB	
+SAR	reg/mem16	1		D1 /7	8086	O16
+SAR	reg/mem16	 CL		D3 /7	8086	O16
+SAR	reg/mem16	 uimm8		C1 /7 ib	186,SB	O16
+SAR	reg/mem32	1		D1 /7	386	O32
+SAR	reg/mem32	 CL		D3 /7	386	O32
+SAR	reg/mem32	 uimm8		C1 /7 ib	386,SB	O32
+SAR	reg/mem64	1		D1 /7	AMD64	
+SAR	reg/mem64	 CL		D3 /7	AMD64	
+SAR	reg/mem64	 uimm8		C1 /7 ib	AMD64	
+						
+SBB	AL	 imm8		1C ib	8086	
+SBB	AX	 imm16		1D iw	8086	O16
+SBB	EAX	 imm32		1D id	386	O32
+SBB	RAX	 simm32		1D id	AMD64	
+SBB	reg/mem8	 imm8		80 /3 ib	8086	
+SBB	reg/mem16	 imm16		81 /3 iw	8086	O16
+SBB	reg/mem32	 imm32		81 /3 id	386	O32
+SBB	reg/mem64	 simm32		81 /3 id	AMD64	
+SBB	reg/mem16	 simm8		83 /3 ib	8086	O16
+SBB	reg/mem32	 simm8		83 /3 ib	386	O32
+SBB	reg/mem64	 simm8		83 /3 ib	AMD64	
+SBB	reg/mem8	 reg8		18 /r	8086	
+SBB	reg/mem16	 reg16		19 /r	8086	O16
+SBB	reg/mem32	 reg32		19 /r	386	O32
+SBB	reg/mem64	 reg64		19 /r	AMD64	
+SBB	reg8	 reg/mem8		1A /r	8086	
+SBB	reg16	 reg/mem16		1B /r	8086	O16
+SBB	reg32	 reg/mem32		1B /r	386	O32
+SBB	reg64	 reg/mem64		1B /r	AMD64	
+						
+SCAS	mem8			AE	8086	
+SCAS	mem16			AF	8086	O16
+SCAS	mem32			AF	386	O32
+SCAS	mem64			AF	AMD64	
+SCASB				AE	8086	
+SCASW				AF	8086	O16
+SCASD				AF	386	O32
+SCASQ				AF	AMD64	
+						
+SETO	reg/mem8			0F 90 /0	386	
+SETNO	reg/mem8			0F 91 /0	386	
+SETB	reg/mem8			0F 92 /0	386	
+SETC	reg/mem8			0F 92 /0	386	
+SETNAE	reg/mem8			0F 92 /0	386	
+SETNB	reg/mem8			0F 93 /0	386	
+SETNC	reg/mem8			0F 93 /0	386	
+SETAE	reg/mem8			0F 93 /0	386	
+SETZ	reg/mem8			0F 94 /0	386	
+SETE	reg/mem8			0F 94 /0	386	
+SETNZ	reg/mem8			0F 95 /0	386	
+SETNE	reg/mem8			0F 95 /0	386	
+SETBE	reg/mem8			0F 96 /0	386	
+SETNA	reg/mem8			0F 96 /0	386	
+SETNBE	reg/mem8			0F 97 /0	386	
+SETA	reg/mem8			0F 97 /0	386	
+SETS	reg/mem8			0F 98 /0	386	
+SETNS	reg/mem8			0F 99 /0	386	
+SETP	reg/mem8			0F 9A /0	386	
+SETPE	reg/mem8			0F 9A /0	386	
+SETNP	reg/mem8			0F 9B /0	386	
+SETPO	reg/mem8			0F 9B /0	386	
+SETL	reg/mem8			0F 9C /0	386	
+SETNGE	reg/mem8			0F 9C /0	386	
+SETNL	reg/mem8			0F 9D /0	386	
+SETGE	reg/mem8			0F 9D /0	386	
+SETLE	reg/mem8			0F 9E /0	386	
+SETNG	reg/mem8			0F 9E /0	386	
+SETNLE	reg/mem8			0F 9F /0	386	
+SETG	reg/mem8			0F 9F /0	386	
+						
+SFENCE				0F AE F8	SSE,MMX	
+						
+SHLD	reg/mem16	 reg16	 uimm8	0F A4 /r ib	386	O16
+SHLD	reg/mem16	 reg16	 CL	0F A5 /r	386	O16
+SHLD	reg/mem32	 reg32	 uimm8	0F A4 /r ib	386	O32
+SHLD	reg/mem32	 reg32	 CL	0F A5 /r	386	O32
+SHLD	reg/mem64	 reg64	 uimm8	0F A4 /r ib	AMD64	
+SHLD	reg/mem64	 reg64	 CL	0F A5 /r	AMD64	
+						
+SHR	reg/mem8	1		D0 /5	8086	
+SHR	reg/mem8	 CL		D2 /5	8086	
+SHR	reg/mem8	 uimm8		C0 /5 ib	186,SB	
+SHR	reg/mem16	1		D1 /5	8086	O16
+SHR	reg/mem16	 CL		D3 /5	8086	O16
+SHR	reg/mem16	 uimm8		C1 /5 ib	186,SB	O16
+SHR	reg/mem32	1		D1 /5	386	O32
+SHR	reg/mem32	 CL		D3 /5	386	O32
+SHR	reg/mem32	 uimm8		C1 /5 ib	386,SB	O32
+SHR	reg/mem64	1		D1 /5	AMD64	
+SHR	reg/mem64	 CL		D3 /5	AMD64	
+SHR	reg/mem64	 uimm8		C1 /5 ib	AMD64	
+						
+SHRD	reg/mem16	 reg16	 uimm8	0F AC /r ib	386	O16
+SHRD	reg/mem16	 reg16	 CL	0F AD /r	386	O16
+SHRD	reg/mem32	 reg32	 uimm8	0F AC /r ib	386	O32
+SHRD	reg/mem32	 reg32	 CL	0F AD /r	386	O32
+SHRD	reg/mem64	 reg64	 uimm8	0F AC /r ib	AMD64	
+SHRD	reg/mem64	 reg64	 CL	0F AD /r	AMD64	
+						
+STC				F9	8086	
+						
+STD				FD	8086	
+						
+STOS	mem8			AA	8086	
+STOS	mem16			AB	8086	O16
+STOS	mem32			AB	386	O32
+STOS	mem64			AB	AMD64	
+STOSB				AA	8086	
+STOSW				AB	8086	O16
+STOSD				AB	386	O32
+STOSQ				AB	AMD64	
+						
+SUB	AL	 imm8		2C ib	8086	
+SUB	AX	 imm16		2D iw	8086	O16
+SUB	EAX	 imm32		2D id	386	O32
+SUB	RAX	 simm32		2D id	AMD64	
+SUB	reg/mem8	 imm8		80 /5 ib	8086	
+SUB	reg/mem16	 imm16		81 /5 iw	8086	O16
+SUB	reg/mem32	 imm32		81 /5 id	386	O32
+SUB	reg/mem64	 simm32		81 /5 id	AMD64	
+SUB	reg/mem16	 simm8		83 /5 ib	8086	O16
+SUB	reg/mem32	 simm8		83 /5 ib	386	O32
+SUB	reg/mem64	 simm8		83 /5 ib	AMD64	
+SUB	reg/mem8	 reg8		28 /r	8086	
+SUB	reg/mem16	 reg16		29 /r	8086	O16
+SUB	reg/mem32	 reg32		29 /r	386	O32
+SUB	reg/mem64	 reg64		29 /r	AMD64	
+SUB	reg8	 reg/mem8		2A /r	8086	
+SUB	reg16	 reg/mem16		2B /r	8086	O16
+SUB	reg32	 reg/mem32		2B /r	386	O32
+SUB	reg64	 reg/mem64		2B /r	AMD64	
+						
+TEST	AL	 imm8		A8 ib	8086	
+TEST	AX	 imm16		A9 iw	8086	O16
+TEST	EAX	 imm32		A9 id	386	O32
+TEST	RAX	 simm32		A9 id	AMD64	
+TEST	reg/mem8	 imm8		F6 /0 ib	8086	
+TEST	reg/mem16	 imm16		F7 /0 iw	8086	O16
+TEST	reg/mem32	 imm32		F7 /0 id	386	O32
+TEST	reg/mem64	 simm32		F7 /0 id	AMD64	
+TEST	reg/mem8	 reg8		84 /r	8086	
+TEST	reg/mem16	 reg16		85 /r	8086	O16
+TEST	reg/mem32	 reg32		85 /r	386	O32
+TEST	reg/mem64	 reg64		85 /r	AMD64	
+						
+XADD	reg/mem8	 reg8		0F C0 /r	486	
+XADD	reg/mem16	 reg16		0F C1 /r	486	O16
+XADD	reg/mem32	 reg32		0F C1 /r	486	O32
+XADD	reg/mem64	 reg64		0F C1 /r	AMD64	
+						
+XCHG	AX	 reg16		90 +rw	8086	O16
+XCHG	reg16	 AX		90 +rw	8086	O16
+XCHG	EAX	 reg32		90 +rd	386	O32
+XCHG	reg32	 EAX		90 +rd	386	O32
+XCHG	RAX	 reg64		90 +rq	AMD64	
+XCHG	reg64	 RAX		90 +rq	AMD64	
+XCHG	reg/mem8	 reg8		86 /r	8086	
+XCHG	reg8	 reg/mem8		86 /r	8086	
+XCHG	reg/mem16	 reg16		87 /r	8086	O16
+XCHG	reg16	 reg/mem16		87 /r	8086	O16
+XCHG	reg/mem32	 reg32		87 /r	386	O32
+XCHG	reg32	 reg/mem32		87 /r	386	O32
+XCHG	reg/mem64	 reg64		87 /r	AMD64	
+XCHG	reg64	 reg/mem64		87 /r	AMD64	
+						
+XLAT	mem8			D7	8086	
+XLATB				D7	8086	
+						
+XOR	AL	 imm8		34 ib	8086	
+XOR	AX	 imm16		35 iw	8086	O16
+XOR	EAX	 imm32		35 id	386	O32
+XOR	RAX	 simm32		35 id	AMD64	
+XOR	reg/mem8	 imm8		80 /6 ib	8086	
+XOR	reg/mem16	 imm16		81 /6 iw	8086	O16
+XOR	reg/mem32	 imm32		81 /6 id	386	O32
+XOR	reg/mem64	 simm32		81 /6 id	AMD64	
+XOR	reg/mem16	 simm8		83 /6 ib	8086	O16
+XOR	reg/mem32	 simm8		83 /6 ib	386	O32
+XOR	reg/mem64	 simm8		83 /6 ib	AMD64	
+XOR	reg/mem8	 reg8		30 /r	8086	
+XOR	reg/mem16	 reg16		31 /r	8086	O16
+XOR	reg/mem32	 reg32		31 /r	386	O32
+XOR	reg/mem64	 reg64		31 /r	AMD64	
+XOR	reg8	 reg/mem8		32 /r	8086	
+XOR	reg16	 reg/mem16		33 /r	8086	O16
+XOR	reg32	 reg/mem32		33 /r	386	O32
+XOR	reg64	 reg/mem64		33 /r	AMD64	
+						
+"; System Instruction Reference (from AMD64 Architecture Programmeral Volume 3: General-Purpose and System Instructions)"						
+						
+ARPL	reg/mem16	 reg16		63 /r	286,PRIV	
+						
+CLGI				0F 01 DD	AMD64	
+						
+CLI				FA	8086	
+						
+CLTS				0F 06	286,PRIV	
+						
+HLT				F4	8086,PRIV	
+						
+INT3				CC	8086	
+						
+INVD				0F 08	486,PRIV	
+						
+INVLPG	mem8			0F 01 /7	486	
+						
+INVLPGA	rAX	 ECX		0F 01 DF	386	
+						
+IRET				CF	8086	O16
+IRETD				CF	386	O32
+IRETQ				CF	AMD64	O64
+						
+LAR	reg16	 reg/mem16		0F 02 /r	286,PRIV	O16
+LAR	reg32	 reg/mem16		0F 02 /r	286,PRIV	O32
+LAR	reg64	 reg/mem16		0F 02 /r	AMD64,PRIV	
+						
+LGDT	mem16:32			0F 01 /2	286,PRIV	
+LGDT	mem16:64			0F 01 /2	AMD64,PRIV	
+						
+LIDT	mem16:32			0F 01 /3	286,PRIV	
+LIDT	mem16:64			0F 01 /3	AMD64,PRIV	
+						
+LLDT	reg/mem16			0F 00 /2	286,PRIV	
+						
+LMSW	reg/mem16			0F 01 /6	286,PRIV	
+						
+LSL	reg16	 reg/mem16		0F 03 /r	286,PRIV	
+LSL	reg32	 reg/mem16		0F 03 /r	286,PRIV	
+LSL	reg64	 reg/mem16		0F 03 /r	AMD64,PRIV	
+						
+LTR	reg/mem16			0F 00 /3	286,PRIV	
+						
+MOV	CRn	 reg32		0F 22 /r	386	
+MOV	CRn	 reg64		0F 22 /r	AMD64	
+MOV	reg32	CRn		0F 20 /r	386	
+MOV	reg64	CRn		0F 20 /r	AMD64	
+MOV	CR8	 reg32		F0 0F 22/r	386	
+MOV	CR8	 reg64		F0 0F 22/r	AMD64	
+MOV	reg32	 CR8		F0 0F 20/r	386	
+MOV	reg64	 CR8		F0 0F 20/r	AMD64	
+						
+MOV	reg32	 DRn		0F 21 /r	386	
+MOV	reg64	 DRn		0F 21 /r	AMD64	
+MOV	DRn	 reg32		0F 23 /r	386	
+MOV	DRn	 reg64		0F 23 /r	AMD64	
+						
+RDMSR				0F 32	PENTIUM,PRIV	
+						
+RDPMC				0F 33	P6	
+						
+RDTSC				0F 31	PENTIUM	
+						
+RDTSCP				0F 01 F9	PENTIUM	
+						
+RSM				0F AA	SMM	
+						
+SGDT	mem16:32			0F 01 /0	286,PRIV	
+SGDT	mem16:64			0F 01 /0	AMD64,PRIV	
+						
+SIDT	mem16:32			0F 01 /1	286,PRIV	
+SIDT	mem16:64			0F 01 /1	AMD64,PRIV	
+						
+SKINIT	EAX			0F 01 DE	AMD64	
+						
+SLDT	reg16			0F 00 /0	286	O16
+SLDT	reg32			0F 00 /0	386	O32
+SLDT	reg64			0F 00 /0	AMD64	
+SLDT	mem16			0F 00 /0	286	
+						
+SMSW	reg16			0F 01 /4	286	O16
+SMSW	reg32			0F 01 /4	386	O32
+SMSW	reg64			0F 01 /4	AMD64	
+SMSW	mem16			0F 01 /4	286	
+						
+STI				FB	8086	
+						
+STGI				0F 01 DC	PENTIUM	
+						
+STR	reg16			0F 00 /1	286,PROT	O16
+STR	reg32			0F 00 /1	386,PROT	O32
+STR	reg64			0F 00 /1	AMD64	
+STR	mem16			0F 00 /1	286,PROT	
+						
+SWAPGS				0F 01 F8	AMD64	
+						
+SYSCALL				0F 05	P6	
+						
+SYSENTER				0F 34	P6	Not64
+						
+SYSEXIT				0F 35	P6,PRIV	Not64
+						
+SYSRET				0F 07	P6,PRIV	
+						
+UD2				0F 0B	286	
+						
+VERR	reg/mem16			0F 00 /4	286,PRIV	
+						
+VERW	reg/mem16			0F 00 /5	286,PRIV	
+						
+VMLOAD	rAX			0F 01 DA	AMD64	
+						
+VMMCALL				0F 01 D9	AMD64	
+						
+VMRUN	rAX			0F 01 D8	AMD64	
+						
+VMSAVE	rAX			0F 01 DB	AMD64	
+						
+WBINVD				0F 09	486,PRIV	
+						
+WRMSR				0F 30	PENTIUM,PRIV	
+						
+"; 128-Bit Media Instruction Reference (from AMD64 Architecture Programmeral Volume 4: 128-Bit Media Instructions)"						
+						
+ADDPD	xmm1	 xmm2/mem128		66 0F 58 /r	SSE2	
+						
+ADDPS	xmm1	 xmm2/mem128		0F 58 /r	SSE	
+						
+ADDSD	xmm1	 xmm2/mem64		F2 0F 58 /r	SSE2	
+						
+ADDSS	xmm1	 xmm2/mem32		F3 0F 58 /r	SSE	
+						
+ADDSUBPD	xmm1	 xmm2/mem128		66 0F D0 /r	SSE3	
+						
+ADDSUBPS	xmm1	 xmm2/mem128		F2 0F D0 /r	SSE3	
+						
+ANDNPD	xmm1	 xmm2/mem128		66 0F 55 /r	SSE2	
+						
+ANDNPS	xmm1	 xmm2/mem128		0F 55 /r	SSE	
+						
+ANDPD	xmm1	 xmm2/mem128		66 0F 54 /r	SSE2	
+						
+ANDPS	xmm1	 xmm2/mem128		0F 54 /r	SSE	
+						
+CMPPD	xmm1	 xmm2/mem128	 uimm8	66 0F C2 /r ib	SSE2,SB,AR2	
+						
+CMPPS	xmm1	 xmm2/mem128	 uimm8	0F C2 /r ib	SSE,SB,AR2	
+						
+CMPSD	xmm1	 xmm2/mem64	 uimm8	F2 0F C2 /r ib	SSE2,SB,AR2	
+						
+CMPSS	xmm1	 xmm2/mem32	 uimm8	F3 0F C2 /r ib	SSE,SB,AR2	
+						
+COMISD	xmm1	 xmm2/mem64		66 0F 2F /r	SSE2	
+						
+COMISS	xmm1	 xmm2/mem32		0F 2F /r	SSE	
+						
+CVTDQ2PD	xmm1	 xmm2/mem64		F3 0F E6 /r	SSE2	
+						
+CVTDQ2PS	xmm1	 xmm2/mem128		0F 5B /r	SSE2	
+						
+CVTPD2DQ	xmm1	 xmm2/mem128		F2 0F E6 /r	SSE2	
+						
+CVTPD2PI	mmx	 xmm2/mem128		66 0F 2D /r	SSE2	
+						
+CVTPD2PS	xmm1	 xmm2/mem128		66 0F 5A /r	SSE2	
+						
+CVTPI2PD	xmm	 mmx/mem64		66 0F 2A /r	SSE2	
+						
+CVTPI2PS	xmm	 mmx/mem64		0F 2A /r	SSE	
+						
+CVTPS2DQ	xmm1	 xmm2/mem128		66 0F 5B /r	SSE2	
+						
+CVTPS2PD	xmm1	 xmm2/mem64		0F 5A /r	SSE2	
+						
+CVTPS2PI	mmx	 xmm/mem64		0F 2D /r	SSE	
+						
+CVTSD2SI	reg32	 xmm/mem64		F2 0F 2D /r	SSE2	
+CVTSD2SI	reg64	 xmm/mem64		F2 0F 2D /r	AMD64,SSE2	
+						
+CVTSD2SS	xmm1	 xmm2/mem64		F2 0F 5A /r	SSE2	
+						
+CVTSI2SD	xmm	 reg/mem32		F2 0F 2A /r	SSE2	
+CVTSI2SD	xmm	 reg/mem64		F2 0F 2A /r	AMD64, SSE2	
+						
+CVTSI2SS	xmm	 reg/mem32		F3 0F 2A /r	SSE	
+CVTSI2SS	xmm	 reg/mem64		F3 0F 2A /r	AMD64, SSE	
+						
+CVTSS2SD	xmm1	 xmm2/mem32		F3 0F 5A /r	SSE2	
+						
+CVTSS2SI	reg32	 xmm2/mem32		F3 0F 2D /r	SSE	
+CVTSS2SI	reg64	 xmm2/mem32		F3 0F 2D /r	AMD64, SSE	
+						
+CVTTPD2DQ	xmm1	 xmm2/mem128		66 0F E6 /r	SSE2	
+						
+CVTTPD2PI	mmx	 xmm/mem128		66 0F 2C /r	SSE2	
+						
+CVTTPS2DQ	xmm1	 xmm2/mem128		F3 0F 5B /r	SSE2	
+						
+CVTTPS2PI	mmx	 xmm/mem64		0F 2C /r	SSE	
+						
+CVTTSD2SI	reg32	 xmm/mem64		F2 0F 2C /r	SSE2	
+CVTTSD2SI	reg64	 xmm/mem64		F2 0F 2C /r	AMD64, SSE2	
+						
+CVTTSS2SI	reg32	 xmm/mem32		F3 0F 2C /r	SSE	
+CVTTSS2SI	reg64	 xmm/mem32		F3 0F 2C /r	AMD64, SSE	
+						
+DIVPD	xmm1	 xmm2/mem128		66 0F 5E /r	SSE2	
+						
+DIVPS	xmm1	 xmm2/mem128		0F 5E /r	SSE	
+						
+DIVSD	xmm1	 xmm2/mem64		F2 0F 5E /r	SSE2	
+						
+DIVSS	xmm1	 xmm2/mem32		F3 0F 5E /r	SSE	
+						
+FXRSTOR	mem512env			0F AE /1	P6,SSE,FPU	
+						
+FXSAVE	mem512env			0F AE /0	P6,SSE,FPU	
+						
+HADDPD	xmm1	 xmm2/mem128		66 0F 7C /r	SSE3	
+						
+HADDPS	xmm1	 xmm2/mem128		F2 0F 7C /r	SSE3	
+						
+HSUBPD	xmm1	 xmm2/mem128		66 0F 7D /r	SSE3	
+						
+HSUBPS	xmm1	 xmm2/mem128		F2 0F 7D /r	SSE3	
+						
+LDDQU	xmm1	 mem128		F2 0F F0 /r	SSE3	
+						
+LDMXCSR	mem32			0F AE /2	SSE	
+						
+MASKMOVDQU	xmm1	 xmm2		66 0F F7 /r	SSE2	
+						
+MAXPD	xmm1	 xmm2/mem128		66 0F 5F /r	SSE2	
+						
+MAXPS	xmm1	 xmm2/mem128		0F 5F /r	SSE	
+						
+MAXSD	xmm1	 xmm2/mem64		F2 0F 5F /r	SSE2	
+						
+MAXSS	xmm1	 xmm2/mem32		F3 0F 5F /r	SSE	
+						
+MINPD	xmm1	 xmm2/mem128		66 0F 5D /r	SSE2	
+						
+MINPS	xmm1	 xmm2/mem128		0F 5D /r	SSE	
+						
+MINSD	xmm1	 xmm2/mem64		F2 0F 5D /r	SSE2	
+						
+MINSS	xmm1	 xmm2/mem32		F3 0F 5D /r	SSE	
+						
+MOVAPD	xmm1	 xmm2/mem128		66 0F 28 /r	SSE2	
+MOVAPD	xmm1/mem128	 xmm2		66 0F 29 /r	SSE2	
+						
+MOVAPS	xmm1	 xmm2/mem128		0F 28 /r	SSE	
+MOVAPS	xmm1/mem128	 xmm2		0F 29 /r	SSE	
+						
+MOVD	xmm	 reg/mem32		66 0F 6E /r	SSE2	
+MOVD	xmm	 reg/mem64		66 0F 6E /r	AMD64,SSE2	
+MOVD	reg/mem32	 xmm		66 0F 7E /r	SSE2	
+MOVD	reg/mem64	 xmm		66 0F 7E /r	AMD64,SSE2	
+						
+MOVDDUP	xmm1	 xmm2/mem64		F2 0F 12 /r	SSE3	
+						
+MOVDQ2Q	mmx	 xmm		F2 0F D6 /r	SSE2	
+						
+MOVDQA	xmm1	 xmm2/mem128		66 0F 6F /r	SSE2	
+MOVDQA	xmm1/mem128	 xmm2		66 0F 7F /r	SSE2	
+						
+MOVDQU	xmm1	 xmm2/mem128		F3 0F 6F /r	SSE2	
+MOVDQU	xmm1/mem128	 xmm2		F3 0F 7F /r	SSE2	
+						
+MOVHLPS	xmm1	 xmm2		0F 12 /r	SSE	
+						
+MOVHPD	xmm	 mem64		66 0F 16 /r	SSE2	
+MOVHPD	mem64	 xmm		66 0F 17 /r	SSE2	
+						
+MOVHPS	xmm	 mem64		0F 16 /r	SSE	
+MOVHPS	mem64	 xmm		0F 17 /r	SSE	
+						
+MOVLHPS	xmm1	 xmm2		0F 16 /r	SSE	
+						
+MOVLPD	xmm	 mem64		66 0F 12 /r	SSE2	
+MOVLPD	mem64	 xmm		66 0F 13 /r	SSE2	
+						
+MOVLPS	xmm	 mem64		0F 12 /r	SSE	
+MOVLPS	mem64	 xmm		0F 13 /r	SSE	
+						
+MOVMSKPD	reg32	 xmm		66 0F 50 /r	SSE2	
+						
+MOVMSKPS	reg32	 xmm		0F 50 /r	SSE	
+						
+MOVNTDQ	mem128	 xmm		66 0F E7 /r	SSE2	
+						
+MOVNTPD	mem128	 xmm		66 0F 2B /r	SSE2	
+						
+MOVNTPS	mem128	 xmm		0F 2B /r	SSE	
+						
+MOVQ	xmm1	 xmm2/mem64		F3 0F 7E /r	SSE2	
+MOVQ	xmm1/mem64	 xmm2		66 0F D6 /r	SSE2	
+						
+MOVQ2DQ	xmm	 mmx		F3 0F D6 /r	SSE2	
+						
+MOVSD	xmm1	 xmm2/mem64		F2 0F 10 /r	SSE2	
+MOVSD	xmm1/mem64	 xmm2		F2 0F 11 /r	SSE2	
+						
+MOVSHDUP	xmm1	 xmm2/mem128		F3 0F 16 /r	SSE3	
+						
+MOVSLDUP	xmm1	 xmm2/mem128		F3 0F 12 /r	SSE3	
+						
+MOVSS	xmm1	 xmm2/mem32		F3 0F 10 /r	SSE	
+MOVSS	xmm1/mem32	 xmm2		F3 0F 11 /r	SSE	
+						
+MOVUPD	xmm1	 xmm2/mem128		66 0F 10 /r	SSE2	
+MOVUPD	xmm1/mem128	 xmm2		66 0F 11 /r	SSE2	
+						
+MOVUPS	xmm1	 xmm2/mem128		0F 10 /r	SSE	
+MOVUPS	xmm1/mem128	 xmm2		0F 11 /r	SSE	
+						
+MULPD	xmm1	 xmm2/mem128		66 0F 59 /r	SSE2	
+						
+MULPS	xmm1	 xmm2/mem128		0F 59 /r	SSE	
+						
+MULSD	xmm1	 xmm2/mem64		F2 0F 59 /r	SSE2	
+						
+MULSS	xmm1	 xmm2/mem32		F3 0F 59 /r	SSE	
+						
+ORPD	xmm1	 xmm2/mem128		66 0F 56 /r	SSE2	
+						
+ORPS	xmm1	 xmm2/mem128		0F 56 /r	SSE	
+						
+PACKSSDW	xmm1	 xmm2/mem128		66 0F 6B /r	SSE2	
+						
+PACKSSWB	xmm1	 xmm2/mem128		66 0F 63 /r	SSE2	
+						
+PACKUSWB	xmm1	 xmm2/mem128		66 0F 67 /r	SSE2	
+						
+PADDB	xmm1	 xmm2/mem128		66 0F FC /r	SSE2	
+						
+PADDD	xmm1	 xmm2/mem128		66 0F FE /r	SSE2	
+						
+PADDQ	xmm1	 xmm2/mem128		66 0F D4 /r	SSE2	
+						
+PADDSB	xmm1	 xmm2/mem128		66 0F EC /r	SSE2	
+						
+PADDSW	xmm1	 xmm2/mem128		66 0F ED /r	SSE2	
+						
+PADDUSB	xmm1	 xmm2/mem128		66 0F DC /r	SSE2	
+						
+PADDUSW	xmm1	 xmm2/mem128		66 0F DD /r	SSE2	
+						
+PADDW	xmm1	 xmm2/mem128		66 0F FD /r	SSE2	
+						
+PAND	xmm1	 xmm2/mem128		66 0F DB /r	SSE2	
+						
+PANDN	xmm1	 xmm2/mem128		66 0F DF /r	SSE2	
+						
+PAVGB	xmm1	 xmm2/mem128		66 0F E0 /r	SSE2	
+						
+PAVGW	xmm1	 xmm2/mem128		66 0F E3 /r	SSE2	
+						
+PCMPEQB	xmm1	 xmm2/mem128		66 0F 74 /r	SSE2	
+						
+PCMPEQD	xmm1	 xmm2/mem128		66 0F 76 /r	SSE2	
+						
+PCMPEQW	xmm1	 xmm2/mem128		66 0F 75 /r	SSE2	
+						
+PCMPGTB	xmm1	 xmm2/mem128		66 0F 64 /r	SSE2	
+						
+PCMPGTD	xmm1	 xmm2/mem128		66 0F 66 /r	SSE2	
+						
+PCMPGTW	xmm1	 xmm2/mem128		66 0F 65 /r	SSE2	
+						
+PEXTRW	reg32	 xmm	 uimm8	66 0F C5 /r ib	SSE2,SB,AR2	
+						
+PINSRW	xmm	 reg/mem16	 uimm8	66 0F C4 /r ib	SSE2	
+PINSRW	xmm	 reg/mem32	 uimm8	66 0F C4 /r ib	SSE2	
+						
+PMADDWD	xmm1	 xmm2/mem128		66 0F F5 /r	SSE2	
+						
+PMAXSW	xmm1	 xmm2/mem128		66 0F EE /r	SSE2	
+						
+PMAXUB	xmm1	 xmm2/mem128		66 0F DE /r	SSE2	
+						
+PMINSW	xmm1	 xmm2/mem128		66 0F EA /r	SSE2	
+						
+PMINUB	xmm1	 xmm2/mem128		66 0F DA /r	SSE2	
+						
+PMOVMSKB	reg32	 xmm		66 0F D7 /r	SSE2	
+PMULHUW	xmm1	 xmm2/mem128		66 0F E4 /r	SSE2	
+						
+PMULHW	xmm1	 xmm2/mem128		66 0F E5 /r	SSE2	
+						
+PMULLW	xmm1	 xmm2/mem128		66 0F D5 /r	SSE2	
+						
+PMULUDQ	xmm1	 xmm2/mem128		66 0F F4 /r	SSE2	
+						
+POR	xmm1	 xmm2/mem128		66 0F EB /r	SSE2	
+						
+PSADBW	xmm1	 xmm2/mem128		66 0F F6 /r	SSE2	
+						
+PSHUFD	xmm1	 xmm2/mem128	 uimm8	66 0F 70 /r ib	SSE2,SB,AR2	
+						
+PSHUFHW	xmm1	 xmm2/mem128	 uimm8	F3 0F 70 /r ib	SSE2,SB,AR2	
+						
+PSHUFLW	xmm1	 xmm2/mem128	 uimm8	F2 0F 70 /r ib	SSE2,SB,AR2	
+						
+PSLLD	xmm1	 xmm2/mem128		66 0F F2 /r	SSE2	
+PSLLD	xmm	 uimm8		66 0F 72 /6 ib	SSE2,SB,AR1	
+						
+PSLLDQ	xmm	 uimm8		66 0F 73 /7 ib	SSE2,SB,AR1	
+						
+PSLLQ	xmm1	 xmm2/mem128		66 0F F3 /r	SSE2	
+PSLLQ	xmm	 uimm8		66 0F 73 /6 ib	SSE2,SB,AR1	
+						
+PSLLW	xmm1	 xmm2/mem128		66 0F F1 /r	SSE2	
+PSLLW	xmm	 uimm8		66 0F 71 /6 ib	SSE2,SB,AR1	
+						
+PSRAD	xmm1	 xmm2/mem128		66 0F E2 /r	SSE2	
+PSRAD	xmm	 uimm8		66 0F 72 /4 ib	SSE2,SB,AR1	
+						
+PSRAW	xmm1	 xmm2/mem128		66 0F E1 /r	SSE2	
+PSRAW	xmm	 uimm8		66 0F 71 /4 ib	SSE2,SB,AR1	
+						
+PSRLD	xmm1	 xmm2/mem128		66 0F D2 /r	SSE2	
+PSRLD	xmm	 uimm8		66 0F 72 /2 ib	SSE2,SB,AR1	
+						
+PSRLDQ	xmm	 uimm8		66 0F 73 /3 ib	SSE2,SB,AR1	
+						
+PSRLQ	xmm1	 xmm2/mem128		66 0F D3 /r	SSE2	
+PSRLQ	xmm	 uimm8		66 0F 73 /2 ib	SSE2,SB,AR1	
+						
+PSRLW	xmm1	 xmm2/mem128		66 0F D1 /r	SSE2	
+PSRLW	xmm	 uimm8		66 0F 71 /2 ib	SSE2,SB,AR1	
+						
+PSUBB	xmm1	 xmm2/mem128		66 0F F8 /r	SSE2	
+						
+PSUBD	xmm1	 xmm2/mem128		66 0F FA /r	SSE2	
+						
+PSUBQ	xmm1	 xmm2/mem128		66 0F FB /r	SSE2	
+						
+PSUBSB	xmm1	 xmm2/mem128		66 0F E8 /r	SSE2	
+						
+PSUBSW	xmm1	 xmm2/mem128		66 0F E9 /r	SSE2	
+						
+PSUBUSB	xmm1	 xmm2/mem128		66 0F D8 /r	SSE2	
+						
+PSUBUSW	xmm1	 xmm2/mem128		66 0F D9 /r	SSE2	
+						
+PSUBW	xmm1	 xmm2/mem128		66 0F F9 /r	SSE2	
+						
+PUNPCKHBW	xmm1	 xmm2/mem128		66 0F 68 /r	SSE2	
+						
+PUNPCKHDQ	xmm1	 xmm2/mem128		66 0F 6A /r	SSE2	
+						
+PUNPCKHQDQ	xmm1	 xmm2/mem128		66 0F 6D /r	SSE2	
+						
+PUNPCKHWD	xmm1	 xmm2/mem128		66 0F 69 /r	SSE2	
+						
+PUNPCKLBW	xmm1	 xmm2/mem128		66 0F 60 /r	SSE2	
+						
+PUNPCKLDQ	xmm1	 xmm2/mem128		66 0F 62 /r	SSE2	
+						
+PUNPCKLQDQ	xmm1	 xmm2/mem128		66 0F 6C /r	SSE2	
+						
+PUNPCKLWD	xmm1	 xmm2/mem128		66 0F 61 /r	SSE2	
+						
+PXOR	xmm1	 xmm2/mem128		66 0F EF /r	SSE2	
+						
+RCPPS	xmm1	 xmm2/mem128		0F 53 /r	SSE	
+						
+RCPSS	xmm1	 xmm2/mem32		F3 0F 53 /r	SSE	
+						
+RSQRTPS	xmm1	 xmm2/mem128		0F 52 /r	SSE	
+						
+RSQRTSS	xmm1	 xmm2/mem32		F3 0F 52 /r	SSE	
+						
+SHUFPD	xmm1	 xmm2/mem128	 uimm8	66 0F C6 /r ib	SSE2,SB,AR2	
+						
+SHUFPS	xmm1	 xmm2/mem128	 uimm8	0F C6 /r ib	SSE,SB,AR2	
+						
+SQRTPD	xmm1	 xmm2/mem128		66 0F 51 /r	SSE2	
+						
+SQRTPS	xmm1	 xmm2/mem128		0F 51 /r	SSE	
+						
+SQRTSD	xmm1	 xmm2/mem64		F2 0F 51 /r	SSE2	
+						
+SQRTSS	xmm1	 xmm2/mem32		F3 0F 51 /r	SSE	
+						
+STMXCSR	mem32			0F AE /3	SSE	
+						
+SUBPD	xmm1	 xmm2/mem128		66 0F 5C /r	SSE2	
+						
+SUBPS	xmm1	 xmm2/mem128		0F 5C /r	SSE	
+						
+SUBSD	xmm1	 xmm2/mem64		F2 0F 5C /r	SSE2	
+						
+SUBSS	xmm1	 xmm2/mem32		F3 0F 5C /r	SSE	
+						
+UCOMISD	xmm1	 xmm2/mem64		66 0F 2E /r	SSE2	
+						
+UCOMISS	xmm1	 xmm2/mem32		0F 2E /r	SSE	
+						
+UNPCKHPD	xmm1	 xmm2/mem128		66 0F 15 /r	SSE2	
+						
+UNPCKHPS	xmm1	 xmm2/mem128		0F 15 /r	SSE	
+						
+UNPCKLPD	xmm1	 xmm2/mem128		66 0F 14 /r	SSE2	
+						
+UNPCKLPS	xmm1	 xmm2/mem128		0F 14 /r	SSE	
+						
+XORPD	xmm1	 xmm2/mem128		66 0F 57 /r	SSE2	
+						
+XORPS	xmm1	 xmm2/mem128		0F 57 /r	SSE	
+						
+"; 64-Bit Media Instruction Reference (from AMD64 Architecture Programmeral Volume 5: 64-Bit Media and x87 Floating-Point Instructions)"						
+						
+CVTPD2PI	mmx	 xmm2/mem128		66 0F 2D /r	SSE2	
+						
+CVTPI2PD	xmm	 mmx/mem64		66 0F 2A /r	SSE2	
+						
+CVTPI2PS	xmm	 mmx/mem64		0F 2A /r	SSE	
+						
+CVTPS2PI	mmx	 xmm/mem64		0F 2D /r	SSE	
+						
+CVTPD2PI	mmx	 xmm/mem128		66 0F 2C /r	SSE2	
+						
+CVTTPS2PI	mmx	 xmm/mem64		0F 2C /r	SSE	
+						
+EMMS				0F 77	MMX	
+						
+FEMMS				0F 0E	3DNOW	
+						
+FRSTOR	mem94/108env			DD /4	8086,FPU	
+						
+FNSAVE	mem94/108env			DD /6	8086,FPU	
+FSAVE	mem94/108env			9B DD /6	8086,FPU	
+						
+FXRSTOR	mem512env			0F AE /1	P6,SSE,FPU	
+						
+FXSAVE	mem512env			0F AE /0	P6,SSE,FPU	
+						
+MASKMOVQ	mmx1	 mmx2		0F F7 /r	MMX	
+						
+MOVD	mmx	 reg/mem32		0F 6E /r	MMX	
+MOVD	mmx	 reg/mem64		0F 6E /r	AMD64, MMX	
+MOVD	reg/mem32	 mmx		0F 7E /r	MMX	
+MOVD	reg/mem64	 mmx		0F 7E /r	AMD64, MMX	
+						
+MOVDQ2Q	mmx	 xmm		F2 0F D6 /r	SSE2	
+						
+MOVNTQ	mem64	 mmx		0F E7 /r	MMX	
+						
+MOVQ	mmx1	 mmx2/mem64		0F 6F /r	MMX	
+MOVQ	mmx1/mem64	 mmx2		0F 7F /r	MMX	
+						
+MOVQ2DQ	xmm	 mmx		F3 0F D6 /r	SSE2	
+						
+PACKSSDW	mmx1	 mmx2/mem64		0F 6B /r	MMX	
+						
+PACKSSWB	mmx1	 mmx2/mem64		0F 63 /r	MMX	
+						
+PACKUSWB	mmx1	 mmx2/mem64		0F 67 /r	MMX	
+						
+PADDB	mmx1	 mmx2/mem64		0F FC /r	MMX	
+						
+PADDD	mmx1	 mmx2/mem64		0F FE /r	MMX	
+						
+PADDQ	mmx1	 mmx2/mem64		0F D4 /r	MMX	
+						
+PADDSB	mmx1	 mmx2/mem64		0F EC /r	MMX	
+						
+PADDSW	mmx1	 mmx2/mem64		0F ED /r	MMX	
+						
+PADDUSB	mmx1	 mmx2/mem64		0F DC /r	MMX	
+						
+PADDUSW	mmx1	 mmx2/mem64		0F DD /r	MMX	
+						
+PADDW	mmx1	 mmx2/mem64		0F FD /r	MMX	
+						
+PAND	mmx1	 mmx2/mem64		0F DB /r	MMX	
+						
+PANDN	mmx1	 mmx2/mem64		0F DF /r	MMX	
+						
+PAVGB	mmx1	 mmx2/mem64		0F E0 /r	MMX	
+						
+PAVGUSB	mmx1	 mmx2/mem64		0F 0F /r BF	3DNOW	
+						
+PAVGW	mmx1	 mmx2/mem64		0F E3 /r	MMX	
+						
+PCMPEQB	mmx1	 mmx2/mem64		0F 74 /r	MMX	
+						
+PCMPEQD	mmx1	 mmx2/mem64		0F 76 /r	MMX	
+						
+PCMPEQW	mmx1	 mmx2/mem64		0F 75 /r	MMX	
+						
+PCMPGTB	mmx1	 mmx2/mem64		0F 64 /r	MMX	
+						
+PCMPGTD	mmx1	 mmx2/mem64		0F 66 /r	MMX	
+						
+PCMPGTW	mmx1	 mmx2/mem64		0F 65 /r	MMX	
+						
+PEXTRW	reg32	 mmx	 uimm8	0F C5 /r ib	MMX	
+						
+PF2ID	mmx1	 mmx2/mem64		0F 0F /r 1D	3DNOW	
+						
+PF2IW	mmx1	 mmx2/mem64		0F 0F /r 1C	3DNOW	
+						
+PFACC	mmx1	 mmx2/mem64		0F 0F /r AE	3DNOW	
+						
+PFADD	mmx1	 mmx2/mem64		0F 0F /r 9E	3DNOW	
+						
+PFCMPEQ	mmx1	 mmx2/mem64		0F 0F /r B0	3DNOW	
+						
+PFCMPGE	mmx1	 mmx2/mem64		0F 0F /r 90	3DNOW	
+						
+PFCMPGT	mmx1	 mmx2/mem64		0F 0F /r A0	3DNOW	
+						
+PFMAX	mmx1	 mmx2/mem64		0F 0F /r A4	3DNOW	
+						
+PFMIN	mmx1	 mmx2/mem64		0F 0F /r 94	3DNOW	
+						
+PFMUL	mmx1	 mmx2/mem64		0F 0F /r B4	3DNOW	
+						
+PFNACC	mmx1	 mmx2/mem64		0F 0F /r 8A	3DNOW	
+						
+PFPNACC	mmx1	 mmx2/mem64		0F 0F /r 8E	3DNOW	
+						
+PFRCP	mmx1	 mmx2/mem64		0F 0F /r 96	3DNOW	
+						
+PFRCPIT1	mmx1	 mmx2/mem64		0F 0F /r A6	3DNOW	
+						
+PFRCPIT2	mmx1	 mmx2/mem64		0F 0F /r B6	3DNOW	
+						
+PFRSQIT1	mmx1	 mmx2/mem64		0F 0F /r A7	3DNOW	
+						
+PFRSQRT	mmx1	 mmx2/mem64		0F 0F /r 97	3DNOW	
+						
+PFSUB	mmx1	 mmx2/mem64		0F 0F /r 9A	3DNOW	
+						
+PFSUBR	mmx1	 mmx2/mem64		0F 0F /r AA	3DNOW	
+						
+PI2FD	mmx1	 mmx2/mem64		0F 0F /r 0D	3DNOW	
+						
+PI2FW	mmx1	 mmx2/mem64		0F 0F /r 0C	3DNOW	
+						
+PINSRW	mmx	 reg/mem16	 uimm8	0F C4 /r ib	MMX	
+PINSRW	mmx	 reg/mem32	 uimm8	0F C4 /r ib	MMX	
+						
+PMADDWD	mmx1	 mmx2/mem64		0F F5 /r	MMX	
+						
+PMAXSW	mmx1	 mmx2/mem64		0F EE /r	MMX	
+						
+PMAXUB	mmx1	 mmx2/mem64		0F DE /r	MMX	
+						
+PMINSW	mmx1	 mmx2/mem64		0F EA /r	MMX	
+						
+PMINUB	mmx1	 mmx2/mem64		0F DA /r	MMX	
+						
+PMOVMSKB	reg32	 mmx		0F D7 /r	MMX	
+						
+PMULHRW	mmx1	 mmx2/mem64		0F 0F /r B7	3DNOW	
+						
+PMULHUW	mmx1	 mmx2/mem64		0F E4 /r	MMX	
+						
+PMULHW	mmx1	 mmx2/mem64		0F E5 /r	MMX	
+						
+PMULLW	mmx1	 mmx2/mem64		0F D5 /r	MMX	
+						
+PMULUDQ	mmx1	 mmx2/mem64		0F F4 /r	SSE2	
+						
+POR	mmx1	 mmx2/mem64		0F EB /r	MMX	
+						
+PSADBW	mmx1	 mmx2/mem64		0F F6 /r	MMX	
+						
+PSHUFW	mmx1	 mmx2/mem64	 imm8	0F 70 /r ib	SSE2	
+						
+PSLLD	mmx1	 mmx2/mem64		0F F2 /r	MMX	
+PSLLD	mmx	 imm8		0F 72 /6 ib	MMX	
+						
+PSLLQ	mmx1	 mmx2/mem64		0F F3 /r	MMX	
+PSLLQ	mmx	 imm8		0F 73 /6 ib	MMX	
+						
+PSLLW	mmx1	 mmx2/mem64		0F F1 /r	MMX	
+PSLLW	mmx	 imm8		0F 71 /6 ib	MMX	
+						
+PSRAD	mmx1	 mmx2/mem64		0F E2 /r	MMX	
+PSRAD	mmx	 imm8		0F 72 /4 ib	MMX	
+						
+PSRAW	mmx1	 mmx2/mem64		0F E1 /r	MMX	
+PSRAW	mmx	 imm8		0F 71 /4 ib	MMX	
+						
+PSRLD	mmx1	 mmx2/mem64		0F D2 /r	MMX	
+PSRLD	mmx	 imm8		0F 72 /2 ib	MMX	
+						
+PSRLQ	mmx1	 mmx2/mem64		0F D3 /r	MMX	
+PSRLQ	mmx	 imm8		0F 73 /2 ib	MMX	
+						
+PSRLW	mmx1	 mmx2/mem64		0F D1 /r	MMX	
+PSRLW	mmx	 imm8		0F 71 /2 ib	MMX	
+						
+PSUBB	mmx1	 mmx2/mem64		0F F8 /r	MMX	
+						
+PSUBD	mmx1	 mmx2/mem64		0F FA /r	MMX	
+						
+PSUBQ	mmx1	 mmx2/mem64		0F FB /r	MMX	
+						
+PSUBSB	mmx1	 mmx2/mem64		0F E8 /r	MMX	
+						
+PSUBSW	mmx1	 mmx2/mem64		0F E9 /r	MMX	
+						
+PSUBUSB	mmx1	 mmx2/mem64		0F D8 /r	MMX	
+						
+PSUBUSW	mmx1	 mmx2/mem64		0F D9 /r	MMX	
+						
+PSUBW	mmx1	 mmx2/mem64		0F F9 /r	MMX	
+						
+PSWAPD	mmx1	 mmx2/mem64		0F 0F /r BB	3DNOW	
+						
+PUNPCKHBW	mmx1	 mmx2/mem64		0F 68 /r	MMX	
+						
+PUNPCKHDQ	mmx1	 mmx2/mem64		0F 6A /r	MMX	
+						
+PUNPCKHWD	mmx1	 mmx2/mem64		0F 69 /r	MMX	
+						
+PUNPCKLBW	mmx1	 mmx2/mem32		0F 60 /r	MMX	
+						
+PUNPCKLDQ	mmx1	 mmx2/mem32		0F 62 /r	MMX	
+						
+PUNPCKLWD	mmx1	 mmx2/mem32		0F 61 /r	MMX	
+						
+PXOR	mmx1	 mmx2/mem64		0F EF /r	MMX	
+						
+"; x87 Floating-Point Instruction Reference (from AMD64 Architecture Programmeral Volume 5: 64-Bit Media and x87 Floating-Point Instructions)"						
+						
+F2XM1				D9 F0	8086,FPU	
+						
+FABS				D9 E1	8086,FPU	
+						
+FADD	ST(0)	ST(i)		D8 C0+i	8086,FPU	
+FADD	ST(i)	ST(0)		DC C0+i	8086,FPU	
+FADD	mem32real			D8 /0	8086,FPU	
+FADD	mem64real			DC /0	8086,FPU	
+FADDP				DE C1	8086,FPU	
+FADDP	ST(i)	ST(0)		DE C0+i	8086,FPU	
+FIADD	mem16int			DE /0	8086,FPU	
+FIADD	mem32int			DA /0	8086,FPU	
+						
+FBLD	mem80dec			DF /4	8086,FPU	
+						
+FBSTP	mem80dec			DF /6	8086,FPU	
+						
+FCHS				D9 E0	8086,FPU	
+						
+FCLEX				9B DB E2	8086,FPU	
+FNCLEX				DB E2	8086,FPU	
+						
+FCMOVB	ST(0)	ST(i)		DA C0+i	P6,FPU	
+FCMOVBE	ST(0)	ST(i)		DA D0+i	P6,FPU	
+FCMOVE	ST(0)	ST(i)		DA C8+i	P6,FPU	
+FCMOVNB	ST(0)	ST(i)		DB C0+i	P6,FPU	
+FCMOVNBE	ST(0)	ST(i)		DB D0+i	P6,FPU	
+FCMOVNE	ST(0)	ST(i)		DB C8+i	P6,FPU	
+FCMOVNU	ST(0)	ST(i)		DB D8+i	P6,FPU	
+FCMOVU	ST(0)	ST(i)		DA D8+i	P6,FPU	
+						
+FCOM				D8 D1	8086,FPU	
+FCOM	ST(i)			D8 D0+i	8086,FPU	
+FCOM	mem32real			D8 /2	8086,FPU	
+FCOM	mem64real			DC /2	8086,FPU	
+FCOMP				D8 D9	8086,FPU	
+FCOMP	ST(i)			D8 D8+i	8086,FPU	
+FCOMP	mem32real			D8 /3	8086,FPU	
+FCOMP	mem64real			DC /3	8086,FPU	
+FCOMPP				DE D9	8086,FPU	
+						
+FCOMI	ST(0)	ST(i)		DB F0+i	P6,FPU	
+FCOMIP	ST(0)	ST(i)		DF F0+i	P6,FPU	
+						
+FCOS				D9 FF	386,FPU	
+						
+FDECSTP				D9 F6	8086,FPU	
+						
+FDIV	ST(0)	ST(i)		D8 F0+i	8086,FPU	
+FDIV	ST(i)	ST(0)		DC F8+i	8086,FPU	
+FDIV	mem32real			D8 /6	8086,FPU	
+FDIV	mem64real			DC /6	8086,FPU	
+FDIVP				DE F9	8086,FPU	
+FDIVP	ST(i)	ST(0)		DE F8+i	8086,FPU	
+FIDIV	mem16int			DE /6	8086,FPU	
+FIDIV	mem32int			DA /6	8086,FPU	
+						
+FDIVR	ST(0)	ST(i)		D8 F8+i	8086,FPU	
+FDIVR	ST(i)	 ST(0)		DC F0+i	8086,FPU	
+FDIVR	mem32real			D8 /7	8086,FPU	
+FDIVR	mem64real			DC /7	8086,FPU	
+FDIVRP				DE F1	8086,FPU	
+FDIVRP	ST(i)	 ST(0)		DE F0 +i	8086,FPU	
+FIDIVR	mem16int			DE /7	8086,FPU	
+FIDIVR	mem32int			DA /7	8086,FPU	
+						
+FFREE	ST(i)			DD C0+i	8086,FPU	
+						
+FICOM	mem16int			DE /2	8086,FPU	
+FICOM	mem32int			DA /2	8086,FPU	
+FICOMP	mem16int			DE /3	8086,FPU	
+FICOMP	mem32int			DA /3	8086,FPU	
+						
+FILD	mem16int			DF /0	8086,FPU	
+FILD	mem32int			DB /0	8086,FPU	
+FILD	mem64int			DF /5	8086,FPU	
+						
+FINCSTP				D9 F7	8086,FPU	
+						
+FINIT				9B DB E3	8086,FPU	
+FNINIT				DB E3	8086,FPU	
+						
+FIST	mem16int			DF /2	8086,FPU	
+FIST	mem32int			DB /2	8086,FPU	
+FISTP	mem16int			DF /3	8086,FPU	
+FISTP	mem32int			DB /3	8086,FPU	
+FISTP	mem64int			DF /7	8086,FPU	
+						
+FISTTP	mem16int			DF /1	FPU	
+FISTTP	mem32int			DB /1	FPU	
+FISTTP	mem64int			DD /1	FPU	
+						
+FLD	ST(i)			D9 C0+i	8086,FPU	
+FLD	mem32real			D9 /0	8086,FPU	
+FLD	mem64real			DD /0	8086,FPU	
+FLD	mem80real			DB /5	8086,FPU	
+						
+FLD1				D9 E8	8086,FPU	
+						
+FLDCW	mem2env			D9 /5	8086,FPU	
+						
+FLDENV	mem14/28env			D9 /4	8086,FPU	
+						
+FLDL2E				D9 EA	8086,FPU	
+						
+FLDL2T				D9 E9	8086,FPU	
+						
+FLDLG2				D9 EC	8086,FPU	
+						
+FLDLN2				D9 ED	8086,FPU	
+						
+FLDPI				D9 EB	8086,FPU	
+						
+FLDZ				D9 EE	8086,FPU	
+						
+FMUL	ST(0)	ST(i)		D8 C8+i	8086,FPU	
+FMUL	ST(i)	ST(0)		DC C8+i	8086,FPU	
+FMUL	mem32real			D8 /1	8086,FPU	
+FMUL	mem64real			DC /1	8086,FPU	
+FMULP				DE C9	8086,FPU	
+FMULP	ST(i)	ST(0)		DE C8+i	8086,FPU	
+FIMUL	mem16int			DE /1	8086,FPU	
+FIMUL	mem32int			DA /1	8086,FPU	
+						
+FNOP				D9 D0	8086,FPU	
+						
+FPATAN				D9 F3	8086,FPU	
+						
+FPREM				D9 F8	8086,FPU	
+						
+FPREM1				D9 F5	386,FPU	
+						
+FPTAN				D9 F2	8086,FPU	
+						
+FRNDINT				D9 FC	8086,FPU	
+						
+FRSTOR	mem94/108env			DD /4	8086,FPU	
+						
+FSAVE	mem94/108env			9B DD /6	8086,FPU	
+FNSAVE	mem94/108env			DD /6	8086,FPU	
+						
+FSCALE				D9 FD	8086,FPU	
+						
+FSIN				D9 FE	386,FPU	
+						
+FSINCOS				D9 FB	386,FPU	
+						
+FSQRT				D9 FA	8086,FPU	
+						
+FST	ST(i)			DD D0+i	8086,FPU	
+FST	mem32real			D9 /2	8086,FPU	
+FST	mem64real			DD /2	8086,FPU	
+FSTP	ST(i)			DD D8+i	8086,FPU	
+FSTP	mem32real			D9 /3	8086,FPU	
+FSTP	mem64real			DD /3	8086,FPU	
+FSTP	mem80real			DB /7	8086,FPU	
+						
+FSTCW	mem2env			9B D9 /7	8086,FPU	
+FNSTCW	mem2env			D9 /7	8086,FPU	
+						
+FSTENV	mem14/28env			9B D9 /6	8086,FPU	
+FNSTENV	mem14/28env			D9 /6	8086,FPU	
+						
+FSTSW	AX			9B DF E0	286,FPU	
+FSTSW	mem2env			9B DD /7	8086,FPU	
+FNSTSW	AX			DF E0	286,FPU	
+FNSTSW	mem2env			DD /7	8086,FPU	
+						
+FSUB	ST(0)	ST(i)		D8 E0+i	8086,FPU	
+FSUB	ST(i)	ST(0)		DC E8+i	8086,FPU	
+FSUB	mem32real			D8 /4	8086,FPU	
+FSUB	mem64real			DC /4	8086,FPU	
+FSUBP				DE E9	8086,FPU	
+FSUBP	ST(i)	ST(0)		DE E8+i	8086,FPU	
+FISUB	mem16int			DE /4	8086,FPU	
+FISUB	mem32int			DA /4	8086,FPU	
+						
+FSUBR	ST(0)	ST(i)		D8 E8+i	8086,FPU	
+FSUBR	ST(i)	ST(0)		DC E0+i	8086,FPU	
+FSUBR	mem32real			D8 /5	8086,FPU	
+FSUBR	mem64real			DC /5	8086,FPU	
+FSUBRP				DE E1	8086,FPU	
+FSUBRP	ST(i)	ST(0)		DE E0+i	8086,FPU	
+FISUBR	mem16int			DE /5	8086,FPU	
+FISUBR	mem32int			DA /5	8086,FPU	
+						
+FTST				D9 E4	8086,FPU	
+						
+FUCOM				DD E1	386,FPU	
+FUCOM	ST(i)			DD E0+i	386,FPU	
+FUCOMP				DD E9	386,FPU	
+FUCOMP	ST(i)			DD E8+i	386,FPU	
+FUCOMPP				DA E9	386,FPU	
+						
+FUCOMI	ST(0)	ST(i)		DB E8+i	P6,FPU	
+FUCOMIP	ST(0)	ST(i)		DF E8+i	P6,FPU	
+						
+FWAIT				9B	8086	
+						
+FXAM				D9 E5	8086,FPU	
+						
+FXCH				D9 C9	8086,FPU	
+FXCH	ST(i)			D9 C8+i	8086,FPU	
+						
+FXRSTOR	mem512env			0F AE /1	P6,SSE,FPU	
+						
+FXSAVE	mem512env			0F AE /0	P6,SSE,FPU	
+						
+FXTRACT				D9 F4	8086,FPU	
+						
+FYL2X				D9 F1	8086,FPU	
+						
+FYL2XP1				D9 F9	8086,FPU	

@@ -1,0 +1,9 @@
+<html >
+	<head ><title>My first DXP-Site</title></head>
+	<body xmlns:WebStd="WebStd">
+		You are: <WebStd:GetHeaderField name="#ip"/><br/>
+		You came from: <WebStd:GetHeaderField name="referer"/><br/>
+		Useragent: <WebStd:GetHeaderField name="useragent"/><br/>
+		<WebStd:Hyperlink href="tutorial2.dxp">Back</WebStd:Hyperlink>
+	</body>
+</html>

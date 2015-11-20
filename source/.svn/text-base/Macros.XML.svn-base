@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8" standalone='yes'?>
+
+	<!DOCTYPE Macros [
+		<!ELEMENT Macro ANY>
+		<!ATTLIST Macro
+			key NMTOKEN #REQUIRED
+		>
+	]>
+
+<Macros> <!-- WMMacros.ReadMacros Macros.XML ~ -->
+
+	<!-- Keysym of key that invokes macros (in hex). Use WMKeyCode.Open ~ to find out the keysym value of keys
+		The specified key cannot be used for other purposes!
+		Tips: Paragraph key (60)
+		-->
+	<MacroKey keysym="FF63"/>
+
+	<!-- XML -->
+	<Macro key="t">
+		<LT/><Arg nr="0"/><GT/><Cursor/>
+		<LT/><String>/</String><Arg nr="0"/><GT/>
+	</Macro>
+	<Macro key="T">
+		<LT/><Arg nr="0"/><GT/><CR/>
+		<Indent/><Cursor/><CR/>
+		<LT/><String>/</String><Arg nr="0"/><GT/><CR/>
+	</Macro>
+	<!-- Oberon -->
+	<Macro key="P">
+		<String>PROCEDURE </String><Arg nr="0"/><String>;</String><CR/>
+		<String>BEGIN</String><CR/>
+		<Indent/><Cursor/><CR/>
+		<String>END </String><Arg nr="0"/><String>;</String><CR/>
+	</Macro>
+	<Macro key="p">
+		<String>(** *)</String><CR/>
+		<String>PROCEDURE </String><Arg nr="0"/><String>*;</String><CR/>
+		<String>VAR</String><CR/>
+		<String>BEGIN</String><CR/>
+		<Indent/><Cursor/><CR/>
+		<String>END </String><Arg nr="0"/><String>;</String><CR/>
+	</Macro>
+	<Macro key="C">
+		<String>PROCEDURE </String><Arg nr="0"/><String>*(context : Commands.Context);</String><CR/>
+		<String>BEGIN</String><CR/>
+		<Indent/><Cursor/><CR/>
+		<String>END </String><Arg nr="0"/><String>;</String><CR/>
+	</Macro>
+	<Macro key="M">
+		<String>MODULE </String><Arg nr="0"/><String>; (** AUTHOR ""; PURPOSE ""; *)</String><CR/>
+		<CR/>
+		<String>IMPORT</String><CR/>
+		<Indent/><Cursor/><CR/>
+		<CR/>
+		<String>END </String><Arg nr="0"/><String>.</String><CR/>
+	</Macro>
+	<Macro key="mc">
+		<String>MODULE </String><Arg nr="0"/><String>; (** AUTHOR ""; PURPOSE ""; *)</String><CR/>
+		<CR/>
+		<String>IMPORT</String><CR/>
+		<Indent/><String>Modules;</String><Cursor/><CR/>
+		<CR/>
+		<String>PROCEDURE Cleanup;</String><CR/>
+		<String>BEGIN</String><CR/>
+		<String>END Cleanup;</String><CR/><CR/>
+		<String>BEGIN</String><CR/>
+		<Indent/><String>Modules.InstallTermHandler(Cleanup)</String><CR/>
+		<String>END </String><Arg nr="0"/><String>.</String><CR/>
+	</Macro>
+	<Macro key="doc">
+		<String>(** AUTHOR </String><Quote/><Arg nr="0"/><Quote/>
+		<String>; PURPOSE </String><Quote/><Cursor/><Quote/><String>; *)</String>
+	</Macro>
+	<Macro key="O">
+		<String>TYPE </String><Arg nr="0"/><String> = OBJECT</String><CR/>
+		<Indent/><String>VAR </String><Cursor/><CR/>
+		<Indent/><Indent/><CR/>
+		<Indent/><String>END </String><Arg nr="0"/><String>;</String><CR/>
+	</Macro>
+	<Macro key="oa">
+		<Arg nr="0"/><String> = OBJECT</String><CR/>
+		<String>VAR </String><Cursor/><CR/>
+		<Indent/><Indent/><CR/>
+		<String>BEGIN {ACTIVE}</String><CR/>
+		<Indent/><CR/>
+		<String>END </String><Arg nr="0"/><String>;</String><CR/>
+	</Macro>
+	<Macro key="o">
+		<String>TYPE </String><Arg nr="0"/><String> = OBJECT(</String><Arg nr="1"/><String>)</String><CR/>
+		<Indent/><String>VAR </String><Cursor/><CR/>
+		<Indent/><Indent/><CR/>
+		<Indent/><String>END </String><Arg nr="0"/><String>;</String><CR/>
+	</Macro>
+	<Macro key="di">
+		<String>KernelLog.String(</String><Quote/><Arg nr="0"/><String> = </String>
+		<Quote/><String>); KernelLog.Int(</String><Arg nr="0"/><String>, 0); </String>
+	</Macro>
+	<Macro key="dr">
+		<String>KernelLog.String(</String><Quote/><Arg nr="0"/><String> = (</String><Quote/><String>); </String>
+		<String>KernelLog.Int(</String><Arg nr="0"/><String>.l, 0); </String>
+		<String>KernelLog.String(</String><Quote/><String>, </String><Quote/><String>); </String>
+		<String>KernelLog.Int(</String><Arg nr="0"/><String>.t, 0); </String>
+		<String>KernelLog.String(</String><Quote/><String>, </String><Quote/><String>); </String>
+		<CR/>
+		<String>KernelLog.Int(</String><Arg nr="0"/><String>.r, 0); </String>
+		<String>KernelLog.String(</String><Quote/><String>, </String><Quote/><String>); </String>
+		<String>KernelLog.Int(</String><Arg nr="0"/><String>.b, 0); </String>
+		<String>KernelLog.String(</String><Quote/><String>) </String><Quote/><String>); </String>
+	</Macro>
+	<Macro key="ds">
+		<String>KernelLog.String(</String><Quote/><Arg nr="0"/><String> = </String>
+		<Quote/><String>); KernelLog.String(</String><Arg nr="0"/><String>); </String>
+	</Macro>
+	<Macro key="dc">
+		<String>KernelLog.String(</String><Quote/><Arg nr="0"/><String> = </String>
+		<Quote/><String>); KernelLog.Char(</String><Arg nr="0"/><String>); </String>
+	</Macro>
+	<Macro key="oi">
+		<String>KernelLog.Int(</String><Arg nr="0"/><String>, 0); </String>
+	</Macro>
+	<Macro key="os">
+		<String>KernelLog.String(</String><Arg nr="0"/><String>); </String>
+	</Macro>
+	<Macro key="oc">
+		<String>KernelLog.Char(</String><Arg nr="0"/><String>); </String>
+	</Macro>
+	<Macro key="ol">
+		<String>KernelLog.Ln; </String>
+	</Macro>
+	<!-- Greek -->
+	<Macro key="alpha"><String>α</String></Macro>
+	<Macro key="beta"><String>β</String></Macro>
+	<Macro key="gamma"><String>γ</String></Macro>
+	<Macro key="delta"><String>δ</String></Macro>
+	<Macro key="epsilon"><String>ε</String></Macro>
+	<Macro key="zeta"><String>ζ</String></Macro>
+	<Macro key="eta"><String>η</String></Macro>
+	<Macro key="theta"><String>θ</String></Macro>
+	<Macro key="iota"><String>ι</String></Macro>
+	<Macro key="kappa"><String>κ</String></Macro>
+	<Macro key="lambda"><String>λ</String></Macro>
+	<Macro key="mu"><String>μ</String></Macro>
+	<Macro key="nu"><String>ν</String></Macro>
+	<Macro key="xi"><String>ξ</String></Macro>
+	<Macro key="omikron">ο<String></String></Macro>
+	<Macro key="pi"><String>π</String></Macro>
+	<Macro key="roh"><String>ρ</String></Macro>
+	<Macro key="sigma"><String>σ</String></Macro>
+	<Macro key="tau"><String>τ</String></Macro>
+	<Macro key="upsilon"><String>υ</String></Macro>
+	<Macro key="phi"><String>φ</String></Macro>
+	<Macro key="chi"><String>χ</String></Macro>
+	<Macro key="psi"><String>ψ</String></Macro>
+	<Macro key="omega"><String>ω</String></Macro>
+	<Macro key="Alpha"><String>Α</String></Macro>
+	<Macro key="Beta"><String>Β</String></Macro>
+	<Macro key="Gamma"><String>Γ</String></Macro>
+	<Macro key="Delta"><String>Δ</String></Macro>
+	<Macro key="Epsilon"><String>Ε</String></Macro>
+	<Macro key="Zeta"><String>Ζ</String></Macro>
+	<Macro key="Eta"><String>Η</String></Macro>
+	<Macro key="Theta"><String>Θ</String></Macro>
+	<Macro key="Iota"><String>Ι</String></Macro>
+	<Macro key="Kappa"><String>Κ</String></Macro>
+	<Macro key="Lambda"><String>Λ</String></Macro>
+	<Macro key="Mu"><String>Μ</String></Macro>
+	<Macro key="Nu"><String>Ν</String></Macro>
+	<Macro key="Xi"><String>Ξ</String></Macro>
+	<Macro key="Omikron"><String>Ο</String></Macro>
+	<Macro key="Pi"><String>Π</String></Macro>
+	<Macro key="Roh"><String>Ρ</String></Macro>
+	<Macro key="Sigma"><String>Σ</String></Macro>
+	<Macro key="Tau"><String>Τ</String></Macro>
+	<Macro key="Upsilon"><String>Υ</String></Macro>
+	<Macro key="Phi"><String>Φ</String></Macro>
+	<Macro key="Chi"><String>Χ</String></Macro>
+	<Macro key="Psi"><String>Ψ</String></Macro>
+	<Macro key="Omega"><String>Ω</String></Macro>
+</Macros>

@@ -1,0 +1,64 @@
+<html>
+	<head>
+		<title>Web Accounts</title>
+	</head>
+	<body xmlns:WebStd="WebStd" xmlns:WebAccounts="WebAccounts">
+		<WebStd:Guard>
+			<Condition>
+				<WebAccounts:IsAdministrator/>
+			</Condition>
+			<Expression>
+				<table border="1">
+					<tr>
+						<td valign="top">
+							<h1>All Web Accounts</h1>
+							<WebAccounts:WebAccountDatagrid id="WebAccounts1" containername="SystemWebAccounts" 
+								prevalencesystem="WebAccounts">
+								<Paging size="2" nextlabel="Next" previouslabel="Back"/>
+								<Searching label="Search user: " buttonname="Go!"/>
+							</WebAccounts:WebAccountDatagrid>
+						</td>
+						<td valign="top">
+							<h1>Authorization Domains</h1>
+							<WebAccounts:AuthorizationDomainDatagrid id="AuthDomains1" containername="SystemAuthorizationDomains" 
+								prevalencesystem="WebAccounts">
+								<Paging size="2" nextlabel="Next" previouslabel="Back"/>
+								<Searching label="Search user: " buttonname="Go!"/>
+							</WebAccounts:AuthorizationDomainDatagrid>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							<h2>New entries in interested containers:</h2>
+							<WebStd:ToggleBlock id="toggle1">
+								<Show>
+									<WebAccounts:DisplayNewInterestedEntries id="MyInterestedDisplay1"/>
+								</Show>
+							</WebStd:ToggleBlock>
+						</td>
+					</tr>
+				</table>
+			</Expression>
+		</WebStd:Guard>
+		
+		<WebStd:Guard>
+			<Condition>
+				<WebStd:Not><WebAccounts:IsAdministrator/></WebStd:Not>
+			</Condition>
+			<Expression>
+				<h1>My Account</h1>
+				<WebAccounts:WebAccountView id="MyWebAccountView1"/>
+				<h2>New entries in interested containers:</h2>
+				<WebStd:ToggleBlock id="toggle2">
+					<Show>
+						<WebAccounts:DisplayNewInterestedEntries id="MyInterestedDisplay2"/>
+					</Show>
+				</WebStd:ToggleBlock>
+			</Expression>
+		</WebStd:Guard>
+		
+		<p><WebStd:Hyperlink href="index.dxp">Home</WebStd:Hyperlink></p>
+		<hr/>
+		<address>Bluebottle Dynamic Webpages</address>
+	</body>
+</html>

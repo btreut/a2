@@ -1,0 +1,11 @@
+BootVol1 = "AOS AosFS IDE0#1"
+AosFS = "DiskVolumes.New DiskFS.NewFS"
+Boot = "DisplayLinear.Install"
+Boot1 = "Keyboard.Install;MousePS2.Install"
+Boot2 = "WindowManager.Install"
+Boot3 = "PCITools.DetectHardware"
+Boot9 = "Autostart.Run"
+CacheSize = "1000"
+APM = "0"
+Init = "117"
+~

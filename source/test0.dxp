@@ -1,0 +1,16 @@
+<html>
+	<head>
+		<title>Hello index.dxp</title>
+	</head>
+	<body>
+		<DxpExample:BulletList xmlns:DxpExample="DxpExample">
+			<DxpExample:DateTime/>
+			Hello index.dxp
+			<DxpExample:PushButton id="pb1" name="Say Hello And Increase ..."/>
+			Bla
+			<DxpExample:PushButton id="pb2" name="Say Bye And Increase ..."/>
+			pipapo
+			<DxpExample:PushButton id="pb3" name="Say Nothing and Increase ..."/>
+		</DxpExample:BulletList>
+	</body>
+</html>

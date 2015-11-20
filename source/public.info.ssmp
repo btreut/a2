@@ -1,0 +1,32 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+	<HEAD><TITLE>Welcome to the Aos Multi-Host Test Server</TITLE></HEAD>
+
+	<BODY BGCOLOR="#FFFFFF">
+		<CENTER><H1>Welcome to the Aos Test Server</H1></CENTER>
+		<P>
+		<table border="10">
+			<tr><td><b>Number of Requests since last start :</b></td> <td> &&Server.NofRequests  </td></tr>
+			<tr><td><b>Number of Requests in the last 60s :</b></td> <td> &&Server.NofRequestsPerMinute  </td></tr>
+			<tr><td colspan=2>&nbsp;</td></tr>
+
+			<tr><td><b>System version :</b></td> <td> &&System.Version </td></tr> 
+			<tr><td><b>System start time :</b></td> <td> &&System.StartTime </td></tr> 
+			<tr><td><b>System time :</b></td> <td> &&System.Time </td></tr> 
+			<tr><td><b>System load :</b></td> <td> &&System.Load  </td></tr>
+			<tr><td><b>Processor idle :</b></td> <td> &&System.Idle  </td></tr>
+			
+			<tr><td colspan=2>&nbsp;</td></tr>
+			<tr><td><b>Last attack was :</b></td> <td> &&WormWatch.LastWormName  </td></tr>
+			<tr><td><b>Last attack came from :</b></td> <td> &&WormWatch.LastWormIP (&&WormWatch.LastWormOrigin )  </td></tr>
+			<tr><td><b>Number of Nimda attacks :</b></td> <td> &&WormWatch.NofNimda </td></tr>
+			<tr><td><b>Number of CodeRed I attacks :</b></td> <td> &&WormWatch.NofCodeRedI  </td></tr>
+			<tr><td><b>Number of CodeRed II attacks :</b></td> <td> &&WormWatch.NofCodeRedII  </td></tr>
+		</table>	
+		<br>
+		More information: <a href="System.ssmp">System</a>, <a href="ActiveObjects.ssmp">Active Objects</a>,
+		<a href="Memory.ssmp">Memory</a>, <a href="WebServer.ssmp">Web Server</a>.
+		<P>
+		<i>This is a simple example of a ServerSide Modified Page</i>
+	</BODY>
+</HTML>

@@ -1,0 +1,13 @@
+This plugins allows to compare Native Oberon Files with WinMerge (www.winmerge.org).
+
+Installation Guide:
+1. Install WinMerge
+2. Copy "WinMergeOberon.dll" to your "MergePlugins" Folder of the WinMerge Installation
+3. Start WinMerge and Select "Plugins/Automatic Unpacking"
+
+Integration in TortoiseSVN
+1. Start "Windows Explorer"
+2. Right Click on an arbitrary file and Select "ToirtoiseSVN/ Settings"
+3. Select "External Programs/Diff Viewer"
+4. Click on "External"
+5. Insert the following command line as external program: C:\Path-To-Winmerge\WinMerge.exe -e -ub -dl %bname -dr %yname %base %mine

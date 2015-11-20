@@ -1,0 +1,12 @@
+<!--
+Available Backdrops: Displayed name and file name per backdrop
+-->
+
+<LookList>
+	<Look name="Mars" file="mars.png"/>
+	<Look name="Bluebottle" file="BluebottlePic0.png"/>
+	<Look name="Saas Fee" file="SaasFee.jpg"/>
+	<Look name="Clouds (JP2)" file="Clouds.jp2"/>
+	<Look name="Evening (JP2)" file="Evening.jp2"/>
+	<Look name="Rainbow (JP2)" file="Rainbow.jp2"/>
+</LookList>

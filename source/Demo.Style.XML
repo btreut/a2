@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<styles>
+<character-style name="defaultCharacterStyle" font-family="Oberon" font-style="0" font-size="16.0000" leading="19.2000" baseline-shift="0.0000" color="000000FF" bgcolor="FFFFFF00" tracking="0.0000" kerning="0.0000" h-scale="100.0000" v-scale="100.0000" />
+<character-style name="BIG" font-family="benevento" font-style="1" font-size="36.0000" leading="43.2000" baseline-shift="0.0000" color="000000FF" bgcolor="FFFFFF00" tracking="0.0000" kerning="0.0000" h-scale="100.0000" v-scale="100.0000" />
+<character-style name="Title" font-family="benevento" font-style="1" font-size="24.0000" leading="28.8000" baseline-shift="0.0000" color="000000FF" bgcolor="FFFFFF00" tracking="0.0000" kerning="0.0000" h-scale="100.0000" v-scale="100.0000" />
+<character-style name="Body" font-family="benevento" font-style="0" font-size="20.0000" leading="28.0000" baseline-shift="0.0000" color="000000FF" bgcolor="FFFFFF00" tracking="0.0000" kerning="0.0000" h-scale="100.0000" v-scale="100.0000" />
+<character-style name="Code" font-family="benevento" font-style="0" font-size="18.0000" leading="21.6000" baseline-shift="0.0000" color="00007FFF" bgcolor="FFFFFF00" tracking="0.0000" kerning="0.0000" h-scale="100.0000" v-scale="100.0000" />
+<character-style name="List" font-family="benevento" font-style="0" font-size="24.0000" leading="28.8000" baseline-shift="0.0000" color="000000FF" bgcolor="FFFFFF00" tracking="0.0000" kerning="0.0000" h-scale="100.0000" v-scale="100.0000" />
+<character-style name="Symbol" font-family="benevento" font-style="0" font-size="72.0000" leading="86.4000" baseline-shift="0.0000" color="888888FF" bgcolor="FFFFFF00" tracking="0.0000" kerning="0.0000" h-scale="100.0000" v-scale="100.0000" />
+<paragraph-style name="defaultParagraphStyle" alignment="0" first-indent="0.0000" left-indent="0.0000" right-indent="0.0000" space-before="0.0000" space-after="0.0000" character-style="BIG" />
+<paragraph-style name="Left" alignment="0" first-indent="0.0000" left-indent="0.0000" right-indent="0.0000" space-before="0.0000" space-after="0.0000" character-style="BIG" />
+<paragraph-style name="Center" alignment="1" first-indent="0.0000" left-indent="0.0000" right-indent="0.0000" space-before="0.0000" space-after="0.0000" character-style="BIG" />
+<paragraph-style name="Right" alignment="2" first-indent="0.0000" left-indent="0.0000" right-indent="0.0000" space-before="0.0000" space-after="0.0000" character-style="BIG" />
+<paragraph-style name="IndentL-10" alignment="0" first-indent="10.0000" left-indent="10.0000" right-indent="0.0000" space-before="0.0000" space-after="0.0000" character-style="BIG" />
+</styles>

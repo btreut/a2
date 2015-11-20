@@ -1,0 +1,1002 @@
+<HTML>
+<HEAD>
+<TITLE>The Gfx Howto</TITLE>
+</HEAD>
+<BODY>
+<H1 ALIGN=CENTER>The Gfx Howto</H1>
+This document describes typical usage patterns of the Gfx library, organized as a hierarchical
+sets of questions and answers. Its goal is to serve as an easily accessable resource on how to
+use Gfx in practice. I've tried to come up with questions (and answers) that might arise in
+everyday life. If you cannot find your question or a satisfying answer, suggest an update to
+<A HREF="mailto://oswald@acm.org">oswald@acm.org</A>.
+<HR>
+<OL>
+<LI><A HREF="#Gfx">Gfx</A></LI>
+<LI><A HREF="#Contexts">Contexts</A></LI>
+<LI><A HREF="#Graphics">Vector Graphics</A></LI>
+<LI><A HREF="#Attributes">Graphical Attributes</A></LI>
+<LI><A HREF="#Text">Text</A></LI>
+<LI><A HREF="#Coordinates">Coordinate Systems</A></LI>
+<LI><A HREF="#Images">Images</A></LI>
+<LI><A HREF="#Clipping">Clipping</A></LI>
+<LI><A HREF="#Paths">Paths</A></LI>
+<LI><A HREF="#Next">What next?</A></LI>
+</OL>
+<HR>
+<OL>
+<LI><A NAME="Gfx">Gfx</A>
+<OL>
+<LI><A HREF="#Gfx.1">What is Gfx?</A></LI>
+<LI><A HREF="#Gfx.2">Who uses Gfx?</A></LI>
+<LI><A HREF="#Gfx.3">What can I use it for?</A></LI>
+<LI><A HREF="#Gfx.4">Where do I get Gfx?</A></LI>
+<LI><A HREF="#Gfx.5">Does Gfx require any other packages or files?</A></LI>
+<LI><A HREF="#Gfx.6">Is there any example code available?</A></LI>
+</OL>
+</LI>
+<P>
+<LI><A NAME="Contexts">Contexts</A>
+<OL>
+<LI><A HREF="#Contexts.1">What is a context?</A></LI>
+<LI><A HREF="#Contexts.2">What kinds of contexts do exist?</A></LI>
+<LI><A HREF="#Contexts.3">How do I create a context for drawing to the screen?</A></LI>
+<LI><A HREF="#Contexts.4">How do I create a context for drawing to a bitmap?</A></LI>
+<LI><A HREF="#Contexts.5">How do I create a context for printing my graphics?</A></LI>
+<LI><A HREF="#Contexts.6">How do I create Postscript and EPS files?</A></LI>
+</OL>
+</LI>
+<P>
+<LI><A NAME="Graphics">Vector Graphics</A>
+<OL>
+<LI><A HREF="#Graphics.1">How do I draw a line?</A></LI>
+<LI><A HREF="#Graphics.2">How do I draw a rectangle?</A></LI>
+<LI><A HREF="#Graphics.3">How do I draw circles and ellipses?</A></LI>
+<LI><A HREF="#Graphics.3a">How do I draw an arc?</A></LI>
+<LI><A HREF="#Graphics.4">What are paths?</A></LI>
+<LI><A HREF="#Graphics.5">What are subpaths and why are they needed?</A></LI>
+<LI><A HREF="#Graphics.6">How do I specify a path?</A></LI>
+<LI><A HREF="#Graphics.7">How do I render closed paths correcly?</A></LI>
+<LI><A HREF="#Graphics.8">What are Enter and Exit for?</A></LI>
+<LI><A HREF="#Graphics.9">Why do arcs have so many parameters?</A></LI>
+<LI><A HREF="#Graphics.10">How are self-intersecting paths treated?</A></LI>
+<LI><A HREF="#Graphics.11">What path modes do exist?</A></LI>
+<LI><A HREF="#Graphics.12">What can I use recorded paths for?</A></LI>
+</OL>
+</LI>
+<P>
+<LI><A NAME="Attributes">Graphical Attributes</A>
+<OL>
+<LI><A HREF="#Attributes.1">How do I set the current stroke and fill colors?</A></LI>
+<LI><A HREF="#Attributes.2">How do I change the current stroke and fill patterns?</A></LI>
+<LI><A HREF="#Attributes.3">How do I draw dashed curves?</A></LI>
+<LI><A HREF="#Attributes.4">How do I change the current line width?</A></LI>
+<LI><A HREF="#Attributes.5">How do I change the current line cap style?</A></LI>
+<LI><A HREF="#Attributes.6">How do I change the current line join style?</A></LI>
+<LI><A HREF="#Attributes.7">How do I control the quality of arc and bezier approximation?</A></LI>
+<LI><A HREF="#Attributes.8">Why doesn't Gfx let me change attributes within a path?</A></LI>
+<LI><A HREF="#Attributes.9">How do I preserve all attributes and restore them later?</A></LI>
+</OL>
+</LI>
+<P>
+<LI><A NAME="Text">Text</A>
+<OL>
+<LI><A HREF="#Text.1">How do I display a string?</A></LI>
+<LI><A HREF="#Text.3">How do I change the current font?</A></LI>
+<LI><A HREF="#Text.4">How do I change the current text color?</A></LI>
+<LI><A HREF="#Text.5">Can I convert characters to paths?</A></LI>
+<LI><A HREF="#Text.6">How can I center a caption?</A></LI>
+<LI><A HREF="#Text.7">Can I use my huge collection of TrueType fonts?</A></LI>
+<LI><A HREF="#Text.8">How about my Type1 fonts?</A></LI>
+</OL>
+</LI>
+<P>
+<LI><A NAME="Coordinates">Coordinate Systems</A>
+<OL>
+<LI><A HREF="#Coordinates.1">Where is the coordinate origin of a context?</A></LI>
+<LI><A HREF="#Coordinates.2">How can I move the current coordinate origin?</A></LI>
+<LI><A HREF="#Coordinates.3">What is the default unit of a context?</A></LI>
+<LI><A HREF="#Coordinates.4">How do I scale the current coordinate system?</A></LI>
+<LI><A HREF="#Coordinates.5">How do I rotate the current coordinate system?</A></LI>
+<LI><A HREF="#Coordinates.6">Can I specify other transformations to the current coordinate system?</A></LI>
+<LI><A HREF="#Coordinates.7">How can I undo the changes I've made to the current coordinate system?</A></LI>
+<LI><A HREF="#Coordinates.8">How can I return to the original coordinate system?</A></LI>
+<LI><A HREF="#Coordinates.9">What are the dimensions of a device pixel?</A></LI>
+</OL>
+</LI>
+<P>
+<LI><A NAME="Images">Images</A>
+<OL>
+<LI><A HREF="#Images.1">Why can't I just draw Oberon pictures?</A></LI>
+<LI><A HREF="#Images.2">What is the Images package? Where do I get it?</A></LI>
+<LI><A HREF="#Images.3">How do I draw an image?</A></LI>
+<LI><A HREF="#Images.4">What is a filter?</A></LI>
+<LI><A HREF="#Images.5">Can I define custom filters?</A></LI>
+<LI><A HREF="#Images.6">I'd still like to use existing Oberon pictures. How?</A></LI>
+<LI><A HREF="#Images.7">And while we're at it, how about Oberon patterns?</A></LI>
+</OL>
+</LI>
+<P>
+<LI><A NAME="Clipping">Clipping</A>
+<OL>
+<LI><A HREF="#Clipping.1">What is the initial clipping region of a context?</A></LI>
+<LI><A HREF="#Clipping.2">How do I change a context's default clipping region?</A></LI>
+<LI><A HREF="#Clipping.3">How do I convert a gadget mask to a clipping region?</A></LI>
+<LI><A HREF="#Clipping.4">How can I change the current clipping region?</A></LI>
+<LI><A HREF="#Clipping.5">How can I undo the changes I've made to the current clipping region?</A></LI>
+<LI><A HREF="#Clipping.6">How can I return the the clipping region to its initial state?</A></LI>
+</OL>
+</LI>
+<P>
+<LI><A NAME="Paths">Paths</A>
+<OL>
+<LI><A HREF="#Paths.1">How can I access the elements in the current path?</A></LI>
+<LI><A HREF="#Paths.2">How to calculate bounding box and length of path?</A></LI>
+<LI><A HREF="#Paths.3">How can I modify a recorded path?</A></LI>
+<LI><A HREF="#Paths.4">How to render an edited path?</A></LI>
+</OL>
+</LI>
+<P>
+<LI><A NAME="Next">What next?</A>
+<OL>
+<LI><A HREF="#Next.1">Are there other sources of information?</A></LI>
+<LI><A HREF="#Next.2">Who do I report bugs and suggestions to?</A></LI>
+</OL>
+</LI>
+</OL>
+
+<HR>
+<H2 ALIGN=CENTER>Gfx</H2>
+
+<H3><A NAME="Gfx.1">What is Gfx?</A></H3>
+Gfx is a set of modules for rendering two-dimensional graphics using high-level operations. Applications
+use procedures operating on a <EM>context</EM> structure to describe the shapes that they wish to draw.
+The context fulfills these requests e.g. by modifying pixels on a raster display or by appending text to a
+page description that is being gathered in a file. Gfx currently runs on Oberon System 3.
+
+<H3><A NAME="Gfx.2">Who uses Gfx?</A></H3>
+The first application to use Gfx was Leonardo, the graphics editor provided as part of the System 3
+distribution. In fact, Gfx was developed as an integral part of Leonardo but is now also available to
+other applications.
+<P>
+Another project using Gfx is a PDF viewer that has been developed by Marcel B&ouml;siger during
+a semester project. <A HREF="mailto://kfischer@iiic.ethz.ch">Kaspar Fischer</A> should be
+finishing his dvi file viewer in spring 2000.
+
+<H3><A NAME="Gfx.3">What can I use it for?</A></H3>
+Producing graphical output in a device independent manner. Drawing complex vector graphics. Drawing
+scaled and rotated bitmaps and text. Gfx should be suitable for producing any non-trivial graphical output.
+
+<H3><A NAME="Gfx.4">Where do I get Gfx?</A></H3>
+Since Leonardo is part of all System 3 distributions, you might already have Gfx installed. The most current
+release is available at the <A HREF="ftp://ftp.inf.ethz.ch/pub/software/Oberon/System3/Contrib/Gfx/"
+>ETH FTP server</A>.
+
+<H3><A NAME="Gfx.5">Does Gfx require any other packages or files?</A></H3>
+Gfx requires that the
+<A HREF="ftp://ftp.inf.ethz.ch/pub/software/Oberon/System3/Contrib/Images/"
+>Images</A> package is already installed (which used to be a part of Gfx in earlier
+releases). Apart from that, Gfx runs on top of the basic Oberon system.
+However, you might consider installing the
+<A HREF="ftp://ftp.inf.ethz.ch/pub/software/Oberon/System3/Contrib/Metafonts/"
+>Metafont</A> packages containing outlines for Oberon fonts and the
+<A HREF="ftp://ftp.inf.ethz.ch/pub/software/Oberon/System3/Contrib/OpenType/"
+>OpenType</A> package for Oberon System 3 as well to take advantage of all
+features provided by Gfx.
+
+<H3><A NAME="Gfx.6">Is there any example code available?</A></H3>
+The Gfx distribution contains two modules which will usually never be imported by clients.
+<UL>
+<LI><EM>GfxTest</EM> contains a set of commands which use most features of Gfx
+and produce output on a variety of different contexts.</LI>
+<LI><EM>GfxDemo</EM> demonstrates how to use Gfx within the System 3 display
+hierarchy.</LI>
+</UL>
+
+<HR>
+<H2 ALIGN=CENTER>Contexts</H2>
+
+<H3><A NAME="Contexts.1">What is a context?</A></H3>
+When speaking about Gfx, a context is an abstract heap object of type <EM>Gfx.Context</EM>.
+Contexts maintain a set of state variables and a set of methods for changing these state variables
+and for rendering graphical shapes. To get some physical output you need to instance a concrete
+extension of <EM>Gfx.Context</EM>.
+
+<H3><A NAME="Contexts.2">What kinds of contexts do exist?</A></H3>
+The current distribution includes the following concrete context types:
+<UL>
+<LI><EM>GfxDisplay.Context</EM> renders graphics on the Oberon display.</LI>
+<LI><EM>GfxBuffer.Context</EM> renders graphics into a Gfx bitmap.</LI>
+<LI><EM>GfxPrinter.Context</EM> renders graphics on the Oberon printer.</LI>
+<LI><EM>GfxPS.Context</EM> creates Postscript and EPS files which, when interpreted
+by a Postscript interpreter, draw what has been rendered through the context.</LI>
+</UL>
+
+<H3><A NAME="Contexts.3">How do I create a context for drawing to the screen?</A></H3>
+<P>
+<PRE>
+  VAR ctxt: GfxDisplay.Context;
+  NEW(ctxt); GfxDisplay.Init(ctxt, llx, lly, urx, ury);
+</PRE>
+
+<H3><A NAME="Contexts.4">How do I create a context for drawing to a bitmap?</A></H3>
+<PRE>
+  VAR ctxt: GfxBuffer.Context; img: Images.Image;
+  NEW(img); Images.Create(img, width, height, Images.DisplayFormat);
+  NEW(ctxt); GfxBuffer.Init(ctxt, img);
+</PRE>
+
+<H3><A NAME="Contexts.5">How do I create a context for printing my graphics?</A></H3>
+<PRE>
+  VAR ctxt: GfxPrinter.Context;
+  Printer.Open(...);
+  NEW(ctxt); GfxPrinter.Init(ctxt);
+</PRE>
+
+<H3><A NAME="Contexts.6">How do I create Postscript and EPS files?</A></H3>
+<PRE>
+  VAR ctxt: GfxPS.Context;
+  NEW(ctxt);
+  
+  (* Postscript file: *)
+  GfxPS.Init(ctxt, FALSE, FALSE, GfxPS.A4W, GfxPS.A4H, border, border, border, border, 600);
+  GfxPS.Open(ctxt, Files.New("out.ps"));
+  ....
+  GfxPS.ShowPage(ctxt);
+  GfxPS.Close(ctxt)
+  
+  (* EPS file: *)
+  GfxPS.InitEPS(ctxt, FALSE, 600);
+  GfxPS.Open(ctxt, Files.New("out.eps"));
+  ...
+  GfxPS.Close(ctxt)
+</PRE>
+
+<HR>
+<H2 ALIGN=CENTER>Vector Graphics</H2>
+
+<H3><A NAME="Graphics.1">How do I draw a line?</A></H3>
+The easiest way to stroke a line from <EM>(x0, y0)</EM> to <EM>(x1, y1)</EM> is
+<P>
+<PRE>
+  Gfx.DrawLine(ctxt, x0, y0, x1, y1, {Gfx.Stroke})
+</PRE>
+
+<H3><A NAME="Graphics.2">How do I draw a rectangle?</A></H3>
+To stroke a rectangle, call
+<P>
+<PRE>
+  Gfx.DrawRect(ctxt, x0, y0, x1, y1, {Gfx.Stroke})
+</PRE>
+<P>
+with <EM>(x0, y0)</EM> and <EM>(x1, y1)</EM> marking two opposite corners of the rectangle.
+For drawing a filled rectangle, set the <EM>mode</EM> parameter to <EM>Gfx.Fill</EM>.
+You can include both <EM>Gfx.Stroke</EM> and <EM>Gfx.Fill</EM> in
+the <EM>mode</EM> parameter, in which case the rectangle will be first filled and then outlined.
+
+<H3><A NAME="Graphics.3">How do I draw circles and ellipses?</A></H3>
+To stroke a circle or an axis-aligned ellipse, call one of
+<P>
+<PRE>
+  Gfx.DrawCircle(ctxt, x, y, r, {Gfx.Stroke})
+  Gfx.DrawEllipse(ctxt, x, y, rx, ry, {Gfx.Stroke})
+</PRE>
+<P>
+where the center of the circle or ellipse is at <EM>(x, y)</EM>, the circle radius is <EM>r</EM>
+and the ellipse half-radii are <EM>rx</EM> and <EM>ry</EM>. If you want the circle or ellipse
+to be filled then include <EM>Gfx.Fill</EM> in the <EM>mode</EM> parameter.
+
+<H3><A NAME="Graphics.3a">How do I draw an arc?</A></H3>
+Use
+<P>
+<PRE>
+  Gfx.DrawArc(ctxt, x, y, rx, ry, start, end, {Gfx.Stroke})
+</PRE>
+<P>
+<EM>(x, y)</EM> determines the center of an ellipse, <EM>rx</EM> is its horizontal radius,
+and <EM>ry</EM> its vertical radius (if both are equal, you get a circular arc). <EM>start</EM>
+and <EM>end</EM> are the angles of the start and end point of the arc, measured counterclockwise
+from the positive <EM>x</EM> axis in radians.
+
+
+<H3><A NAME="Graphics.4">What are paths?</A></H3>
+Paths are generalizations of primitive shapes such as lines, rectangles, circles, and ellipses. With paths
+you can describe triangles, rings, etc. A path consists of any number of subpaths, each of which in turn
+consisting of a connected sequence of lines, elliptical arcs and cubic B&eacute;zier curves. You can stroke
+a path, fill its interior, or do both at the same time. You can even restrict future rendering operations
+to the interior of a path or visit a recorded path to construct a new path.
+
+<H3><A NAME="Graphics.5">What are subpaths and why are they needed?</A></H3>
+A subpath is a connected sequence of lines, elliptical arcs and cubic B&eacute;zier curves. It starts at
+one point (its entry point) and ends at another (its exit point). Entry and exit point may of course be
+coincident. Although most paths consists of exactly one subpath, shapes that include holes can only
+be specified by several subpaths. E.g. a ring is most easily specified by a subpath describing an outer
+ring (consisting of a 360&deg; counter-clockwise arc) and another subpath describing an inner ring
+(consisting of a 360&deg; clockwise arc with smaller radius).
+
+<H3><A NAME="Graphics.6">How do I specify a path?</A></H3>
+A line could be rendered using
+<P>
+<PRE>
+  Gfx.Begin(ctxt, {Gfx.Stroke});
+  Gfx.MoveTo(ctxt, x0, y0);
+  Gfx.LineTo(ctxt, x1, y1);
+  Gfx.End(ctxt);
+</PRE>
+<P>
+It's important to know that first you have to begin a current path in the rendering mode of your
+choice (in our case to stroke the path). Then you can repeatedly render subpaths by entering a
+subpath (using <EM>Gfx.MoveTo</EM>) and appending curve elements to it.
+The end point of each curve element becomes the new current point of the path and serves
+as the starting point of the next element. Don't forget to end the current path or some
+pending draw operations might never be executed.
+
+<H3><A NAME="Graphics.7">How do I render closed paths correctly?</A></H3>
+Rendering e.g. a triangle is best done like this:
+<P>
+<PRE>
+  Gfx.Begin(ctxt, {Gfx.Fill, Gfx.Stroke});
+  Gfx.MoveTo(ctxt, 0, 0);
+  Gfx.LineTo(ctxt, 100, 0);
+  Gfx.LineTo(ctxt, 50, 70);
+  Gfx.Close(ctxt);
+  Gfx.End(ctxt);
+</PRE>
+<P>
+The directive to close the path has two purposes: first, it appends a line connecting the
+current point with the subpath's first point if necessary. Second, it renders a line
+join at the common first/last point instead of two line caps. This guarantees a
+smooth transition at that point.
+
+<H3><A NAME="Graphics.8">What are Enter and Exit for?</A></H3>
+<EM>Enter</EM> and <EM>Exit</EM> provide an alternative
+method for rendering closed paths. <EM>Enter</EM> is similar to
+<EM>MoveTo</EM> but expects an additional vector argument
+which indicates the direction of the last line segment in the subpath (which
+must therefore be known in advance). Instead of closing the subpath, it is
+terminated with <EM>Exit</EM>. The vector argument in this
+case is the direction of the first line. The triangle from the above example
+could therefore also be specified like this:
+<P>
+<PRE>
+  Gfx.Begin(ctxt, {Gfx.Fill, Gfx.Stroke});
+  Gfx.Enter(ctxt, 0, 0, -50, -70);
+  Gfx.LineTo(ctxt, 100, 0);
+  Gfx.LineTo(ctxt, 50, 70);
+  Gfx.LineTo(ctxt, 0, 0);
+  Gfx.Exit(ctxt, 100, 0);
+  Gfx.End(ctxt);
+</PRE>
+<P>
+The motivation for having <EM>Enter</EM> and <EM>Exit</EM>
+is that they allow to exit a closed subpath at some arbitrary point, render something
+else, and re-enter the subpath at the same point later. This additional flexibility is
+very convenient for some special applications.
+
+<H3><A NAME="Graphics.9">Why do arcs have so many parameters?</A></H3>
+The huge number of parameters for elliptic arcs might be scary at first but you'll find that
+they offer a maximum of flexibility. The three points <EM>(x0, y0), (x1, y1)</EM> and
+<EM>(x2, y2)</EM> define an ellipse having its center at <EM>(x0, y0)</EM>. The other
+two points are endpoints of so called <EM>conjugate diameter pairs</EM>. Assuming
+<EM>(x0, y0) = (0, 0)</EM>, if <EM>(x1, y1) = (A </EM>sin<EM>(t), B </EM>sin<EM>(t + d))</EM>
+then <EM>(x2, y2) = (A </EM>cos<EM>(t), B </EM>cos<EM>(t + d))</EM>.
+Another (maybe a bit more comprehensive) way of explaining conjugate diameter pairs
+is to imagine a parallelogram centered at <EM>(x0, y0)</EM> and spanned by the vectors
+from <EM>(x0, y0)</EM> to <EM>(x1, y1)</EM> and <EM>(x2, y2)</EM>. The ellipse fits
+into the parallelogram and touches it in the middle of its sides, two of which are located
+at <EM>(x1, y1)</EM> and <EM>(x2, y2)</EM>..
+<P>
+If the current point of the path is not on the ellipse, a line from the current point to its
+projection onto the ellipse boundary is rendered. From the projection of the current
+point on the ellipse boundary, the ellipse is traversed until the projection of the end
+coordinates onto the ellipse is reached. If the end point does not lie on the ellipse, a
+line is drawn from the current point on the ellipse to the end point.
+<P>
+If the cross product of the conjugate diameter pair vectors is positive, the arc is traversed
+in clockwise order, if it is negative, the traversal is in counter-clockwise order.
+<P>
+Example 1: a unit circle
+<P>
+<PRE>
+  Gfx.Enter(ctxt, 1, 0, 0, 1);
+  Gfx.ArcTo(ctxt, 1, 0, 0, 0, 1, 0, 0, 1);
+  Gfx.Exit(ctxt, 0, 1);
+</PRE>
+<P>
+Example 2: a semi-ellipse from <EM>(-2, 0)</EM> to <EM>(2, 0)</EM> through
+<EM>(0, 1)</EM> (note that it has to run counter-clockwise):
+<P>
+<PRE>
+  Gfx.MoveTo(ctxt, -2, 0);
+  Gfx.ArcTo(ctxt, 2, 0, 0, 0, -2, 0, 0, 1);
+</PRE>
+<P>
+Example 3: a circular arc on the unit circle from 45&deg; to 135&deg;:
+<P>
+<PRE>
+  Gfx.MoveTo(ctxt, 0.7071, 0.7071);
+  Gfx.ArcTo(ctxt, -0.7071, 0.7071, 0, 0, 1, 0, 0, 1);
+</PRE>
+
+<H3><A NAME="Graphics.10">How are self-intersecting paths treated?</A></H3>
+When using self-intersecting paths for filling and clipping, it's not inherently clear
+which points are part of the path interior and which aren't. Imagine drawing
+a ray originating at a point in question and examine its intersections with the path.
+Value each intersection as +1 if the path crosses the ray from right to left and as
+-1 if the path crosses the ray from left to right.
+<UL>
+<LI>With the non-zero winding rule (used by default), the point is considered inside if
+the sum of all intersection values is not zero.</LI>
+<LI>With the even-odd rule (which is applied if the current drawing mode includes
+<EM>Gfx.EvenOdd</EM>), the point is considered inside if the sum of all
+intersection values is odd.</LI>
+</UL>
+
+<H3><A NAME="Graphics.11">What path modes do exist?</A></H3>
+When beginning a new path with <EM>Gfx.Begin</EM> or when rendering
+the current path with <EM>Gfx.Render</EM>, a <EM>mode</EM> parameter
+describes how the path should be rendered. The drawing mode is a set which contains at
+least one of the following elements:
+<UL>
+<LI><EM>Gfx.Record</EM> requests that the path should be recorded in the
+<EM>path</EM> field of the context.</LI>
+<LI><EM>Gfx.Stroke</EM> requests that the path be stroked using the current
+graphical attributes in the context.</LI>
+<LI><EM>Gfx.Fill</EM> requests that the path be filled using the current graphical
+attributes in the context.</LI>
+<LI><EM>Gfx.Clip</EM> requests that the current clipping path is to be intersected
+with the rendered path, reducing the area which can be drawn to.</LI>
+<LI><EM>Gfx.EvenOdd</EM> activates the even-odd rule for computing the interior
+of self-intersecting paths. If <EM>Gfx.EvenOdd</EM> is omitted, the non-zero
+winding rule is used.</LI>
+<LI><EM>Gfx.InPath</EM> is included in the drawing mode when
+<EM>Gfx.Begin</EM> is called and removed when <EM>Gfx.End</EM>
+is called. Never set or clear this yourself.</LI>
+<LI><EM>Gfx.InSubpath</EM> is included in the drawing mode when
+<EM>Gfx.Enter</EM> is called and removed when <EM>Gfx.Exit</EM>
+is called. Never set or clear this yourself.</LI>
+</UL>
+
+<H3><A NAME="Graphics.12">What can I use recorded paths for?</A></H3>
+Since you usually use Gfx because you want to render graphics, it may not be obvious
+why you should be content with just recording paths. However, it is sometimes
+necessary to modify the current path before calling <EM>Gfx.Render</EM>
+to render it.
+<UL>
+<LI><EM>Gfx.Flatten</EM> replaces all arcs and B&eacute;zier curves in the
+path by an approximation using straight lines. The quality of the approximation depends
+on the current value of the context's <EM>flatness</EM> attribute.</LI>
+<LI><EM>Gfx.Outline</EM> replaces the current path by a path that outlines
+the current path. If you later fill the outlined path, you get the same result as if you
+had stroked the original path. Of course you might have other things in mind about
+what to do with the outlined path first. <EM>Note:</EM> This only works if the current
+line width is larger than zero. For line width zero, the current path is replaced by
+a series of dashes if a dash pattern is active.</LI>
+</UL>
+
+<HR>
+<H2 ALIGN=CENTER>Graphical Attributes</H2>
+
+<H3><A NAME="Attributes.1">How do I set the current stroke and fill colors?</A></H3>
+Gfx manages two current colors at once, one for stroking and one for filling paths,
+which are both set to black whenever <EM>Gfx.Reset</EM> is called.
+To set the current stroke color to red and the current fill color to white, call
+<P>
+<PRE>
+  Gfx.SetStrokeColor(ctxt, Gfx.Red);
+  Gfx.SetFillColor(ctxt, Gfx.White);
+</PRE>
+<P>
+For convenience, the following colors are already defined in Gfx: black, white, red,
+green, blue, cyan, magenta, yellow and three shades of grey. Of course other colors
+may be defined as well, since a color is represented as a record type with three fields
+holding values for red, green and blue.
+
+<H3><A NAME="Attributes.2">How do I change the current stroke and fill patterns?</A></H3>
+A Gfx pattern is defined by an image bitmap and a pin point for anchoring the pattern origin.
+A pattern must be instantiated with <EM>Gfx.NewPattern</EM>, please don't
+initialize patterns yourself. After a pattern has been instantiated, you can pass it to
+<EM>Gfx.SetStrokePattern</EM> or <EM>Gfx.SetFillPattern</EM>.
+To turn pattern stroking and filling off again, pass a NIL value (which is also the default
+value for both patterns).
+If the image used for defining the pattern doesn't contain any color components (i.e.
+is a pure alpha bitmap), the current stroke and fill colors are used. Patterns do not
+undergo any transformations, they are always drawn
+in the default coordinate system.
+<P>
+The following example shows how to fill a rectangle in green using the standard Oberon
+pattern 2 (consisting of many small dots):
+<P>
+<PRE>
+  VAR img: Images.Image; pat: Gfx.Pattern;
+  NEW(img); PictImages.PatternToImage(2, img);
+  pat := Gfx.NewPattern(ctxt, img, 0, 0);
+  Gfx.SetFillColor(ctxt, Gfx.Green);
+  Gfx.SetFillPattern(ctxt, pat);
+  Gfx.DrawRect(ctxt, 10, 10, 80, 60, {Gfx.Fill});
+</PRE>
+
+<H3><A NAME="#Attributes.3">How do I draw dashed curves?</A></H3>
+All curves are rendered in one continuous stroke by default. You can change this
+by passing a dash pattern to <EM>Gfx.SetDashPattern</EM>. A dash
+pattern consists of several pairs of lengths. For each pair <EM>i</EM>, a dash of
+length <EM>on[i]</EM> is rendered, then a distance of <EM>off[i]</EM> is
+skipped. When <EM>i</EM> reaches the size of the pattern, it is reset to zero.
+Another parameter
+(called the dash phase) is used as an initial offset into the pattern at the entry point
+of a subpath, which can be useful for slightly adjusting an already defined pattern.
+<P>
+Let's define a simple dash-dot pattern:
+<P>
+<PRE>
+  VAR on, off: ARRAY 2 OF REAL;
+  on[0] := 4; off[0] := 2; on[1] := 1; off[1] := 2;
+  Gfx.SetDashPattern(ctxt, on, off, 2, 0);
+</PRE>
+<P>
+Here follows a simple dash pattern that starts in the middle of a dash:
+<P>
+<PRE>
+  VAR onoff: ARRAY 2 OF REAL;
+  onoff[0] := 10;
+  Gfx.SetDashPattern(ctxt, onoff, onoff, 1, 5);
+</PRE>
+<P>
+Dash lengths and phase are in current user coordinates, i.e. they are subject to
+the current transformation.
+
+<H3><A NAME="Attributes.4">How do I change the current line width?</A></H3>
+Use <EM>Gfx.SetLineWidth</EM> to set the line width to any positive real
+number. The current transformation at the time a path is begun is applied to the line
+width before any rendering. If the resulting width is smaller than a device pixel, a
+hairline is drawn, which is the thinnest line that can be rendered on any device.
+To render lines as thinly as possible you should therefore set the line width to zero.
+However, to achieve consistent line widths on all output devices you should choose
+a non-zero value. The default line width is one, which corresponds to one display pixel
+in the default coordinate system.
+<P>
+When the current line width exceeds one and a half device pixels, curves are rendered by offsetting
+the curve by half the line width from each side of the path and filling the resulting area
+(or any equivalent method that a specific implementation chooses). To achieve a smooth
+appearance, a line join is drawn wherever two consecutive line segments meet at an
+angle. In addition, a line cap is drawn at the first and last point of a subpath, except
+for closed subpaths where another line join is drawn.
+
+<H3><A NAME="Attributes.5">How do I change the current line cap style?</A></H3>
+Use <EM>Gfx.SetCapStyle</EM> to set the current cap style. There are
+three predefined cap styles in Gfx:
+<UL>
+<LI><EM>Gfx.ButtCap</EM> just cuts the line off at its start/end point along
+a straight line that passes through the point and is perpendicular to the curve direction
+at that point.</LI>
+<LI><EM>Gfx.RoundCap</EM> ends curves with a semicircle. It's as if the curve
+had been drawn with a round brush whose diameter matches the current line width.</LI>
+<LI><EM>Gfx.SquareCap</EM> ends curves with half a square. It's as if the curve
+had been drawn with a square brush whose side length matches the current line width.</LI>
+</UL>
+Contexts use butt caps by default and whenever they have been reset.
+
+<H3><A NAME="Attributes.6">How do I change the current line join style?</A></H3>
+Use <EM>Gfx.SetJoinStyle</EM>. Like with cap styles, Gfx offers a selection
+of predefined join styles:
+<UL>
+<LI><EM>Gfx.BevelJoin</EM> cuts off the outer corner of two lines meeting
+in an angle along a straight line. Not very aesthetic.</LI>
+<LI><EM>Gfx.RoundJoin</EM> replaces the corner by a circular arc that
+smoothly joins the outer edges of the lines.</LI>
+<LI><EM>Gfx.MiterJoin</EM> makes the outer edges at a corner continue
+until they intersect and fills the interior.</LI>
+</UL>
+Miter joins look natural and can be rendered reasonably quick and are therefore chosen
+as default join style. However, if the angle between two lines becomes very small, the
+intersection of their outer edges can be very far away from the original path. It would
+be better to use a threshold angle and render bevel joins in these cases. For this reason,
+contexts maintain a <EM>style limit</EM> attribute. The maximal distance between
+any point rendered by a style and the original path must not exceed half the line width
+times the style limit. The style limit can be set with <EM>Gfx.SetStyleLimit</EM>
+and is by default set to 5.
+
+<H3><A NAME="Attributes.7">How do I control the quality of arc and bezier approximation?</A></H3>
+Except for a few special cases, rendering thick and/or dashed arcs and B&eacute;zier
+curves is very complicated.
+Most concrete contexts therefore choose to approximate these curves with straight lines,
+which are far easier to handle. The curves are usually subdivided until each part is close
+enough to a straight line, where "close enough" means that the maximal distance
+from any point on the original curve to the linear approximation is smaller than a given
+limit. This limit is stored in the <EM>flatness</EM> attribute of a context and can be
+modified with <EM>Gfx.SetFlatness</EM>. Unlike most other attributes, the
+current flatness is measured in device pixels and is independent of the current
+transformation matrix. The default flatness is set to one device pixel.
+
+<H3><A NAME="Attributes.8">Why doesn't Gfx let me change attributes within a path?</A></H3>
+Between <EM>Gfx.Begin</EM> and <EM>Gfx.End</EM>, an attempt
+to set any context attribute causes a run-time error. Gfx doesn't allow you to change graphical
+attributes within a path because most of them depend on the current transformation matrix
+(see <A HREF="#Coordinates.1">Coordinate Systems</A>), which <EM>can</EM> be changed
+while inside a path. Now combine this with the fact that a context may render individual
+path elements whenever it sees fit, which may be as soon as a curve is specified, when the
+path is terminated, or any moment inbetween. It is obviously impossible to synchronize changing
+attributes and output operations. Context attributes therefore mustn't be modified during
+rendering.
+
+<H3><A NAME="Attributes.9">How do I preserve all attributes and restore them later?</A></H3>
+Like this:
+<P>
+<PRE>
+  VAR state: Gfx.State;
+  ...
+  Gfx.Save(ctxt, {Gfx.all}, state);
+  ....
+  Gfx.Restore(ctxt, state);
+</PRE>
+Instead of saving all attributes, an arbitrary subset can be used. The corresponding elements
+are exported as constants from Gfx.
+
+
+<HR>
+<H2 ALIGN=CENTER>Text</H2>
+
+<H3><A NAME="Text.1">How do I display a string?</A></H3>
+The most convenient way is to call
+<P>
+<PRE>
+  Gfx.DrawStringAt(ctxt, x, y, "Hello");
+</PRE>
+<P>
+You can then immediately append another string to the one you've just displayed with
+<P>
+<PRE>
+  Gfx.DrawString(ctxt, " World!");
+</PRE>
+<P>
+Both procedures will display the string using the current fill color and the current font.
+
+<H3><A NAME="Text.3">How do I change the current font?</A></H3>
+To set the current font family to "Oberon", style to "Bold" at size 12 call
+<P>
+<PRE>
+  Gfx.SetFontName(ctxt, "Oberon-Bold", 12);
+</PRE>
+<P>
+You can also create a font instance which is derived from an existing font by applying
+an arbitrary transformation matrix. As an example, let's simulate a "Oberon-BoldSlanted"
+font (which doesn't exist) by shearing an "Oberon-Bold" font, using size 20.
+<P>
+<PRE>
+  GfxMatrix.Init(mat, 1, 0, 0.25, 1, 0, 0);	(* shear matrix *)
+  Gfx.SetFont(ctxt, GfxFonts.Open("Oberon-Bold", 20, mat));
+</PRE>
+<P>
+While Gfx does allow you to specify any transformed font, these fonts are likely to look
+too ugly to be useful say for general text display. Only if a raster font of the correct size is
+available can high quality be expected, otherwise the character patterns of an existing
+raster fonts are scaled to the correct size or an outline font (if available) is used to
+create character patterns dynamically.
+
+<H3><A NAME="Text.4">How do I change the current text color?</A></H3>
+Since <EM>Gfx.DrawString</EM> uses the current fill color, set the
+current text color by calling <EM>Gfx.SetFillColor</EM> with the
+appropriate color value.
+
+<H3><A NAME="Text.5">Can I convert characters to paths?</A></H3>
+Yes, if you have the corresponding outline fonts installed. You can
+<A HREF="ftp://ftp.inf.ethz.ch/pub/software/Oberon/System3/Contrib/Metafonts/">
+download</A> outlines for Oberon metafonts.
+Once these outline fonts are available on your system, Gfx will use them automatically if you request a
+font instance for which no matching Oberon raster font is found or if you explicitly request to
+use character outlines inside a path by calling either of <EM>Gfx.ShowAt</EM> or
+<EM>Gfx.Show</EM>. These work like <EM>Gfx.DrawStringAt</EM>
+and <EM>Gfx.DrawString</EM> but can only be called within a path.
+Instead of always using <EM>Gfx.Fill</EM> mode, however, they
+render characters of a string in the current drawing mode of the path. That means
+that you can stroke character outlines, draw patterned characters or use character
+shapes as clipping regions.
+<P>
+The following example fills the characters of the string "Bart" with a pattern of "Bart.Pict"
+bitmaps:
+<P>
+<PRE>
+  VAR img: Images.Image; done: BOOLEAN;
+  NEW(img); Images.Load(img, "Bart.Pict", done); ASSERT(done, 110);
+  Gfx.SetFillPattern(ctxt, Gfx.NewPattern(ctxt, img, 0, 0));
+  Gfx.SetFontName(ctxt, "Oberon-Bold", 64);
+  Gfx.DrawStringAt(ctxt, 100, 100, "Bart");
+</PRE>
+
+<H3><A NAME="Text.6">How can I center a caption?</A></H3>
+Use <EM>Gfx.GetStringWidth</EM> to find out how the current point
+would be advanced if a string were drawn and displace the string by half this
+vector. If you think it's odd that <EM>Gfx.GetStringWidth</EM>
+returns two values, remember that fonts can be transformed and their
+direction of advancement may no longer be horizontal.
+
+<H3><A NAME="Text.7">Can I use my huge collection of TrueType fonts?</A></H3>
+Yes, if you have the
+<A HREF="ftp://ftp.inf.ethz.ch/pub/software/Oberon/System3/Contrib/OType/">OpenType</A>
+package for Oberon installed
+and compile the module <EM>GfxOType</EM> in the Gfx distribution.
+Also make sure that the following line is part of your Oberon.Text:
+<P>
+<PRE>
+  { FontFormats = { GfxOType.Install }}
+</PRE>
+<P>
+You should then be able to use TrueType fonts just like regular Oberon fonts from
+within Gfx.
+
+<H3><A NAME="Text.8">How about my Type1 fonts?</A></H3>
+Unfortunately there is no support for Type1 fonts in Gfx at the moment. If you have
+a working Type1 rasterizer for Oberon, please don't hesitate and make it available
+to Gfx and OType.
+
+<HR>
+<H2 ALIGN=CENTER>Coordinate Systems</H2>
+
+<H3><A NAME="Coordinates.1">Where is the coordinate origin of a context?</A></H3>
+Usually in the lower left corner of the drawable area.
+
+<H3><A NAME="Coordinates.2">How can I move the current coordinate origin?</A></H3>
+It is often convenient to move the origin of the coordinate system somewhere else, e.g. if
+you plan to describe a graphic that is symmetric around an origin and therefore uses both
+positive and negative coordinate values.
+<P>
+<PRE>
+  Gfx.Translate(ctxt, dx, dy);
+</PRE>
+<P>
+displaces the coordinate origin by the vector <EM>(dx, dy)</EM> for all following
+rendering operations. This is effected by prepending a translation matrix to the
+current transformation matrix of the context.
+
+<H3><A NAME="Coordinates.3">What is the default unit of a context?</A></H3>
+The default unit of a context corresponds to an Oberon Display unit, which corresponds
+to 1/91.44 of an inch.
+
+<H3><A NAME="Coordinates.4">How do I scale the current coordinate system?</A></H3>
+By calling one of
+<P>
+<PRE>
+  Gfx.Scale(ctxt, sx, sy);
+  Gfx.ScaleAt(ctxt, sx, sy, x, y);
+</PRE>
+<P>
+all following operations will use a scaled coordinate system. The second call uses the
+given point instead of <EM>(0, 0)</EM> as an invariant origin for the transformation.
+
+<H3><A NAME="Coordinates.5">How do I rotate the current coordinate system?</A></H3>
+With one of
+<P>
+<PRE>
+  Gfx.Rotate(ctxt, sin, cos);
+  Gfx.RotateAt(ctxt, sin, cos, x, y);
+</PRE>
+<P>
+E.g. a counter-clockwise rotation by 90&deg; has <EM>sin=1</EM> and <EM>cos=0</EM>.
+Gfx expects sine and cosine of an angle and not the value of the angle to avoid calculating
+sine and cosine of trivial angles.
+
+<H3><A NAME="Coordinates.6">Can I specify other transformations to the current coordinate system?</A></H3>
+Yes, if you can describe the transformation with a three-row, two-column matrix. This includes any combination
+of translation, scaling, rotation and shearing. Prepend this matrix to the current transformation matrix with
+<P>
+<PRE>
+  Gfx.Concat(ctxt, mat);
+</PRE>
+<P>
+and it affects all following operations. The <EM>GfxMatrix</EM> module contains several operations for
+dealing with matrices.
+
+<H3><A NAME="Coordinates.7">How can I undo the changes I've made to the current coordinate system?</A></H3>
+By saving the current transformation matrix before modifying the coordinate system and later
+restoring it:
+<P>
+<PRE>
+  VAR save: GfxMatrix.Matrix;
+  save := ctxt.ctm;
+  ...
+  Gfx.SetCTM(ctxt, save);
+</PRE>
+
+<H3><A NAME="Coordinates.8">How can I return to the original coordinate system?</A></H3>
+By calling <EM>Gfx.ResetCTM</EM> or <EM>Gfx.Reset</EM>, where
+the latter also resets the clip region and all context attributes. If you didn't set up the context
+yourself, you should rather save and restore the CTM instead because your caller might have
+modified the coordinate system before calling you.
+
+<H3><A NAME="Coordinates.9">What are the dimensions of a device pixel?</A></H3>
+The dimensions of a device pixel in the current coordinate system can be found
+by inverting the current CTM and applying it to a unit vector.
+
+<HR>
+<H2 ALIGN=CENTER>Images</H2>
+
+<H3><A NAME="Images.1">Why can't I just draw Oberon pictures?</A></H3>
+For a long time, Gfx has indeed been working with regular Oberon pictures. However,
+they only support indexed image formats with a depth of eight bits, which proved to be
+too restrictive, especially in the context of filtered image transformations. Now Gfx
+is based on the Images package, extending it by a module <EM>GfxImages</EM>
+for transforming images.
+
+<H3><A NAME="Images.2">What is the Images package? Where do I get it?</A></H3>
+Images lets you load and store image files of up to 32 bit depth in various file formats
+and provides basic image processing capabilities. It can be downloaded from
+<A HREF="ftp://ftp.inf.ethz.ch/pub/software/Oberon/System3/Contrib/Images/"
+>ftp.inf.ethz.ch</A>. Be sure to read the accompanying Images.Tool and register
+image file extensions in Oberon.Text.
+
+<H3><A NAME="Images.3">How do I draw an image?</A></H3>
+<PRE>
+  Gfx.DrawImageAt(ctxt, x, y, image, GfxImages.NoFilter);
+</PRE>
+<PAR>
+The lower left corner of the image is positioned at the <EM>(x, y)</EM> and the
+current transformation matrix is applied to the image. If the current transformation
+has been modified and no longer corresponds to the default coordinate system,
+the filter parameter controls the quality of the image transformation.
+
+<H3><A NAME="Images.4">What is a filter?</A></H3>
+A filter is an extension of an <EM>Images</EM> transfer mode. In addition
+to compositing source and destination pixels, it offers procedure variables
+for shifting and scaling pixel rows and columns, which makes them suitable
+for implementing image transformations. The problem with image transformations
+is that fast algorithms suffer from poor quality and that smarter algorithms
+producing better quality are much slower. Filters allow <EM>GfxImages</EM>
+to leave that decision up to its callers. It offers two sets of filter procedures
+and two predefined filters exported as global variables:
+<UL>
+<LI><EM>NoFilter</EM> does what is known as a box filter
+or a nearest neighbor filter. It's still called <EM>NoFilter</EM>
+because its results correspond to what a naive implementation that has
+never even heard of filtering would achieve.</LI>
+<LI><EM>LinearFilter</EM> uses bilinear filtering for scaling and
+interpolates linearly when shifting by fractional amounts. It's much slower
+but also looks better (except for a strong tendency to blur its result).</LI>
+</UL>
+
+<H3><A NAME="Images.5">Can I define custom filters?</A></H3>
+Yes. Call <EM>GfxImages.InitFilter</EM> with a compositing operator and appropriate
+shift and scale procedures and you have your custom filter. You might want to take a look
+at the implementation of the predefined filter procedures first, though.
+
+<H3><A NAME="Images.6">I'd still like to use existing Oberon pictures. How?</A></H3>
+If you have an Oberon picture stored in a file, you can directly load it into an image
+using the following code:
+<P>
+<PRE>
+  VAR img: Images.Image; done: BOOLEAN;
+  NEW(img); Images.Load(img, "MyImage.Pict", done);
+  IF done THEN ... END;
+</PRE>
+<P>
+Alternatively, if the picture is already available as a structure in memory, it can be
+converted to an image like this:
+<P>
+<PRE>
+  VAR img: Images.Image;
+  NEW(img); PictImages.PictToImage(pict, img);
+</PRE>
+<P>
+Bear in mind that the picture contents are copied. If you later need to convert the
+image back to a picture, you can do so with <EM>PictImages.ImageToPict</EM>.
+Unless the image is in indexed format and has its own custom palette, the
+default fixed palette defined in module <EM>Images</EM> is used for
+initializing the picture palette.
+
+<H3><A NAME="Images.7">And while we're at it, how about Oberon patterns?</A></H3>
+Studying the definition of <EM>PictImages</EM> reveals a procedure
+<EM>PatternToImage</EM> which converts an Oberon pattern to an
+image in <EM>Images.A1</EM> format. The reverse conversion from
+images to patterns is done with <EM>PictImages.ImageToPattern</EM>.
+
+
+<HR>
+<H2 ALIGN=CENTER>Clipping</H2>
+
+<H3><A NAME="Clipping.1">What is the initial clipping region of a context?</A></H3>
+This depends on the context type but usually the clipping region is a rectangle containing
+the drawable area of the context.
+
+<H3><A NAME="Clipping.2">How do I change a context's default clipping region?</A></H3>
+Many context modules export procedures for setting the default clipping region of
+a context to a rectangle or a given region. The default clipping region is the one that
+is reestablished when <EM>Gfx.ResetClip</EM> or <EM>Gfx.Reset</EM>
+is called.
+
+<H3><A NAME="Clipping.3">How do I convert a gadget mask to a clipping region?</A></H3>
+By enumerating the mask and adding the enumerated rectangles to the region:
+<P>
+<PRE>
+  VAR R: GfxRegions.Region;
+  
+  PROCEDURE AddRect (x, y, w, h: INTEGER);
+  BEGIN
+    GfxRegions.AddRect(R, x, y, x + w, y + h)
+  END AddRect;
+  
+  PROCEDURE MaskToRegion (mask: Display3.Mask; reg: GfxRegions.Region);
+  BEGIN
+    R := reg; GfxRegions.Clear(R);
+    Display3.EnumRect(mask, mask.X, mask.Y, mask.W, mask.H, AddRect)
+  END MaskToRegion;
+</PRE>
+
+<H3><A NAME="Clipping.4">How can I change the current clipping region?</A></H3>
+The current clipping region of a context can be intersected with an arbitrary path by
+rendering the path in <EM>Gfx.Clip</EM> mode. The following code snippet
+restricts all following rendering operations to the interior of the letter "A" within a
+circle:
+<P>
+<PRE>
+  Gfx.SetFontName(ctxt, "Oberon-Bold", 128);
+  Gfx.Begin(ctxt, {Gfx.Clip});
+  Gfx.ShowAt(ctxt, 100, 100, "A");
+  Gfx.End(ctxt);
+  Gfx.DrawCircle(ctxt, 150, 150, 50, {Gfx.Clip});
+</PRE>
+
+<H3><A NAME="Clipping.5">How can I undo the changes I've made to the current clipping region?</A></H3>
+Save the current clipping region before you modify it and restore it later:
+<P>
+<PRE>
+  VAR clip: Gfx.ClipArea;
+  ...
+  clip := Gfx.GetClip(ctxt);
+  Gfx.Begin(ctxt, {Gfx.Clip}); ... ; Gfx.End(ctxt);
+  ....
+  Gfx.SetClip(ctxt, clip);
+</PRE>
+
+<H3><A NAME="Clipping.6">How can I return the the clipping region to its initial state?</A></H3>
+By calling <EM>Gfx.RestoreClip</EM>.
+
+<HR>
+<H2 ALIGN=CENTER>Paths</H2>
+
+<H3><A NAME="Paths.1">How can I access the elements in the current path?</A></H3>
+The module <EM>GfxPaths</EM> offers two methods for accessing the elements
+stored in a path. The first is to open a path scanner (<EM>GfxPaths.Scanner</EM>)
+on the path and advance from element to element. The second is to enumerate all path
+elements by passing an enumerator procedure to <EM>GfxPaths.Enumerate</EM>.
+The procedure is then called for each element in the path. While the enumeration method
+offers less control over the traversal, it can be used to visit flattened paths and elements
+or natural splines, which cannot be stored in paths at all.
+<P>
+If you access the elements in the current path of a context, bear in mind that the
+drawing mode must include <EM>Gfx.Record</EM> and that the current
+context matrix has been applied to all coordinates.
+
+<H3><A NAME="Paths.2">How to calculate bounding box and length of path?</A></H3>
+The module <EM>GfxPaths</EM> offers useful procedures for finding
+out details about a path. <EM>GfxPaths.GetBox</EM> returns the bounding
+box for all elements in the path and <EM>GfxPaths.Length</EM>
+returns the length of a (flattened) path.
+
+<H3><A NAME="Paths.3">How can I modify a recorded path?</A></H3>
+Due to the internal storage structure of paths, there are no procedures for
+altering individual path elements once a path is built although you can apply
+a transformation matrix to a path or reverse it. Other modifications can be
+achieved by constructing a temporary path and copying back its contents to
+the original path afterwards.
+
+<H3><A NAME="Paths.4">How to render an edited path?</A></H3>
+<EM>Gfx.DrawPath</EM> is one possibility. The current path
+can be drawn with <EM>Gfx.Render</EM>.
+
+<HR>
+<H2 ALIGN=CENTER>What next?</H2>
+
+<H3><A NAME="Next.1">Are there other sources of information?</A></H3>
+Most of the topics touched in this document are presented with a bit more structure
+in the <A HREF="GfxOverview.html">Gfx Overview</A>. Apart from that, most
+features are also discussed where they are defined in a module interface. For the
+deepest insight, you should look directly at the source code, which is part of the
+distribution. If all this doesn't help, send inquiries and suggestions to
+<A HREF="mailto://oswald@acm.org">Erich Oswald</A>.
+
+<H3><A NAME="Next.2">Who do I report bugs and suggestions to?</A></H3>
+Directly to the author of Gfx, <A HREF="mailto://oswald@acm.org">Erich Oswald</A>.
+
+<HR>
+<FONT SIZE=-1><EM>Erich Oswald Mar 2000</EM></FONT>
+
+</BODY>
+</HTML>

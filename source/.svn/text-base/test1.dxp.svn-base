@@ -1,0 +1,18 @@
+<html>
+	<head>
+		<title>Datagrid example</title>
+	</head>
+	<body>
+		<h1>Datagrid example</h1>
+		<WebStd:Datagrid id="grid1" xmlns:WebStd="WebStd">
+			<Header>My features</Header>
+			<Data>
+				<WebStd:DataContainer xmlns:WebStd="WebStd" name="MyFeatures"/>
+			</Data>
+			<Paging size="3" nextlabel="Next" previouslabel="Back"/>
+		</WebStd:Datagrid>
+		<WebStd:Hyperlink xmlns:WebStd="WebStd" href="test2.dxp">test1</WebStd:Hyperlink>
+		<hr/>
+		<address>Bluebottle Dynamic Webpages</address>
+	</body>
+</html>

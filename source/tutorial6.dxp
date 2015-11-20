@@ -1,0 +1,24 @@
+<html >
+	<head ><title>My first DXP-Site</title></head>
+	<body xmlns:WebStd="WebStd" xmlns:WebAccounts="WebAccounts" xmlns:WebForum="WebForum">
+		<WebForum:FeatureTracker id="myForum1" containername="Features">
+			<MessageTypes>
+				<Type>Bug</Type>
+				<Type>Feature</Type>
+			</MessageTypes>
+			<MessageStatus>
+				<Status>unconfirmed</Status>
+				<Status>confirmed</Status>
+			</MessageStatus>
+			<Paging size="10" nextlabel="Next" previouslabel="Back"/>
+			<Searching label="Search for features: " buttonname="Go!"/>
+			<AccessConstraint>
+				<Edit><WebAccounts:AuthorizationCheck domain="EditAllowed"/></Edit>
+				<Insert><WebAccounts:AuthorizationCheck/></Insert>
+				<Delete><WebAccounts:AuthorizationCheck domain="EditAllowed"/></Delete>
+			</AccessConstraint>
+		</WebForum:FeatureTracker>
+		<hr/>
+		<a href="tutorial6source.html">Source Code</a>
+	</body>
+</html>

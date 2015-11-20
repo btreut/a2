@@ -1,0 +1,192 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "winres.h"
+#include "debug.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Neutral (Default) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_NEUD)
+#ifdef _WIN32
+LANGUAGE LANG_NEUTRAL, SUBLANG_DEFAULT
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+DEBUG                   ICON                    "ressources\\debugAos.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+DEBUG_MENU MENU 
+BEGIN
+    POPUP "&Debug"
+    BEGIN
+        MENUITEM "Start",                       IDM_D_Start
+        MENUITEM "Attach",                      IDM_D_Attach
+        MENUITEM "Stop",                        IDM_D_Stop, GRAYED
+        MENUITEM SEPARATOR
+        MENUITEM "E&xit",                       IDM_D_Exit
+    END
+    POPUP "&Action"
+    BEGIN
+        MENUITEM "&Ignore Exceptions",          IDM_A_IGNORE
+        MENUITEM "Always Clear System Window",  IDM_A_CLEARDEFAULT
+        MENUITEM "Default:Trap+Exception",      IDM_A_TRAPDEFAULT
+        MENUITEM "&Continue",                   IDM_A_CONTINUE, GRAYED
+        MENUITEM "&Exception",                  IDM_A_EXCEPTION, GRAYED
+        MENUITEM "Show &Trap",                  IDM_A_TRAP, GRAYED
+        MENUITEM "Show Stack",                  IDM_A_STACK, GRAYED
+        MENUITEM "Module &State",               IDM_A_STATE, GRAYED
+        MENUITEM "Show&AllStacks",              IDM_A_ALLSTACKS, GRAYED
+    END
+    POPUP "&Window"
+    BEGIN
+        MENUITEM "&Always On Top",              IDM_W_ONTOP
+        MENUITEM SEPARATOR
+        MENUITEM "&Tile",                       IDM_W_TILE
+        MENUITEM "&Cascade",                    IDM_W_CASCADE
+        MENUITEM "Arrange &Icons",              IDM_W_ICONS
+        MENUITEM SEPARATOR
+        MENUITEM "Clear All",                   IDM_W_CALL
+        MENUITEM "Clear Console",               IDM_W_CCONSOLE
+        MENUITEM "Clear Exception",             IDM_W_CEXCEPTION
+        MENUITEM "Clear System",                IDM_W_CSYSTEM
+    END
+    POPUP "&Help"
+    BEGIN
+        MENUITEM SEPARATOR
+        MENUITEM "&About",                      IDM_H_About
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+DEBUG_ABOUT_DIALOG DIALOG  0, 0, 160, 120
+STYLE DS_SETFONT | WS_CAPTION
+CAPTION "About - Debug (ejz)"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "Ok",IDD_Ok,67,102,24,12
+    CONTROL         998,IDC_BITMAP,"Static",SS_BITMAP,46,33,67,62
+    CTEXT           "Mini Debugger for\nETH PlugIn Oberon\n(c) 1999, 2000 ejz",IDC_STATIC,23,4,113,27
+END
+
+DEBUG_START_DIALOG DIALOG  0, 0, 240, 36
+STYLE DS_SETFONT | WS_CAPTION
+CAPTION "Start - Debug (ejz)"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "Ok",IDD_Ok,4,20,30,12
+    PUSHBUTTON      "Cancel",IDD_Cancel,206,20,30,12
+    COMBOBOX        IDD_ExePath,4,4,232,96,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    DEFPUSHBUTTON   "Open",IDD_Open,39,20,30,12
+END
+
+DEBUG_STATE_DIALOG DIALOG  0, 0, 160, 36
+STYLE DS_SETFONT | WS_CAPTION
+CAPTION "Module State - Debug (ejz)"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "Ok",IDD_Ok,4,20,30,12
+    PUSHBUTTON      "Cancel",IDD_Cancel,126,20,30,12
+    COMBOBOX        IDD_State,4,4,152,96,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+END
+
+DEBUG_STACK_DIALOG DIALOGEX 0, 0, 160, 36
+STYLE DS_SETFONT | WS_CAPTION
+CAPTION "Show Stack - Debug (ejz)"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "Ok",IDD_Ok,4,20,30,12
+    PUSHBUTTON      "Cancel",IDD_Cancel,126,20,30,12
+    COMBOBOX        IDD_Stack,4,4,152,64,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "All",IDD_AllStacks,35,20,23,13
+END
+
+DEBUG_ATTACH_DIALOG DIALOG  0, 0, 160, 36
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Attach - Debug (ejz)"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "Ok",IDD_Ok,4,20,30,12
+    PUSHBUTTON      "Cancel",IDD_Cancel,126,20,30,12
+    EDITTEXT        IDD_ProcessID,4,4,152,12,ES_AUTOHSCROLL
+END
+
+#endif    // Neutral (Default) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// German (Switzerland) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DES)
+#ifdef _WIN32
+LANGUAGE LANG_GERMAN, SUBLANG_GERMAN_SWISS
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""winres.h""\r\n"
+    "#include ""debug.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+#endif    // German (Switzerland) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

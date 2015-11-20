@@ -1,0 +1,205 @@
+# Code	description
+
+0000	ok/no error
+0014	out of heap space
+0099	temporary/debugging halt
+0300	not implemented yet
+0301	abstract method/placeholder procedure
+1000	Machine (and Aos.Diskettes)
+1100	AosTimer
+1200	AosProcessor
+1300	Locks
+1301	Lock timeout
+1400	KernelLog
+1500	Memory
+1501	out of physical pages
+1502	out of virtual space
+1503	out of stack space
+1504	page not present
+1505	caching not supported
+1506	out of cache control entries
+1507	implementation restriction
+1508	cache type of region already set
+1509	region size must be power of 2
+1510	region base must be aligned on size
+1511	region type not supported
+1600	AosStorage
+1700	AosBuffers
+1701	out of buffer space
+1702	buffer area must be contiguous
+1800	Interrupts
+1801	unexpected interrupt
+1900	Modules
+1901	can not free module in use
+1902	module not found
+2000	Traps
+2100	AosTicks
+2200	Objects
+2201	thread resurrected
+2202	thread halted
+2203	nested locks not allowed
+2204	passivate not in exclusive region
+2205	interrupts should be enabled
+2206	never reached
+2300	AosSMP
+2301	unexpected IPC
+2302	SMP error
+2303	Broadcast timeout
+2304	CachePhysical default result
+2400	Clock
+2500	Disks
+2501	media in removable device was changed unexpectedly
+2502	write failed because media is write-protected
+2503	operation is currently not supported on this device
+2504	the device is open, can not update partition table
+2505	the device media is not present
+2506	mount operation failed
+2507	transfer out of range
+2600	Caches
+2700	Aos.Kernel
+2800	ATADisks
+2801	device select failed before issueing
+2802	device select failed after issueing
+2807	dma transfer timeout
+2808	dma transfer failed
+2809	dma transfer error
+2812	identify atapi failed
+2813	size 0 device
+2814	identify failed
+2815	bad controller port
+2816	atapi reset failed
+2817	ata set parameters failed
+2819	pio read timeout
+2820	pio read error
+2821	pio read error
+2822	pio write error
+2823	pio write timeout
+2824	pio write error
+2825	identify ata geometry bad
+2826	block number out of range
+2900	Files
+2901	can not write to read-only volume
+2902	volume full
+2903	bad sector number
+2904	I/O error
+2905	can not modify read-only volume
+2906	file system not found
+2907	write error
+2920	FATFiles
+2921	File is read-only
+2922	Parent directory not found
+2923	Invalid filename
+2924	Too many similar files
+2925	Rootdirectory is full
+2926	File not found
+2927	File already exists
+2928	Volume has open files
+2929	No relative paths
+2930	Operation cannot be performed on directories
+2931	Directory is not empty
+2932	File is not a directory
+2933	Directory is open
+3000	Locks
+3005	Re-entered non-recursive lock
+3010	Released lock that was not held
+3015	Locklevel counter overflow in recursive lock
+3020	Reader must not acquire write lock
+3099	Deadlock detected
+3100	Inputs
+3200	Keyboard
+3300	MousePS2
+3400	Loader
+3401	file not found
+3402	invalid tag
+3403	file corrupt
+3404	file too short
+3405	incompatible import
+3406	unknown fixup type
+3500	UDP
+3501	address in use
+3502	timeout
+3503	buffer overflow
+3504	already blocked
+3600	DNS
+3601	dns name not found
+3602	bad dns name
+3700	TCP
+3701	connection refused
+3702	connection reset by peer
+3703	all local ports in use
+3704	address in use
+3705	address assigned
+3706	timed out
+3707	not connected
+3708	data overlaps completely with preceding data
+3709	data overlaps partially with preceding data
+3710	data overlaps completely with following data
+3711	data overlaps partially with following data
+3712	completely duplicate segment
+3713	partially duplicate segment
+3714	completely duplicate segment detected by PAWS
+3715	data received beyond window case 1
+3716	data received beyond window case 2
+3717	data received beyond window case 3
+3718	bad checksum
+3719	duplicate ack
+3720	ack out of range
+3721	keepalive timeout
+3722	timeout on established connection
+3723	segment too big
+3724	segment too small
+3725	bad header length
+3726	pcb gone
+3727	NIY new incarnation of connection
+3728	NIY out of band data
+3729	NIY MSS option
+3730	connection aborted
+3800	Ethernet3Com90x
+3801	auto-selection not supported
+3802	can not allocate contiguous DPD
+3803	can not allocate contiguous UPD
+3804	host error
+3900	Commands
+3901	command not found
+3902	command error
+3903	command parse error
+4000	SymbiosDisks
+4001	blocks out of range
+4100	Plugins
+4101	duplicate name
+4102	plugin already registered
+4200	Streams
+4201	end of file/stream
+4202	string buffer full
+4203	string buffer empty
+4204	format error
+4300	Pipes
+4301	closed
+4400	OSC*
+4401	OSCNet: timeout while receiving
+4402	OSCNet: parse error in packet
+4403	OSCNet: received packet too big
+4404	OSCNet: bad return data
+
+5100	HierarchichalProfiler
+5101	Profiler is already running
+5102	Profiler is not running
+5103	No profile data available
+5104	Sample buffer is full
+5105	Sample buffer is not initialized
+
+9000	Partitions
+
+10000	Configuration
+10001	Element not found
+10002 	Attribute not found
+10003	Wrong type
+10004	Error
+
+32767	trace
+
+30080	MODULE Aos.Modules
+30081	unknown fixup type
+30140	MODULE AosBlockDevices
+30141	abstract method called
+14	out of memory

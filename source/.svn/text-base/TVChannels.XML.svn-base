@@ -1,0 +1,57 @@
+<!--
+TV channels; Settings for the Cablecom network in Zurich.	Feb 2004
+Use UTF-8 encoding for this file.
+The frequencies listed here are TV frequencies [MHz] multiplied by 16.
+-->
+
+<TVChannelList>
+	<Channel name="SF 1" freq="2810"/>
+	<Channel name="SF 2" freq="3375"/>
+	<Channel name="Tele Züri" freq="2584"/>
+	<Channel name="Star TV" freq="2358"/>
+	<Channel name="VIVA" freq="5236"/>
+	<Channel name="ARD" freq="3257"/>
+	<Channel name="ZDF" freq="3488"/>
+	<Channel name="ORF 1" freq="2132"/>
+	<Channel name="ORF 2" freq="4166"/>
+	<Channel name="Pro 7" freq="8308"/>
+	<Channel name="Sat 1" freq="4618"/>
+	<Channel name="RTL" freq="2923"/>
+	<Channel name="RTL II" freq="7668"/>
+	<Channel name="Super RTL" freq="5492"/>
+	<Channel name="VOX" freq="8692"/>
+	<Channel name="Kabel 1" freq="2019"/>
+	<Channel name="3sat" freq="5620"/>
+	<Channel name="Cablecom Info" freq="4279"/>
+	<Channel name="U1 TV" freq="6388"/>
+	<Channel name="Eurosport" freq="4392"/>
+	<Channel name="DSF" freq="7924"/>
+	<Channel name="arte / KiKa" freq="7540"/>
+	<Channel name="TV5 Europe" freq="8820"/>
+	<Channel name="MTV" freq="4731"/>
+	<Channel name="n-tv" freq="8436"/>
+	<Channel name="EuroNews" freq="5108"/>
+	<Channel name="HSE24" freq="3714"/>
+	<Channel name="B3" freq="8564"/>
+	<Channel name="Südwest 3 / BW" freq="4053"/>
+	<Channel name="WDR" freq="6132"/>
+	<Channel name="MDR" freq="6260"/>
+	<Channel name="TSR 1" freq="3036"/>
+	<Channel name="TSR 2" freq="9588"/>
+	<Channel name="TF 1" freq="3827"/>
+	<Channel name="France 2" freq="5748"/>
+	<Channel name="France 3" freq="1002" teletext="false"/>
+	<Channel name="TSI 1" freq="3149"/>
+	<Channel name="TSI 2" freq="4505"/>
+	<Channel name="RAI Uno" freq="2471"/>
+	<Channel name="Canale 5" freq="8052"/>
+	<Channel name="NBC / CNBC Europe" freq="9204"/>
+	<Channel name="CNN" freq="3940"/>
+	<Channel name="BBC Prime" freq="8948"/>
+	<Channel name="Cartoon / TCM" freq="5364" teletext="false"/>
+	<Channel name="TVE" freq="3601"/>
+	<Channel name="RTP" freq="4852"/>
+	<Channel name="SF Info" freq="9332"/>
+	<Channel name="Tele M1" freq="2245"/>
+	<Channel name="3sat" freq="2697"/>
+</TVChannelList>

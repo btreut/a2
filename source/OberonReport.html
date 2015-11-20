@@ -1,0 +1,1188 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+   "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>Oberon Language Report</TITLE>
+<META NAME="description" CONTENT="Oberon Language Report">
+<META NAME="keywords" CONTENT="Programming language, Oberon, Object,
+Object-Orientation, Orientation, OO, OOP,
+Software, Development, Engineering">
+</HEAD>
+<BODY>
+<STRONG><FONT SIZE=6>Oberon Language Report</FONT></STRONG><BR>
+<STRONG><FONT SIZE=5>Revised Edition 1. 10. 90, N. Wirth<BR>
+<EM>Make it as simple as possible, but not simpler.</EM><BR>
+A. Einstein</FONT></STRONG>
+<P>
+<HR>
+<OL>
+<LI>Introduction
+<LI>Syntax
+<LI>Vocabulary and representation
+<LI>Declarations and scope rules
+<LI>Constant declarations
+<LI>Type declarations
+<LI>Variable declaration
+<LI>Expressions
+<LI>Statements
+<LI>Procedure declarations
+<LI>Modules
+<LI>The Module SYSTEM
+</OL>
+<HR>
+<H2>1. Introduction</H2>
+Oberon is a general-purpose programming language that evolved from Modula-2.
+Its principal new feature is the concept of <EM>type extension.</EM> It
+permits
+the construction of new data types on the basis of existing ones and to
+relate them.
+<P>This report is not intended as a programmer's tutorial. It is
+intentionally
+kept concise. Its function is to serve as a reference for programmers,
+implementors,
+and manual writers. What remains unsaid is mostly left so intentionally,
+either because it is derivable from stated rules of the language, or because
+it would require to commit the definition when a general commitment appears
+as unwise.
+<H2>2. Syntax</H2>
+A language is an infinite set of sentences, namely the sentences well formed
+according to its syntax. In Oberon, these sentences are called compilation
+units.
+Each unit is a finite sequence of symbols from a finite vocabulary. The
+vocabulary
+of Oberon consists of identifiers, numbers, strings, operators, delimiters,
+and comments. They are called lexical symbols and are composed of sequences
+of characters. (Note the distinction between symbols and characters.)
+<P>To describe the syntax, an extended Backus-Naur Formalism called EBNF is
+used.
+Brackets [ and ] denote optionality of the enclosed sentential form,
+and braces { and } denote its repetition (possibly 0 times). Syntactic
+entities (non-terminal symbols) are denoted by English words expressing
+their intuitive meaning. Symbols of the language vocabulary (terminal
+symbols)
+are denoted by strings enclosed in quote marks or words written in capital
+letters,
+so-called reserved words. Syntactic rules (productions) are marked by a $
+sign
+at the left margin of the line.
+<H2>3. Vocabulary and representation</H2>
+The representation of symbols in terms of characters is defined using the
+ASCII set.
+Symbols are identifiers, numbers, strings, operators, delimiters, and
+comments.
+The following lexical rules must be observed. Blanks and line breaks must
+not
+occur within symbols (except in comments, and blanks in strings). They are
+ignored
+unless they are essential to separate two consecutive symbols. Capital and
+lower-case letters are considered as being distinct.
+
+<OL>
+<LI><EM>Identifiers </EM>are sequences of letters and digits.
+The first character must be a letter.
+<PRE><STRONG>
+$  ident  =  letter {letter | digit}.
+</STRONG></PRE>
+<P><STRONG>Examples:</STRONG>
+<PRE>
+  x   scan   Oberon   GetSymbol   firstLetter
+</PRE>
+
+<P><LI><EM>Numbers </EM>are (unsigned) integers or real numbers. Integers
+are
+sequences of digits and may be followed by a suffix letter. The type is the
+minimal
+type to which the number belongs (see 6.1.). If no suffix is specified,
+the representation is decimal. The suffix H indicates hexadecimal
+representation.
+<P>A real number always contains a decimal point. Optionally it may also
+contain
+a decimal scale factor. The letter E (or D) is pronounced as  "times ten to
+the power of". A real number is of type REAL, unless it has a scale factor
+containing the letter D; in this case it is of type LONGREAL.
+<PRE><STRONG>
+$  number  =  integer | real.
+$  integer  =  digit {digit} | digit {hexDigit} "H" .
+$  real  =  digit {digit} "." {digit} [ScaleFactor].
+$  ScaleFactor  =  ("E" | "D") ["+" | "-"] digit {digit}.
+$  hexDigit  =  digit | "A" | "B" | "C" | "D" | "E" | "F".
+$  digit  =  "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9".
+</STRONG></PRE>
+<P><STRONG>Examples:</STRONG>
+<PRE>
+  1987
+  100H = 256
+  12.3
+  4.567E8 = 456700000
+  0.57712566D-6 = 0.00000057712566
+</PRE>
+
+<P><LI><EM>Character constants</EM> are either denoted by a single character
+enclosed in quote marks or by the ordinal number of the character in
+hexadecimal
+notation followed by the letter X.
+<PRE><STRONG>
+$  CharConstant  = """ character """ | digit {hexDigit} "X".
+</STRONG></PRE>
+
+<LI><EM>Strings </EM>are sequences of characters enclosed in quote marks
+(").
+A string cannot contain a quote mark. The number of characters in a string
+is
+called the <EM>length</EM> of the string. Strings can be assigned to and
+compared
+with arrays of characters (see 9.1 and 8.2.4).
+<PRE><STRONG>
+$ string  =  """ {character} """ .
+</STRONG></PRE>
+<P><STRONG>Examples:</STRONG>
+<PRE>
+  "OBERON"   "Don't worry!"
+</PRE>
+
+<P><LI><EM>Operators and delimiters </EM>are the special characters,
+character
+pairs, or <EM>reserved words</EM> listed below. These reserved words consist
+exclusively of capital letters and cannot be used in the role of
+identifiers.
+<PRE>
+  +   :=   ARRAY    IS       TO
+  -   ^    BEGIN    LOOP     TYPE
+  *   =    CASE     MOD      UNTIL
+  /   #    CONST    MODULE   VAR
+  ~   &lt;    DIV      NIL      WHILE
+  &   &gt;    DO       OF       WITH
+  .   &lt;=   ELSE     OR
+  ,   &gt;=   ELSIF    POINTER
+  ;   ..   END      PROCEDURE
+  |   :    EXIT     RECORD
+  (   )    IF       REPEAT
+  [   ]    IMPORT   RETURN
+  {   }    IN       THEN
+</PRE>
+
+<P><LI><EM>Comments </EM>may be inserted between any two symbols in a
+program.
+They are arbitrary character sequences opened by the bracket (* and closed
+by *).
+Comments do not affect the meaning of a program.
+</OL>
+
+<H2>4. Declarations and scope rules</H2>
+Every identifier occurring in a program must be introduced by a declaration,
+unless it is a predefined identifier. Declarations also serve to specify
+certain
+permanent properties of an object, such as whether it is a constant, a type,
+a variable, or a procedure.
+<P>The identifier is then used to refer to the associated object.
+This is possible in those parts of a program only which are within the
+<EM>scope </EM>of the declaration. No identifier may denote more than one
+object
+within a given scope. The scope extends textually from the point of the
+declaration
+to the end of the block (procedure or module) to which the declaration
+belongs
+and hence to which the object is <EM>local</EM>. The scope rule has the
+following
+amendments:
+
+<OL>
+<LI>If a type T is defined as POINTER TO T1 (see 6.4), the identifier T1 can
+be
+declared textually following the declaration of T, but it must lie within
+the
+same scope.
+
+<P><LI>Field identifiers of a record declaration (see 6.3) are valid in
+field
+designators only. In its declaration, an identifier in the global scope may
+be
+followed by
+an export mark (*) to indicate that it be exported from its declaring
+module.
+In this case, the identifier may be used in other modules, if they import
+the declaring module. The identifier is then prefixed by the identifier
+designating its module (see Section 11). The prefix and the identifier are
+separated by a period and together are called a <EM>qualified
+identifier</EM>.
+</OL>
+
+<PRE><STRONG>
+$  qualident = [ident "."] ident.
+$  identdef = ident ["*"].
+</STRONG></PRE>
+<P>The following identifiers are predefined; their meaning is defined in
+the indicated sections:
+<PRE>
+  ABS       (10.2)   LEN       (10.2)
+  ASH       (10.2)   LONG      (10.2)
+  BOOLEAN   (6.1)    LONGINT   (6.1)
+  CAP       (10.2)   LONGREAL  (10.2)
+  CHAR      (6.1)    MAX       (10.2)
+  CHR       (10.2)   MIN       (10.2)
+  COPY      (10.2)   NEW       (6.4)
+  DEC       (10.2)   ODD       (10.2)
+  ENTIER    (10.2)   ORD       (10.2)
+  EXCL      (10.2)   REAL      (6.1)
+  FALSE     (6.1)    SET       (6.1)
+  HALT      (10.2)   SHORT     (10.2)
+  INC       (10.2)   SHORTINT  (6.1)
+  INCL      (10.2)   SIZE      (10.2)
+  INTEGER   (6.1)    TRUE      (6.1)
+</PRE>
+
+<H2>5. Constant declarations</H2>
+A constant declaration associates an identifier with a constant value.
+<PRE><STRONG>
+$  ConstantDeclaration  =  identdef "=" ConstExpression.
+$  ConstExpression  =  expression.
+</STRONG></PRE>
+<P>A constant expression can be evaluated by a mere textual scan without
+actually executing the program.
+Its operands are constants  (see Section 8).
+<P><STRONG>Examples of constant declarations are:</STRONG>
+<PRE>
+  N  =  100
+  limit  =  2*N -1
+  all  =  {0 .. WordSize-1}
+</PRE>
+
+<H2>6. Type declarations</H2>
+A data type determines the set of values which variables of that type may
+assume,
+and the operators that are applicable. A type declaration is used to
+associate
+an identifier with the type.  Such association may be with unstructured
+(basic)
+types, or it may be with structured types, in which case it defines the
+structure
+of variables of this type and, by implication, the operators that are
+applicable
+to the components. There are two different structures, namely arrays and
+records,
+with different component selectors.
+<PRE><STRONG>
+$  TypeDeclaration  =  identdef "=" type.
+$  type  =  qualident | ArrayType | RecordType | PointerType |
+ProcedureType.
+</STRONG></PRE>
+<P><STRONG>Examples:</STRONG>
+<PRE>
+  Table  =  ARRAY N OF REAL
+  Tree  =  POINTER TO Node
+  Node  =  RECORD key: INTEGER;
+      left, right: Tree
+    END
+
+  CenterNode  =  RECORD (Node)
+      name: ARRAY 32 OF CHAR;
+      subnode: Tree
+    END
+
+  Function*  =  PROCEDURE (x: INTEGER): INTEGER
+</PRE>
+
+<H3>6.1. Basic types</H3>
+The following basic types are denoted by predeclared identifiers. The
+associated
+operators are defined in 8.2, and the predeclared function procedures in
+10.2.
+The values of a given basic type are the following:
+<OL>
+<LI>BOOLEAN the truth values TRUE and FALSE.
+<LI>CHAR the characters of the extended ASCII set  (0X ... 0FFX).
+<LI>SHORTINT the integers between MIN(SHORTINT) and MAX(SHORTINT).
+<LI>INTEGER the integers between MIN(INTEGER) and MAX(INTEGER).
+<LI>LONGINT the integers between MIN(LONGINT) and MAX(LONGINT).
+<LI>REAL real numbers between MIN(REAL) and MAX(REAL).
+<LI>LONGREAL real numbers between MIN(LONGREAL) and MAX(LONGREAL).
+<LI>SET the sets of integers between 0 and MAX(SET).
+</OL>
+Types 3 to 5 are <EM>integer</EM> types, 6 and 7 are <EM>real</EM> types,
+and together they are called <EM>numeric</EM> types. They form a hierarchy;
+the larger type <EM>includes</EM> (the values of) the smaller type:
+<P>
+&nbsp; &nbsp; LONGREAL  &gt;=  REAL  &gt;=  LONGINT  &gt;=  INTEGER  &gt;=  SHORTINT
+<P>Note: &gt;= stands here for "is superset of or equal to".
+
+<H3>6.2. Array types</H3>
+An array is a structure consisting of a fixed number of elements which are
+all of the same type, called the<EM> element type.</EM> The number of
+elements
+of an array is called its <EM>length. </EM>The elements of the array are
+designated
+by indices, which are integers between 0 and the length minus 1.
+<PRE><STRONG>
+$  ArrayType  =  ARRAY length {"," length} OF type.
+$  length  =  ConstExpression.
+</STRONG></PRE>
+<P>A declaration of the form: ARRAY N0, N1, ... , Nk OF T
+is understood as an abbreviation of the declaration
+<P><PRE>ARRAY N0 OF
+  ARRAY N1 OF
+  ...
+  ARRAY Nk OF T</PRE>
+<P><STRONG>Examples of array types:</STRONG>
+<PRE>
+ARRAY N OF INTEGER
+ARRAY 10, 20 OF REAL
+</PRE>
+
+<H3>6.3. Record types</H3>
+A record type is a structure consisting of a fixed number of elements of
+possibly different types. The record type declaration specifies for each
+element,
+called a <EM>field, </EM>its type and an identifier which denotes the field.
+The scope of these field identifiers is the record definition itself,
+but they are also visible within field designators (see 8.1) referring
+to elements of record variables.
+<PRE><STRONG>
+$  RecordType  =  RECORD ["(" BaseType ")"] FieldListSequence END.
+$  BaseType  =  qualident.
+$  FieldListSequence  =  FieldList {";" FieldList}.
+$  FieldList  =  [IdentList ":" type].
+$  IdentList  =  identdef {"," identdef}.
+</STRONG></PRE>
+<P>If a record type is exported, field identifiers that are to be visible
+outside
+the declaring module must be marked. They are called <EM>public fields</EM>;
+unmarked fields are called <EM>private fields.</EM>
+<P>Record types are extensible, i.e. a record type can be defined as an
+extension
+of another record type. In the examples above, CenterNode <EM>(directly)
+extends</EM> Node, which is the <EM>(direct) base type</EM> of CenterNode.
+More specifically, CenterNode extends Node with the fields <EM>name</EM>
+and <EM>subnode.</EM>
+<P><EM>Definition</EM>: A type T0 <EM>extends</EM> a type T, if it equals T,
+or if it directly extends an extension of T. Conversely, a type T is
+a <EM>base type</EM> of T0, if it equals T0, or if it is the direct base
+type of a base type of T0.
+<P><STRONG>Examples of record types:</STRONG>
+<PRE>
+  RECORD day, month, year: INTEGER
+  END
+
+  RECORD
+    name, firstname: ARRAY 32 OF CHAR;
+    age: INTEGER;
+    salary: REAL
+  END
+</PRE>
+
+<H3>6.4. Pointer types</H3>
+Variables of a pointer type P assume as values pointers to variables of some
+type T.
+The pointer type P is said to be <EM>bound </EM>to T, and T is the
+<EM>pointer base
+type</EM> of P. T must be a record or array type. Pointer types inherit
+the extension relation of their base types. If a type T0 is an extension of
+T
+and P0 is a pointer type bound to T0, then P0 is also an extension of P.
+<PRE><STRONG>
+$  PointerType  =  POINTER TO type.
+</STRONG></PRE>
+If p is a variable of type P = POINTER TO T, then a call of the predefined
+procedure NEW(p) has the following effect (see 10.2): A variable of type T
+is allocated in free storage, and a pointer to it is assigned to p. This
+pointer p
+is of type P; the <EM>referenced</EM> variable p^ is of type T. Failure
+of allocation results in p obtaining the value NIL. Any pointer variable may
+be
+assigned the value NIL, which points to no variable at all.
+
+<H3>6.5. Procedure types</H3>
+Variables of a procedure type T have a procedure (or NIL) as value. If a
+procedure P
+is assigned to a procedure variable of type T, the (types of the) formal
+parameters
+of P must be the same as those indicated in the formal parameters of T. The
+same
+holds for the result type in the case of a function procedure (see 10.1).
+P must not be declared local to another procedure, and neither can it be
+a predefined procedure.
+<PRE><STRONG>
+$  ProcedureType = PROCEDURE [FormalParameters].
+</STRONG></PRE>
+
+<H2>7. Variable declarations</H2>
+Variable declarations serve to introduce variables and associate them with
+identifiers that must be unique within the given scope. They also serve to
+associate
+fixed data types with the variables.
+<PRE><STRONG>
+$  VariableDeclaration  =  IdentList ":" type.
+</STRONG></PRE>
+Variables whose identifiers appear in the same list are all of the same
+type.
+<P><STRONG>Examples of variable declarations</STRONG> (refer to examples in
+Section 6):
+<PRE>
+  i, j, k:  INTEGER
+  x, y:     REAL
+  p, q:     BOOLEAN
+  s:        SET
+  f:        Function
+  a:        ARRAY 100 OF REAL
+  w:        ARRAY 16 OF
+              RECORD ch: CHAR;
+                count: INTEGER
+              END
+  t:        Tree
+</PRE>
+
+Variables of a pointer type <EM>T0</EM> and VAR-parameters of a record type <EM>T0</EM>
+may assume values whose type <EM>T1</EM> is an extension of their declared type <EM>T0</EM>.
+
+<H2>8. Expressions</H2>
+Expressions are constructs denoting rules of computation whereby constants
+and
+current values of variables are combined to derive other values by the
+application
+of operators and function procedures. Expressions consist of operands and
+operators.
+Parentheses may be used to express specific associations of operators
+and operands.
+
+<H3>8.1. Operands</H3>
+With the exception of sets and literal constants, i.e. numbers and character
+strings,
+operands are denoted by<EM> designators. </EM>A designator consists of an
+identifier
+referring to the constant, variable, or procedure to be designated. This
+identifier
+may possibly be qualified by module identifiers (see Section 4 and 11), and it
+may
+be followed by selectors, if the designated object is an element of a struct
+ure.
+<P>If A designates an array, then A[E] denotes that element of A whose index
+is the current value of the expression E. The type of E must be an integer
+type.
+A designator of the form  A[E1, E2, ... , En] stands  for A[E1][E2] ...
+[En].
+If p designates a pointer variable, p^ denotes the variable which is
+referenced
+by p. If r designates a record, then r.f denotes the field f of r. If p
+designates
+a pointer, p.f denotes the field f of the record p^, i.e. the dot implies
+dereferencing and p.f stands for p^.f, and p[E] denotes the element of p^
+with
+index E.
+<P>The <EM>typeguard v(T0)</EM> asserts that <EM>v</EM> is of type <EM>T0</EM>, i.e. it aborts
+program execution, if <EM>v</EM> is not of type <EM>T0</EM>. The guard is applicable, if
+<OL>
+<LI>T0 is an extension of the declared type T of v, and if
+<LI>v is a formal variable parameter of record type or v is a pointer.
+</OL>
+<PRE><STRONG>
+$  designator  =  qualident {"." ident | "[" ExpList "]" |
+                  "(" qualident ")" | "^" }.
+$  ExpList  =  expression {"," expression}.
+</STRONG></PRE>
+If the designated object is a variable, then the designator refers to the
+variable's
+current value. If the object is a procedure, a designator without parameter
+list
+refers to that procedure. If it is followed by a (possibly empty) parameter
+list,
+the designator implies an activation of the procedure and stands for the
+value
+resulting from its execution. The (types of the) actual parameters must
+correspond
+to the formal parameters as specified in the procedure's declaration (see
+Section 10).
+<P><STRONG>Examples of designators</STRONG> (see examples in Section 7):
+<PRE>
+  i                      (INTEGER)
+  a[i]                   (REAL)
+  w[3].ch                (CHAR)
+  t.key                  (INTEGER)
+  t.left.right           (Tree)
+  t(CenterNode).subnode  (Tree)
+</PRE>
+
+<H3>8.2. Operators</H3>
+The syntax of expressions distinguishes between four classes of operators
+with
+different precedences (binding strengths). The operator ~ has the highest
+precedence, followed by multiplication operators, addition operators, and
+relations.
+Operators of the same precedence associate from left to right. For example,
+x-y-z stands for (x-y)-z.
+<PRE><STRONG>
+$  expression  =  SimpleExpression [relation SimpleExpression].
+$  relation  =  "=" | "#" | "&lt;" | "&lt;=" | "&gt;" | "&gt;=" | IN | IS.
+$  SimpleExpression  =  ["+"|"-"] term {AddOperator term}.
+$  AddOperator  =  "+" | "-" | OR .
+$  term  =  factor {MulOperator factor}.
+$  MulOperator  =  "*" | "/" | DIV | MOD | "&" .
+$  factor  =  number | CharConstant | string | NIL | set |
+$    designator [ActualParameters] | "(" expression ")" | "~" factor.
+$  set  =  "{" [element {"," element}] "}".
+$  element  =  expression [".." expression].
+$  ActualParameters  =  "(" [ExpList] ")" .
+</STRONG></PRE>
+The available operators are listed in the following tables.  In some
+instances,
+several different operations are designated by the same operator symbol.
+In these cases, the actual operation is identified by the type of the
+operands.
+
+<P>8.2.1. <EM>Logical operators</EM>
+<PRE>
+symbol    result
+ OR       logical disjunction
+  &       logical conjunction
+  ~       negation
+</PRE>
+These operators apply to BOOLEAN operands and yield a BOOLEAN result.
+<PRE>
+p OR q  stands for   "if p then TRUE, else q"
+p & q   stands for   "if p then q, else FALSE"
+~ p     stands for   "not p"
+</PRE>
+<P>8.2.2. <EM>Arithmetic operators</EM>
+<PRE>
+symbol  result
+  +     sum
+  -     difference
+  *     product
+  /     quotient
+ DIV    integer quotient
+ MOD    modulus
+</PRE>
+The operators +, -, *, and / apply to operands of numeric types.
+The type of the result is that operand's type which includes the other
+operand's type, except for division (/), where the result is the real type which includes
+both operand types. When used as operators with a single operand, - denotes sign
+inversion and + denotes the identity operation.
+<P>The operators DIV and MOD apply to integer operands only. They are
+related by the following formulas defined for any dividend x and positive divisors
+y:
+<PRE>
+    x  =  (x DIV y) * y  +  (x MOD y)
+    0  &lt;= (x MOD y) &lt; y</UL>
+</PRE>
+
+<P>8.2.3. <EM>Set operators</EM>
+<PRE>
+symbol  result
+   +  union
+   -  difference
+   *  intersection
+   /  symmetric set difference
+</PRE>
+The monadic minus sign denotes the complement of x, i.e. -x denotes the set
+of
+integers between 0 and MAX(SET)
+which are not elements of x.
+<PRE>
+x - y  =  x * (-y)
+x / y  =  (x-y) + (y-x)
+</PRE>
+
+<P>8.2.4. <EM>Relations</EM>
+<PRE>
+symbol  relation
+  =      equal
+  #      unequal
+  &lt;      less
+  &lt;=     less or equal
+  &gt;      greater
+  &gt;=     greater or equal
+  IN     set membership
+  IS     type test
+</PRE>
+Relations are Boolean. The ordering relations &lt;, &lt;=, &gt;, and &gt;=
+apply
+to the numeric types, CHAR, and character arrays (strings). The relations =
+and #
+also apply to the type BOOLEAN and to set, pointer, and procedure types.
+<EM>x IN s</EM>  stands for "x is an element of s". x must be of an integer
+type,
+and s of type SET. <EM>v IS T</EM> stands for "v is of type T" and is called
+a <EM>type test.</EM> It is applicable, if
+<OL>
+<LI>T is an extension of the declared type T0 of v, and if
+<LI>v is a variable parameter of record type or v is a pointer.
+</OL>
+Assuming, for instance, that T is an extension of T0 and that v is a
+designator declared of type T0, then the test "v IS T" determines whether
+the actually designated variable is (not only a T0, but also) a T. The value
+of NIL IS T is undefined.
+<P><STRONG>Examples of expression</STRONG>s (refer to examples in Section 7):
+<PRE>
+  1987               (INTEGER)
+  i DIV 3            (INTEGER)
+  ~p OR q            (BOOLEAN)
+  (i+j) * (i-j)      (INTEGER)
+  s - {8, 9, 13}     (SET)
+  i + x              (REAL)
+  a[i+j] * a[i-j]    (REAL)
+  (0&lt;=i) & (i&lt;100)   (BOOLEAN)
+  t.key = 0          (BOOLEAN)
+  k IN {i .. j-1}    (BOOLEAN)
+  t IS CenterNode    (BOOLEAN)
+</PRE>
+
+<H2>9. Statements</H2>
+Statements denote actions. There are elementary and structured statements.
+Elementary statements are not composed of any parts that are themselves
+statements.
+They are the assignment, the procedure call, and the return and exit
+statements.
+Structured statements are composed of parts that are themselves statements.
+They are used to express sequencing and conditional, selective, and
+repetitive
+execution. A statement may also be empty, in which case it denotes no
+action.
+The empty statement is included in order to relax punctuation rules in
+statement
+sequences.
+<PRE><STRONG>
+$  statement  =  [assignment | ProcedureCall |
+$    IfStatement | CaseStatement | WhileStatement | RepeatStatement |
+$    LoopStatement | WithStatement | EXIT | RETURN [expression] ].
+</STRONG></PRE>
+
+<H3>9.1. Assignments</H3>
+The assignment serves to replace the current value of a variable by a new
+value specified by an expression.
+The assignment operator is written as ":=" and pronounced as
+<EM>becomes.</EM>
+<PRE><STRONG>
+$  assignment  =  designator ":=" expression.
+</STRONG></PRE>
+The type of the expression must be included by the type of the variable, or
+it must extend the type of the variable. The following exceptions hold:
+<OL>
+<LI>The constant NIL can be assigned to variables of any pointer or
+procedure type.
+<LI>Strings can be assigned to any variable whose type is an array of
+characters,
+provided the length of the string is less than that of the array. If a
+string s
+of length n is assigned to an array a , the result is  a[i] = si  for
+i = 0 ... n-1, and a[n] = 0X.
+</OL>
+<P><STRONG>Examples of assignments</STRONG> (see examples in Section 7):
+<PRE>
+  i := 0
+  p := i = j
+  x := i + 1
+  k := log2(i+j)
+  F := log2
+  s := {2, 3, 5, 7, 11, 13}
+  a[i] := (x+y) * (x-y)
+  t.key := i
+  w[i+1].ch := "A"
+</PRE>
+
+<H3>9.2. Procedure calls</H3>
+A procedure call serves to activate a procedure. The procedure call may
+contain a list of actual parameters which are substituted in place of their
+corresponding formal parameters defined in the procedure declaration (see
+Section 10).
+The correspondence is established by the positions of the parameters
+in the lists of actual and formal parameters respectively. There exist
+two kinds of parameters: <EM>variable </EM>and <EM>value parameters.</EM>
+<P>In the case of variable parameters, the actual parameter must be
+a designator denoting a variable. If it designates an element of
+a structured variable, the selector is evaluated when the formal/actual
+parameter substitution takes place, i.e. before the execution of the
+procedure.
+If the parameter is a value parameter, the corresponding actual parameter
+must be an expression. This expression is evaluated prior to the procedure
+activation, and the resulting value is assigned to the formal parameter
+which now constitutes a local variable (see also 10.1.).
+<PRE><STRONG>
+$  ProcedureCall  =  designator [ActualParameters].
+</STRONG></PRE>
+<P><STRONG>Examples of procedure calls:</STRONG>
+<PRE>
+  ReadInt(i) (see Section 10)
+  WriteInt(j*2+1, 6)
+  INC(w[k].count)
+</PRE>
+
+<H3>9.3. Statement sequences</H3>
+Statement sequences denote the sequence of actions specified by the
+component
+statements which are separated
+by semicolons.
+<PRE><STRONG>
+$  StatementSequence  =  statement {";" statement}.
+</STRONG></PRE>
+
+<H3>9.4. If statements</H3>
+<PRE><STRONG>
+$  IfStatement  =  IF expression THEN StatementSequence
+$    {ELSIF expression THEN StatementSequence}
+$    [ELSE StatementSequence]
+$  END.
+</STRONG></PRE>
+<P>If statements specify the conditional execution of guarded statements.
+The Boolean expression preceding a statement is called its <EM>guard.</EM>
+The guards are evaluated in sequence of occurrence, until one evaluates to
+TRUE,
+whereafter its associated statement sequence is executed. If no guard is
+satisfied,
+the statement sequence following the symbol ELSE is executed, if there is
+one.
+<P><STRONG>Example:</STRONG>
+<PRE>
+  IF (ch &gt;= "A") & (ch &lt;= "Z") THEN ReadIdentifier
+    ELSIF (ch &gt;= "0") & (ch &lt;= "9") THEN ReadNumber
+    ELSIF ch = 22X THEN ReadString
+  END
+</PRE>
+
+<H3>9.5. Case statements</H3>
+Case statements specify the selection and execution of a statement sequence
+according to the value of an expression. First the case expression is
+evaluated,
+then the statement sequence is executed whose case label list contains the
+obtained
+value. The case expression and all labels must be of the same type, which
+must be
+an integer type or CHAR. Case labels are constants, and no value must occur
+more than once. If the value of the expression does not occur as a label of
+any case, the statement sequence following the symbol ELSE is selected,
+if there is one. Otherwise it is considered as an error.
+<PRE><STRONG>
+$  CaseStatement  =  CASE expression OF case {"|" case}
+$                    [ELSE StatementSequence] END.
+$  case  =  [CaseLabelList ":" StatementSequence].
+$  CaseLabelList  =  CaseLabels {"," CaseLabels}.
+$  CaseLabels  =  ConstExpression [".." ConstExpression].
+</STRONG></PRE>
+<P><STRONG>Example:</STRONG>
+
+<PRE>
+  CASE ch OF
+       "A" .. "Z": ReadIdentifier
+    | "0" .. "9": ReadNumber
+    | 22X : ReadString
+  ELSE SpecialCharacter
+  END
+</PRE>
+<H3>9.6. While statements</H3>
+While statements specify repetition. If the Boolean expression (guard)
+yields TRUE,
+the statement sequence is executed. The expression evaluation and the
+statement
+execution are repeated as long as the Boolean expression yields TRUE.
+<PRE><STRONG>
+$  WhileStatement  =  WHILE expression DO StatementSequence END.
+</STRONG></PRE>
+<P><STRONG>Examples:</STRONG>
+<PRE>
+  WHILE j &gt; 0 DO
+    j := j DIV 2; i := i+1
+  END
+
+  WHILE (t # NIL) & (t.key # i) DO
+    t := t.left
+  END
+</PRE>
+
+<H3>9.7. Repeat Statements</H3>
+A repeat statement specifies the repeated execution of a statement sequence
+until
+a condition is satisfied.
+The statement sequence is executed at least once.
+<PRE><STRONG>
+$  RepeatStatement  =  REPEAT StatementSequence UNTIL expression.
+</STRONG></PRE>
+<H3>9.8. Loop statements</H3>
+A loop statement specifies the repeated execution of a statement sequence.
+It is terminated by the execution of any exit statement within that sequence
+(see 9.9).
+<PRE><STRONG>
+$  LoopStatement  =  LOOP StatementSequence END.
+</STRONG></PRE>
+<P><STRONG>Example:</STRONG>
+<PRE>
+  LOOP
+    IF t1 = NIL THEN EXIT END ;
+    IF k &lt; t1.key THEN t2 := t1.left; p := TRUE
+    ELSIF k &gt; t1.key THEN t2 := t1.right; p := FALSE
+    ELSE EXIT
+    END ;
+    t1 := t2
+  END
+</PRE>
+Although while and repeat statements can be expressed by loop statements
+containing
+a single exit statement, the use of while and repeat statements is
+recommended
+in the most frequently occurring situations, where termination depends on a
+single
+condition determined either at the beginning or the end of the repeated
+statement
+sequence. The loop statement is useful to express cases with several
+termination
+conditions and points.
+
+<H3>9.9. Return and exit statements</H3>
+A return statement consists of the symbol RETURN, possibly followed by an
+expression.
+It indicates the termination of a procedure, and the expression  specifies
+the result
+of a function procedure. Its type must be identical to the result type
+specified in
+the procedure heading (see Section 10).
+<P>Function procedures require the presence of a return statement indicating
+the result
+value. There may be several, although only one will be executed. In proper
+procedures,
+a return statement is implied by the end of the procedure body. An explicit
+return
+statement therefore appears as an additional (probably exceptional)
+termination point.
+<P>An exit statement consists of the symbol EXIT. It specifies termination
+of
+the enclosing loop statement and continuation with the statement following
+that loop
+statement. Exit statements are contextually, although not syntactically
+bound
+to the loop statement which contains them.
+
+<H3>9.10. With statements</H3>
+If a pointer variable or a variable parameter with record structure is of a
+type T0,
+it may be designated in the heading of a with clause together with a type T
+that
+     is an extension of T0. Then the variable is guarded within the with
+statement
+as if it had been declared of type T. The with statement assumes a role
+similar
+to the type guard, extending the guard over an entire statement sequence.
+It may be regarded as a <EM>regional type guard.</EM>
+<PRE><STRONG>
+$  WithStatement  =  WITH qualident ":" qualident DO StatementSequence END .
+</STRONG></PRE>
+<P><STRONG>Example:</STRONG>
+<PRE>
+  WITH t: CenterNode DO name := t.name; L := t.subnode END
+</PRE>
+
+<H2>10. Procedure declarations</H2>
+Procedure declarations consist of a <EM>procedure heading </EM>and a
+<EM>procedure
+body. </EM>The heading specifies the procedure identifier, the <EM>formal
+parameters,
+</EM> and the result type (if any). The body contains declarations and
+statements.
+The procedure identifier is repeated at the end of the procedure
+declaration.
+<P>There are two kinds of procedures, namely <EM>proper procedures </EM>and
+<EM>function procedures. </EM>The latter are activated by a function
+designator
+as a constituent of an expression, and yield a result that is an operand in
+the expression. Proper procedures are activated by a procedure call. The
+function procedure is distinguished in the declaration by indication of the
+type
+of its result following the parameter list. Its body must contain a RETURN
+statement which defines the result of the function procedure.
+<P>All constants, variables, types, and procedures declared within a
+procedure
+body are <EM>local </EM>to the procedure. The values of local variables are
+undefined upon entry to the procedure. Since procedures may be declared as
+local
+objects too, procedure declarations may be nested.
+<P>In addition to its formal parameters and locally declared objects, the
+objects
+declared in the environment of the procedure are also visible in the
+procedure
+(with the exception of those objects that have the same name as an object
+declared
+locally).
+<P>The use of the procedure identifier in a call within its declaration
+implies
+recursive activation of the procedure.
+<PRE><STRONG>
+$  ProcedureDeclaration  =  ProcedureHeading ";" ProcedureBody ident.
+$  ProcedureHeading  =  PROCEDURE ["*"] identdef [FormalParameters].
+$  ProcedureBody  =  DeclarationSequence [BEGIN StatementSequence] END.
+$  ForwardDeclaration  =  PROCEDURE "^" identdef [FormalParameters].
+$  DeclarationSequence  =  {CONST {ConstantDeclaration ";"} |
+$    TYPE {TypeDeclaration ";"} | VAR {VariableDeclaration ";"}}
+$    {ProcedureDeclaration ";" | ForwardDeclaration ";"}.
+</STRONG></PRE>
+A <EM>forward declaration</EM> serves to allow forward references to a
+procedure
+that appears later in the text in full. The actual declaration - which
+specifies
+the body - must indicate the same parameters and result type (if any) as
+the forward declaration, and it must be within the same scope.
+<P>An asterisk following the symbol PROCEDURE is a hint to the compiler and
+specifies that the procedure is to be usable as parameter and assignable
+to variables. (Depending on the implementation, the hint may be optional or required.).
+
+<H3>10.1. Formal parameters</H3>
+Formal parameters are identifiers which denote actual parameters specified
+in
+the procedure call. The correspondence between formal and actual parameters
+is established when the procedure is called. There are two kinds of
+parameters,
+namely <EM>value </EM>and <EM>variable parameters. </EM>The kind is
+indicated
+in the formal parameter list. Value parameters stand for local variables
+to which the result of the evaluation of the corresponding actual parameter
+is assigned as initial value. Variable parameters correspond to actual
+parameters
+that are variables, and they stand for these variables. Variable parameters
+are
+indicated by the symbol VAR, value parameters by the absence of the symbol
+VAR.
+A function procedure without parameters must have an empty parameter list.
+It must be called by a function designator whose actual parameter list is
+empty
+too.
+<P>Formal parameters are local to the procedure, i.e. their scope is
+the program text which constitutes the procedure declaration.
+<PRE><STRONG>
+$  FormalParameters  =  "(" [FPSection {";" FPSection}] ")" [":" qualident].
+$  FPSection  =  [VAR] ident  {"," ident} ":" FormalType.
+$  FormalType  =  {ARRAY OF} qualident | ProcedureType.
+</STRONG></PRE>
+The type of each formal parameter is specified in the parameter list.
+For variable parameters, it must be identical to the corresponding actual
+parameter's type, except in the case of a record, where it must be a base
+type of the corresponding actual parameter's type. For value parameters,
+the rule of assignment holds (see 9.1). If the formal parameter's type is
+specified as
+ARRAY OF T
+the parameter is said to be an <EM>open array parameter,</EM> and the
+corresponding
+actual parameter may be any array with element type <EM>T</EM>.
+<P>If a formal parameter specifies a procedure type, then the corresponding
+actual
+parameter must be either a procedure declared globally or a variable (or
+parameter)
+of that procedure type. It cannot be a predefined procedure. The result type
+of a procedure can be neither a record nor an array.
+<P><STRONG>Examples of procedure declarations:</STRONG>
+<PRE>
+PROCEDURE ReadInt(VAR x: INTEGER);
+   VAR i : INTEGER; ch: CHAR;
+BEGIN i := 0; Read(ch);
+   WHILE ("0" &lt;= ch) & (ch &lt;= "9") DO
+       i := 10*i + (ORD(ch)-ORD("0")); Read(ch)
+   END ;
+   x := i
+END ReadInt
+
+PROCEDURE WriteInt(x: INTEGER);  (* 0 &lt;= x &lt; 10.0E5 *)
+   VAR i: INTEGER;
+       buf: ARRAY 5 OF INTEGER;
+BEGIN i := 0;
+   REPEAT buf[i] := x MOD 10;  x := x DIV 10;  INC(i) UNTIL x = 0;
+   REPEAT DEC(i); Write(CHR(buf[i] + ORD("0"))) UNTIL i = 0
+END WriteInt
+
+PROCEDURE log2(x: INTEGER): INTEGER;
+   VAR y: INTEGER;  (*assume x &gt; 0*)
+BEGIN y := 0;
+   WHILE x &gt; 1 DO x := x DIV 2; INC(y) END ;
+   RETURN y
+END log2
+</PRE>
+
+<H3>10.2. Predefined procedures</H3>
+The following table lists the predefined procedures.  Some are
+<EM>generic</EM>
+procedures,
+i.e. they apply to several types of operands.  v stands for a variable, x
+and n
+for expressions,
+and T for a type.
+<H4>Function procedures</H4>
+<TABLE BORDER CELLPADDING=3>
+<TR><TD><B>Name</B></TD><TD><B>Argument type</B></TD><TD><B>Result
+type</B></TD>
+<TD><B>Function</B></TD></TR>
+<TR><TD>ABS(x)</TD><TD>numeric type</TD><TD>type of x</TD><TD>absolute
+value</TD></TR>
+<TR><TD>ODD(x)</TD><TD>integer type</TD><TD>BOOLEAN</TD><TD>x MOD 2 =
+1</TD></TR>
+<TR><TD>CAP(x)</TD><TD>CHAR</TD><TD>CHAR</TD><TD>corresponding capital
+letter</TD></TR>
+<TR><TD>ASH(x, n)</TD><TD>x, n: integer type</TD><TD>LONGINT</TD><TD>x * 2n,
+arithmetic
+shift</TD></TR>
+<TR><TD>LEN(v, n)</TD><TD>v: array<BR>n: integer
+type</TD><TD>LONGINT</TD><TD>length
+of v in dimension n</TD></TR>
+<TR><TD>LEN(v)</TD><TD>array type</TD><TD>LONGINT</TD><TD>LEN(v, 0)</TD></TR>
+<TR><TD>MAX(T)</TD><TD>T = basic type<BR>T = SET</TD><TD>T<BR>INTEGER</TD>
+<TD>maximum value of type T<BR>maximum element of sets</TD></TR>
+<TR><TD>MIN(T)</TD><TD>T = basic type<BR>T = SET</TD><TD>T<BR>INTEGER</TD>
+<TD>minimum value of type T<BR>0</TD></TR>
+<TR><TD>SIZE(T)</TD><TD>T = any type</TD><TD>integer type</TD><TD>no. of
+bytes
+required by T</TD></TR></TABLE>
+<H4>Type conversion procedures</H4>
+<TABLE BORDER CELLPADDING=3><TR><TD><B>Name</B></TD><TD><B>Argument
+type</B></TD>
+<TD><B>Result type</B></TD>
+<TD><B>Function</B></TD></TR>
+<TR><TD>ORD(x)</TD><TD>CHAR</TD><TD>INTEGER</TD><TD>ordinal number of
+x</TD></TR>
+<TR><TD>CHR(x)</TD><TD>integer type</TD><TD>CHAR</TD><TD>character with
+ordinal
+number x</TD></TR>
+<TR><TD>SHORT(x)</TD><TD>LONGINT<BR>INTEGER<BR>LONGREAL</TD>
+<TD>INTEGER<BR>SHORTINT<BR>REAL</TD><TD>identity (truncation
+possible)</TD></TR>
+<TR><TD>LONG(x)</TD><TD>SHORTINT<BR>INTEGER<BR>REAL</TD>
+<TD>INTEGER<BR>LONGINT<BR>LONGREAL</TD><TD>identity</TD></TR>
+<TR><TD>ENTIER(x)</TD><TD>real type</TD><TD>LONGINT</TD><TD>largest integer
+not greater than x.<BR>Note that  ENTIER(i/j)  =  i DIV j</TD></TR></TABLE>
+
+<H4>Proper procedures</H4>
+<TABLE BORDER CELLPADDING=3><TR><TD><B>Name</B></TD><TD><B>Argument
+types</B></TD>
+<TD><B>Function</B></TD></TR>
+<TR><TD>INC(v)</TD><TD>integer type</TD><TD>v := v+1</TD></TR>
+<TR><TD>INC(v, x)</TD><TD>integer type</TD><TD>v := v+x</TD></TR>
+<TR><TD>DEC(v)</TD><TD>integer type</TD><TD>v := v-1</TD></TR>
+<TR><TD>DEC(v, x)</TD><TD>integer type</TD><TD>v := v-x</TD></TR>
+<TR><TD>INCL(v, x)</TD><TD>v: SET<BR>x: integer type</TD><TD>v := v +
+{x}</TD></TR>
+<TR><TD>EXCL(v, x)</TD><TD>v: SET<BR>x: integer type</TD><TD>v := v -
+{x}</TD></TR>
+<TR><TD>COPY(x, v)</TD><TD>x: character array, string<BR>v: character
+array</TD>
+<TD>v := x</TD></TR>
+<TR><TD>NEW(v)</TD><TD>pointer type</TD><TD>allocate v^</TD></TR>
+<TR><TD>HALT(x)</TD><TD>integer constant</TD><TD>terminate
+program execution</TD></TR></TABLE>
+<P>In HALT(x), x is a parameter whose
+interpretation is left to the underlying system implementation.
+
+<H2>11. Modules</H2>
+A module is a collection of declarations of constants, types, variables, and
+procedures,
+and a sequence of statements for the purpose of assigning initial values
+to the variables. A module typically constitutes a text that is compilable
+as a unit.
+<PRE><STRONG>
+$ module  =  MODULE ident ";"  [ImportList] DeclarationSequence
+$     [BEGIN StatementSequence] END ident "." .
+$ ImportList  =  IMPORT import {"," import} ";" .
+$ import  =  ident [":=" ident].
+</STRONG></PRE>
+The import list specifies the modules of which the module is a client. If an
+identifier x is exported from a module M, and if M is listed in a module's
+import
+list, then x is referred to as M.x. If the form "M := M1" is used in the
+import list,
+that object declared within M1 is referenced as  M.x .
+<P>Identifiers that are to be visible in client modules, i.e. outside the
+declaring
+module, must be marked by an export mark in their declaration.
+<P>The statement sequence following the symbol BEGIN is executed when the
+module
+is added to a system (loaded). Individual (parameterless) procedures can
+thereafter
+be activated from the system, and these procedures serve as
+<EM>commands</EM>.
+<P><STRONG>Example:</STRONG>
+<PRE>
+MODULE Out;
+  (*exported procedures:  Write, WriteInt, WriteLn*)
+  IMPORT Texts, Oberon;
+  VAR W: Texts.Writer;
+  PROCEDURE Write*(ch: CHAR);
+  BEGIN Texts.Write(W, ch)
+  END ;
+  PROCEDURE WriteInt*(x, n: LONGINT);
+    VAR i: INTEGER; a: ARRAY 16 OF CHAR;
+  BEGIN i := 0;
+    IF x &lt; 0 THEN Texts.Write(W, "-"); x := -x END ;
+    REPEAT a[i] := CHR(x MOD 10 + ORD("0")); x := x DIV 10; INC(i) UNTIL x =
+0;
+    REPEAT Texts.Write(W, " "); DEC(n) UNTIL n &lt;= i;
+    REPEAT DEC(i); Texts.Write(W, a[i]) UNTIL i = 0
+  END WriteInt;
+  PROCEDURE WriteLn*;
+  BEGIN Texts.WriteLn(W); Texts.Append(Oberon.Log, W.buf)
+  END WriteLn;
+BEGIN Texts.OpenWriter(W)
+END Out.
+</PRE>
+
+<H2>12. The Module SYSTEM</H2>
+The module SYSTEM contains definitions that are necessary to program
+<EM>low-level</EM>
+operations referring directly to resources particular to a given computer
+and/or
+implementation. These include for example facilities for accessing devices
+that
+are controlled by the computer, and facilities to break the data type
+compatibility
+rules otherwise imposed by the language definition. It is recommended to
+restrict
+their use to specific <EM>low-level</EM> modules. Such modules are
+inherently
+non-portable, but easily recognized due to the identifier SYSTEM appearing
+in their
+import lists. The subsequent definitions are applicable to most modern
+computers;
+however, individual implementations may include in this module definitions
+that
+are particular to the specific, underlying computer.
+<P>Module SYSTEM exports the data type BYTE. No representation of values is
+specified. Instead, certain compatibility rules with other types are given:
+<OL>
+<LI>The type BYTE is compatible with CHAR and SHORTINT.
+<LI>If a formal parameter is of type ARRAY OF BYTE, then the corresponding
+actual parameter may be
+of any type.
+</OL>
+The procedures contained in module SYSTEM are listed in the following
+tables.
+They correspond to single instructions compiled as in-line code. For
+details,
+the reader is referred to the processor manual. v stands for a variable,
+x, y, a, and n for expressions, and T for a type.
+<H4>Function procedures</H4>
+<TABLE BORDER CELLPADDING=3><TR><TD><B>Name</B></TD><TD><B>Argument
+types</B></TD>
+<TD><B>Result type</B></TD>
+<TD><B>Function</B></TD></TR>
+<TR><TD>ADR(v)</TD><TD>any</TD><TD>LONGINT</TD><TD>address of variable
+v</TD></TR>
+<TR><TD>BIT(a, n)</TD><TD>a: LONGINT<BR>n: integer type</TD><TD>BOOLEAN</TD>
+<TD>bit n of Mem[a]</TD></TR>
+<TR><TD>CC(n)</TD><TD>integer constant</TD><TD>BOOLEAN</TD><TD>Condition n
+(0 &lt;= n &lt; 16)</TD></TR>
+<TR><TD>LSH(x, n)</TD><TD>x: integer type or SET<BR>n: integer type</TD>
+<TD>type of x</TD><TD>logical shift</TD></TR>
+<TR><TD>ROT(x, n)</TD><TD>x: integer type or SET<BR>n: integer type</TD>
+<TD>type of x</TD><TD>rotation</TD></TR>
+<TR><TD>VAL(T, x)</TD><TD>T, x: any type</TD><TD>T</TD><TD>x interpreted
+as of type T</TD></TR></TABLE>
+<H4>Proper procedures</H4>
+<TABLE BORDER CELLPADDING=3><TR><TD><B>Name</B></TD><TD><B>Argument
+types</B></TD>
+<TD><B>Function</B></TD></TR>
+<TR><TD>GET(a, v)</TD><TD>a: LONGINT<BR>v: any basic type</TD><TD>v :=
+Mem[a]</TD></TR>
+<TR><TD>PUT(a, x)</TD><TD>a: LONGINT<BR>x: any basic type</TD><TD>Mem[a] :=
+x</TD></TR>
+<TR><TD>MOVE(s, d, n)</TD><TD>s, d: LONGINT<BR>n: integer
+type</TD><TD>Mem[d]
+... Mem[d+n-1]<BR>
+:= Mem[s] ... Mem[s+n-1]</TD></TR>
+<TR><TD>NEW(v, n)</TD><TD>v: any pointer type<BR>n: integer type</TD>
+<TD>allocate storage block of n bytes<BR>assign its address to v</TD></TR></TABLE>
+<P>
+<B>HTML Translation: A. Fischer and J. Gutknecht/ October 1999</B>
+<HR>
+</BODY></HTML>
+
+
+
+
