@@ -6,7 +6,7 @@ Also extra ISO image [A2_Rev-6498_serial-trace.iso](http://sourceforge.net/proje
 
 ## Forums
 
-[Oberon Community Platform](http://www.ocp.inf.ethz.ch/forum/index.php/board,4.0.html) Forum
+[Oberon Community Platform Forum](http://www.ocp.inf.ethz.ch/forum/index.php/board,4.0.html)
 
 Russian forum [Active Oberon & A2 (Bluebottle)](http://forum.oberoncore.ru/viewforum.php?f=22)
 
