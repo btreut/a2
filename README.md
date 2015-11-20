@@ -1,5 +1,4 @@
-# a2
-Bluebottle OS
+# a2 Bluebottle OS
 
 That is a copy of original [A2 Repository](https://trac.inf.ethz.ch/trac/lecturers/a2)
 
