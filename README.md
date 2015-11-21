@@ -10,6 +10,10 @@ Also extra ISO image [A2_Rev-6498_serial-trace.iso](http://sourceforge.net/proje
 
 Russian forum [Active Oberon & A2 (Bluebottle)](http://forum.oberoncore.ru/viewforum.php?f=22)
 
+## Installation
+
+[Installation and Configuration](http://sage.com.ua/ru.shtml?e1l0)
+
 ## ARM
 
 There is a Paco ARM backend ... PCARM.Mod, PCARMCP.Mod, PCARMRegisters.Mod
