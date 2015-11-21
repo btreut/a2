@@ -1,0 +1,237 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+  
+
+  
+
+
+  <head>
+    <title>
+      Traps.tex in trunk/Docs/Traps
+     – OberonRu
+    </title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!--[if IE]><script type="text/javascript">window.location.hash = window.location.hash;</script><![endif]-->
+        <link rel="search" href="/oberonru/search" />
+        <link rel="help" href="/oberonru/wiki/TracGuide" />
+        <link rel="alternate" href="/oberonru/browser/trunk/Docs/Traps/Traps.tex?format=txt" type="text/plain" title="Plain Text" /><link rel="alternate" href="/oberonru/export/229/trunk/Docs/Traps/Traps.tex" type="text/x-tex; charset=utf-8" title="Original Format" />
+        <link rel="start" href="/oberonru/wiki" />
+        <link rel="stylesheet" href="/oberonru/chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="/oberonru/chrome/common/css/code.css" type="text/css" /><link rel="stylesheet" href="/oberonru/chrome/common/css/browser.css" type="text/css" />
+        <link rel="shortcut icon" href="/oberonru/chrome/common/trac.ico" type="image/x-icon" />
+        <link rel="icon" href="/oberonru/chrome/common/trac.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="/oberonru/search/opensearch" title="Search OberonRu" />
+    <script type="text/javascript" src="/oberonru/chrome/common/js/jquery.js"></script><script type="text/javascript" src="/oberonru/chrome/common/js/babel.js"></script><script type="text/javascript" src="/oberonru/chrome/common/js/trac.js"></script><script type="text/javascript" src="/oberonru/chrome/common/js/search.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/oberonru/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="/oberonru/chrome/common/js/folding.js"></script>
+    <script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $(".trac-toggledeleted").show().click(function() {
+                  $(this).siblings().find(".trac-deleted").toggle();
+                  return false;
+        }).click();
+        $("#jumploc input").hide();
+        $("#jumploc select").change(function () {
+          this.parentNode.parentNode.submit();
+        });
+          $('#preview table.code').enableCollapsibleColumns($('#preview table.code thead th.content'));
+      });
+    </script>
+    <style type="text/css">
+/* ---------------------------------------------------
+=col
+------------------------------------------------------ */
+/* span one col */
+.col {
+        /* avoid rounding errors */
+        width: 40%;
+        float: left;
+        padding: .375em  .375em .5em .375em;
+}
+.user-col {
+        float: right;
+        text-align: right;
+}
+.col a:link,
+.col a:visited {
+        color: #E3EFFC;
+        border-bottom: 1px solid #E3EFFC;
+}
+.col a:hover {
+        border-bottom: none;
+        background: transparent;
+}
+/* ---------------------------------------------------
+=header
+------------------------------------------------------ */
+#top-bar-w {
+        margin-left:-10px;
+        margin-right:-10px;
+        padding-left:10px;
+        padding-right:10px;
+        background: #2E4B73;
+        color: #5375A6;
+        font-family: Verdana, sans-serif;
+        font-size: 9px;
+        font-style: normal;
+        line-height: normal;
+        font-weight: normal;
+        font-variant: normal;
+        width:100%;
+}
+/* ---------------------------------------------------
+=utilities
+----------------------------------------------------- */
+.cut {clear: both; height: 1px; overflow: hidden;}
+.hidden { display: none;}
+.inline { display: inline; }
+.clear-float  {
+        /* clear floated children */
+        overflow: hidden;
+        /* IE fix see:
+        http://www.positioniseverything.net/easyclearing.html
+        */
+        _height: 1%;
+}
+    </style>
+  </head>
+  <body>
+    <div id="siteheader">
+      <div id="top-bar-w">
+	<div class="col">
+	  <a href="http://www.assembla.com"><b>Assembla home</b></a> | <a href="https://www.assembla.com/spaces/show/oberonru">Assembla project page</a>
+	</div>
+	<div class="col user-col">
+	  <div id="user-box">
+            <a href="http://www.assembla.com/user/start" rel="nofollow">My Start Page</a>
+            <!-- /user-box -->
+	  </div>
+	</div>
+	<!-- clear float, the old skool way -->
+	<div class="cut"> </div>
+	<!-- /top-bar-w -->
+      </div>
+    </div>
+    <div id="banner">
+      <div id="header">
+        <h1><a href="https://www.assembla.com/spaces/show/oberonru">OberonRu</a></h1>
+      </div>
+      <form id="search" action="/oberonru/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="/oberonru/login">Login</a></li><li><a href="/oberonru/prefs">Preferences</a></li><li><a href="/oberonru/wiki/TracGuide">Help/Guide</a></li><li class="last"><a href="/oberonru/about">About Trac</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="/oberonru/wiki">Wiki</a></li><li><a href="/oberonru/timeline">Timeline</a></li><li><a href="/oberonru/roadmap">Roadmap</a></li><li class="active"><a href="/oberonru/browser">Browse Source</a></li><li><a href="/oberonru/report">View Tickets</a></li><li class="last"><a href="/oberonru/search">Search</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="/oberonru/browser/trunk/Docs/Traps/Traps.tex?annotate=blame" title="Annotate each line with the last changed revision (this can be time consuming...)">Blame</a></li><li class="last"><a href="/oberonru/log/trunk/Docs/Traps/Traps.tex">Revision Log</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="browser">
+          <h1>
+<a class="pathentry first" href="/oberonru/browser?order=name" title="Go to repository root">source:</a>
+<a class="pathentry" href="/oberonru/browser/trunk?order=name" title="View trunk">trunk</a><span class="pathentry sep">/</span><a class="pathentry" href="/oberonru/browser/trunk/Docs?order=name" title="View Docs">Docs</a><span class="pathentry sep">/</span><a class="pathentry" href="/oberonru/browser/trunk/Docs/Traps?order=name" title="View Traps">Traps</a><span class="pathentry sep">/</span><a class="pathentry" href="/oberonru/browser/trunk/Docs/Traps/Traps.tex?order=name" title="View Traps.tex">Traps.tex</a>
+<span class="pathentry sep">@</span>
+  <a class="pathentry" href="/oberonru/changeset/229" title="View changeset 229">229</a>
+<br style="clear: both" />
+</h1>
+        <div id="jumprev">
+          <form action="" method="get">
+            <div>
+              <label for="rev">
+                View revision:</label>
+              <input type="text" id="rev" name="rev" size="6" />
+            </div>
+          </form>
+        </div>
+        <div id="jumploc">
+          <form action="" method="get">
+            <div class="buttons">
+              <label for="preselected">Visit:</label>
+              <select id="preselected" name="preselected">
+                <option selected="selected"></option>
+                <optgroup label="branches">
+                  <option value="/oberonru/browser/trunk">trunk</option>
+                </optgroup>
+              </select>
+              <input type="submit" value="Go!" title="Jump to the chosen preselected path" />
+            </div>
+          </form>
+        </div>
+      <table id="info" summary="Revision info">
+        <tr>
+          <th scope="col">Revision <a href="/oberonru/changeset/96">96</a>,
+            <span title="4683 bytes">4.6 KB</span>
+            checked in by lit-uriy, <a class="timeline" href="/oberonru/timeline?from=2009-06-12T18%3A44%3A06Z&amp;precision=second" title="2009-06-12T18:44:06Z in Timeline">6 years</a> ago
+            (<a href="/oberonru/changeset/96/trunk/Docs/Traps/Traps.tex">diff</a>)</th>
+        </tr>
+        <tr>
+          <td class="message searchable">
+              <p>
+Документация:<br />
+Закинул всю документацию из официального хранилища А2<br />
+(Появилась документация на Сборщик Мусора-RTGC!).<br />
+</p>
+          </td>
+        </tr>
+      </table>
+      <div id="preview" class="searchable">
+        
+  <table class="code"><thead><tr><th class="lineno" title="Line numbers">Line</th><th class="content"> </th></tr></thead><tbody><tr><th id="L1"><a href="#L1">1</a></th><td>\documentclass[a4paper,11pt]{article}</td></tr><tr><th id="L2"><a href="#L2">2</a></th><td>\usepackage{color}</td></tr><tr><th id="L3"><a href="#L3">3</a></th><td>\usepackage{hyperref}</td></tr><tr><th id="L4"><a href="#L4">4</a></th><td>% listings: http://mirror.switch.ch/ftp/mirror/tex/help/Catalogue/entries/listings.html</td></tr><tr><th id="L5"><a href="#L5">5</a></th><td>\usepackage{listings}</td></tr><tr><th id="L6"><a href="#L6">6</a></th><td>\usepackage{xspace}</td></tr><tr><th id="L7"><a href="#L7">7</a></th><td>% longtable: http://mirror.switch.ch/ftp/mirror/tex/help/Catalogue/entries/longtable.html</td></tr><tr><th id="L8"><a href="#L8">8</a></th><td>\usepackage{longtable}</td></tr><tr><th id="L9"><a href="#L9">9</a></th><td>\usepackage{array}</td></tr><tr><th id="L10"><a href="#L10">10</a></th><td>% --------------------------------- page layout --------------------------------------</td></tr><tr><th id="L11"><a href="#L11">11</a></th><td>\pagestyle{headings}</td></tr><tr><th id="L12"><a href="#L12">12</a></th><td>% other font styles:</td></tr><tr><th id="L13"><a href="#L13">13</a></th><td>%\usepackage[math]{iwona} % iwona, kurier</td></tr><tr><th id="L14"><a href="#L14">14</a></th><td>%\usepackage{cmbright}</td></tr><tr><th id="L15"><a href="#L15">15</a></th><td></td></tr><tr><th id="L16"><a href="#L16">16</a></th><td>\oddsidemargin -0 cm</td></tr><tr><th id="L17"><a href="#L17">17</a></th><td>\evensidemargin 0 cm</td></tr><tr><th id="L18"><a href="#L18">18</a></th><td>%\topmargin -1.5cm</td></tr><tr><th id="L19"><a href="#L19">19</a></th><td>\textwidth 16   cm</td></tr><tr><th id="L20"><a href="#L20">20</a></th><td>%\textheight 25 cm</td></tr><tr><th id="L21"><a href="#L21">21</a></th><td></td></tr><tr><th id="L22"><a href="#L22">22</a></th><td>\parskip 5pt</td></tr><tr><th id="L23"><a href="#L23">23</a></th><td>\parindent 0cm</td></tr><tr><th id="L24"><a href="#L24">24</a></th><td></td></tr><tr><th id="L25"><a href="#L25">25</a></th><td>% --------------------------------- colors --------------------------------------</td></tr><tr><th id="L26"><a href="#L26">26</a></th><td>\definecolor{lightgrey}{rgb}{0.5,0.5,0.5}</td></tr><tr><th id="L27"><a href="#L27">27</a></th><td>\definecolor{darkgrey}{rgb}{0.4,0.4,0.4}</td></tr><tr><th id="L28"><a href="#L28">28</a></th><td></td></tr><tr><th id="L29"><a href="#L29">29</a></th><td>% --------------------------------- own commands --------------------------------------</td></tr><tr><th id="L30"><a href="#L30">30</a></th><td>\newcommand{\changefont}[3]{\fontfamily{#1}\fontseries{#2}\fontshape{#3}\selectfont}</td></tr><tr><th id="L31"><a href="#L31">31</a></th><td></td></tr><tr><th id="L32"><a href="#L32">32</a></th><td>\newcommand{\progfont}{\changefont{pcr}{m}{n}}</td></tr><tr><th id="L33"><a href="#L33">33</a></th><td>\newcommand{\kwfont}{\changefont{pcr}{b}{n}}</td></tr><tr><th id="L34"><a href="#L34">34</a></th><td>\renewcommand{\lstlistingname}{Fig.}</td></tr><tr><th id="L35"><a href="#L35">35</a></th><td>\newcommand{\todo}[1]{\setlength{\fboxrule}{2pt}\fcolorbox{red}{yellow}{\begin{minipage}{\textwidth} \color{blue}$todo:$ #1 \end{minipage}}}</td></tr><tr><th id="L36"><a href="#L36">36</a></th><td></td></tr><tr><th id="L37"><a href="#L37">37</a></th><td>\newcommand{\pc}[1]{\makebox{\progfont #1}}</td></tr><tr><th id="L38"><a href="#L38">38</a></th><td>\newcommand{\kw}[1]{\makebox{\kwfont #1}}</td></tr><tr><th id="L39"><a href="#L39">39</a></th><td>\newcommand{\AZ}{\ensuremath{\mathcal{A}_{2}}\xspace}</td></tr><tr><th id="L40"><a href="#L40">40</a></th><td></td></tr><tr><th id="L41"><a href="#L41">41</a></th><td>% --------------------------------- tables --------------------------------------</td></tr><tr><th id="L42"><a href="#L42">42</a></th><td>\newcolumntype{v}[1]{&gt;{\raggedright\hspace{0pt}}p{#1}} % line breaking but align text left (not block)</td></tr><tr><th id="L43"><a href="#L43">43</a></th><td></td></tr><tr><th id="L44"><a href="#L44">44</a></th><td>% --------------------------------- listings --------------------------------------</td></tr><tr><th id="L45"><a href="#L45">45</a></th><td>\lstdefinelanguage{ebnf}[]{}</td></tr><tr><th id="L46"><a href="#L46">46</a></th><td>{morekeywords={},</td></tr><tr><th id="L47"><a href="#L47">47</a></th><td>sensitive=true,</td></tr><tr><th id="L48"><a href="#L48">48</a></th><td>comment=[l]{//},</td></tr><tr><th id="L49"><a href="#L49">49</a></th><td>comment=[s]{(*}{*)},</td></tr><tr><th id="L50"><a href="#L50">50</a></th><td>morestring=[b]',</td></tr><tr><th id="L51"><a href="#L51">51</a></th><td>morestring=[b]",</td></tr><tr><th id="L52"><a href="#L52">52</a></th><td>basicstyle=\scriptsize\changefont{pcr}{m}{n},</td></tr><tr><th id="L53"><a href="#L53">53</a></th><td>stringstyle=\changefont{pcr}{b}{n},</td></tr><tr><th id="L54"><a href="#L54">54</a></th><td>columns = fixed</td></tr><tr><th id="L55"><a href="#L55">55</a></th><td>}</td></tr><tr><th id="L56"><a href="#L56">56</a></th><td>\lstdefinelanguage{Oberon}[]{Oberon-2}%</td></tr><tr><th id="L57"><a href="#L57">57</a></th><td>  {morekeywords={OBJECT,SELF,%</td></tr><tr><th id="L58"><a href="#L58">58</a></th><td>   HUGEINT,% Basic Types</td></tr><tr><th id="L59"><a href="#L59">59</a></th><td>   AWAIT},% Built in functions</td></tr><tr><th id="L60"><a href="#L60">60</a></th><td>   %sensitive=f,%</td></tr><tr><th id="L61"><a href="#L61">61</a></th><td>   %alsoother={},% list here in lower case if keyword some where else wrongly highlighted</td></tr><tr><th id="L62"><a href="#L62">62</a></th><td>    morecomment=[s][\color{red}]{(*!}{!*)}</td></tr><tr><th id="L63"><a href="#L63">63</a></th><td>  }[keywords]%</td></tr><tr><th id="L64"><a href="#L64">64</a></th><td>\lstset{language=Oberon,</td></tr><tr><th id="L65"><a href="#L65">65</a></th><td>basicstyle=\small\progfont,keywordstyle=\kwfont ,identifierstyle=\progfont,</td></tr><tr><th id="L66"><a href="#L66">66</a></th><td>commentstyle=\color{darkgrey}, stringstyle=, showstringspaces=false, %keepspaces=true,</td></tr><tr><th id="L67"><a href="#L67">67</a></th><td>numbers=none, numberstyle=\tiny, stepnumber=1, numbersep=5pt, captionpos=b,</td></tr><tr><th id="L68"><a href="#L68">68</a></th><td>columns=flexible, % flexible, fixed, fullflexible</td></tr><tr><th id="L69"><a href="#L69">69</a></th><td>framerule=1mm,frame=shadowbox, rulesepcolor=\color{blue}, % frame = shadowbox</td></tr><tr><th id="L70"><a href="#L70">70</a></th><td>xleftmargin=2mm,xrightmargin=2mm,</td></tr><tr><th id="L71"><a href="#L71">71</a></th><td>breaklines=true,                                % break long lines</td></tr><tr><th id="L72"><a href="#L72">72</a></th><td>breakatwhitespace=true,                 % break lines only at white space</td></tr><tr><th id="L73"><a href="#L73">73</a></th><td>}</td></tr><tr><th id="L74"><a href="#L74">74</a></th><td>\renewcommand{\lstlistingname}{Fig.}</td></tr><tr><th id="L75"><a href="#L75">75</a></th><td></td></tr><tr><th id="L76"><a href="#L76">76</a></th><td></td></tr><tr><th id="L77"><a href="#L77">77</a></th><td>\begin{document}</td></tr><tr><th id="L78"><a href="#L78">78</a></th><td>\title{\AZ Traps}</td></tr><tr><th id="L79"><a href="#L79">79</a></th><td>\author{Sven Stauber}</td></tr><tr><th id="L80"><a href="#L80">80</a></th><td>\maketitle</td></tr><tr><th id="L81"><a href="#L81">81</a></th><td>Blah Blah</td></tr><tr><th id="L82"><a href="#L82">82</a></th><td></td></tr><tr><th id="L83"><a href="#L83">83</a></th><td>\tableofcontents</td></tr><tr><th id="L84"><a href="#L84">84</a></th><td></td></tr><tr><th id="L85"><a href="#L85">85</a></th><td>\section{Traps}\label{Traps}</td></tr><tr><th id="L86"><a href="#L86">86</a></th><td>When a run-time error is detected, the system generates a numbered trap. The information included with the trap can be used to diagnose the problem. Especially useful is the module and procedure name and PC location where the trap occured. This allows a programmer to find the exact location in the source code.</td></tr><tr><th id="L87"><a href="#L87">87</a></th><td></td></tr><tr><th id="L88"><a href="#L88">88</a></th><td>\subsection{Example}\label{section:ModulesAndCommands}</td></tr><tr><th id="L89"><a href="#L89">89</a></th><td></td></tr><tr><th id="L90"><a href="#L90">90</a></th><td>\begin{lstlisting}[language=Oberon,frame=none,numbers=left]</td></tr><tr><th id="L91"><a href="#L91">91</a></th><td>  MODULE TrapDemo;</td></tr><tr><th id="L92"><a href="#L92">92</a></th><td></td></tr><tr><th id="L93"><a href="#L93">93</a></th><td>  PROCEDURE Proc2();</td></tr><tr><th id="L94"><a href="#L94">94</a></th><td>  VAR string : POINTER TO ARRAY OF CHAR;</td></tr><tr><th id="L95"><a href="#L95">95</a></th><td>  BEGIN</td></tr><tr><th id="L96"><a href="#L96">96</a></th><td>    string := NIL;</td></tr><tr><th id="L97"><a href="#L97">97</a></th><td>    ASSERT(string # NIL);</td></tr><tr><th id="L98"><a href="#L98">98</a></th><td>  END Proc2;</td></tr><tr><th id="L99"><a href="#L99">99</a></th><td></td></tr><tr><th id="L100"><a href="#L100">100</a></th><td>  PROCEDURE Proc1;</td></tr><tr><th id="L101"><a href="#L101">101</a></th><td>  VAR a, b : LONGINT;</td></tr><tr><th id="L102"><a href="#L102">102</a></th><td>  BEGIN</td></tr><tr><th id="L103"><a href="#L103">103</a></th><td>    a := 99; b := 11;</td></tr><tr><th id="L104"><a href="#L104">104</a></th><td>    Proc2();</td></tr><tr><th id="L105"><a href="#L105">105</a></th><td>  END Proc1;</td></tr><tr><th id="L106"><a href="#L106">106</a></th><td></td></tr><tr><th id="L107"><a href="#L107">107</a></th><td>  PROCEDURE Demo*;</td></tr><tr><th id="L108"><a href="#L108">108</a></th><td>  VAR string : ARRAY 8 OF CHAR;</td></tr><tr><th id="L109"><a href="#L109">109</a></th><td>  BEGIN</td></tr><tr><th id="L110"><a href="#L110">110</a></th><td>    string := "Demo!";</td></tr><tr><th id="L111"><a href="#L111">111</a></th><td>    Proc1();</td></tr><tr><th id="L112"><a href="#L112">112</a></th><td>  END Demo;</td></tr><tr><th id="L113"><a href="#L113">113</a></th><td></td></tr><tr><th id="L114"><a href="#L114">114</a></th><td>  END TrapDemo.</td></tr><tr><th id="L115"><a href="#L115">115</a></th><td>\end{lstlisting}</td></tr><tr><th id="L116"><a href="#L116">116</a></th><td></td></tr><tr><th id="L117"><a href="#L117">117</a></th><td>\begin{lstlisting}[language=Oberon,frame=none,numbers=left]</td></tr><tr><th id="L118"><a href="#L118">118</a></th><td>  [1] TRAP 8 PL 3 8  ASSERT failed WinAos Revision 2081 (19.02.2009)</td></tr><tr><th id="L119"><a href="#L119">119</a></th><td>  CS:=00000023 DS:=0000002B ES:=0000002B SS:=0000002B PC=0ECA7F92</td></tr><tr><th id="L120"><a href="#L120">120</a></th><td>  ESI=0CCB679A EDI=05FBFF46 ESP=05FBFF20 PID=000017A8</td></tr><tr><th id="L121"><a href="#L121">121</a></th><td>  EAX=00000000 EBX=00000000 ECX=75443D09 EDX=00000000 </td></tr><tr><th id="L122"><a href="#L122">122</a></th><td>  EBP=05FBFF28 FS:=00000053 GS:=0000002B TMR=00A97689</td></tr><tr><th id="L123"><a href="#L123">123</a></th><td>  FLAGS: cPaZstIdo iopl0 {1..2, 6, 9}</td></tr><tr><th id="L124"><a href="#L124">124</a></th><td>  Process: 6056 run 0 20ECE9BF0:Commands.Runner NIL {0, 28}</td></tr><tr><th id="L125"><a href="#L125">125</a></th><td>  TrapDemo.Proc2 pc=34 [00000022H]</td></tr><tr><th id="L126"><a href="#L126">126</a></th><td>    string=00000000H (NIL)</td></tr><tr><th id="L127"><a href="#L127">127</a></th><td>  State TrapDemo:</td></tr><tr><th id="L128"><a href="#L128">128</a></th><td>    @Self=0ECE9950H (Modules.Module)</td></tr><tr><th id="L129"><a href="#L129">129</a></th><td>  TrapDemo.Proc1 pc=65 [00000041H]</td></tr><tr><th id="L130"><a href="#L130">130</a></th><td>    a=99 (00000063H)</td></tr><tr><th id="L131"><a href="#L131">131</a></th><td>    b=11 (0000000BH)</td></tr><tr><th id="L132"><a href="#L132">132</a></th><td>  TrapDemo.Demo pc=95 [0000005FH]</td></tr><tr><th id="L133"><a href="#L133">133</a></th><td>    string="Demo!"</td></tr><tr><th id="L134"><a href="#L134">134</a></th><td>  Commands.Runner.@Body pc=1042 [00000412H]</td></tr><tr><th id="L135"><a href="#L135">135</a></th><td>    @Self=0ECE9BF0H (Commands.Runner)</td></tr><tr><th id="L136"><a href="#L136">136</a></th><td>\end{lstlisting}</td></tr><tr><th id="L137"><a href="#L137">137</a></th><td></td></tr><tr><th id="L138"><a href="#L138">138</a></th><td>\end{document}</td></tr><tr><th id="L139"><a href="#L139">139</a></th><td></td></tr></tbody></table>
+
+      </div>
+      <div id="help"><strong>Note:</strong> See <a href="/oberonru/wiki/TracBrowser">TracBrowser</a>
+        for help on using the repository browser.</div>
+      <div id="anydiff">
+        <form action="/oberonru/diff" method="get">
+          <div class="buttons">
+            <input type="hidden" name="new_path" value="/trunk/Docs/Traps/Traps.tex" />
+            <input type="hidden" name="old_path" value="/trunk/Docs/Traps/Traps.tex" />
+            <input type="hidden" name="new_rev" />
+            <input type="hidden" name="old_rev" />
+            <input type="submit" value="View changes..." title="Select paths and revs for Diff" />
+          </div>
+        </form>
+      </div>
+    </div>
+    <div id="altlinks">
+      <h3>Download in other formats:</h3>
+      <ul>
+        <li class="first">
+          <a rel="nofollow" href="/oberonru/browser/trunk/Docs/Traps/Traps.tex?format=txt">Plain Text</a>
+        </li><li class="last">
+          <a rel="nofollow" href="/oberonru/export/229/trunk/Docs/Traps/Traps.tex">Original Format</a>
+        </li>
+      </ul>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en">
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="/oberonru/chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="/oberonru/about"><strong>Trac 0.12.3</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a><br />
+	Hosted by <a href="http://www.assembla.com">Assembla</a>
+      </p>
+      <p class="right">Breakout - Social Software to Get Things Done<br /><a title="Free SVN and Trac hosting" href="https://www.assembla.com/">https://www.assembla.com</a></p>
+    </div>
+    <div id="sitefooter">
+    </div>
+  </body>
+</html>

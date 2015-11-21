@@ -1,0 +1,235 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+  
+
+  
+
+
+  <head>
+    <title>
+      Traps.aux in trunk/Docs/Traps
+     – OberonRu
+    </title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!--[if IE]><script type="text/javascript">window.location.hash = window.location.hash;</script><![endif]-->
+        <link rel="search" href="/oberonru/search" />
+        <link rel="help" href="/oberonru/wiki/TracGuide" />
+        <link rel="alternate" href="/oberonru/export/229/trunk/Docs/Traps/Traps.aux" type="text/plain" title="Original Format" />
+        <link rel="start" href="/oberonru/wiki" />
+        <link rel="stylesheet" href="/oberonru/chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="/oberonru/chrome/common/css/code.css" type="text/css" /><link rel="stylesheet" href="/oberonru/chrome/common/css/browser.css" type="text/css" />
+        <link rel="shortcut icon" href="/oberonru/chrome/common/trac.ico" type="image/x-icon" />
+        <link rel="icon" href="/oberonru/chrome/common/trac.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="/oberonru/search/opensearch" title="Search OberonRu" />
+    <script type="text/javascript" src="/oberonru/chrome/common/js/jquery.js"></script><script type="text/javascript" src="/oberonru/chrome/common/js/babel.js"></script><script type="text/javascript" src="/oberonru/chrome/common/js/trac.js"></script><script type="text/javascript" src="/oberonru/chrome/common/js/search.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/oberonru/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="/oberonru/chrome/common/js/folding.js"></script>
+    <script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $(".trac-toggledeleted").show().click(function() {
+                  $(this).siblings().find(".trac-deleted").toggle();
+                  return false;
+        }).click();
+        $("#jumploc input").hide();
+        $("#jumploc select").change(function () {
+          this.parentNode.parentNode.submit();
+        });
+          $('#preview table.code').enableCollapsibleColumns($('#preview table.code thead th.content'));
+      });
+    </script>
+    <style type="text/css">
+/* ---------------------------------------------------
+=col
+------------------------------------------------------ */
+/* span one col */
+.col {
+        /* avoid rounding errors */
+        width: 40%;
+        float: left;
+        padding: .375em  .375em .5em .375em;
+}
+.user-col {
+        float: right;
+        text-align: right;
+}
+.col a:link,
+.col a:visited {
+        color: #E3EFFC;
+        border-bottom: 1px solid #E3EFFC;
+}
+.col a:hover {
+        border-bottom: none;
+        background: transparent;
+}
+/* ---------------------------------------------------
+=header
+------------------------------------------------------ */
+#top-bar-w {
+        margin-left:-10px;
+        margin-right:-10px;
+        padding-left:10px;
+        padding-right:10px;
+        background: #2E4B73;
+        color: #5375A6;
+        font-family: Verdana, sans-serif;
+        font-size: 9px;
+        font-style: normal;
+        line-height: normal;
+        font-weight: normal;
+        font-variant: normal;
+        width:100%;
+}
+/* ---------------------------------------------------
+=utilities
+----------------------------------------------------- */
+.cut {clear: both; height: 1px; overflow: hidden;}
+.hidden { display: none;}
+.inline { display: inline; }
+.clear-float  {
+        /* clear floated children */
+        overflow: hidden;
+        /* IE fix see:
+        http://www.positioniseverything.net/easyclearing.html
+        */
+        _height: 1%;
+}
+    </style>
+  </head>
+  <body>
+    <div id="siteheader">
+      <div id="top-bar-w">
+	<div class="col">
+	  <a href="http://www.assembla.com"><b>Assembla home</b></a> | <a href="https://www.assembla.com/spaces/show/oberonru">Assembla project page</a>
+	</div>
+	<div class="col user-col">
+	  <div id="user-box">
+            <a href="http://www.assembla.com/user/start" rel="nofollow">My Start Page</a>
+            <!-- /user-box -->
+	  </div>
+	</div>
+	<!-- clear float, the old skool way -->
+	<div class="cut"> </div>
+	<!-- /top-bar-w -->
+      </div>
+    </div>
+    <div id="banner">
+      <div id="header">
+        <h1><a href="https://www.assembla.com/spaces/show/oberonru">OberonRu</a></h1>
+      </div>
+      <form id="search" action="/oberonru/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="/oberonru/login">Login</a></li><li><a href="/oberonru/prefs">Preferences</a></li><li><a href="/oberonru/wiki/TracGuide">Help/Guide</a></li><li class="last"><a href="/oberonru/about">About Trac</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="/oberonru/wiki">Wiki</a></li><li><a href="/oberonru/timeline">Timeline</a></li><li><a href="/oberonru/roadmap">Roadmap</a></li><li class="active"><a href="/oberonru/browser">Browse Source</a></li><li><a href="/oberonru/report">View Tickets</a></li><li class="last"><a href="/oberonru/search">Search</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="/oberonru/browser/trunk/Docs/Traps/Traps.aux?annotate=blame" title="Annotate each line with the last changed revision (this can be time consuming...)">Blame</a></li><li class="last"><a href="/oberonru/log/trunk/Docs/Traps/Traps.aux">Revision Log</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="browser">
+          <h1>
+<a class="pathentry first" href="/oberonru/browser?order=name" title="Go to repository root">source:</a>
+<a class="pathentry" href="/oberonru/browser/trunk?order=name" title="View trunk">trunk</a><span class="pathentry sep">/</span><a class="pathentry" href="/oberonru/browser/trunk/Docs?order=name" title="View Docs">Docs</a><span class="pathentry sep">/</span><a class="pathentry" href="/oberonru/browser/trunk/Docs/Traps?order=name" title="View Traps">Traps</a><span class="pathentry sep">/</span><a class="pathentry" href="/oberonru/browser/trunk/Docs/Traps/Traps.aux?order=name" title="View Traps.aux">Traps.aux</a>
+<span class="pathentry sep">@</span>
+  <a class="pathentry" href="/oberonru/changeset/229" title="View changeset 229">229</a>
+<br style="clear: both" />
+</h1>
+        <div id="jumprev">
+          <form action="" method="get">
+            <div>
+              <label for="rev">
+                View revision:</label>
+              <input type="text" id="rev" name="rev" size="6" />
+            </div>
+          </form>
+        </div>
+        <div id="jumploc">
+          <form action="" method="get">
+            <div class="buttons">
+              <label for="preselected">Visit:</label>
+              <select id="preselected" name="preselected">
+                <option selected="selected"></option>
+                <optgroup label="branches">
+                  <option value="/oberonru/browser/trunk">trunk</option>
+                </optgroup>
+              </select>
+              <input type="submit" value="Go!" title="Jump to the chosen preselected path" />
+            </div>
+          </form>
+        </div>
+      <table id="info" summary="Revision info">
+        <tr>
+          <th scope="col">Revision <a href="/oberonru/changeset/96">96</a>,
+            <span title="768 bytes">768 bytes</span>
+            checked in by lit-uriy, <a class="timeline" href="/oberonru/timeline?from=2009-06-12T18%3A44%3A06Z&amp;precision=second" title="2009-06-12T18:44:06Z in Timeline">6 years</a> ago
+            (<a href="/oberonru/changeset/96/trunk/Docs/Traps/Traps.aux">diff</a>)</th>
+        </tr>
+        <tr>
+          <td class="message searchable">
+              <p>
+Документация:<br />
+Закинул всю документацию из официального хранилища А2<br />
+(Появилась документация на Сборщик Мусора-RTGC!).<br />
+</p>
+          </td>
+        </tr>
+      </table>
+      <div id="preview" class="searchable">
+        
+  <table class="code"><thead><tr><th class="lineno" title="Line numbers">Line</th><th class="content"> </th></tr></thead><tbody><tr><th id="L1"><a href="#L1">1</a></th><td>\relax </td></tr><tr><th id="L2"><a href="#L2">2</a></th><td>\ifx\hyper@anchor\@undefined</td></tr><tr><th id="L3"><a href="#L3">3</a></th><td>\global \let \oldcontentsline\contentsline</td></tr><tr><th id="L4"><a href="#L4">4</a></th><td>\gdef \contentsline#1#2#3#4{\oldcontentsline{#1}{#2}{#3}}</td></tr><tr><th id="L5"><a href="#L5">5</a></th><td>\global \let \oldnewlabel\newlabel</td></tr><tr><th id="L6"><a href="#L6">6</a></th><td>\gdef \newlabel#1#2{\newlabelxx{#1}#2}</td></tr><tr><th id="L7"><a href="#L7">7</a></th><td>\gdef \newlabelxx#1#2#3#4#5#6{\oldnewlabel{#1}{{#2}{#3}}}</td></tr><tr><th id="L8"><a href="#L8">8</a></th><td>\AtEndDocument{\let \contentsline\oldcontentsline</td></tr><tr><th id="L9"><a href="#L9">9</a></th><td>\let \newlabel\oldnewlabel}</td></tr><tr><th id="L10"><a href="#L10">10</a></th><td>\else</td></tr><tr><th id="L11"><a href="#L11">11</a></th><td>\global \let \hyper@last\relax </td></tr><tr><th id="L12"><a href="#L12">12</a></th><td>\fi</td></tr><tr><th id="L13"><a href="#L13">13</a></th><td></td></tr><tr><th id="L14"><a href="#L14">14</a></th><td>\providecommand*\HyPL@Entry[1]{}</td></tr><tr><th id="L15"><a href="#L15">15</a></th><td>\HyPL@Entry{0&lt;&lt;/S/D&gt;&gt;}</td></tr><tr><th id="L16"><a href="#L16">16</a></th><td>\@writefile{toc}{\contentsline {section}{\numberline {1}Traps}{1}{section.1}}</td></tr><tr><th id="L17"><a href="#L17">17</a></th><td>\newlabel{Traps}{{1}{1}{Traps\relax }{section.1}{}}</td></tr><tr><th id="L18"><a href="#L18">18</a></th><td>\@writefile{toc}{\contentsline {subsection}{\numberline {1.1}Example}{1}{subsection.1.1}}</td></tr><tr><th id="L19"><a href="#L19">19</a></th><td>\newlabel{section:ModulesAndCommands}{{1.1}{1}{Example\relax }{subsection.1.1}{}}</td></tr></tbody></table>
+
+      </div>
+      <div id="help"><strong>Note:</strong> See <a href="/oberonru/wiki/TracBrowser">TracBrowser</a>
+        for help on using the repository browser.</div>
+      <div id="anydiff">
+        <form action="/oberonru/diff" method="get">
+          <div class="buttons">
+            <input type="hidden" name="new_path" value="/trunk/Docs/Traps/Traps.aux" />
+            <input type="hidden" name="old_path" value="/trunk/Docs/Traps/Traps.aux" />
+            <input type="hidden" name="new_rev" />
+            <input type="hidden" name="old_rev" />
+            <input type="submit" value="View changes..." title="Select paths and revs for Diff" />
+          </div>
+        </form>
+      </div>
+    </div>
+    <div id="altlinks">
+      <h3>Download in other formats:</h3>
+      <ul>
+        <li class="last first">
+          <a rel="nofollow" href="/oberonru/export/229/trunk/Docs/Traps/Traps.aux">Original Format</a>
+        </li>
+      </ul>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en">
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="/oberonru/chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="/oberonru/about"><strong>Trac 0.12.3</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a><br />
+	Hosted by <a href="http://www.assembla.com">Assembla</a>
+      </p>
+      <p class="right">Breakout - Social Software to Get Things Done<br /><a title="Free SVN and Trac hosting" href="https://www.assembla.com/">https://www.assembla.com</a></p>
+    </div>
+    <div id="sitefooter">
+    </div>
+  </body>
+</html>
