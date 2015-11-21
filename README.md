@@ -37,6 +37,8 @@ via TFTP and a NCFS server running on Unix to serve the system991119.ncfs file.
 
 [Raycaster, Raycaster Maze, WMColorLines](http://sage.com.ua/ru.shtml?e1l9)
 
+FPS in 2-3 time faster with Raster.Put, then with canvas.SetPixel.
+
 ## Main content of a2/WinAos/license.txt
 
 This is a compilation of the 
