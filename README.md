@@ -33,6 +33,10 @@ via TFTP and a NCFS server running on Unix to serve the system991119.ncfs file.
 ## Raytracing
 [Raytracing from www.scratchapixel.com](http://sage.com.ua/ru.shtml?e1l8)
 
+## Games
+
+[Raycaster, Raycaster Maze, WMColorLines](http://sage.com.ua/ru.shtml?e1l9)
+
 ## Main content of a2/WinAos/license.txt
 
 This is a compilation of the 
