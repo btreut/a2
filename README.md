@@ -30,6 +30,9 @@ The best place to start is ARM.Make.Tool in SharkOberon.zip .
 To boot SharkOberon, you need an NC configured to boot the Oberon boot file
 via TFTP and a NCFS server running on Unix to serve the system991119.ncfs file.
 
+## Raytracing
+[Raytracing from www.scratchapixel.com](http://sage.com.ua/ru.shtml?e1l8)
+
 ## Main content of a2/WinAos/license.txt
 
 This is a compilation of the 
