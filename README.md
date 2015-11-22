@@ -16,6 +16,11 @@ Russian forum [Active Oberon & A2 (Bluebottle)](http://forum.oberoncore.ru/viewf
 
 [Installation and Configuration](http://sage.com.ua/ru.shtml?e1l0)
 
+## List of popular Modules
+
+[Old xref](http://bbos.org/2011/11/29/xref/)
+[Xref](http://bbos.org/xref/)
+
 ## ARM
 
 There is a Paco ARM backend ... PCARM.Mod, PCARMCP.Mod, PCARMRegisters.Mod
