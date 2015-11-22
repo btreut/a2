@@ -18,9 +18,9 @@ Russian forum [Active Oberon & A2 (Bluebottle)](http://forum.oberoncore.ru/viewf
 
 ## List of popular Modules
 
-[Cross Reference (2012.10.29) rev. 4996](http://bbos.org/2011/11/29/xref/)
+[Cross Reference (2011.11.29)](http://bbos.org/2011/11/29/xref/)
 
-[Cross Reference (2011.11.29)](http://bbos.org/xref/)
+[Cross Reference (2012.10.29) rev. 4996](http://bbos.org/xref/)
 
 ## ARM
 
