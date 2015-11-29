@@ -26,6 +26,8 @@ Russian forum [Active Oberon & A2 (Bluebottle)](http://forum.oberoncore.ru/viewf
 
 ## ARM
 
+[OLR](http://oberon.wikidot.com/) is the Oberon System with Gadgets running natively on the Linux Kernel of X86, MIPS and ARM processors.
+
 There is a Paco ARM backend ... PCARM.Mod, PCARMCP.Mod, PCARMRegisters.Mod
 
 https://lists.inf.ethz.ch/pipermail/oberon/2007/005300.html
