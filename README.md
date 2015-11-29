@@ -6,6 +6,8 @@ Also extra ISO image [A2_Rev-6498_serial-trace.iso](http://sourceforge.net/proje
 
 Also for MacOSX (Darwin) - [UnixAos](http://www.informatik.uni-bremen.de/~fld/UnixAos/)
 
+Extra Modules for A2 - [subversion community repository](https://www.ocp.inf.ethz.ch/svn/ocp/trunk/)
+
 ## Forums
 
 [Oberon Community Platform Forum](http://www.ocp.inf.ethz.ch/forum/index.php/board,4.0.html)
