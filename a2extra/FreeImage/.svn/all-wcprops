@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 37
+/svn/ocp/!svn/ver/460/trunk/FreeImage
+END
+Win32.FreeImageDll.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/ocp/!svn/ver/460/trunk/FreeImage/Win32.FreeImageDll.Mod
+END
+FreeImage.Tool
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/ocp/!svn/ver/460/trunk/FreeImage/FreeImage.Tool
+END
+Unix.FreeImageDll.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/ocp/!svn/ver/460/trunk/FreeImage/Unix.FreeImageDll.Mod
+END
+TestFreeImage.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/ocp/!svn/ver/460/trunk/FreeImage/TestFreeImage.Mod
+END
+FreeImageUtils.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/ocp/!svn/ver/460/trunk/FreeImage/FreeImageUtils.Mod
+END
+TestFreeMemIO.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/ocp/!svn/ver/460/trunk/FreeImage/TestFreeMemIO.Mod
+END
+TestFreeMeta.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/ocp/!svn/ver/460/trunk/FreeImage/TestFreeMeta.Mod
+END
+license-gplv2.txt
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/ocp/!svn/ver/460/trunk/FreeImage/license-gplv2.txt
+END
+FreeImage3154.pdf
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/ocp/!svn/ver/460/trunk/FreeImage/FreeImage3154.pdf
+END
+license-gplv3.txt
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/ocp/!svn/ver/460/trunk/FreeImage/license-gplv3.txt
+END
+FreeImage.h
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/ocp/!svn/ver/460/trunk/FreeImage/FreeImage.h
+END
+Whatsnew.txt
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/ocp/!svn/ver/460/trunk/FreeImage/Whatsnew.txt
+END

@@ -1,0 +1,1 @@
+(* Jaos, Copyright 2003, Patrik Reali, ETH Zurich *)MODULE JVMEmpty;END JVMEmpty.

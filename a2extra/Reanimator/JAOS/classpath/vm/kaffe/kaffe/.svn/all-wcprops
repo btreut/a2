@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/ocp/!svn/ver/431/trunk/Reanimator/JAOS/classpath/vm/kaffe/kaffe
+END
+Makefile.in
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/ocp/!svn/ver/431/trunk/Reanimator/JAOS/classpath/vm/kaffe/kaffe/Makefile.in
+END
+Makefile.am
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/ocp/!svn/ver/431/trunk/Reanimator/JAOS/classpath/vm/kaffe/kaffe/Makefile.am
+END

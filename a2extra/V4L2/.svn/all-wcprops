@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 32
+/svn/ocp/!svn/ver/460/trunk/V4L2
+END
+Unix.VideoExample.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/ocp/!svn/ver/460/trunk/V4L2/Unix.VideoExample.Mod
+END
+V4L2.Tool
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/ocp/!svn/ver/436/trunk/V4L2/V4L2.Tool
+END
+Unix.V4L2.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/ocp/!svn/ver/436/trunk/V4L2/Unix.V4L2.Mod
+END
+Unix.libv4l2.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/ocp/!svn/ver/436/trunk/V4L2/Unix.libv4l2.Mod
+END

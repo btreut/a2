@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/ocp/!svn/ver/505/trunk/SAGE/Raycaster
+END
+WMRaycaster.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/ocp/!svn/ver/505/trunk/SAGE/Raycaster/WMRaycaster.Mod
+END
+raycaster_floor.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/ocp/!svn/ver/453/trunk/SAGE/Raycaster/raycaster_floor.cpp
+END
+Win32.User32.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/ocp/!svn/ver/453/trunk/SAGE/Raycaster/Win32.User32.Mod
+END
+raycaster_textured.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/ocp/!svn/ver/453/trunk/SAGE/Raycaster/raycaster_textured.cpp
+END
+Win32.Display.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/ocp/!svn/ver/453/trunk/SAGE/Raycaster/Win32.Display.Mod
+END
+raycaster_flat.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/ocp/!svn/ver/453/trunk/SAGE/Raycaster/raycaster_flat.cpp
+END
+raycaster_sprites.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/ocp/!svn/ver/453/trunk/SAGE/Raycaster/raycaster_sprites.cpp
+END
+PreciseTimer.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/ocp/!svn/ver/453/trunk/SAGE/Raycaster/PreciseTimer.Mod
+END
+Win32.PreciseTimer.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/ocp/!svn/ver/453/trunk/SAGE/Raycaster/Win32.PreciseTimer.Mod
+END
+WMRaycasterData.zip
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/ocp/!svn/ver/453/trunk/SAGE/Raycaster/WMRaycasterData.zip
+END
+WMRaycasterMaze.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/ocp/!svn/ver/453/trunk/SAGE/Raycaster/WMRaycasterMaze.Mod
+END
+Ncaster.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/ocp/!svn/ver/453/trunk/SAGE/Raycaster/Ncaster.Mod
+END

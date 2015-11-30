@@ -1,0 +1,20 @@
+ ********************************************************
+
+ Linpack SSE2 Double Precision Unrolled Benchmark n @ 100
+ Via Microsoft 32-bit C/C++ Optimizing Compiler Version 13.10.3077 for 80x86
+ Wed Feb 11 14:27:54 2009
+
+ Speed     194.45 MFLOPS
+
+ Numeric results were as expected
+
+  CPUID and RDTSC Assembly Code
+  CPU GenuineIntel, Features Code BFE9FBFF, Model Code 000106C2
+  Intel(R) Atom(TM) CPU N270   @ 1.60GHz Measured 1596 MHz
+  Has MMX, Has SSE, Has SSE2, Has SSE3, No 3DNow,
+  Windows GetSystemInfo, GetVersionEx, GlobalMemoryStatus
+  Intel processor architecture, 2 CPUs 
+  Windows NT  Version 5.1, build 2600, Service Pack 3
+  Memory 1016 MB, Free 198 MB
+  User Virtual Space 2048 MB, Free 2042 MB
+

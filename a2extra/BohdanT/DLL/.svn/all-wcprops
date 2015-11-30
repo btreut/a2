@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 39
+/svn/ocp/!svn/ver/383/trunk/BohdanT/DLL
+END
+SQLite3Test.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/ocp/!svn/ver/360/trunk/BohdanT/DLL/SQLite3Test.Mod
+END
+Win32.SQLite3.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/ocp/!svn/ver/360/trunk/BohdanT/DLL/Win32.SQLite3.Mod
+END
+testa2.dpr
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/ocp/!svn/ver/360/trunk/BohdanT/DLL/testa2.dpr
+END
+DLL.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/ocp/!svn/ver/360/trunk/BohdanT/DLL/DLL.Mod
+END
+TestDll.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/ocp/!svn/ver/383/trunk/BohdanT/DLL/TestDll.Mod
+END
+testa2.dll
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/ocp/!svn/ver/360/trunk/BohdanT/DLL/testa2.dll
+END

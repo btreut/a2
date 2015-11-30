@@ -1,0 +1,4 @@
+PHRegistries.Mod		Generic, but simple base class of a registry, for storage and retrieval
+PHUserRegistry.Mod	User database including userid, password, domain, and hash. The password is only stored as a hash, not in plain text.
+
+PHWebSyndication	RSS feed reader/aggretator/handler. should handle RSS and Atom formats; the latter is still buggy.

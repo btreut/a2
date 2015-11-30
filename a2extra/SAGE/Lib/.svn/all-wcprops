@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 36
+/svn/ocp/!svn/ver/505/trunk/SAGE/Lib
+END
+I386.Math.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/ocp/!svn/ver/491/trunk/SAGE/Lib/I386.Math.Mod
+END
+Containers.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/ocp/!svn/ver/505/trunk/SAGE/Lib/Containers.Mod
+END
+I386.MathL.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/ocp/!svn/ver/491/trunk/SAGE/Lib/I386.MathL.Mod
+END

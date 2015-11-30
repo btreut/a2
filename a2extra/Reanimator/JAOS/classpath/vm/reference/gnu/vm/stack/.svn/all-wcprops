@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/ocp/!svn/ver/431/trunk/Reanimator/JAOS/classpath/vm/reference/gnu/vm/stack
+END
+StackFrame.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/ocp/!svn/ver/431/trunk/Reanimator/JAOS/classpath/vm/reference/gnu/vm/stack/StackFrame.java
+END
+Makefile.in
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/ocp/!svn/ver/431/trunk/Reanimator/JAOS/classpath/vm/reference/gnu/vm/stack/Makefile.in
+END
+StackTrace.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/ocp/!svn/ver/431/trunk/Reanimator/JAOS/classpath/vm/reference/gnu/vm/stack/StackTrace.java
+END
+Makefile.am
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/ocp/!svn/ver/431/trunk/Reanimator/JAOS/classpath/vm/reference/gnu/vm/stack/Makefile.am
+END

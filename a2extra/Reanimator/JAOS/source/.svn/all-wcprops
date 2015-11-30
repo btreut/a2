@@ -1,0 +1,275 @@
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/ocp/!svn/ver/443/trunk/Reanimator/JAOS/source
+END
+JVMSystem.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/ocp/!svn/ver/443/trunk/Reanimator/JAOS/source/JVMSystem.Mod
+END
+JaosLicense.Text
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/ocp/!svn/ver/428/trunk/Reanimator/JAOS/source/JaosLicense.Text
+END
+jjlFloat.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/ocp/!svn/ver/443/trunk/Reanimator/JAOS/source/jjlFloat.Mod
+END
+jjlObject.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/ocp/!svn/ver/443/trunk/Reanimator/JAOS/source/jjlObject.Mod
+END
+jjlString.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/ocp/!svn/ver/443/trunk/Reanimator/JAOS/source/jjlString.Mod
+END
+JVMCompiler0.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/ocp/!svn/ver/443/trunk/Reanimator/JAOS/source/JVMCompiler0.Mod
+END
+jjNio.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/ocp/!svn/ver/443/trunk/Reanimator/JAOS/source/jjNio.Mod
+END
+jjiFileDescriptor.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/ocp/!svn/ver/443/trunk/Reanimator/JAOS/source/jjiFileDescriptor.Mod
+END
+JVMStubs.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/ocp/!svn/ver/443/trunk/Reanimator/JAOS/source/JVMStubs.Mod
+END
+JVMConsole.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/ocp/!svn/ver/443/trunk/Reanimator/JAOS/source/JVMConsole.Mod
+END
+JVMTypes.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/ocp/!svn/ver/443/trunk/Reanimator/JAOS/source/JVMTypes.Mod
+END
+jjlSystem.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/ocp/!svn/ver/443/trunk/Reanimator/JAOS/source/jjlSystem.Mod
+END
+JVMCompiler.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/ocp/!svn/ver/443/trunk/Reanimator/JAOS/source/JVMCompiler.Mod
+END
+jjlThrowable.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/ocp/!svn/ver/443/trunk/Reanimator/JAOS/source/jjlThrowable.Mod
+END
+jjaAosGraphics.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/ocp/!svn/ver/443/trunk/Reanimator/JAOS/source/jjaAosGraphics.Mod
+END
+jjlNumber.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/ocp/!svn/ver/443/trunk/Reanimator/JAOS/source/jjlNumber.Mod
+END
+jjlMath.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/ocp/!svn/ver/443/trunk/Reanimator/JAOS/source/jjlMath.Mod
+END
+JVMUI.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/ocp/!svn/ver/443/trunk/Reanimator/JAOS/source/JVMUI.Mod
+END
+jjlVMThrowable.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/ocp/!svn/ver/443/trunk/Reanimator/JAOS/source/jjlVMThrowable.Mod
+END
+JVM.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/ocp/!svn/ver/443/trunk/Reanimator/JAOS/source/JVM.Mod
+END
+JVMExceptions.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/ocp/!svn/ver/443/trunk/Reanimator/JAOS/source/JVMExceptions.Mod
+END
+jjlStackTraceElement.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/ocp/!svn/ver/443/trunk/Reanimator/JAOS/source/jjlStackTraceElement.Mod
+END
+jjlVMClassLoader.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/ocp/!svn/ver/443/trunk/Reanimator/JAOS/source/jjlVMClassLoader.Mod
+END
+JVMLinker.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/ocp/!svn/ver/443/trunk/Reanimator/JAOS/source/JVMLinker.Mod
+END
+JVM.OpCodeInfo
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/ocp/!svn/ver/443/trunk/Reanimator/JAOS/source/JVM.OpCodeInfo
+END
+JVMDebug.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/ocp/!svn/ver/443/trunk/Reanimator/JAOS/source/JVMDebug.Mod
+END
+jjlVMSecurityManager.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/ocp/!svn/ver/443/trunk/Reanimator/JAOS/source/jjlVMSecurityManager.Mod
+END
+JVMThreads.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/ocp/!svn/ver/443/trunk/Reanimator/JAOS/source/JVMThreads.Mod
+END
+jjiInputStream.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/ocp/!svn/ver/443/trunk/Reanimator/JAOS/source/jjiInputStream.Mod
+END
+jjiFileInputStream.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/ocp/!svn/ver/443/trunk/Reanimator/JAOS/source/jjiFileInputStream.Mod
+END
+jjiOutputStream.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/ocp/!svn/ver/443/trunk/Reanimator/JAOS/source/jjiOutputStream.Mod
+END
+jjiFileOutputStream.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/ocp/!svn/ver/443/trunk/Reanimator/JAOS/source/jjiFileOutputStream.Mod
+END
+JVMParser.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/ocp/!svn/ver/443/trunk/Reanimator/JAOS/source/JVMParser.Mod
+END
+JVMOptCompiler.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/ocp/!svn/ver/443/trunk/Reanimator/JAOS/source/JVMOptCompiler.Mod
+END
+jjlDouble.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/ocp/!svn/ver/443/trunk/Reanimator/JAOS/source/jjlDouble.Mod
+END
+JVMEmpty.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/ocp/!svn/ver/443/trunk/Reanimator/JAOS/source/JVMEmpty.Mod
+END
+jjiFile.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/ocp/!svn/ver/443/trunk/Reanimator/JAOS/source/jjiFile.Mod
+END
+JVMRefs.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/ocp/!svn/ver/443/trunk/Reanimator/JAOS/source/JVMRefs.Mod
+END
+JVMLoader.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/ocp/!svn/ver/443/trunk/Reanimator/JAOS/source/JVMLoader.Mod
+END
+JVMConverter.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/ocp/!svn/ver/443/trunk/Reanimator/JAOS/source/JVMConverter.Mod
+END
+jjaGraphics.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/ocp/!svn/ver/443/trunk/Reanimator/JAOS/source/jjaGraphics.Mod
+END
+JVMBase.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/ocp/!svn/ver/443/trunk/Reanimator/JAOS/source/JVMBase.Mod
+END
+jjlVMSystem.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/ocp/!svn/ver/443/trunk/Reanimator/JAOS/source/jjlVMSystem.Mod
+END
+Jaos.Tool
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/ocp/!svn/ver/442/trunk/Reanimator/JAOS/source/Jaos.Tool
+END
+JVMInterfaces.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/ocp/!svn/ver/443/trunk/Reanimator/JAOS/source/JVMInterfaces.Mod
+END

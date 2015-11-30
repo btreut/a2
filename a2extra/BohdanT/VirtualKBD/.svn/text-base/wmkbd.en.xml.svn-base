@@ -1,0 +1,138 @@
+<KeyBoard name="Eng">
+	<Line height="54" width="54" >
+	 <key c1="ESC" scan="ESC"/>
+	 <key/>
+	 <key c1="F1" scan="F1"/>
+	 <key c1="F2" scan="F2"/>
+	 <key c1="F3" scan="F3"/>
+	 <key c1="F4" scan="F4"/>
+	 <key  width="27"/>
+	 <key c1="F5" scan="F5"/>
+	 <key c1="F6" scan="F6"/>
+	 <key c1="F7" scan="F7"/>
+	 <key c1="F8" scan="F8"/>
+	 <key  width="27"/>
+	 <key c1="F9" scan="F9"/>
+	 <key c1="F10" scan="F10"/>
+	 <key c1="F11" scan="F11"/>
+	 <key c1="F12" scan="F12"/>
+	 <key  width="27"/>
+	 <key c1="Pri" scan="PRINT"/>
+	 <key c1="Scr" scan="SCROLLLOCK"/>
+	 <key c1="Pau" scan="PAUSE"/>
+	</Line>
+	<Line height="27">
+	</Line>
+	<Line height="54" width="54" >
+	 <key c1="`" c2="~"/>
+	 <key c1="1" c2="!"/>
+	 <key c1="2" c2="@"/>
+	 <key c1="3" c2="#"/>
+	 <key c1="4" c2="$"/>
+	 <key c1="5" c2="%"/>
+	 <key c1="6" c2="^"/>
+	 <key c1="7" c2="&#38;"/>
+	 <key c1="8" c2="*"/>
+	 <key c1="9" c2="("/>
+	 <key c1="0" c2=")"/>
+	 <key c1="-" c2="_"/>
+	 <key c1="=" c2="+"/>
+	 <key c1="\" c2="|"/>
+	 <key c1="⇦" scan="BACKSPACE"/>
+
+	 <key  width="27"/>
+	 <key c1="Ins" scan="INS"/>
+	 <key c1="Hom" scan="HOME"/>
+	 <key c1="PUp" scan="PAGEUP"/>
+
+	 <key  width="27"/>
+	 <key c1="Num" scan="NUMLOCK"/>
+	 <key c1="/" scan="KPDIV"/>
+	 <key c1="*" scan="KPMULTIPLY"/>
+	 <key c1="-"  scan="KPSUB"/>
+
+	</Line>
+	<Line height="54" width="54">
+	 <key width="80" c1="TAB" scan="TAB"/>
+	 <key c1="q" c2="Q"/>
+	 <key c1="w" c2="W"/>
+	 <key c1="e" c2="E"/>
+	 <key c1="r" c2="R"/>
+	 <key c1="t" c2="T"/>
+	 <key c1="y" c2="Y"/>
+	 <key c1="u" c2="U"/>
+	 <key c1="i" c2="I"/>
+	 <key c1="o" c2="O"/>
+	 <key c1="p" c2="P"/>
+	 <key c1="[" c2="{"/>
+	 <key c1="]" c2="}"/>
+	 <key width="82" c1="" scan="RETURN"/>
+	 <key  width="27"/>
+	 <key c1="Del" scan="DEL"/>
+	 <key c1="End" scan="END"/>
+	 <key c1="PDn" scan="PAGEDOWN"/>
+	 <key  width="27"/>
+	 <key c1="7"/>
+	 <key c1="8"/>
+	 <key c1="9"/>
+	 <key c1="+" height="108" scan="KPADD"/>
+
+	</Line>
+	<Line height="54"  width="54">
+	 <key width="94" c1="CAPS"/>
+	 <key c1="a" c2="A"/>
+	 <key c1="s" c2="S"/>
+	 <key c1="d" c2="D"/>
+	 <key c1="f" c2="F"/>
+	 <key c1="g" c2="G"/>
+	 <key c1="h" c2="H"/>
+	 <key c1="j" c2="J"/>
+	 <key c1="k" c2="K"/>
+	 <key c1="l" c2="L"/>
+	 <key c1=";" c2=";"/>
+	 <key c1="'" c2="'"/>
+	 <key width="122" c1="Enter↲" scan="RETURN"/>
+	 <key  width="216"/>
+	 <key c1="4"/>
+	 <key c1="5"/>
+	 <key c1="6"/>
+	</Line>
+	<Line height="54" width="54">
+	 <key width="120" c1="SHIFT"/>
+	 <key c1="z" c2="Z"/>
+	 <key c1="x" c2="X"/>
+	 <key c1="c" c2="C"/>
+	 <key c1="v" c2="V"/>
+	 <key c1="b" c2="B"/>
+	 <key c1="n" c2="N"/>
+	 <key c1="m" c2="M"/>
+	 <key c1="," c2=","/>
+	 <key c1="." c2="."/>
+	 <key c1="/" c2="/"/>
+	 <key width="150" c1="SHIFT" />
+	 <key width="81"/>
+	 <key c1="↑" scan="UP"/>
+	 <key width="81"/>
+	 <key c1="1"/>
+	 <key c1="2"/>
+	 <key c1="3"/>
+	 <key c1="Ent" height="108"/>
+	</Line>
+	<Line height="54" width="54">
+	 <key width="80" c1="CTRL"/>
+	 <key width="80" c1="META"/>
+	 <key width="80" c1="ALT"/>
+	 <key width="250" c1=" "/>
+	 <key width="80" c1="ALT"/>
+	 <key width="80" c1="META"/>
+	 <key width="80" c1="MENU" scan="MENU"/>
+	 <key width="80" c1="CTRL"/>
+	 <key width="27"/>
+	 <key c1="←" scan="LEFT"/>
+	 <key c1="↓" scan="DOWN"/>
+	 <key c1="→" scan="RIGHT"/>
+	 <key  width="27"/>
+	 <key c1="0" width="108"/>
+	 <key c1="."/>
+	</Line>
+</KeyBoard>

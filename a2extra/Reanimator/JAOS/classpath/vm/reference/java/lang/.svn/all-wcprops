@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/ocp/!svn/ver/431/trunk/Reanimator/JAOS/classpath/vm/reference/java/lang
+END
+VMClassLoader.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/ocp/!svn/ver/431/trunk/Reanimator/JAOS/classpath/vm/reference/java/lang/VMClassLoader.java
+END
+Makefile.in
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/ocp/!svn/ver/431/trunk/Reanimator/JAOS/classpath/vm/reference/java/lang/Makefile.in
+END
+Runtime.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/ocp/!svn/ver/431/trunk/Reanimator/JAOS/classpath/vm/reference/java/lang/Runtime.java
+END
+Class.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/ocp/!svn/ver/431/trunk/Reanimator/JAOS/classpath/vm/reference/java/lang/Class.java
+END
+VMSecurityManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/ocp/!svn/ver/431/trunk/Reanimator/JAOS/classpath/vm/reference/java/lang/VMSecurityManager.java
+END
+Thread.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/ocp/!svn/ver/431/trunk/Reanimator/JAOS/classpath/vm/reference/java/lang/Thread.java
+END
+Throwable.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/ocp/!svn/ver/431/trunk/Reanimator/JAOS/classpath/vm/reference/java/lang/Throwable.java
+END
+VMSystem.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/ocp/!svn/ver/431/trunk/Reanimator/JAOS/classpath/vm/reference/java/lang/VMSystem.java
+END
+Makefile.am
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/ocp/!svn/ver/431/trunk/Reanimator/JAOS/classpath/vm/reference/java/lang/Makefile.am
+END
+VMObject.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/ocp/!svn/ver/431/trunk/Reanimator/JAOS/classpath/vm/reference/java/lang/VMObject.java
+END

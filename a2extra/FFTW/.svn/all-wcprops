@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 32
+/svn/ocp/!svn/ver/438/trunk/FFTW
+END
+FFTW.Tool
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/ocp/!svn/ver/438/trunk/FFTW/FFTW.Tool
+END
+FFTWTest.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/ocp/!svn/ver/437/trunk/FFTW/FFTWTest.Mod
+END
+Win32.FFTW.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/ocp/!svn/ver/437/trunk/FFTW/Win32.FFTW.Mod
+END
+Unix.FFTW.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/ocp/!svn/ver/437/trunk/FFTW/Unix.FFTW.Mod
+END
+FFTWTestf.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/ocp/!svn/ver/437/trunk/FFTW/FFTWTestf.Mod
+END
+Win32.FFTWf.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/ocp/!svn/ver/437/trunk/FFTW/Win32.FFTWf.Mod
+END
+Unix.FFTWf.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/ocp/!svn/ver/437/trunk/FFTW/Unix.FFTWf.Mod
+END

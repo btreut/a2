@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/ocp/!svn/ver/384/trunk/BohdanT/VirtualKBD
+END
+wmkbd.num.xml
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/ocp/!svn/ver/345/trunk/BohdanT/VirtualKBD/wmkbd.num.xml
+END
+WMKBD.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/ocp/!svn/ver/384/trunk/BohdanT/VirtualKBD/WMKBD.Mod
+END
+wmkbd.en.xml
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/ocp/!svn/ver/345/trunk/BohdanT/VirtualKBD/wmkbd.en.xml
+END
+VirtualKBD.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/ocp/!svn/ver/345/trunk/BohdanT/VirtualKBD/VirtualKBD.Mod
+END
+wmkbd.ens.xml
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/ocp/!svn/ver/345/trunk/BohdanT/VirtualKBD/wmkbd.ens.xml
+END

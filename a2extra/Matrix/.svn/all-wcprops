@@ -1,0 +1,545 @@
+K 25
+svn:wc:ra_dav:version-url
+V 34
+/svn/ocp/!svn/ver/562/trunk/Matrix
+END
+MatrixLeastSquares.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/ocp/!svn/ver/411/trunk/Matrix/MatrixLeastSquares.Mod
+END
+VolumeTransform.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/ocp/!svn/ver/562/trunk/Matrix/VolumeTransform.Mod
+END
+VolumeNabla.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/ocp/!svn/ver/548/trunk/Matrix/VolumeNabla.Mod
+END
+MLRegression.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/ocp/!svn/ver/177/trunk/Matrix/MLRegression.Mod
+END
+PlanarTransform.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/ocp/!svn/ver/523/trunk/Matrix/PlanarTransform.Mod
+END
+PlanarNabla.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/ocp/!svn/ver/467/trunk/Matrix/PlanarNabla.Mod
+END
+LinearIIRConvolveLongReal.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/ocp/!svn/ver/365/trunk/Matrix/LinearIIRConvolveLongReal.Mod
+END
+HypercubeTransform.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/ocp/!svn/ver/266/trunk/Matrix/HypercubeTransform.Mod
+END
+StatisticsFunctions.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/ocp/!svn/ver/529/trunk/Matrix/StatisticsFunctions.Mod
+END
+VolumeBoundaries.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/ocp/!svn/ver/561/trunk/Matrix/VolumeBoundaries.Mod
+END
+HypercubeNabla.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/ocp/!svn/ver/367/trunk/Matrix/HypercubeNabla.Mod
+END
+MLRidgeRegression.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/ocp/!svn/ver/367/trunk/Matrix/MLRidgeRegression.Mod
+END
+MatrixRaster.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/ocp/!svn/ver/506/trunk/Matrix/MatrixRaster.Mod
+END
+MLNeuralNet.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/ocp/!svn/ver/538/trunk/Matrix/MLNeuralNet.Mod
+END
+MatrixKrylovMINRES.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/ocp/!svn/ver/559/trunk/Matrix/MatrixKrylovMINRES.Mod
+END
+StatisticsRobustRegression.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/ocp/!svn/ver/425/trunk/Matrix/StatisticsRobustRegression.Mod
+END
+LinpackBenchmark.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/ocp/!svn/ver/538/trunk/Matrix/LinpackBenchmark.Mod
+END
+PlanarNorms.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/ocp/!svn/ver/553/trunk/Matrix/PlanarNorms.Mod
+END
+MatrixActive.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/ocp/!svn/ver/531/trunk/Matrix/MatrixActive.Mod
+END
+VolumePDE.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/ocp/!svn/ver/558/trunk/Matrix/VolumePDE.Mod
+END
+VolumeBase.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/ocp/!svn/ver/434/trunk/Matrix/VolumeBase.Mod
+END
+MatrixStreams.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/ocp/!svn/ver/367/trunk/Matrix/MatrixStreams.Mod
+END
+LinearPDE.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/ocp/!svn/ver/542/trunk/Matrix/LinearPDE.Mod
+END
+TestMatrixStandardSolvers.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/ocp/!svn/ver/178/trunk/Matrix/TestMatrixStandardSolvers.Mod
+END
+MatrixAVI.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/ocp/!svn/ver/367/trunk/Matrix/MatrixAVI.Mod
+END
+WMRaster.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/ocp/!svn/ver/379/trunk/Matrix/WMRaster.Mod
+END
+PlanarPDE.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/ocp/!svn/ver/558/trunk/Matrix/PlanarPDE.Mod
+END
+MatrixMoments.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/ocp/!svn/ver/455/trunk/Matrix/MatrixMoments.Mod
+END
+MatrixFastMatrixMultiply.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/ocp/!svn/ver/538/trunk/Matrix/MatrixFastMatrixMultiply.Mod
+END
+MLTest.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/ocp/!svn/ver/367/trunk/Matrix/MLTest.Mod
+END
+PMath.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/ocp/!svn/ver/522/trunk/Matrix/PMath.Mod
+END
+VolumeMoments.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/ocp/!svn/ver/367/trunk/Matrix/VolumeMoments.Mod
+END
+MatrixComputeObjects.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/ocp/!svn/ver/432/trunk/Matrix/MatrixComputeObjects.Mod
+END
+MatrixInterpolation.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/ocp/!svn/ver/524/trunk/Matrix/MatrixInterpolation.Mod
+END
+MatrixEigen.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/ocp/!svn/ver/400/trunk/Matrix/MatrixEigen.Mod
+END
+MatrixOptim.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/ocp/!svn/ver/368/trunk/Matrix/MatrixOptim.Mod
+END
+MLClassifier.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/ocp/!svn/ver/177/trunk/Matrix/MLClassifier.Mod
+END
+MatrixAlgebraicMultigrid.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/ocp/!svn/ver/367/trunk/Matrix/MatrixAlgebraicMultigrid.Mod
+END
+MatrixSVD.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/ocp/!svn/ver/521/trunk/Matrix/MatrixSVD.Mod
+END
+ErrorBase.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/ocp/!svn/ver/367/trunk/Matrix/ErrorBase.Mod
+END
+StatisticsBase.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/ocp/!svn/ver/530/trunk/Matrix/StatisticsBase.Mod
+END
+PlanarMath.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/ocp/!svn/ver/444/trunk/Matrix/PlanarMath.Mod
+END
+MatrixFigures.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/ocp/!svn/ver/186/trunk/Matrix/MatrixFigures.Mod
+END
+MatrixBSplineInterpolation.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/ocp/!svn/ver/524/trunk/Matrix/MatrixBSplineInterpolation.Mod
+END
+ExtraSort.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/ocp/!svn/ver/367/trunk/Matrix/ExtraSort.Mod
+END
+PlanarMorphology.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/ocp/!svn/ver/539/trunk/Matrix/PlanarMorphology.Mod
+END
+MatrixFilters.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/ocp/!svn/ver/351/trunk/Matrix/MatrixFilters.Mod
+END
+TestComplexMathL.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/ocp/!svn/ver/402/trunk/Matrix/TestComplexMathL.Mod
+END
+MatrixIterativeSolvers.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/ocp/!svn/ver/465/trunk/Matrix/MatrixIterativeSolvers.Mod
+END
+MatrixBase.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/ocp/!svn/ver/470/trunk/Matrix/MatrixBase.Mod
+END
+Matrix.Tool
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/ocp/!svn/ver/535/trunk/Matrix/Matrix.Tool
+END
+LinearFilters.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/ocp/!svn/ver/474/trunk/Matrix/LinearFilters.Mod
+END
+MLBase.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/ocp/!svn/ver/367/trunk/Matrix/MLBase.Mod
+END
+LinearTransform.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/ocp/!svn/ver/439/trunk/Matrix/LinearTransform.Mod
+END
+linp32SSE2.exe
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/ocp/!svn/ver/53/trunk/Matrix/linp32SSE2.exe
+END
+MatrixKrylovCGS.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/ocp/!svn/ver/559/trunk/Matrix/MatrixKrylovCGS.Mod
+END
+MatrixKrylovGMRES.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/ocp/!svn/ver/367/trunk/Matrix/MatrixKrylovGMRES.Mod
+END
+WMStack.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/ocp/!svn/ver/532/trunk/Matrix/WMStack.Mod
+END
+LinearFIRConvolveLongReal.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/ocp/!svn/ver/434/trunk/Matrix/LinearFIRConvolveLongReal.Mod
+END
+MatrixPrincipalComponents.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/ocp/!svn/ver/425/trunk/Matrix/MatrixPrincipalComponents.Mod
+END
+PlanarEdgeDetectors.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/ocp/!svn/ver/469/trunk/Matrix/PlanarEdgeDetectors.Mod
+END
+Linpack.txt
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/ocp/!svn/ver/351/trunk/Matrix/Linpack.txt
+END
+HypercubeBase.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/ocp/!svn/ver/434/trunk/Matrix/HypercubeBase.Mod
+END
+MatrixTransforms.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/ocp/!svn/ver/400/trunk/Matrix/MatrixTransforms.Mod
+END
+MatrixNorms.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/ocp/!svn/ver/466/trunk/Matrix/MatrixNorms.Mod
+END
+MatrixProjections.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/ocp/!svn/ver/426/trunk/Matrix/MatrixProjections.Mod
+END
+LinearMath.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/ocp/!svn/ver/444/trunk/Matrix/LinearMath.Mod
+END
+Wavelets.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/ocp/!svn/ver/367/trunk/Matrix/Wavelets.Mod
+END
+StatisticsHistograms.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/ocp/!svn/ver/444/trunk/Matrix/StatisticsHistograms.Mod
+END
+MLKernelMeans.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/ocp/!svn/ver/367/trunk/Matrix/MLKernelMeans.Mod
+END
+MatrixBlockSolvers.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/ocp/!svn/ver/538/trunk/Matrix/MatrixBlockSolvers.Mod
+END
+MatrixUtilities.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/ocp/!svn/ver/546/trunk/Matrix/MatrixUtilities.Mod
+END
+TestVolumePDE.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/ocp/!svn/ver/363/trunk/Matrix/TestVolumePDE.Mod
+END
+MatrixStandardSolvers.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/ocp/!svn/ver/432/trunk/Matrix/MatrixStandardSolvers.Mod
+END
+TestPlanarPDE.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/ocp/!svn/ver/386/trunk/Matrix/TestPlanarPDE.Mod
+END
+PlanarBase.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/ocp/!svn/ver/445/trunk/Matrix/PlanarBase.Mod
+END
+MatrixPolynomEq.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/ocp/!svn/ver/367/trunk/Matrix/MatrixPolynomEq.Mod
+END
+WMMatrix.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/ocp/!svn/ver/536/trunk/Matrix/WMMatrix.Mod
+END
+LinearFFT.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/ocp/!svn/ver/365/trunk/Matrix/LinearFFT.Mod
+END
+PlanarFFT.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/ocp/!svn/ver/463/trunk/Matrix/PlanarFFT.Mod
+END
+TestMatrixOptim.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/ocp/!svn/ver/368/trunk/Matrix/TestMatrixOptim.Mod
+END
+LinearConvolve.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/ocp/!svn/ver/439/trunk/Matrix/LinearConvolve.Mod
+END
+StatisticsLinearRegression.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/ocp/!svn/ver/414/trunk/Matrix/StatisticsLinearRegression.Mod
+END
+VolumeMorphology.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/ocp/!svn/ver/543/trunk/Matrix/VolumeMorphology.Mod
+END
+PlanarBlobDetectors.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/ocp/!svn/ver/459/trunk/Matrix/PlanarBlobDetectors.Mod
+END
+HypercubeMoments.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/ocp/!svn/ver/367/trunk/Matrix/HypercubeMoments.Mod
+END
+WMMatrixGraph.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/ocp/!svn/ver/478/trunk/Matrix/WMMatrixGraph.Mod
+END
+MatrixRoots.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/ocp/!svn/ver/379/trunk/Matrix/MatrixRoots.Mod
+END
+MLKernels.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/ocp/!svn/ver/367/trunk/Matrix/MLKernels.Mod
+END
+ComplexMathL.Mod
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/ocp/!svn/ver/444/trunk/Matrix/ComplexMathL.Mod
+END

@@ -1,0 +1,74 @@
+<KeyBoard name="EngC">
+	<Line height="54" width="54" >
+	 <key c1="`" c2="~"/>
+	 <key c1="1" c2="!"/>
+	 <key c1="2" c2="@"/>
+	 <key c1="3" c2="#"/>
+	 <key c1="4" c2="$"/>
+	 <key c1="5" c2="%"/>
+	 <key c1="6" c2="^"/>
+	 <key c1="7" c2="&#38;"/>
+	 <key c1="8" c2="*"/>
+	 <key c1="9" c2="("/>
+	 <key c1="0" c2=")"/>
+	 <key c1="-" c2="_"/>
+	 <key c1="=" c2="+"/>
+	 <key c1="\" c2="|"/>
+	 <key c1="BKSP" scan="BACKSPACE"/>
+	</Line>
+	<Line height="54" width="54">
+	 <key width="80" c1="TAB" scan="TAB"/>
+	 <key c1="q" c2="Q"/>
+	 <key c1="w" c2="W"/>
+	 <key c1="e" c2="E"/>
+	 <key c1="r" c2="R"/>
+	 <key c1="t" c2="T"/>
+	 <key c1="y" c2="Y"/>
+	 <key c1="u" c2="U"/>
+	 <key c1="i" c2="I"/>
+	 <key c1="o" c2="O"/>
+	 <key c1="p" c2="P"/>
+	 <key c1="[" c2="{"/>
+	 <key c1="]" c2="}"/>
+	 <key width="82" c1="" scan="RETURN"/>
+	</Line>
+	<Line height="54"  width="54">
+	 <key width="94" c1="CAPS"/>
+	 <key c1="a" c2="A"/>
+	 <key c1="s" c2="S"/>
+	 <key c1="d" c2="D"/>
+	 <key c1="f" c2="F"/>
+	 <key c1="g" c2="G"/>
+	 <key c1="h" c2="H"/>
+	 <key c1="j" c2="J"/>
+	 <key c1="k" c2="K"/>
+	 <key c1="l" c2="L"/>
+	 <key c1=";" c2=";"/>
+	 <key c1="'" c2="'"/>
+	 <key width="122" c1="Enter" scan="RETURN"/>
+	</Line>
+	<Line height="54" width="54">
+	 <key width="120" c1="SHIFT"/>
+	 <key c1="z" c2="Z"/>
+	 <key c1="x" c2="X"/>
+	 <key c1="c" c2="C"/>
+	 <key c1="v" c2="V"/>
+	 <key c1="b" c2="B"/>
+	 <key c1="n" c2="N"/>
+	 <key c1="m" c2="M"/>
+	 <key c1="," c2=","/>
+	 <key c1="." c2="."/>
+	 <key c1="/" c2="/"/>
+	 <key width="150" c1="SHIFT" />
+	</Line>
+	<Line height="54" width="54">
+	 <key width="80" c1="CTRL"/>
+	 <key width="80" c1="META"/>
+	 <key width="80" c1="ALT"/>
+	 <key width="250" c1=" "/>
+	 <key width="80" c1="ALT"/>
+	 <key width="80" c1="META"/>
+	 <key width="80" c1="MENU" scan="MENU"/>
+	 <key width="80" c1="CTRL"/>
+	</Line>
+</KeyBoard>

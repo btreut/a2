@@ -1,0 +1,26 @@
+JVM CVS
+
+JVM/source
+	the oberon sources for the JVM
+JVM/classpath
+	the java sources for building the java API
+
+
+Using JVM/classpath
+
+The Java APIs have been modified for the Oberon JVM. To allow synchronization
+with the GNU Classpath project we rely on CVS source management.
+
+We only use the java/* directory of the classpath release (the one containing the java sources). oberon/* is added for our own java classes.
+
+* Updating the API when a new classpath version is released:
+
+1) download the newest version from www.classpath.org
+2) unpack it: tar -xzf
+3) keep only the java directory, remove non *.java files
+4) add it to cvs:
+	cvs import -m "classpath X.XX" JVM/classpath classpath classpath-X-XX
+5) merge
+	cvs checkout -jclasspath:yesterday -jclasspath JVM/classpath
+6) controll changed classes
+7) rebuild 

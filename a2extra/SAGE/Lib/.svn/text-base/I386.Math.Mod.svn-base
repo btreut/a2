@@ -1,0 +1,424 @@
+MODULE Math;  (** AUTHOR "SAGE"; PURPOSE "Math utility module (REAL). Ported from BlackBox Component Builder (Oberon microsystems www.oberon.ch )"; *)
+
+IMPORT
+	SYSTEM, Reals;
+	
+CONST
+
+	(* Standard constants according to "The Oakwood Guidelines for Oberon-2 Compiler Developers" *)
+
+	pi* = 3.14159265358979323846E0;
+	e* = 2.7182818284590452354E0;
+
+VAR
+	INF: REAL;
+
+(* inline code procedures for 80387 math coprocessor *)
+
+PROCEDURE -FLD(x: REAL);
+CODE {SYSTEM.i386, SYSTEM.FPU}
+	FLD DWORD [ESP]
+	POP EAX
+END FLD;
+
+PROCEDURE -TOP(): REAL;
+CODE {SYSTEM.i386, SYSTEM.FPU}
+END TOP;
+
+PROCEDURE -FSWs(): SET;
+CODE {SYSTEM.i386, SYSTEM.FPU}
+	DB 0DFH, 0E0H
+END FSWs;
+
+PROCEDURE -ST0(): REAL;
+CODE {SYSTEM.i386, SYSTEM.FPU}
+	DB 0D9H, 0C0H
+END ST0;
+
+PROCEDURE -FXCH;
+CODE {SYSTEM.i386, SYSTEM.FPU}
+	DB 0D9H, 0C9H
+END FXCH;
+
+PROCEDURE -FLDst0;
+CODE {SYSTEM.i386, SYSTEM.FPU}
+	DB 0D9H, 0C0H ; doublicate st[0]
+END FLDst0;
+
+PROCEDURE -FSTPst0;
+CODE {SYSTEM.i386, SYSTEM.FPU}
+	DB 0DDH, 0D8H ; remove st[0]
+END FSTPst0;
+
+PROCEDURE -FSTPst1;
+CODE {SYSTEM.i386, SYSTEM.FPU}
+	DB 0DDH, 0D9H ; remove st[1]
+END FSTPst1;
+
+PROCEDURE -WAIT;
+CODE {SYSTEM.i386, SYSTEM.FPU}
+	DB 09BH
+END WAIT;
+
+PROCEDURE -FNOP;
+CODE {SYSTEM.i386, SYSTEM.FPU}
+	DB 0D9H, 0D0H
+END FNOP;
+
+PROCEDURE -FLD0;
+CODE {SYSTEM.i386, SYSTEM.FPU}
+	DB 0D9H, 0EEH
+END FLD0;
+
+PROCEDURE -FLD1;
+CODE {SYSTEM.i386, SYSTEM.FPU}
+	DB 0D9H, 0E8H
+END FLD1;
+
+PROCEDURE -FLDLN2;
+CODE {SYSTEM.i386, SYSTEM.FPU}
+	DB 0D9H, 0EDH
+END FLDLN2;
+
+PROCEDURE -FLDLG2;
+CODE {SYSTEM.i386, SYSTEM.FPU}
+	DB 0D9H, 0ECH
+END FLDLG2;
+
+PROCEDURE -FLDL2E;
+CODE {SYSTEM.i386, SYSTEM.FPU}
+	DB 0D9H, 0EAH;
+END FLDL2E;
+
+PROCEDURE -FADD;
+CODE {SYSTEM.i386, SYSTEM.FPU}
+	DB 0DEH, 0C1H
+END FADD;
+
+PROCEDURE -FADDst0;
+CODE {SYSTEM.i386, SYSTEM.FPU}
+	DB 0D8H, 0C0H
+END FADDst0;
+
+PROCEDURE -FSUB;
+CODE {SYSTEM.i386, SYSTEM.FPU}
+	DB 0DEH, 0E9H
+END FSUB;
+
+PROCEDURE -FSUBn;
+CODE {SYSTEM.i386, SYSTEM.FPU}
+	DB 0DCH, 0E9H ; no pop
+END FSUBn;
+
+PROCEDURE -FSUBR;
+CODE {SYSTEM.i386, SYSTEM.FPU}
+	DB 0DEH, 0E1H
+END FSUBR;
+
+PROCEDURE -FSUBst1;
+CODE {SYSTEM.i386, SYSTEM.FPU}
+	DB 0D8H, 0E1H
+END FSUBst1;
+
+PROCEDURE -FMUL;
+CODE {SYSTEM.i386, SYSTEM.FPU}
+	DB 0DEH, 0C9H
+END FMUL;
+
+PROCEDURE -FMULst0;
+CODE {SYSTEM.i386, SYSTEM.FPU}
+	DB 0D8H, 0C8H
+END FMULst0;
+
+PROCEDURE -FDIV;
+CODE {SYSTEM.i386, SYSTEM.FPU}
+	DB 0DEH, 0F9H
+END FDIV;
+
+PROCEDURE -FDIVR;
+CODE {SYSTEM.i386, SYSTEM.FPU}
+	DB 0DEH, 0F1H
+END FDIVR;
+
+PROCEDURE -FCHS;
+CODE {SYSTEM.i386, SYSTEM.FPU}
+	DB 0D9H, 0E0H
+END FCHS;
+
+PROCEDURE -FRNDINT;
+CODE {SYSTEM.i386, SYSTEM.FPU}
+	DB 0D9H, 0FCH
+END FRNDINT;
+
+PROCEDURE -FSCALE;
+CODE {SYSTEM.i386, SYSTEM.FPU}
+	DB 0D9H, 0FDH ; st[0] * 2^FLOOR(st[1])
+END FSCALE;
+
+PROCEDURE -FXAM;
+CODE {SYSTEM.i386, SYSTEM.FPU}
+	DB 0D9H, 0E5H;
+END FXAM;
+
+PROCEDURE -FSQRT;
+CODE {SYSTEM.i386, SYSTEM.FPU}
+	DB 0D9H, 0FAH ; st[0] >= 0
+END FSQRT;
+
+PROCEDURE -FSIN;
+CODE {SYSTEM.i386, SYSTEM.FPU}
+	DB 0D9H, 0FEH ; |st[0]| < 2^63
+END FSIN;
+
+PROCEDURE -FCOS;
+CODE {SYSTEM.i386, SYSTEM.FPU}
+	DB 0D9H, 0FFH ; |st[0]| < 2^63
+END FCOS;
+
+PROCEDURE -FTAN;
+CODE {SYSTEM.i386, SYSTEM.FPU}
+	DB 0D9H, 0F2H ; |st[0]| < 2^63
+END FTAN;
+
+PROCEDURE -FATAN;
+CODE {SYSTEM.i386, SYSTEM.FPU}
+	DB 0D9H, 0F3H ; atan2(st[1], st[0])
+END FATAN;
+
+PROCEDURE -FYL2X;
+CODE {SYSTEM.i386, SYSTEM.FPU}
+	DB 0D9H, 0F1H ; st[1] * log2(st[0]), st[0] > 0
+END FYL2X;
+
+PROCEDURE -FYL2XP1;
+CODE {SYSTEM.i386, SYSTEM.FPU}
+	DB 0D9H, 0F9H ; st[1] * log2(1 + st[0]), |st[0]| < 1-sqrt(2)/2
+END FYL2XP1;
+
+PROCEDURE -F2XM1;
+CODE {SYSTEM.i386, SYSTEM.FPU}
+	DB 0D9H, 0F0H ; 2^st[0] - 1, |st[0]| <= 1
+END F2XM1;
+
+(* Standard functions according to "The Oakwood Guidelines for Oberon-2 Compiler Developers" *)
+
+PROCEDURE sqrt* (x: REAL): REAL;
+BEGIN
+	ASSERT(x >= 0, 20); (* argument of sqrt must not be negative *)
+	FLD(x); FSQRT; WAIT; RETURN TOP()
+END sqrt;
+
+PROCEDURE power* (x, y: REAL): REAL;
+BEGIN
+	ASSERT(x >= 0, 20);
+	ASSERT((x # 0.0)  OR  (y # 0.0), 21);
+	ASSERT((x # INF)  OR  (y # 0.0), 22);
+	ASSERT((x # 1.0)  OR  (ABS(y) # INF), 23);
+	(* 2 ^ (y * ld(x)) *)
+	FLD(y); FLD(x); FYL2X;
+	IF ABS(ST0()) = INF THEN
+		FLD1
+	ELSE
+		FLDst0; FRNDINT; FXCH; FSUBst1; FNOP; F2XM1; FLD1; FADD
+	END;
+	FSCALE; FSTPst1; WAIT;
+	RETURN TOP()
+END power;
+
+PROCEDURE exp* (x: REAL): REAL;
+BEGIN
+	(* 2 ^ (x * 1/ln(2)) *)
+	FLD(x); FLDL2E; FMUL;
+	IF ABS(ST0()) = INF THEN
+		FLD1
+	ELSE
+		FLDst0; FRNDINT; FXCH; FSUBst1; FNOP; F2XM1; FLD1; FADD
+	END;
+	FSCALE; FSTPst1; RETURN TOP()
+END exp;
+
+PROCEDURE ln* (x: REAL): REAL;
+BEGIN
+	ASSERT(x >= 0, 20); (* argument of ln must not be negative *)
+	(* ln(2) * ld(x) *)
+	FLDLN2; FLD(x); FYL2X; WAIT;
+	RETURN TOP()
+END ln;
+
+PROCEDURE log* (x: REAL): REAL;
+BEGIN
+	ASSERT(x >= 0, 20); (* argument of log must not be negative *)
+	(* log(2) * ld(x) *)
+	FLDLG2; FLD(x); FYL2X; WAIT;
+	RETURN TOP()
+END log;
+
+PROCEDURE round* (x: REAL): REAL;
+BEGIN
+	FLD(x); 
+	IF ABS(ST0()) = INF THEN
+		RETURN TOP()
+	END;
+	FLDst0; FRNDINT; FSUBn; FXCH;
+	IF TOP() = 0.5 THEN
+		FLD1; FADD
+	END;
+	RETURN TOP()
+END round;
+
+(* sin, cos, tan argument reduction *)
+PROCEDURE Reduce;
+BEGIN
+	FXAM; WAIT;
+	IF ~(8 IN FSWs()) & (ABS(ST0()) > 1.0E18) THEN
+		(* to be completed *)
+		FSTPst0; FLD0
+	END;
+END Reduce;
+
+PROCEDURE sin* (x: REAL): REAL;
+BEGIN
+	(* 20, ABS(x) # INF *)
+	FLD(x); Reduce; FSIN; WAIT; RETURN TOP()
+END sin;
+
+PROCEDURE cos* (x: REAL): REAL;
+BEGIN
+	(* 20, ABS(x) # INF *)
+	FLD(x); Reduce; FCOS; WAIT; RETURN TOP()
+END cos;
+
+PROCEDURE tan* (x: REAL): REAL;
+BEGIN
+	(* 20, ABS(x) # INF *)
+	FLD(x); Reduce; FTAN; FSTPst0; WAIT; RETURN TOP()
+END tan;
+
+PROCEDURE arcsin* (x: REAL): REAL;
+BEGIN
+	(* 20, -1.0 <= x <= 1.0 *)
+	(* atan2(x, sqrt(1 - x*x)) *)
+	FLD(x); FLDst0; FMULst0; FLD1; FSUBR; FSQRT; FNOP; FATAN; WAIT;
+	RETURN TOP()
+END arcsin;
+
+PROCEDURE arccos* (x: REAL): REAL;
+BEGIN
+	(* 20, -1.0 <= x <= 1.0 *)
+	(* atan2(sqrt(1 - x*x), x) *)
+	FLD(x); FMULst0; FLD1; FSUBR; FSQRT; FLD(x); FATAN; WAIT;
+	RETURN TOP()
+END arccos;
+
+PROCEDURE arctan* (x: REAL): REAL;
+BEGIN
+	(* atan2(x, 1) *)
+	FLD(x); FLD1; FATAN;
+	RETURN TOP()
+END arctan;
+
+PROCEDURE arctan2* (y, x: REAL): REAL;
+BEGIN
+	ASSERT((y # 0) OR (x # 0), 20);
+	ASSERT((ABS(y) # INF) OR (ABS(x) # INF), 21);
+	FLD(y); FLD(x); FATAN; WAIT;
+	RETURN TOP()
+END arctan2;
+
+PROCEDURE sinh* (x: REAL): REAL;
+BEGIN
+	(* IF IsNan(x) THEN RETURN x END; *)
+	(* abs(x) * 1/ln(2) *)
+	FLD(ABS(x)); FLDL2E; FMUL;
+	IF ST0() < 0.5 THEN
+		(* (2^z - 1) + (2^z - 1) / ((2^z - 1) + 1) *)
+		F2XM1; FLDst0; FLDst0; FLD1; FADD; FDIV; FADD
+	ELSIF ST0() # INF THEN
+		(* 2^z - 1 / 2^z *)
+		FLDst0; FRNDINT; FXCH; FSUBst1; FNOP; F2XM1; FLD1; FADD; FSCALE;
+		FSTPst1; FLDst0; FLD1; FDIVR; FSUB
+	END;
+	IF x < 0 THEN FCHS END;
+	RETURN TOP() * 0.5
+END sinh;
+
+PROCEDURE cosh* (x: REAL): REAL;
+BEGIN
+	(* IF IsNan(x) THEN RETURN x END; *)
+	(* 2^(abs(x) * 1/ln(2)) *)
+	FLD(ABS(x));
+	IF ST0() # INF THEN 
+		FLDL2E; FMUL; FLDst0; FRNDINT; FXCH; FSUBst1; FNOP; F2XM1; FLD1; FADD; FSCALE;
+		FSTPst1;
+		(* z + 1/z *)
+		FLDst0; FLD1; FDIVR; FADD
+	END;
+	RETURN TOP() * 0.5
+END cosh;
+
+PROCEDURE tanh* (x: REAL): REAL;
+BEGIN
+	(* IF IsNan(x) THEN RETURN x END; *)
+	(* abs(x) * 1/ln(2) * 2 *)
+	FLD(ABS(x)); FLDL2E; FMUL; FADDst0;
+	IF ST0() < 0.5 THEN
+		(* (2^z - 1) / (2^z + 1) *)
+		F2XM1; FLDst0; FLD(2); FADD; FDIV
+	ELSIF ST0() < 65 THEN
+		(* 1 - 2 / (2^z + 1) *)
+		FLDst0; FRNDINT; FXCH; FSUBst1; FNOP; F2XM1; FLD1; FADD; FSCALE;
+		FSTPst1; FLD1; FADD; FLD(2); FDIVR; FLD1; FSUBR
+	ELSE
+		FSTPst0; FLD1
+	END;
+	IF x < 0 THEN FCHS END;
+	RETURN TOP()
+END tanh;
+
+PROCEDURE arcsinh* (x: REAL): REAL;
+BEGIN
+	(* IF IsNan(x) THEN RETURN x END; *)
+	(* x*x *)
+	FLDLN2; FLD(ABS(x)); FLDst0; FMULst0;
+	IF ST0() < 0.067 THEN
+		(* ln(2) * ld(1 + x*x / (sqrt(x*x + 1) + 1) + x) *)
+		FLDst0; FLD1; FADD; FSQRT; FLD1; FADD; FDIV; FADD; FYL2XP1
+	ELSE
+		(* ln(2) * ld(x + sqrt(x*x + 1)) *)
+		FLD1; FADD; FSQRT; FADD; FYL2X
+	END;
+	IF x < 0 THEN FCHS END;
+	RETURN TOP()
+END arcsinh;
+
+PROCEDURE arccosh* (x: REAL): REAL;
+BEGIN
+	(* 20, x >= 1.0 *)
+	(* IF IsNan(x) THEN RETURN x END; *)
+	(* ln(2) * ld(x + sqrt(x*x - 1)) *)
+	FLDLN2; FLD(x); FLDst0; FMULst0; FLD1; FSUB; FSQRT; FADD; FYL2X; WAIT;
+	RETURN TOP()
+END arccosh;
+
+PROCEDURE arctanh* (x: REAL): REAL;
+BEGIN
+	(* 20, -1.0 <= x <= 1.0 *)
+	(* IF IsNan(x) THEN RETURN x END; *)
+	(* |x| *)
+	FLDLN2; FLD(ABS(x)); 
+	IF ST0() < 0.12 THEN
+		(* ln(2) * ld(1 + 2*x / (1 - x)) *)
+		FLDst0; FLD1; FSUBR; FDIV; FADDst0; FYL2XP1
+	ELSE
+		(* ln(2) * ld((1 + x) / (1 - x)) *)
+		FLDst0; FLD1; FADD; FXCH; FLD1; FSUBR; FDIV; FNOP; FYL2X
+	END;
+	IF x < 0 THEN FCHS END;
+	WAIT;
+	RETURN TOP() * 0.5
+END arctanh;
+
+BEGIN
+	INF := Reals.NaN(0)
+END Math.
+
