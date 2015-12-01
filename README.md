@@ -18,19 +18,18 @@ Russian forum [Active Oberon & A2 (Bluebottle)](http://forum.oberoncore.ru/viewf
 
 [Installation and Configuration](http://sage.com.ua/ru.shtml?e1l0)
 
-## Compiling bootloader 
+## Compiling Boot Loader (aos.linux)
 
 ### Linux Ubuntu AMD64 
     cd ~/a2/UnixAos/boot
 
-    cp Makefile.linux Makefile
     sudo apt-get install make
     sudo apt-get install gcc
     sudo apt-get install linux-headers-$(uname -r)
     sudo ln -s /usr/include/asm-generic /usr/include/asm
     sudo apt-get install libc6-dev-i386
     sudo apt-get install libX11-dev:i386
-    make
+    make -f Makefile.linux.amd64    
     sudo cp ./aos.linux /usr/aos/aos.linux
 
 
