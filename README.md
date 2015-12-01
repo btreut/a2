@@ -39,8 +39,10 @@ Russian forum [Active Oberon & A2 (Bluebottle)](http://forum.oberoncore.ru/viewf
     sudo ln -s /usr/include/asm-generic /usr/include/asm
     make -f Makefile.linux.amd64
     
-#### Copy Boot Loater to install folder    
+#### Copy Boot Loater to install folder and run   
     sudo cp ./aos.linux /usr/aos/aos.linux
+    cd ~/workdir
+    aos
 
 
 ## List of popular Modules
