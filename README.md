@@ -42,21 +42,21 @@ Russian forum [Active Oberon & A2 (Bluebottle)](http://forum.oberoncore.ru/viewf
 #### Copy Boot Loater to install folder 
     sudo cp ./aos.linux /usr/aos/aos.linux
     
-## Forward X over SSH and run
+## Forward X over SSH and run A2
 
     sudo apt-get install xauth
 
-On the client side, the -X (capital X) option to ssh enables X11 forwarding, and you can make this the default (for all connections or for a specific conection) with [b]ForwardX11 yes[/b] in
+On the client side, the -X (capital X) option to ssh enables X11 forwarding, and you can make this the default (for all connections or for a specific conection) with **ForwardX11 yes** in
 
     sudo nano /etc/ssh_config
 
 or
 
-    ~/.ssh/config.
+    sudo nano ~/.ssh/config
 
-On the server side, [b]X11Forwarding yes[/b] must specified in 
+On the server side, **X11Forwarding yes** must specified in 
 
-    /etc/ssh/sshd_config. 
+    sudo nano /etc/ssh/sshd_config
     
 Note that the default is no forwarding (some distributions turn it on in their default /etc/ssh/sshd_config), and that the user cannot override this setting.
 
