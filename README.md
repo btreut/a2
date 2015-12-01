@@ -18,9 +18,9 @@ Russian forum [Active Oberon & A2 (Bluebottle)](http://forum.oberoncore.ru/viewf
 
 [Installation and Configuration](http://sage.com.ua/ru.shtml?e1l0)
 
-## Compiling bootloader ==
+## Compiling bootloader 
 
-=== Linux Ubuntu AMD64 ===
+### Linux Ubuntu AMD64 
     cd ~/a2/UnixAos/boot
 
     cp Makefile.linux Makefile
