@@ -18,18 +18,28 @@ Russian forum [Active Oberon & A2 (Bluebottle)](http://forum.oberoncore.ru/viewf
 
 [Installation and Configuration](http://sage.com.ua/ru.shtml?e1l0)
 
-## Compiling Boot Loader (aos.linux)
+## Compiling Boot Loader 
 
-### Linux Ubuntu AMD64 
-    cd ~/a2/UnixAos/boot
+### Linux Ubuntu AMD64 (aos.linux)
 
     sudo apt-get install make
     sudo apt-get install gcc
     sudo apt-get install linux-headers-$(uname -r)
+
+    cd ~/a2/UnixAos/boot
+
+#### Running i386 (32 bit) over AMD64
     sudo ln -s /usr/include/asm-generic /usr/include/asm
     sudo apt-get install libc6-dev-i386
     sudo apt-get install libX11-dev:i386
-    make -f Makefile.linux.amd64    
+    make -f Makefile.linux
+
+#### Running native 64 bit version over AMD64
+    nano +27 aos.c # "Need change sys/types.h to linux/types.h"
+    sudo ln -s /usr/include/asm-generic /usr/include/asm
+    make -f Makefile.linux.amd64
+    
+#### Copy Boot Loater to install folder    
     sudo cp ./aos.linux /usr/aos/aos.linux
 
 
