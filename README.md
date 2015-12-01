@@ -30,7 +30,7 @@ Russian forum [Active Oberon & A2 (Bluebottle)](http://forum.oberoncore.ru/viewf
     sudo ln -s /usr/include/asm-generic /usr/include/asm
     sudo apt-get install libc6-dev-i386
     sudo apt-get install libX11-dev:i386
-
+    make
     sudo cp ./aos.linux /usr/aos/aos.linux
 
 
