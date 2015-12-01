@@ -39,8 +39,28 @@ Russian forum [Active Oberon & A2 (Bluebottle)](http://forum.oberoncore.ru/viewf
     sudo ln -s /usr/include/asm-generic /usr/include/asm
     make -f Makefile.linux.amd64
     
-#### Copy Boot Loater to install folder and run   
+#### Copy Boot Loater to install folder 
     sudo cp ./aos.linux /usr/aos/aos.linux
+    
+## Forward X over SSH and run
+
+    sudo apt-get install xauth
+
+On the client side, the -X (capital X) option to ssh enables X11 forwarding, and you can make this the default (for all connections or for a specific conection) with [b]ForwardX11 yes[/b] in
+
+    sudo nano /etc/ssh_config
+
+or
+
+    ~/.ssh/config.
+
+On the server side, [b]X11Forwarding yes[/b] must specified in 
+
+    /etc/ssh/sshd_config. 
+    
+Note that the default is no forwarding (some distributions turn it on in their default /etc/ssh/sshd_config), and that the user cannot override this setting.
+
+    ssh -X <your_ip_adress> -p <your_port> -l <your_user_name>
     cd ~/workdir
     aos
 
