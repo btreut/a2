@@ -83,6 +83,8 @@ https://lists.inf.ethz.ch/pipermail/oberon/2007/005303.html
 
 ### ARM compiler 
 
+[OLR](http://oberon.wikidot.com/) contains an ARM version of the compiler.
+
 SharkOberon is an implementation of Native Oberon System 3 Release 2.3
 for the [DEC DNARD Network Computer](http://www.firmworks.com/www/dnard.htm).
 
