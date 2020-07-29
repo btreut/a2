@@ -1,12 +1,12 @@
 # a2 Bluebottle OS
 
-This is a copy of original [A2 Repository](https://trac.inf.ethz.ch/trac/lecturers/a2) which moved in the mean time to [a new place](http://cas.inf.ethz.ch/projects/a2/repository). This copy here is obsoleted by [metacore's active, but unoffical mirror copy](https://github.com/metacore/A2OS). It was handed over to me by Ignat99 in October 2017. He also had enriched the original mirror by other interesting stuff, especially:
+This is a copy of original [A2 Repository (defunc)](https://trac.inf.ethz.ch/trac/lecturers/a2) which moved in the meantime to [a new place](http://cas.inf.ethz.ch/projects/a2/repository). This copy here is obsoleted by [metacore's active, but unoffical mirror copy](https://github.com/metacore/A2OS). It was handed over to me by Ignat99 in October 2017. He also had enriched the original mirror by other interesting stuff, especially:
 
 Also extra ISO image [A2_Rev-6498_serial-trace.iso](http://sourceforge.net/projects/a2oberon/files/)
 
 Also for MacOSX (Darwin) - [UnixAos](http://www.informatik.uni-bremen.de/~fld/UnixAos/)
 
-Extra Modules for A2 - [subversion community repository](https://www.ocp.inf.ethz.ch/svn/ocp/trunk/)
+Extra Modules for A2 - [subversion community repository (defunc)](https://www.ocp.inf.ethz.ch/svn/ocp/trunk/) which moved [inside the new repository](http://cas.inf.ethz.ch/projects/a2/repository/show/trunk/ocp)
 
 ## Forums
 
