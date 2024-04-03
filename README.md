@@ -12,7 +12,7 @@ Ignat99 had enriched the original mirror by other interesting stuff, especially:
 
 3. Extra Modules for A2 - [subversion community repository (defunc)](https://www.ocp.inf.ethz.ch/svn/ocp/trunk/) which moved [inside the new repository](https://gitlab.inf.ethz.ch/felixf/oberon/-/tree/main/ocp?ref_type=heads)
 
-More information about A2 OS can be found in [Wikipedia](https://en.wikipedia.org/wiki/A2_(operating_system)), the [Oberon Wikibook](https://en.wikibooks.org/wiki/Oberon), in the [A2 user guide](https://gitlab.inf.ethz.ch/felixf/oberon/-/blob/main/ocp/Documentation/A2Documentation.pdf), which was originally created by André Fischer (afaik).
+More information about A2 OS can be found in [Wikipedia](https://en.wikipedia.org/wiki/A2_(operating_system)), the [Oberon Wikibook](https://en.wikibooks.org/wiki/Oberon), in the [A2 user guide](https://gitlab.inf.ethz.ch/felixf/oberon/-/blob/main/ocp/Documentation/A2Documentation.pdf), which is slightly outdated and was originally created by André Fischer (afaik).
 
 ## Forums
 
